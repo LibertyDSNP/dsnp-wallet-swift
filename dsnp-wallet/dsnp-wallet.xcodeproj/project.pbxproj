@@ -27,6 +27,25 @@
 		8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */; };
 		8223ABA4281891EE00DEF1E9 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */; };
 		8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */; };
+		8223ABB12818B74B00DEF1E9 /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABB02818B74B00DEF1E9 /* UIColor+Theme.swift */; };
+		8223ABB52819AF5A00DEF1E9 /* SharedScrollableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABB42819AF5A00DEF1E9 /* SharedScrollableStackView.swift */; };
+		8223ABB72819AF7600DEF1E9 /* SharedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABB62819AF7600DEF1E9 /* SharedStackView.swift */; };
+		8223ABB92819B07100DEF1E9 /* UIView+FromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABB82819B07100DEF1E9 /* UIView+FromNib.swift */; };
+		8223ABBB2819B38900DEF1E9 /* UIScrollView+ScrollToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABBA2819B38900DEF1E9 /* UIScrollView+ScrollToBottom.swift */; };
+		8223ABBF2819B90100DEF1E9 /* SharedScrollableStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABBE2819B90100DEF1E9 /* SharedScrollableStackView.xib */; };
+		8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC02819B9B200DEF1E9 /* ProfileHeaderView.swift */; };
+		8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */; };
+		8223ABC62819DBCF00DEF1E9 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8223ABC52819DBCF00DEF1E9 /* SDWebImage */; };
+		8223ABC82819ECFA00DEF1E9 /* UIFont+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */; };
+		8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */; };
+		8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABCB28205EBC00DEF1E9 /* SharedDivider.swift */; };
+		8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABD728208C9200DEF1E9 /* SharedButton.swift */; };
+		8223ABF42821A1C800DEF1E9 /* ProximaNova-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABEF2821A1C800DEF1E9 /* ProximaNova-Bold.ttf */; };
+		8223ABF52821A1C800DEF1E9 /* ProximaNova-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF02821A1C800DEF1E9 /* ProximaNova-Italic.ttf */; };
+		8223ABF62821A1C800DEF1E9 /* ProximaNova-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF12821A1C800DEF1E9 /* ProximaNova-Semibold.ttf */; };
+		8223ABF72821A1C900DEF1E9 /* ProximaNova-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */; };
+		8223ABF82821A1C900DEF1E9 /* ProximaNova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */; };
+		8223ABFA2823318900DEF1E9 /* UIImage+Cropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABF92823318900DEF1E9 /* UIImage+Cropped.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +90,25 @@
 		8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationController.swift; sourceTree = "<group>"; };
+		8223ABB02818B74B00DEF1E9 /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Theme.swift"; path = "../../../../../../UIColor+Theme.swift"; sourceTree = "<group>"; };
+		8223ABB42819AF5A00DEF1E9 /* SharedScrollableStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SharedScrollableStackView.swift; path = ../../../../../../../SharedScrollableStackView.swift; sourceTree = "<group>"; };
+		8223ABB62819AF7600DEF1E9 /* SharedStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SharedStackView.swift; path = ../../../../../../../SharedStackView.swift; sourceTree = "<group>"; };
+		8223ABB82819B07100DEF1E9 /* UIView+FromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+FromNib.swift"; path = "../../../../../../UIView+FromNib.swift"; sourceTree = "<group>"; };
+		8223ABBA2819B38900DEF1E9 /* UIScrollView+ScrollToBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIScrollView+ScrollToBottom.swift"; path = "../../../../../../UIScrollView+ScrollToBottom.swift"; sourceTree = "<group>"; };
+		8223ABBD2819B8DC00DEF1E9 /* SharedScrollableStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedScrollableStackView.swift; sourceTree = "<group>"; };
+		8223ABBE2819B90100DEF1E9 /* SharedScrollableStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharedScrollableStackView.xib; sourceTree = "<group>"; };
+		8223ABC02819B9B200DEF1E9 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAvatarImageView.swift; sourceTree = "<group>"; };
+		8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Theme.swift"; sourceTree = "<group>"; };
+		8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSpacer.swift; sourceTree = "<group>"; };
+		8223ABCB28205EBC00DEF1E9 /* SharedDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDivider.swift; sourceTree = "<group>"; };
+		8223ABD728208C9200DEF1E9 /* SharedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedButton.swift; sourceTree = "<group>"; };
+		8223ABEF2821A1C800DEF1E9 /* ProximaNova-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.ttf"; sourceTree = "<group>"; };
+		8223ABF02821A1C800DEF1E9 /* ProximaNova-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Italic.ttf"; sourceTree = "<group>"; };
+		8223ABF12821A1C800DEF1E9 /* ProximaNova-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.ttf"; sourceTree = "<group>"; };
+		8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Thin.ttf"; sourceTree = "<group>"; };
+		8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.ttf"; sourceTree = "<group>"; };
+		8223ABF92823318900DEF1E9 /* UIImage+Cropped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Cropped.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8223ABC62819DBCF00DEF1E9 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +160,7 @@
 		8223AB592818917700DEF1E9 /* dsnp-wallet */ = {
 			isa = PBXGroup;
 			children = (
+				8223ABCD2820808500DEF1E9 /* Resources */,
 				8223AB8B281891ED00DEF1E9 /* Source */,
 				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
 				8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */,
@@ -153,18 +193,11 @@
 		8223AB8B281891ED00DEF1E9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				8223AB8C281891ED00DEF1E9 /* ViewModels */,
-				8223AB8D281891ED00DEF1E9 /* Extensions */,
+				8223ABB22819AF4800DEF1E9 /* Views */,
 				8223AB91281891ED00DEF1E9 /* ViewControllers */,
+				8223AB8D281891ED00DEF1E9 /* Extensions */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		8223AB8C281891ED00DEF1E9 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8223AB8D281891ED00DEF1E9 /* Extensions */ = {
@@ -173,6 +206,11 @@
 				8223AB8E281891ED00DEF1E9 /* UIImage+Theme.swift */,
 				8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */,
 				8223AB90281891ED00DEF1E9 /* String+Utils.swift */,
+				8223ABB02818B74B00DEF1E9 /* UIColor+Theme.swift */,
+				8223ABB82819B07100DEF1E9 /* UIView+FromNib.swift */,
+				8223ABBA2819B38900DEF1E9 /* UIScrollView+ScrollToBottom.swift */,
+				8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */,
+				8223ABF92823318900DEF1E9 /* UIImage+Cropped.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -180,11 +218,11 @@
 		8223AB91281891ED00DEF1E9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8223AB92281891ED00DEF1E9 /* BaseViewController.swift */,
-				8223AB93281891ED00DEF1E9 /* KeysViewController.swift */,
 				8223AB94281891ED00DEF1E9 /* HomeViewController.swift */,
-				8223AB95281891EE00DEF1E9 /* TabBarViewController */,
 				8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */,
+				8223AB93281891ED00DEF1E9 /* KeysViewController.swift */,
+				8223AB95281891EE00DEF1E9 /* TabBarViewController */,
+				8223AB92281891ED00DEF1E9 /* BaseViewController.swift */,
 				8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */,
 				8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */,
 			);
@@ -198,6 +236,58 @@
 				8223AB97281891EE00DEF1E9 /* TabBarViewController.storyboard */,
 			);
 			path = TabBarViewController;
+			sourceTree = "<group>";
+		};
+		8223ABB22819AF4800DEF1E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8223ABB32819AF4E00DEF1E9 /* Shared */,
+				8223ABC02819B9B200DEF1E9 /* ProfileHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8223ABB32819AF4E00DEF1E9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8223ABBC2819B8D600DEF1E9 /* SharedScrollableStackView */,
+				8223ABB42819AF5A00DEF1E9 /* SharedScrollableStackView.swift */,
+				8223ABB62819AF7600DEF1E9 /* SharedStackView.swift */,
+				8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */,
+				8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */,
+				8223ABCB28205EBC00DEF1E9 /* SharedDivider.swift */,
+				8223ABD728208C9200DEF1E9 /* SharedButton.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8223ABBC2819B8D600DEF1E9 /* SharedScrollableStackView */ = {
+			isa = PBXGroup;
+			children = (
+				8223ABBE2819B90100DEF1E9 /* SharedScrollableStackView.xib */,
+				8223ABBD2819B8DC00DEF1E9 /* SharedScrollableStackView.swift */,
+			);
+			path = SharedScrollableStackView;
+			sourceTree = "<group>";
+		};
+		8223ABCD2820808500DEF1E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8223ABCE2820808B00DEF1E9 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8223ABCE2820808B00DEF1E9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8223ABEF2821A1C800DEF1E9 /* ProximaNova-Bold.ttf */,
+				8223ABF02821A1C800DEF1E9 /* ProximaNova-Italic.ttf */,
+				8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */,
+				8223ABF12821A1C800DEF1E9 /* ProximaNova-Semibold.ttf */,
+				8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +306,9 @@
 			dependencies = (
 			);
 			name = "dsnp-wallet";
+			packageProductDependencies = (
+				8223ABC52819DBCF00DEF1E9 /* SDWebImage */,
+			);
 			productName = "dsnp-wallet";
 			productReference = 8223AB572818917700DEF1E9 /* dsnp-wallet.app */;
 			productType = "com.apple.product-type.application";
@@ -288,6 +381,9 @@
 				Base,
 			);
 			mainGroup = 8223AB4E2818917700DEF1E9;
+			packageReferences = (
+				8223ABC42819DBCF00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 8223AB582818917700DEF1E9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -308,6 +404,12 @@
 				8223ABA2281891EE00DEF1E9 /* TabBarViewController.storyboard in Resources */,
 				8223AB642818917800DEF1E9 /* Assets.xcassets in Resources */,
 				8223AB622818917700DEF1E9 /* Main.storyboard in Resources */,
+				8223ABF62821A1C800DEF1E9 /* ProximaNova-Semibold.ttf in Resources */,
+				8223ABF52821A1C800DEF1E9 /* ProximaNova-Italic.ttf in Resources */,
+				8223ABF82821A1C900DEF1E9 /* ProximaNova-Regular.ttf in Resources */,
+				8223ABF72821A1C900DEF1E9 /* ProximaNova-Thin.ttf in Resources */,
+				8223ABF42821A1C800DEF1E9 /* ProximaNova-Bold.ttf in Resources */,
+				8223ABBF2819B90100DEF1E9 /* SharedScrollableStackView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,13 +437,25 @@
 				8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */,
 				8223AB5F2818917700DEF1E9 /* ViewController.swift in Sources */,
 				8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */,
+				8223ABFA2823318900DEF1E9 /* UIImage+Cropped.swift in Sources */,
 				8223AB9B281891EE00DEF1E9 /* UIImage+Theme.swift in Sources */,
 				8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */,
+				8223ABB12818B74B00DEF1E9 /* UIColor+Theme.swift in Sources */,
 				8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */,
+				8223ABBB2819B38900DEF1E9 /* UIScrollView+ScrollToBottom.swift in Sources */,
 				8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */,
+				8223ABB72819AF7600DEF1E9 /* SharedStackView.swift in Sources */,
+				8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */,
+				8223ABB92819B07100DEF1E9 /* UIView+FromNib.swift in Sources */,
+				8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */,
+				8223ABB52819AF5A00DEF1E9 /* SharedScrollableStackView.swift in Sources */,
 				8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */,
+				8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */,
+				8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */,
+				8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */,
 				8223AB9E281891EE00DEF1E9 /* BaseViewController.swift in Sources */,
 				8223AB9F281891EE00DEF1E9 /* KeysViewController.swift in Sources */,
+				8223ABC82819ECFA00DEF1E9 /* UIFont+Theme.swift in Sources */,
 				8223ABA4281891EE00DEF1E9 /* ViewControllerFactory.swift in Sources */,
 				8223ABA1281891EE00DEF1E9 /* TabBarViewController.swift in Sources */,
 				8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */,
@@ -688,6 +802,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8223ABC42819DBCF00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8223ABC52819DBCF00DEF1E9 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8223ABC42819DBCF00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8223AB4F2818917700DEF1E9 /* Project object */;
 }
