@@ -15,12 +15,12 @@ class ProfileViewController: UIViewController {
     private let bioText = "Bio"
     
     //MARK: UI
-    private var stackView: UIStackView?
     private var profileHeaderView: ProfileHeaderView?
     private var emailTextfield: UITextField?
     private var bioTextfield: UITextField?
     private let saveBtn = SharedButton()
     private var saveViewBottomConstraint: NSLayoutConstraint!
+    private var scrollViewBottomConstraint: NSLayoutConstraint!
     
     //MARK: Blocks
     var didEmailChange: Bool = false {
@@ -35,28 +35,9 @@ class ProfileViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor.Theme.background
+        super.viewDidLoad()
         
-        setScrollableStackView()
-        
-        let profileHeaderView = ProfileHeaderView(parent: self)
-        profileHeaderView.delegate = self
-        self.profileHeaderView = profileHeaderView
-    
-        let profileUsernameView = getTextfieldViewWith(titleLabel: profileText, placeholder: "Add Profile Name")
-        let bioView = getTextfieldViewWith(titleLabel: bioText, placeholder: "Add Bio")
-        let permissionsView = getPermissionsView()
-        
-        stackView?.addArrangedSubview(profileHeaderView)
-        stackView?.addArrangedSubview(SharedSpacer(height: 6))
-        stackView?.addArrangedSubview(profileUsernameView)
-        stackView?.addArrangedSubview(bioView)
-        stackView?.addArrangedSubview(SharedSpacer(height: 3))
-        stackView?.addArrangedSubview(permissionsView)
-        stackView?.addArrangedSubview(SharedSpacer(height: 40))
-        
-        setSaveBtn()
-        setKeyboard()
+        setViews()
     }
 }
 
@@ -69,14 +50,45 @@ extension ProfileViewController {
 
 //MARK: UI Helper Funcs
 extension ProfileViewController {
-    private func setScrollableStackView() {
+    private func setViews() {
+        self.view.backgroundColor = UIColor.Theme.background
+        
+        let stackView = getScrollableStackView()
+        
+        let profileHeaderView = ProfileHeaderView(parent: self)
+        profileHeaderView.delegate = self
+        self.profileHeaderView = profileHeaderView
+    
+        let profileUsernameView = getTextfieldViewWith(titleLabel: profileText, placeholder: "Add Profile Name")
+        let bioView = getTextfieldViewWith(titleLabel: bioText, placeholder: "Add Bio")
+        let permissionsView = getPermissionsView()
+        
+        stackView.addArrangedSubview(profileHeaderView)
+        stackView.addArrangedSubview(SharedSpacer(height: 6))
+        stackView.addArrangedSubview(profileUsernameView)
+        stackView.addArrangedSubview(bioView)
+        stackView.addArrangedSubview(SharedSpacer(height: 3))
+        stackView.addArrangedSubview(permissionsView)
+        
+        setSaveBtn()
+        setKeyboard()
+    }
+    
+    private func getScrollableStackView() -> UIStackView {
         let scrollView = UIScrollView()
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -20).isActive = true
+        scrollViewBottomConstraint = NSLayoutConstraint(item: scrollView,
+                                                      attribute: .bottom,
+                                                      relatedBy: .equal,
+                                                      toItem: self.view.layoutMarginsGuide,
+                                                      attribute: .bottom,
+                                                      multiplier: 1,
+                                                      constant: 0)
+        scrollViewBottomConstraint.isActive = true
         
         let bottomInset = (self.navigationController?.navigationBar.frame.height ?? 0.0) + saveBtn.frame.height + 60
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
@@ -97,7 +109,7 @@ extension ProfileViewController {
         stackView.topAnchor.constraint(equalTo: embeddedView.layoutMarginsGuide.topAnchor, constant: 10).isActive = true
         stackView.bottomAnchor.constraint(equalTo: embeddedView.layoutMarginsGuide.bottomAnchor).isActive = true
         
-        self.stackView = stackView
+        return stackView
     }
     
     private func getTextfieldViewWith(titleLabel: String, placeholder: String) -> UIView {
@@ -212,7 +224,7 @@ extension ProfileViewController {
     private func saveBtn(enabled: Bool) {
         DispatchQueue.main.async {
             self.saveBtn.isEnabled = enabled
-//            self.saveBtn.backgroundColor = enabled ? UIColor.Theme.purple : .gray
+            self.saveBtn.backgroundColor = enabled ? UIColor.Theme.accentBlue : .gray
         }
     }
     
@@ -249,7 +261,9 @@ extension ProfileViewController {
             delay: 0.0,
             options: UIView.AnimationOptions.init(rawValue: curve),
             animations: {
-                self.saveViewBottomConstraint.constant = self.view.safeAreaInsets.bottom - keyboardHeight - CGFloat(self.saveBtnBottomOffset)
+                let height = self.view.safeAreaInsets.bottom - keyboardHeight
+                self.scrollViewBottomConstraint.constant = height
+                self.saveViewBottomConstraint.constant = height - CGFloat(self.saveBtnBottomOffset)
                 self.view.layoutIfNeeded()
             }
         )
@@ -264,6 +278,7 @@ extension ProfileViewController {
             delay: 0.0,
             options: UIView.AnimationOptions.init(rawValue: curve),
             animations: {
+                self.scrollViewBottomConstraint.constant = 0
                 self.saveViewBottomConstraint.constant = CGFloat(-1 * self.saveBtnBottomOffset)
                 self.view.layoutIfNeeded()
             }
@@ -278,19 +293,6 @@ extension ProfileViewController {
 extension ProfileViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         saveBtn(enabled: isEdited())
-//        guard let text = textField.text else { return }
-//        let disable = text.isEmpty || text == self.email
-//
-//        errorView.isHidden = true
-//
-//        switch textField.placeholder {
-//        case sendVerificationPlaceholder:
-//            !disable && DataValidator.isValid(email: textField.text) ? inputBtn.enable() : inputBtn.disable()
-//        case verifyPlaceholder:
-//            !disable && textField.text?.count == numMaxCharCode ? inputBtn.enable() : inputBtn.disable()
-//        default:
-//            return
-//        }
     }
 }
 
@@ -338,7 +340,6 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
               let image = image.downsized(newWidth: 512),
               let profileHeaderView = profileHeaderView else { return }
         profileHeaderView.imageView.image = nil
-        //        self.imageUrl = nil
         
         picker.dismiss(animated: true)
         

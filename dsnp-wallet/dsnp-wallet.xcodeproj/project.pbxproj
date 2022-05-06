@@ -27,12 +27,6 @@
 		8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */; };
 		8223ABA4281891EE00DEF1E9 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */; };
 		8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */; };
-		8223ABB12818B74B00DEF1E9 /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABB02818B74B00DEF1E9 /* UIColor+Theme.swift */; };
-		8223ABB52819AF5A00DEF1E9 /* SharedScrollableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABB42819AF5A00DEF1E9 /* SharedScrollableStackView.swift */; };
-		8223ABB72819AF7600DEF1E9 /* SharedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABB62819AF7600DEF1E9 /* SharedStackView.swift */; };
-		8223ABB92819B07100DEF1E9 /* UIView+FromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABB82819B07100DEF1E9 /* UIView+FromNib.swift */; };
-		8223ABBB2819B38900DEF1E9 /* UIScrollView+ScrollToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABBA2819B38900DEF1E9 /* UIScrollView+ScrollToBottom.swift */; };
-		8223ABBF2819B90100DEF1E9 /* SharedScrollableStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABBE2819B90100DEF1E9 /* SharedScrollableStackView.xib */; };
 		8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC02819B9B200DEF1E9 /* ProfileHeaderView.swift */; };
 		8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */; };
 		8223ABC62819DBCF00DEF1E9 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8223ABC52819DBCF00DEF1E9 /* SDWebImage */; };
@@ -46,6 +40,10 @@
 		8223ABF72821A1C900DEF1E9 /* ProximaNova-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */; };
 		8223ABF82821A1C900DEF1E9 /* ProximaNova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */; };
 		8223ABFA2823318900DEF1E9 /* UIImage+Cropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABF92823318900DEF1E9 /* UIImage+Cropped.swift */; };
+		8223ABFC28247E6600DEF1E9 /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */; };
+		8223ABFF28247E8F00DEF1E9 /* UIView+FromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */; };
+		8223AC0028247E8F00DEF1E9 /* UIScrollView+ScrollToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABFE28247E8F00DEF1E9 /* UIScrollView+ScrollToBottom.swift */; };
+		8223AC0228247EDA00DEF1E9 /* SharedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC0128247ED900DEF1E9 /* SharedStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,13 +88,6 @@
 		8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationController.swift; sourceTree = "<group>"; };
-		8223ABB02818B74B00DEF1E9 /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Theme.swift"; path = "../../../../../../UIColor+Theme.swift"; sourceTree = "<group>"; };
-		8223ABB42819AF5A00DEF1E9 /* SharedScrollableStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SharedScrollableStackView.swift; path = ../../../../../../../SharedScrollableStackView.swift; sourceTree = "<group>"; };
-		8223ABB62819AF7600DEF1E9 /* SharedStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SharedStackView.swift; path = ../../../../../../../SharedStackView.swift; sourceTree = "<group>"; };
-		8223ABB82819B07100DEF1E9 /* UIView+FromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+FromNib.swift"; path = "../../../../../../UIView+FromNib.swift"; sourceTree = "<group>"; };
-		8223ABBA2819B38900DEF1E9 /* UIScrollView+ScrollToBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIScrollView+ScrollToBottom.swift"; path = "../../../../../../UIScrollView+ScrollToBottom.swift"; sourceTree = "<group>"; };
-		8223ABBD2819B8DC00DEF1E9 /* SharedScrollableStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedScrollableStackView.swift; sourceTree = "<group>"; };
-		8223ABBE2819B90100DEF1E9 /* SharedScrollableStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharedScrollableStackView.xib; sourceTree = "<group>"; };
 		8223ABC02819B9B200DEF1E9 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAvatarImageView.swift; sourceTree = "<group>"; };
 		8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Theme.swift"; sourceTree = "<group>"; };
@@ -109,6 +100,10 @@
 		8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Thin.ttf"; sourceTree = "<group>"; };
 		8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.ttf"; sourceTree = "<group>"; };
 		8223ABF92823318900DEF1E9 /* UIImage+Cropped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Cropped.swift"; sourceTree = "<group>"; };
+		8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
+		8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FromNib.swift"; sourceTree = "<group>"; };
+		8223ABFE28247E8F00DEF1E9 /* UIScrollView+ScrollToBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ScrollToBottom.swift"; sourceTree = "<group>"; };
+		8223AC0128247ED900DEF1E9 /* SharedStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,9 +201,9 @@
 				8223AB8E281891ED00DEF1E9 /* UIImage+Theme.swift */,
 				8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */,
 				8223AB90281891ED00DEF1E9 /* String+Utils.swift */,
-				8223ABB02818B74B00DEF1E9 /* UIColor+Theme.swift */,
-				8223ABB82819B07100DEF1E9 /* UIView+FromNib.swift */,
-				8223ABBA2819B38900DEF1E9 /* UIScrollView+ScrollToBottom.swift */,
+				8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */,
+				8223ABFE28247E8F00DEF1E9 /* UIScrollView+ScrollToBottom.swift */,
+				8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */,
 				8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */,
 				8223ABF92823318900DEF1E9 /* UIImage+Cropped.swift */,
 			);
@@ -250,24 +245,13 @@
 		8223ABB32819AF4E00DEF1E9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				8223ABBC2819B8D600DEF1E9 /* SharedScrollableStackView */,
-				8223ABB42819AF5A00DEF1E9 /* SharedScrollableStackView.swift */,
-				8223ABB62819AF7600DEF1E9 /* SharedStackView.swift */,
 				8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */,
+				8223AC0128247ED900DEF1E9 /* SharedStackView.swift */,
 				8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */,
 				8223ABCB28205EBC00DEF1E9 /* SharedDivider.swift */,
 				8223ABD728208C9200DEF1E9 /* SharedButton.swift */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		8223ABBC2819B8D600DEF1E9 /* SharedScrollableStackView */ = {
-			isa = PBXGroup;
-			children = (
-				8223ABBE2819B90100DEF1E9 /* SharedScrollableStackView.xib */,
-				8223ABBD2819B8DC00DEF1E9 /* SharedScrollableStackView.swift */,
-			);
-			path = SharedScrollableStackView;
 			sourceTree = "<group>";
 		};
 		8223ABCD2820808500DEF1E9 /* Resources */ = {
@@ -409,7 +393,6 @@
 				8223ABF82821A1C900DEF1E9 /* ProximaNova-Regular.ttf in Resources */,
 				8223ABF72821A1C900DEF1E9 /* ProximaNova-Thin.ttf in Resources */,
 				8223ABF42821A1C800DEF1E9 /* ProximaNova-Bold.ttf in Resources */,
-				8223ABBF2819B90100DEF1E9 /* SharedScrollableStackView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,28 +417,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8223AC0228247EDA00DEF1E9 /* SharedStackView.swift in Sources */,
+				8223ABFF28247E8F00DEF1E9 /* UIView+FromNib.swift in Sources */,
 				8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */,
 				8223AB5F2818917700DEF1E9 /* ViewController.swift in Sources */,
 				8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */,
 				8223ABFA2823318900DEF1E9 /* UIImage+Cropped.swift in Sources */,
 				8223AB9B281891EE00DEF1E9 /* UIImage+Theme.swift in Sources */,
 				8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */,
-				8223ABB12818B74B00DEF1E9 /* UIColor+Theme.swift in Sources */,
 				8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */,
-				8223ABBB2819B38900DEF1E9 /* UIScrollView+ScrollToBottom.swift in Sources */,
 				8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */,
-				8223ABB72819AF7600DEF1E9 /* SharedStackView.swift in Sources */,
 				8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */,
-				8223ABB92819B07100DEF1E9 /* UIView+FromNib.swift in Sources */,
 				8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */,
-				8223ABB52819AF5A00DEF1E9 /* SharedScrollableStackView.swift in Sources */,
 				8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */,
 				8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */,
 				8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */,
 				8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */,
+				8223ABFC28247E6600DEF1E9 /* UIColor+Theme.swift in Sources */,
 				8223AB9E281891EE00DEF1E9 /* BaseViewController.swift in Sources */,
 				8223AB9F281891EE00DEF1E9 /* KeysViewController.swift in Sources */,
 				8223ABC82819ECFA00DEF1E9 /* UIFont+Theme.swift in Sources */,
+				8223AC0028247E8F00DEF1E9 /* UIScrollView+ScrollToBottom.swift in Sources */,
 				8223ABA4281891EE00DEF1E9 /* ViewControllerFactory.swift in Sources */,
 				8223ABA1281891EE00DEF1E9 /* TabBarViewController.swift in Sources */,
 				8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */,
