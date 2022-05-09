@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: SharedImagePickerViewController {
     //MARK: Constants
     private let leadingConstraintConstant = 20
     private let saveBtnBottomOffset = 20
@@ -28,16 +28,14 @@ class ProfileViewController: UIViewController {
             self.saveBtn.enable()
         }
     }
-    var didTogglesChange: Bool = false {
-        didSet {
-            self.saveBtn.enable()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setViews()
+        toggleSaveBtnBlock = { enabled in
+            self.saveBtn(enabled: enabled)
+        }
     }
 }
 
@@ -58,6 +56,8 @@ extension ProfileViewController {
         let profileHeaderView = ProfileHeaderView(parent: self)
         profileHeaderView.delegate = self
         self.profileHeaderView = profileHeaderView
+        
+        self.pickerImageView = profileHeaderView.imageView
         
         let profileUsernameView = getTextfieldViewWith(titleLabel: profileText, placeholder: "Add Profile Name")
         let bioView = getTextfieldViewWith(titleLabel: bioText, placeholder: "Add Bio")
@@ -103,11 +103,7 @@ extension ProfileViewController {
         stackView.distribution = .fill
         
         embeddedView.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.leadingAnchor.constraint(equalTo: embeddedView.leadingAnchor).isActive = true
-        stackView.centerXAnchor.constraint(equalTo: embeddedView.centerXAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: embeddedView.layoutMarginsGuide.topAnchor, constant: 10).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: embeddedView.layoutMarginsGuide.bottomAnchor).isActive = true
+        stackView.layoutAttachAll(to: embeddedView)
         
         return stackView
     }
@@ -117,8 +113,8 @@ extension ProfileViewController {
         stackview.distribution = .fill
         stackview.axis = .vertical
         
-        let label = getLabel(title: titleLabel)
-        let textfield = getTextField(with: placeholder)
+        let label = SharedLabel(text: titleLabel)
+        let textfield = SharedTextField(with: placeholder)
         switch titleLabel {
         case profileText:
             self.emailTextfield = textfield
@@ -141,29 +137,6 @@ extension ProfileViewController {
         stackview.addArrangedSubview(textfield)
         
         return view
-    }
-    
-    private func getLabel(title: String) -> UILabel {
-        let label = UILabel()
-        label.text = title
-        label.font = UIFont.Theme.semibold(ofSize: 15)
-        label.textColor = UIColor.Theme.accentBlue
-        
-        return label
-    }
-    
-    private func getTextField(with placeholder: String) -> UITextField {
-        let textfield = UITextField()
-        textfield.backgroundColor = .white
-        textfield.delegate = self
-        textfield.placeholder = placeholder
-        textfield.font = UIFont.Theme.regular(ofSize: 12)
-        textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textfield.layer.cornerRadius = 4
-        textfield.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textfield.frame.height)) //padding
-        textfield.leftViewMode = .always
-        
-        return textfield
     }
     
     private func getPermissionsView() -> UIView {
@@ -299,69 +272,5 @@ extension ProfileViewController: UITextFieldDelegate {
 extension ProfileViewController: ProfileHeaderDelegate {
     func tappedAvatar() {
         presentActionSheet()
-    }
-}
-
-extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    private func presentActionSheet() {
-        self.view.endEditing(true)
-        
-        let actionSheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        let takeAction = UIAlertAction(title: "Take photo", style: .default) { _ in
-            guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
-            
-            let vc = UIImagePickerController()
-            vc.delegate = self
-            vc.sourceType = UIImagePickerController.SourceType.camera
-            vc.allowsEditing = true
-            self.present(vc, animated: true)
-        }
-        
-        let uploadAction = UIAlertAction(title: "Upload photo", style: .default) { _ in
-            let vc = UIImagePickerController()
-            vc.sourceType = .photoLibrary
-            vc.allowsEditing = true
-            vc.delegate = self
-            self.present(vc, animated: true)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            actionSheetController.dismiss(animated: true, completion: nil)
-        }
-        
-        actionSheetController.addAction(takeAction)
-        actionSheetController.addAction(uploadAction)
-        actionSheetController.addAction(cancelAction)
-        
-        self.present(actionSheetController, animated: true, completion: nil)
-    }
-    
-    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage,
-              let image = image.downsized(newWidth: 512),
-              let profileHeaderView = profileHeaderView else { return }
-        profileHeaderView.imageView.image = nil
-        picker.dismiss(animated: true)
-        
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
-        profileHeaderView.imageView.addSubview(activityIndicator)
-        activityIndicator.layoutAttachAll(to: profileHeaderView.imageView)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.isUserInteractionEnabled = false
-        activityIndicator.startAnimating()
-        
-        self.saveBtn(enabled: false)
-        
-        DispatchQueue.main.async {
-            profileHeaderView.set(image)
-            activityIndicator.stopAnimating()
-            activityIndicator.removeFromSuperview()
-            self.saveBtn(enabled: true)
-        }
-    }
-    
-    internal func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
     }
 }

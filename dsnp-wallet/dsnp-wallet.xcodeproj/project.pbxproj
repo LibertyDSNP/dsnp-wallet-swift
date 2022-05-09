@@ -15,7 +15,6 @@
 		8223AB722818917800DEF1E9 /* dsnp_walletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB712818917800DEF1E9 /* dsnp_walletTests.swift */; };
 		8223AB7C2818917900DEF1E9 /* dsnp_walletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB7B2818917900DEF1E9 /* dsnp_walletUITests.swift */; };
 		8223AB7E2818917900DEF1E9 /* dsnp_walletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB7D2818917900DEF1E9 /* dsnp_walletUITestsLaunchTests.swift */; };
-		8223AB9B281891EE00DEF1E9 /* UIImage+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB8E281891ED00DEF1E9 /* UIImage+Theme.swift */; };
 		8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */; };
 		8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB90281891ED00DEF1E9 /* String+Utils.swift */; };
 		8223AB9E281891EE00DEF1E9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB92281891ED00DEF1E9 /* BaseViewController.swift */; };
@@ -41,6 +40,9 @@
 		8223ABFC28247E6600DEF1E9 /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */; };
 		8223ABFF28247E8F00DEF1E9 /* UIView+FromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */; };
 		8223AC0228247EDA00DEF1E9 /* SharedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC0128247ED900DEF1E9 /* SharedStackView.swift */; };
+		8223AC042829993B00DEF1E9 /* SharedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC032829993B00DEF1E9 /* SharedLabel.swift */; };
+		8223AC062829AFC500DEF1E9 /* SharedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC052829AFC500DEF1E9 /* SharedTextField.swift */; };
+		8223AC082829B3AF00DEF1E9 /* SharedImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC072829B3AF00DEF1E9 /* SharedImagePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +75,6 @@
 		8223AB772818917900DEF1E9 /* dsnp-walletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dsnp-walletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223AB7B2818917900DEF1E9 /* dsnp_walletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dsnp_walletUITests.swift; sourceTree = "<group>"; };
 		8223AB7D2818917900DEF1E9 /* dsnp_walletUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dsnp_walletUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8223AB8E281891ED00DEF1E9 /* UIImage+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Theme.swift"; sourceTree = "<group>"; };
 		8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+FromString.swift"; sourceTree = "<group>"; };
 		8223AB90281891ED00DEF1E9 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		8223AB92281891ED00DEF1E9 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +99,9 @@
 		8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FromNib.swift"; sourceTree = "<group>"; };
 		8223AC0128247ED900DEF1E9 /* SharedStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStackView.swift; sourceTree = "<group>"; };
+		8223AC032829993B00DEF1E9 /* SharedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLabel.swift; sourceTree = "<group>"; };
+		8223AC052829AFC500DEF1E9 /* SharedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTextField.swift; sourceTree = "<group>"; };
+		8223AC072829B3AF00DEF1E9 /* SharedImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImagePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +195,6 @@
 		8223AB8D281891ED00DEF1E9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8223AB8E281891ED00DEF1E9 /* UIImage+Theme.swift */,
 				8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */,
 				8223AB90281891ED00DEF1E9 /* String+Utils.swift */,
 				8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */,
@@ -237,10 +240,13 @@
 			isa = PBXGroup;
 			children = (
 				8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */,
-				8223AC0128247ED900DEF1E9 /* SharedStackView.swift */,
-				8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */,
-				8223ABCB28205EBC00DEF1E9 /* SharedDivider.swift */,
 				8223ABD728208C9200DEF1E9 /* SharedButton.swift */,
+				8223ABCB28205EBC00DEF1E9 /* SharedDivider.swift */,
+				8223AC032829993B00DEF1E9 /* SharedLabel.swift */,
+				8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */,
+				8223AC0128247ED900DEF1E9 /* SharedStackView.swift */,
+				8223AC052829AFC500DEF1E9 /* SharedTextField.swift */,
+				8223AC072829B3AF00DEF1E9 /* SharedImagePickerViewController.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -408,11 +414,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8223AC062829AFC500DEF1E9 /* SharedTextField.swift in Sources */,
 				8223AC0228247EDA00DEF1E9 /* SharedStackView.swift in Sources */,
 				8223ABFF28247E8F00DEF1E9 /* UIView+FromNib.swift in Sources */,
 				8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */,
 				8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */,
-				8223AB9B281891EE00DEF1E9 /* UIImage+Theme.swift in Sources */,
 				8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */,
 				8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */,
 				8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */,
@@ -422,7 +428,9 @@
 				8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */,
 				8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */,
 				8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */,
+				8223AC082829B3AF00DEF1E9 /* SharedImagePickerViewController.swift in Sources */,
 				8223ABFC28247E6600DEF1E9 /* UIColor+Theme.swift in Sources */,
+				8223AC042829993B00DEF1E9 /* SharedLabel.swift in Sources */,
 				8223AB9E281891EE00DEF1E9 /* BaseViewController.swift in Sources */,
 				8223AB9F281891EE00DEF1E9 /* KeysViewController.swift in Sources */,
 				8223ABC82819ECFA00DEF1E9 /* UIFont+Theme.swift in Sources */,
