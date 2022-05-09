@@ -9,7 +9,6 @@ import UIKit
 
 public extension UIFont {
     struct Theme {
-        //Heather only wants proxima in this app.
         static public func bold(ofSize size: CGFloat) -> UIFont {
             return UIFont(name: "ProximaNova-Bold", size: size) ?? UIFont.systemFont(ofSize: size)
         }

@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIView {
-    
     func layoutAttachAll(to view: UIView) {
         translatesAutoresizingMaskIntoConstraints = false
         leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true

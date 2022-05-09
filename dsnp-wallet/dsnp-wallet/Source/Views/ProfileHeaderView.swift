@@ -46,7 +46,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var userNameLabel: UILabel = {
         var label = UILabel()
-        label.text = "Jane_Wynter" //TODO: Hook up with API
+        label.text = "Jane_Wynter"
         label.font = UIFont.Theme.semibold(ofSize: 21)
         label.textColor = UIColor.Theme.accentBlue
         label.textAlignment = .center
@@ -55,7 +55,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var userAddressLabel: UILabel = {
         var label = UILabel()
-        label.text = "ADDRESS" //TODO: Hook up with API
+        label.text = "ADDRESS"
         label.font = UIFont.Theme.thin(ofSize: 9)
         label.textColor = .white
         label.textAlignment = .center
@@ -80,6 +80,10 @@ class ProfileHeaderView: UIView {
         setBottomCornerRadius()
         setStackView()
         addGestureRecognizers()
+    }
+    
+    func set(_ image: UIImage) {
+        self.imageView.image = image
     }
     
     override var intrinsicContentSize: CGSize {
@@ -124,23 +128,6 @@ extension ProfileHeaderView {
     }
 }
 
-//MARK: Outlets
-extension ProfileHeaderView {
-    @objc func pressButton(selector: UIButton?) {
-        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
-//        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
-//            guard let self = self else { return }
-//            self.contentPicker?.openCamera()
-//        }))
-//        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { [weak self] _ in
-//            guard let self = self else { return }
-//            self.contentPicker?.openGallery()
-//        }))
-        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
-        self.parent?.present(alert, animated: true, completion: nil)
-    }
-}
-
 
 //MARK: Photo Selection
 extension ProfileHeaderView {
@@ -154,15 +141,3 @@ extension ProfileHeaderView {
         delegate?.tappedAvatar()
     }
 }
-
-//extension ProfileHeaderView: ContentPickerDelegate {
-//    func didSelect() {//)contentAttachments: [LocalContentAttachment]?, error: Error?) {
-//        DispatchQueue.main.async {
-//            if let image = contentAttachments?.first?.previewImage,
-//               let image = image.downsized(newWidth: 512) {
-//                self.imageView?.image = image
-//                self.didSelectImage?(image)
-//            }
-//        }
-//    }
-//}

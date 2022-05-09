@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
             self.saveBtn.enable()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,7 +58,7 @@ extension ProfileViewController {
         let profileHeaderView = ProfileHeaderView(parent: self)
         profileHeaderView.delegate = self
         self.profileHeaderView = profileHeaderView
-    
+        
         let profileUsernameView = getTextfieldViewWith(titleLabel: profileText, placeholder: "Add Profile Name")
         let bioView = getTextfieldViewWith(titleLabel: bioText, placeholder: "Add Bio")
         let permissionsView = getPermissionsView()
@@ -82,12 +82,12 @@ extension ProfileViewController {
         scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
         scrollViewBottomConstraint = NSLayoutConstraint(item: scrollView,
-                                                      attribute: .bottom,
-                                                      relatedBy: .equal,
-                                                      toItem: self.view.layoutMarginsGuide,
-                                                      attribute: .bottom,
-                                                      multiplier: 1,
-                                                      constant: 0)
+                                                        attribute: .bottom,
+                                                        relatedBy: .equal,
+                                                        toItem: self.view.layoutMarginsGuide,
+                                                        attribute: .bottom,
+                                                        multiplier: 1,
+                                                        constant: 0)
         scrollViewBottomConstraint.isActive = true
         
         let bottomInset = (self.navigationController?.navigationBar.frame.height ?? 0.0) + saveBtn.frame.height + 60
@@ -97,11 +97,11 @@ extension ProfileViewController {
         scrollView.addSubview(embeddedView)
         embeddedView.layoutAttachAll(to: scrollView.contentLayoutGuide)
         embeddedView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive = true
-
+        
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fill
-
+        
         embeddedView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.leadingAnchor.constraint(equalTo: embeddedView.leadingAnchor).isActive = true
@@ -139,7 +139,7 @@ extension ProfileViewController {
         stackview.addArrangedSubview(label)
         stackview.addArrangedSubview(SharedSpacer(height: 8))
         stackview.addArrangedSubview(textfield)
-    
+        
         return view
     }
     
@@ -176,7 +176,7 @@ extension ProfileViewController {
         permissionsLabel.text = "Permissions"
         permissionsLabel.font = UIFont.Theme.semibold(ofSize: 15)
         permissionsLabel.textColor = UIColor.Theme.accentBlue
-
+        
         let meweLabel = UILabel()
         meweLabel.text = "MeWe"
         meweLabel.font = UIFont.Theme.bold(ofSize: 12)
@@ -196,7 +196,7 @@ extension ProfileViewController {
         stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackview.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
         stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    
+        
         return view
     }
     
@@ -249,10 +249,10 @@ extension ProfileViewController {
     @objc private func keyboardWillShow(notification:NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-
+        
         keyboardFrame = view.convert(keyboardFrame, from: nil)
         let keyboardHeight = keyboardFrame.height
-
+        
         //Move Save Btn
         let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
         let curve = notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
@@ -309,13 +309,15 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         let actionSheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let takeAction = UIAlertAction(title: "Take photo", style: .default) { _ in
+            guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+            
             let vc = UIImagePickerController()
             vc.delegate = self
             vc.sourceType = UIImagePickerController.SourceType.camera
             vc.allowsEditing = true
             self.present(vc, animated: true)
         }
-                
+        
         let uploadAction = UIAlertAction(title: "Upload photo", style: .default) { _ in
             let vc = UIImagePickerController()
             vc.sourceType = .photoLibrary
@@ -340,7 +342,6 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
               let image = image.downsized(newWidth: 512),
               let profileHeaderView = profileHeaderView else { return }
         profileHeaderView.imageView.image = nil
-        
         picker.dismiss(animated: true)
         
         let activityIndicator = UIActivityIndicatorView(style: .medium)
@@ -352,16 +353,12 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         self.saveBtn(enabled: false)
         
-                DispatchQueue.global().async {
-        //            TransferManager.shared.uploadAvatar(image: image, didComplete: { url, _ in
-        //                DispatchQueue.main.async {
-//                            profileHeaderView.set(imageUrl: url)
-        //                    activityIndicator.stopAnimating()
-        //                    activityIndicator.removeFromSuperview()
-                            self.saveBtn(enabled: true)
-        //                }
-        //            })
-                }
+        DispatchQueue.main.async {
+            profileHeaderView.set(image)
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+            self.saveBtn(enabled: true)
+        }
     }
     
     internal func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
