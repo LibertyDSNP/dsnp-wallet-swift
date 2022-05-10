@@ -7,16 +7,16 @@
 
 import UIKit
 
+protocol SharedImagePickerDelegate: AnyObject {
+    func didSelect(image: UIImage)
+}
+
 class SharedImagePicker: NSObject {
-    
     private weak var parent: UIViewController?
-    private var pickerImageView: UIImageView?
-    private var saveBlock: ((Bool)->()) = { _ in }
+    public weak var delegate: SharedImagePickerDelegate?
     
-    init(parent: UIViewController?, imageView: UIImageView, saveBlock: @escaping ((Bool)->())) {
+    init(parent: UIViewController?) {
         self.parent = parent
-        self.pickerImageView = imageView
-        self.saveBlock = saveBlock
     }
     
     internal func presentActionSheet() {
@@ -56,25 +56,11 @@ class SharedImagePicker: NSObject {
 
 extension SharedImagePicker: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage,
-              let imageView = pickerImageView else { return }
-        imageView.image = nil
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
         picker.dismiss(animated: true)
         
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
-        imageView.addSubview(activityIndicator)
-        activityIndicator.layoutAttachAll(to: imageView)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.isUserInteractionEnabled = false
-        activityIndicator.startAnimating()
-        
-        saveBlock(false)
-        
         DispatchQueue.main.async {
-            self.pickerImageView?.image = image
-            activityIndicator.stopAnimating()
-            activityIndicator.removeFromSuperview()
-            self.saveBlock(true)
+            self.delegate?.didSelect(image: image)
         }
     }
     

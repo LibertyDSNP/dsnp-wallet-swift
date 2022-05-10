@@ -32,12 +32,8 @@ class ProfileViewController: UIViewController {
     }
     
     private func setImagePicker() {
-        guard let profileHeaderViewImage = profileHeaderView?.imageView else { return }
-        imagePicker = SharedImagePicker(parent: self,
-                                        imageView: profileHeaderViewImage,
-                                        saveBlock: { enabled in
-            self.saveBtn(enabled: enabled)
-        })
+        imagePicker = SharedImagePicker(parent: self)
+        imagePicker?.delegate = self
     }
 }
 
@@ -272,5 +268,12 @@ extension ProfileViewController: UITextFieldDelegate {
 extension ProfileViewController: ProfileHeaderDelegate {
     func tappedAvatar() {
         imagePicker?.presentActionSheet()
+    }
+}
+
+extension ProfileViewController: SharedImagePickerDelegate {
+    func didSelect(image: UIImage) {
+        profileHeaderView?.imageView.image = image
+        saveBtn(enabled: true)
     }
 }
