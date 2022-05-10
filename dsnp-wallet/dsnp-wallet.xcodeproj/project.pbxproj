@@ -42,7 +42,7 @@
 		8223AC0228247EDA00DEF1E9 /* SharedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC0128247ED900DEF1E9 /* SharedStackView.swift */; };
 		8223AC042829993B00DEF1E9 /* SharedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC032829993B00DEF1E9 /* SharedLabel.swift */; };
 		8223AC062829AFC500DEF1E9 /* SharedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC052829AFC500DEF1E9 /* SharedTextField.swift */; };
-		8223AC082829B3AF00DEF1E9 /* SharedImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC072829B3AF00DEF1E9 /* SharedImagePickerViewController.swift */; };
+		8223AC082829B3AF00DEF1E9 /* SharedImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +101,7 @@
 		8223AC0128247ED900DEF1E9 /* SharedStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStackView.swift; sourceTree = "<group>"; };
 		8223AC032829993B00DEF1E9 /* SharedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLabel.swift; sourceTree = "<group>"; };
 		8223AC052829AFC500DEF1E9 /* SharedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTextField.swift; sourceTree = "<group>"; };
-		8223AC072829B3AF00DEF1E9 /* SharedImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImagePickerViewController.swift; sourceTree = "<group>"; };
+		8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +153,8 @@
 		8223AB592818917700DEF1E9 /* dsnp-wallet */ = {
 			isa = PBXGroup;
 			children = (
-				8223ABCD2820808500DEF1E9 /* Resources */,
 				8223AB8B281891ED00DEF1E9 /* Source */,
+				8223ABCD2820808500DEF1E9 /* Resources */,
 				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
 				8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */,
 				8223AB602818917700DEF1E9 /* Main.storyboard */,
@@ -188,6 +188,7 @@
 				8223ABB22819AF4800DEF1E9 /* Views */,
 				8223AB91281891ED00DEF1E9 /* ViewControllers */,
 				8223AB8D281891ED00DEF1E9 /* Extensions */,
+				8223AC09282ACB8100DEF1E9 /* Util */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -246,7 +247,6 @@
 				8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */,
 				8223AC0128247ED900DEF1E9 /* SharedStackView.swift */,
 				8223AC052829AFC500DEF1E9 /* SharedTextField.swift */,
-				8223AC072829B3AF00DEF1E9 /* SharedImagePickerViewController.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -269,6 +269,14 @@
 				8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8223AC09282ACB8100DEF1E9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,7 +436,7 @@
 				8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */,
 				8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */,
 				8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */,
-				8223AC082829B3AF00DEF1E9 /* SharedImagePickerViewController.swift in Sources */,
+				8223AC082829B3AF00DEF1E9 /* SharedImagePicker.swift in Sources */,
 				8223ABFC28247E6600DEF1E9 /* UIColor+Theme.swift in Sources */,
 				8223AC042829993B00DEF1E9 /* SharedLabel.swift in Sources */,
 				8223AB9E281891EE00DEF1E9 /* BaseViewController.swift in Sources */,

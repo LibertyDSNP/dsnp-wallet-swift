@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: SharedImagePickerViewController {
+class ProfileViewController: UIViewController {
     //MARK: Constants
     private let leadingConstraintConstant = 20
     private let saveBtnBottomOffset = 20
@@ -22,20 +22,22 @@ class ProfileViewController: SharedImagePickerViewController {
     private var saveViewBottomConstraint: NSLayoutConstraint!
     private var scrollViewBottomConstraint: NSLayoutConstraint!
     
-    //MARK: Blocks
-    var didEmailChange: Bool = false {
-        didSet {
-            self.saveBtn.enable()
-        }
-    }
+    private var imagePicker: SharedImagePicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setViews()
-        toggleSaveBtnBlock = { enabled in
+        setImagePicker()
+    }
+    
+    private func setImagePicker() {
+        guard let profileHeaderViewImage = profileHeaderView?.imageView else { return }
+        imagePicker = SharedImagePicker(parent: self,
+                                        imageView: profileHeaderViewImage,
+                                        saveBlock: { enabled in
             self.saveBtn(enabled: enabled)
-        }
+        })
     }
 }
 
@@ -56,8 +58,6 @@ extension ProfileViewController {
         let profileHeaderView = ProfileHeaderView(parent: self)
         profileHeaderView.delegate = self
         self.profileHeaderView = profileHeaderView
-        
-        self.pickerImageView = profileHeaderView.imageView
         
         let profileUsernameView = getTextfieldViewWith(titleLabel: profileText, placeholder: "Add Profile Name")
         let bioView = getTextfieldViewWith(titleLabel: bioText, placeholder: "Add Bio")
@@ -271,6 +271,6 @@ extension ProfileViewController: UITextFieldDelegate {
 
 extension ProfileViewController: ProfileHeaderDelegate {
     func tappedAvatar() {
-        presentActionSheet()
+        imagePicker?.presentActionSheet()
     }
 }

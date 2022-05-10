@@ -1,5 +1,5 @@
 //
-//  SharedImagePickerViewController.swift
+//  SharedImagePicker.swift
 //  dsnp-wallet
 //
 //  Created by Ryan Sheh on 5/9/22.
@@ -7,13 +7,20 @@
 
 import UIKit
 
-class SharedImagePickerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SharedImagePicker: NSObject {
     
-    var pickerImageView: UIImageView?
-    var toggleSaveBtnBlock: ((Bool)->()) = { _ in }
+    private weak var parent: UIViewController?
+    private var pickerImageView: UIImageView?
+    private var saveBlock: ((Bool)->()) = { _ in }
+    
+    init(parent: UIViewController?, imageView: UIImageView, saveBlock: @escaping ((Bool)->())) {
+        self.parent = parent
+        self.pickerImageView = imageView
+        self.saveBlock = saveBlock
+    }
     
     internal func presentActionSheet() {
-        self.view.endEditing(true)
+        parent?.view.endEditing(true)
         
         let actionSheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -24,7 +31,7 @@ class SharedImagePickerViewController: UIViewController, UIImagePickerController
             vc.delegate = self
             vc.sourceType = .camera
             vc.allowsEditing = true
-            self.present(vc, animated: true)
+            self.parent?.present(vc, animated: true)
         }
         
         let uploadAction = UIAlertAction(title: "Upload photo", style: .default) { _ in
@@ -32,7 +39,7 @@ class SharedImagePickerViewController: UIViewController, UIImagePickerController
             vc.sourceType = .photoLibrary
             vc.allowsEditing = true
             vc.delegate = self
-            self.present(vc, animated: true)
+            self.parent?.present(vc, animated: true)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
@@ -43,9 +50,11 @@ class SharedImagePickerViewController: UIViewController, UIImagePickerController
         actionSheetController.addAction(uploadAction)
         actionSheetController.addAction(cancelAction)
         
-        self.present(actionSheetController, animated: true, completion: nil)
+        parent?.present(actionSheetController, animated: true, completion: nil)
     }
-    
+}
+
+extension SharedImagePicker: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage,
               let imageView = pickerImageView else { return }
@@ -59,13 +68,13 @@ class SharedImagePickerViewController: UIViewController, UIImagePickerController
         activityIndicator.isUserInteractionEnabled = false
         activityIndicator.startAnimating()
         
-        toggleSaveBtnBlock(false)
+        saveBlock(false)
         
         DispatchQueue.main.async {
             self.pickerImageView?.image = image
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
-            self.toggleSaveBtnBlock(true)
+            self.saveBlock(true)
         }
     }
     
