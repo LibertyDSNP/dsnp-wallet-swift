@@ -8,12 +8,8 @@
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: SharedProfileHeaderViewController {
     override func viewDidLoad() {
-        setupViews()
-    }
-    
-    private func setupViews() {
-        self.view.backgroundColor = .red
+        super.viewDidLoad()
     }
 }

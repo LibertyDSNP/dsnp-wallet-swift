@@ -43,6 +43,7 @@
 		8223AC042829993B00DEF1E9 /* SharedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC032829993B00DEF1E9 /* SharedLabel.swift */; };
 		8223AC062829AFC500DEF1E9 /* SharedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC052829AFC500DEF1E9 /* SharedTextField.swift */; };
 		8223AC082829B3AF00DEF1E9 /* SharedImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */; };
+		8223AC0B282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		8223AC032829993B00DEF1E9 /* SharedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLabel.swift; sourceTree = "<group>"; };
 		8223AC052829AFC500DEF1E9 /* SharedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTextField.swift; sourceTree = "<group>"; };
 		8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImagePicker.swift; sourceTree = "<group>"; };
+		8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProfileHeaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				8223AB92281891ED00DEF1E9 /* BaseViewController.swift */,
 				8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */,
 				8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */,
+				8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 			files = (
 				8223AC062829AFC500DEF1E9 /* SharedTextField.swift in Sources */,
 				8223AC0228247EDA00DEF1E9 /* SharedStackView.swift in Sources */,
+				8223AC0B282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift in Sources */,
 				8223ABFF28247E8F00DEF1E9 /* UIView+FromNib.swift in Sources */,
 				8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */,
 				8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */,
