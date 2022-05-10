@@ -8,12 +8,8 @@
 import Foundation
 import UIKit
 
-class KeysViewController: UIViewController {
+class KeysViewController: SharedProfileHeaderViewController {
     override func viewDidLoad() {
-        setupViews()
-    }
-    
-    private func setupViews() {
-        self.view.backgroundColor = .green
+        super.viewDidLoad()
     }
 }

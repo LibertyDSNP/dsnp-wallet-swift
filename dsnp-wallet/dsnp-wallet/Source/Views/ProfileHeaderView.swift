@@ -40,7 +40,7 @@ class ProfileHeaderView: UIView {
     //Exposed in ProfileViewController for PhotoSelection
     var imageView: SharedAvatarImageView = {
         var imageView = SharedAvatarImageView()
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = .gray
         return imageView
     }()
     
