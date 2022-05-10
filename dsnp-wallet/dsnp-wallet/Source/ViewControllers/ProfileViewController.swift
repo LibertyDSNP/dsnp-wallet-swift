@@ -25,12 +25,15 @@ class ProfileViewController: SharedProfileHeaderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        profileHeaderView?.delegate = self
+        
         setViews()
+        setImagePicker()
     }
     
-    override func didSelect(image: UIImage) {
-        super.didSelect(image: image)
-        saveBtn(enabled: true)
+    private func setImagePicker() {
+        imagePicker = SharedImagePicker(parent: self)
+        imagePicker?.delegate = self
     }
 }
 
@@ -221,3 +224,18 @@ extension ProfileViewController: UITextFieldDelegate {
         saveBtn(enabled: isEdited())
     }
 }
+
+extension ProfileViewController: SharedImagePickerDelegate {
+    func didSelect(image: UIImage) {
+        profileHeaderView?.imageView.image = image
+        saveBtn(enabled: true)
+    }
+}
+
+extension ProfileViewController: ProfileHeaderDelegate {
+    func tappedAvatar() {
+        imagePicker?.presentActionSheet()
+    }
+}
+
+

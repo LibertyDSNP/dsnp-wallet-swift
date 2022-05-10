@@ -11,21 +11,13 @@ class SharedProfileHeaderViewController: UIViewController {
     //MARK: UI
     lazy var stackView = getScrollableStackView()
     var scrollView = UIScrollView()
-    private var profileHeaderView: ProfileHeaderView?
+    var profileHeaderView: ProfileHeaderView?
     var scrollViewBottomConstraint: NSLayoutConstraint!
-    
-    private var imagePicker: SharedImagePicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setViews()
-        setImagePicker()
-    }
-    
-    private func setImagePicker() {
-        imagePicker = SharedImagePicker(parent: self)
-        imagePicker?.delegate = self
     }
 }
 
@@ -37,7 +29,6 @@ extension SharedProfileHeaderViewController {
         stackView = getScrollableStackView()
         
         let profileHeaderView = ProfileHeaderView(parent: self)
-        profileHeaderView.delegate = self
         self.profileHeaderView = profileHeaderView
         
         stackView.addArrangedSubview(profileHeaderView)
@@ -71,17 +62,5 @@ extension SharedProfileHeaderViewController {
         stackView.layoutAttachAll(to: embeddedView)
         
         return stackView
-    }
-}
-
-extension SharedProfileHeaderViewController: ProfileHeaderDelegate {
-    func tappedAvatar() {
-        imagePicker?.presentActionSheet()
-    }
-}
-
-extension SharedProfileHeaderViewController: SharedImagePickerDelegate {
-    @objc func didSelect(image: UIImage) {
-        profileHeaderView?.imageView.image = image
     }
 }
