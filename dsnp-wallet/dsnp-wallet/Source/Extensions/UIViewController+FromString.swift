@@ -11,10 +11,8 @@ extension UIViewController {
     
     class func fromString(viewControllerName: String?) -> UIViewController? {
         guard let viewControllerName = viewControllerName else { return nil }
-        if let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String {
-            if let viewControllerType = NSClassFromString("\(appName).\(viewControllerName)") as? UIViewController.Type {
-                return viewControllerType.init()
-            }
+        if let viewControllerType = NSClassFromString("dsnp_wallet.\(viewControllerName)") as? UIViewController.Type {
+            return viewControllerType.init()
         }
 
         return nil

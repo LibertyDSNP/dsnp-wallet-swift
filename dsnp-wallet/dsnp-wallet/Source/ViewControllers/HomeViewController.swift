@@ -9,5 +9,11 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
+    override func viewDidLoad() {
+        setupViews()
+    }
     
+    private func setupViews() {
+        self.view.backgroundColor = .red
+    }
 }

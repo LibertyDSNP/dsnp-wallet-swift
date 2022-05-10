@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow access to your camera for your profile. </string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow access to your photos for your profile.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ProximaNova-Bold.ttf</string>
+		<string>ProximaNova-Semibold.ttf</string>
+		<string>ProximaNova-Italic.ttf</string>
+		<string>ProximaNova-Thin.ttf</string>
+		<string>ProximaNova-Regular.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
