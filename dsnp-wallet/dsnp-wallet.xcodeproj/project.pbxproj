@@ -375,6 +375,8 @@
 			mainGroup = 8223AB4E2818917700DEF1E9;
 			packageReferences = (
 				8223ABC42819DBCF00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				8223AC0C282B2CEC00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */,
+				8223AC0D282C22B300DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 8223AB582818917700DEF1E9 /* Products */;
 			projectDirPath = "";
@@ -800,6 +802,22 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
+			};
+		};
+		8223AC0C282B2CEC00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LibertyDSNP/dsnp-embedded-wallet-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
+		8223AC0D282C22B300DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
