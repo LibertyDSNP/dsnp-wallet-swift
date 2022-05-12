@@ -19,6 +19,10 @@ class SharedProfileHeaderViewController: UIViewController {
         
         setViews()
     }
+    
+    func set(name: String?, address: String?) {
+        profileHeaderView?.set(name: name, address: address)
+    }
 }
 
 //MARK: UI Helper Funcs

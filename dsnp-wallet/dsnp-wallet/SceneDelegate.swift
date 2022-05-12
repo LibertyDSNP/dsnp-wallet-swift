@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DSNPWallet
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,9 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
+#if DEBUG
         let rootViewController = BaseViewController()
         let navigationController = SharedNavigationController(rootViewController: rootViewController)
         window.rootViewController = navigationController
+#else
+        window.rootViewController = GenerateKeysViewController()
+#endif
         
         self.window = window
         window.makeKeyAndVisible()

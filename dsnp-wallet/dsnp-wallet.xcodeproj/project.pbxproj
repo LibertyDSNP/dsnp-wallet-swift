@@ -27,7 +27,6 @@
 		8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */; };
 		8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC02819B9B200DEF1E9 /* ProfileHeaderView.swift */; };
 		8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */; };
-		8223ABC62819DBCF00DEF1E9 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8223ABC52819DBCF00DEF1E9 /* SDWebImage */; };
 		8223ABC82819ECFA00DEF1E9 /* UIFont+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */; };
 		8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */; };
 		8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABCB28205EBC00DEF1E9 /* SharedDivider.swift */; };
@@ -44,6 +43,12 @@
 		8223AC062829AFC500DEF1E9 /* SharedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC052829AFC500DEF1E9 /* SharedTextField.swift */; };
 		8223AC082829B3AF00DEF1E9 /* SharedImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */; };
 		8223AC0B282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */; };
+		8223AC10282C2AEB00DEF1E9 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC0F282C2AEB00DEF1E9 /* SDWebImage */; };
+		8223AC13282C2AFB00DEF1E9 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC12282C2AFB00DEF1E9 /* KeychainSwift */; };
+		8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC15282C2B3E00DEF1E9 /* DSNPWallet */; };
+		8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */; };
+		8223AC1F282C770700DEF1E9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC1E282C770700DEF1E9 /* User.swift */; };
+		8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +109,9 @@
 		8223AC052829AFC500DEF1E9 /* SharedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTextField.swift; sourceTree = "<group>"; };
 		8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImagePicker.swift; sourceTree = "<group>"; };
 		8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProfileHeaderViewController.swift; sourceTree = "<group>"; };
+		8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateKeysViewController.swift; sourceTree = "<group>"; };
+		8223AC1E282C770700DEF1E9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +119,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8223ABC62819DBCF00DEF1E9 /* SDWebImage in Frameworks */,
+				8223AC13282C2AFB00DEF1E9 /* KeychainSwift in Frameworks */,
+				8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */,
+				8223AC10282C2AEB00DEF1E9 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +197,7 @@
 		8223AB8B281891ED00DEF1E9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				8223AC1D282C76FC00DEF1E9 /* Models */,
 				8223ABB22819AF4800DEF1E9 /* Views */,
 				8223AB91281891ED00DEF1E9 /* ViewControllers */,
 				8223AB8D281891ED00DEF1E9 /* Extensions */,
@@ -210,14 +221,13 @@
 		8223AB91281891ED00DEF1E9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8223AB95281891EE00DEF1E9 /* TabBarViewController */,
+				8223AC17282C2DBF00DEF1E9 /* Shared */,
+				8223AC18282C2DD400DEF1E9 /* Foundation */,
+				8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */,
 				8223AB94281891ED00DEF1E9 /* HomeViewController.swift */,
 				8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */,
 				8223AB93281891ED00DEF1E9 /* KeysViewController.swift */,
-				8223AB95281891EE00DEF1E9 /* TabBarViewController */,
-				8223AB92281891ED00DEF1E9 /* BaseViewController.swift */,
-				8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */,
-				8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */,
-				8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -227,6 +237,7 @@
 			children = (
 				8223AB96281891EE00DEF1E9 /* TabBarViewController.swift */,
 				8223AB97281891EE00DEF1E9 /* TabBarViewController.storyboard */,
+				8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */,
 			);
 			path = TabBarViewController;
 			sourceTree = "<group>";
@@ -282,6 +293,32 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		8223AC17282C2DBF00DEF1E9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */,
+				8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8223AC18282C2DD400DEF1E9 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				8223AB92281891ED00DEF1E9 /* BaseViewController.swift */,
+				8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		8223AC1D282C76FC00DEF1E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8223AC1E282C770700DEF1E9 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -299,7 +336,9 @@
 			);
 			name = "dsnp-wallet";
 			packageProductDependencies = (
-				8223ABC52819DBCF00DEF1E9 /* SDWebImage */,
+				8223AC0F282C2AEB00DEF1E9 /* SDWebImage */,
+				8223AC12282C2AFB00DEF1E9 /* KeychainSwift */,
+				8223AC15282C2B3E00DEF1E9 /* DSNPWallet */,
 			);
 			productName = "dsnp-wallet";
 			productReference = 8223AB572818917700DEF1E9 /* dsnp-wallet.app */;
@@ -374,9 +413,9 @@
 			);
 			mainGroup = 8223AB4E2818917700DEF1E9;
 			packageReferences = (
-				8223ABC42819DBCF00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				8223AC0C282B2CEC00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */,
-				8223AC0D282C22B300DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				8223AC0E282C2AEB00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				8223AC14282C2B3E00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */,
 			);
 			productRefGroup = 8223AB582818917700DEF1E9 /* Products */;
 			projectDirPath = "";
@@ -434,6 +473,7 @@
 				8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */,
 				8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */,
 				8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */,
+				8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */,
 				8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */,
 				8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */,
 				8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */,
@@ -441,6 +481,7 @@
 				8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */,
 				8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */,
 				8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */,
+				8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */,
 				8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */,
 				8223AC082829B3AF00DEF1E9 /* SharedImagePicker.swift in Sources */,
 				8223ABFC28247E6600DEF1E9 /* UIColor+Theme.swift in Sources */,
@@ -449,6 +490,7 @@
 				8223AB9F281891EE00DEF1E9 /* KeysViewController.swift in Sources */,
 				8223ABC82819ECFA00DEF1E9 /* UIFont+Theme.swift in Sources */,
 				8223ABA4281891EE00DEF1E9 /* ViewControllerFactory.swift in Sources */,
+				8223AC1F282C770700DEF1E9 /* User.swift in Sources */,
 				8223ABA1281891EE00DEF1E9 /* TabBarViewController.swift in Sources */,
 				8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */,
 			);
@@ -796,37 +838,47 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8223ABC42819DBCF00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		8223AC0E282C2AEB00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
-		8223AC0C282B2CEC00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/LibertyDSNP/dsnp-embedded-wallet-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.1;
-			};
-		};
-		8223AC0D282C22B300DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+		8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				branch = master;
+				kind = branch;
+			};
+		};
+		8223AC14282C2B3E00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LibertyDSNP/dsnp-embedded-wallet-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8223ABC52819DBCF00DEF1E9 /* SDWebImage */ = {
+		8223AC0F282C2AEB00DEF1E9 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8223ABC42819DBCF00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = 8223AC0E282C2AEB00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		8223AC12282C2AFB00DEF1E9 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+		8223AC15282C2B3E00DEF1E9 /* DSNPWallet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8223AC14282C2B3E00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */;
+			productName = DSNPWallet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

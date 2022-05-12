@@ -10,6 +10,7 @@ import UIKit
 
 enum ViewControllerFactory: String, CaseIterable {
     
+    case generateKeysViewController
     case tabBarViewController
     case homeViewController
     case profileViewController
@@ -23,7 +24,8 @@ enum ViewControllerFactory: String, CaseIterable {
         switch self {
         case .homeViewController,
                 .profileViewController,
-                .keysViewController:
+                .keysViewController,
+                .generateKeysViewController:
             return nil
         default:
             return self.rawValue.firstUppercased
