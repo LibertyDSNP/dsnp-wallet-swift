@@ -15,6 +15,7 @@ protocol ProfileHeaderDelegate: AnyObject {
 class ProfileHeaderView: UIView {
     public weak var delegate: ProfileHeaderDelegate?
     public var didSelectImage: ((UIImage?) -> Void)?
+    
     private var parent: UIViewController?
     
     //MARK: Constants
@@ -46,7 +47,6 @@ class ProfileHeaderView: UIView {
     
     private lazy var userNameLabel: UILabel = {
         var label = UILabel()
-        label.text = "Jane_Wynter"
         label.font = UIFont.Theme.semibold(ofSize: 21)
         label.textColor = UIColor.Theme.accentBlue
         label.textAlignment = .center
@@ -55,7 +55,6 @@ class ProfileHeaderView: UIView {
     
     private lazy var userAddressLabel: UILabel = {
         var label = UILabel()
-        label.text = "ADDRESS"
         label.font = UIFont.Theme.thin(ofSize: 9)
         label.textColor = .white
         label.textAlignment = .center
@@ -81,19 +80,27 @@ class ProfileHeaderView: UIView {
         setStackView()
         addGestureRecognizers()
     }
-    
+}
+
+//MARK: Public Setters
+extension ProfileHeaderView {
     func set(_ image: UIImage) {
         self.imageView.image = image
     }
     
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: parent?.view.frame.width ?? 0,
-                      height: parent?.view.frame.width ?? 0)
+    func set(name: String?, address: String?) {
+        userNameLabel.text = name
+        userAddressLabel.text = address
     }
 }
 
 //MARK: UI Helper Func
 extension ProfileHeaderView {
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: parent?.view.frame.width ?? 0,
+                      height: parent?.view.frame.width ?? 0)
+    }
+    
     private func setBottomCornerRadius() {
         self.clipsToBounds = true
         self.layer.cornerRadius = 17

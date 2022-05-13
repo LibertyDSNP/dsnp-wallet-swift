@@ -22,6 +22,8 @@ class ProfileViewController: SharedProfileHeaderViewController {
     
     private var imagePicker: SharedImagePicker?
     
+    var updateUserBlock: ((OpenUser)->())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
