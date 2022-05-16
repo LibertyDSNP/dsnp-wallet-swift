@@ -18,13 +18,10 @@ class GenerateKeysViewController: UIViewController {
     }
     
     private func manageKeys() {
-        guard let tabBarVC = ViewControllerFactory.tabBarViewController.instance() as? TabBarViewController else { return }
-        
         do {
             if let keys = try DSNPWallet().loadKeys() {
                 DispatchQueue.main.async { [weak self] in
-                    tabBarVC.set(keys)
-                    self?.present(tabBarVC, animated: true)
+                    self?.presentPinVC(with: keys)
                 }
             }
         } catch {
@@ -37,10 +34,8 @@ class GenerateKeysViewController: UIViewController {
     
     @objc func generateNewKeys(selector: UIButton?) {
         do {
-            if let keys = try DSNPWallet().createKeys(),
-               let tabBarVC = ViewControllerFactory.tabBarViewController.instance() as? TabBarViewController {
-                tabBarVC.set(keys)
-                self.present(tabBarVC, animated: true)
+            if let keys = try DSNPWallet().createKeys() {
+                self.presentPinVC(with: keys)
             }
         } catch {
             let alert = UIAlertController(title: "Error Creating New Keys", message: nil, preferredStyle: .alert)
@@ -62,5 +57,13 @@ extension GenerateKeysViewController {
         genKeysBtn.translatesAutoresizingMaskIntoConstraints = false
         genKeysBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         genKeysBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    private func presentPinVC(with keys: DSNPKeys?) {
+        guard let pinVC = ViewControllerFactory.pinViewController.instance() as? PinViewController else { return }
+        
+        pinVC.set(keys)
+        pinVC.modalPresentationStyle = .fullScreen
+        self.present(pinVC, animated: true)
     }
 }

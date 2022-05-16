@@ -21,7 +21,8 @@ class TabBarViewController: UITabBarController {
         setupTabs()
     }
     
-    func set(_ keys: DSNPKeys) {
+    func set(_ keys: DSNPKeys?) {
+        guard let keys = keys else { return }
         let user = OpenUser(keys: keys)
         viewModel.user = user
     }
