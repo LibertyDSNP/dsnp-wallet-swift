@@ -8,6 +8,14 @@
 import UIKit
 
 class SharedTextField: UITextField {
+    
+    var includePadding = false {
+        didSet {
+            self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height)) //padding
+            self.leftViewMode = .always
+        }
+    }
+    
     init() {
         super.init(frame: .zero)
         self.setupView()
@@ -35,7 +43,5 @@ class SharedTextField: UITextField {
         self.font = UIFont.Theme.regular(ofSize: 12)
         self.heightAnchor.constraint(equalToConstant: 50).isActive = true
         self.layer.cornerRadius = 4
-        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height)) //padding
-        self.leftViewMode = .always
     }
 }
