@@ -70,6 +70,7 @@ extension ProfileViewController {
         
         let label = SharedLabel(text: titleLabel)
         let textfield = SharedTextField(with: placeholder)
+        textfield.includePadding = true
         switch titleLabel {
         case profileText:
             self.emailTextfield = textfield
