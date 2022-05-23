@@ -26,15 +26,11 @@ class KeysViewController: SharedProfileHeaderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let keyLabel = getKeysLabel()
-        let rootKey = getRootKey()
-        let keyViews = getKeyViews()
-        
         stackView.addArrangedSubview(SharedSpacer(height: 20))
-        stackView.addArrangedSubview(keyLabel)
+        stackView.addArrangedSubview(getKeysLabel())
         stackView.addArrangedSubview(SharedSpacer(height: 5))
-        stackView.addArrangedSubview(rootKey)
-        for keyView in keyViews {
+        stackView.addArrangedSubview(getRootKey())
+        for keyView in getKeyViews() {
             stackView.addArrangedSubview(keyView)
         }
         
