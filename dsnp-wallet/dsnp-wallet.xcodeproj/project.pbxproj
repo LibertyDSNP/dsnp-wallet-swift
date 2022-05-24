@@ -12,9 +12,6 @@
 		8223AB622818917700DEF1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB602818917700DEF1E9 /* Main.storyboard */; };
 		8223AB642818917800DEF1E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB632818917800DEF1E9 /* Assets.xcassets */; };
 		8223AB672818917800DEF1E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB652818917800DEF1E9 /* LaunchScreen.storyboard */; };
-		8223AB722818917800DEF1E9 /* dsnp_walletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB712818917800DEF1E9 /* dsnp_walletTests.swift */; };
-		8223AB7C2818917900DEF1E9 /* dsnp_walletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB7B2818917900DEF1E9 /* dsnp_walletUITests.swift */; };
-		8223AB7E2818917900DEF1E9 /* dsnp_walletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB7D2818917900DEF1E9 /* dsnp_walletUITestsLaunchTests.swift */; };
 		8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */; };
 		8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB90281891ED00DEF1E9 /* String+Utils.swift */; };
 		8223AB9E281891EE00DEF1E9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB92281891ED00DEF1E9 /* BaseViewController.swift */; };
@@ -53,6 +50,9 @@
 		82931363282ED519000422BC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931362282ED519000422BC /* Keychain.swift */; };
 		82931366282ED548000422BC /* AccountKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931365282ED548000422BC /* AccountKeychain.swift */; };
 		8293137328341D45000422BC /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293137228341D45000422BC /* Key.swift */; };
+		82C4DDEF283D459400A95E2A /* DSNP-WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDEE283D459400A95E2A /* DSNP-WalletTests.swift */; };
+		82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */; };
+		82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,18 +73,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8223AB572818917700DEF1E9 /* dsnp-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dsnp-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8223AB572818917700DEF1E9 /* DSNP-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSNP-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223AB5A2818917700DEF1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8223AB612818917700DEF1E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8223AB632818917800DEF1E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8223AB662818917800DEF1E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8223AB682818917800DEF1E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8223AB6D2818917800DEF1E9 /* dsnp-walletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dsnp-walletTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8223AB712818917800DEF1E9 /* dsnp_walletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dsnp_walletTests.swift; sourceTree = "<group>"; };
-		8223AB772818917900DEF1E9 /* dsnp-walletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dsnp-walletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8223AB7B2818917900DEF1E9 /* dsnp_walletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dsnp_walletUITests.swift; sourceTree = "<group>"; };
-		8223AB7D2818917900DEF1E9 /* dsnp_walletUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dsnp_walletUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8223AB6D2818917800DEF1E9 /* DSNP-WalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DSNP-WalletTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8223AB772818917900DEF1E9 /* DSNP-WalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DSNP-WalletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+FromString.swift"; sourceTree = "<group>"; };
 		8223AB90281891ED00DEF1E9 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		8223AB92281891ED00DEF1E9 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +117,9 @@
 		82931362282ED519000422BC /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		82931365282ED548000422BC /* AccountKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountKeychain.swift; sourceTree = "<group>"; };
 		8293137228341D45000422BC /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		82C4DDEE283D459400A95E2A /* DSNP-WalletTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletTests/DSNP-WalletTests.swift"; sourceTree = "<group>"; };
+		82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITestsLaunchTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITestsLaunchTests.swift"; sourceTree = "<group>"; };
+		82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,9 +153,9 @@
 		8223AB4E2818917700DEF1E9 = {
 			isa = PBXGroup;
 			children = (
-				8223AB592818917700DEF1E9 /* dsnp-wallet */,
-				8223AB702818917800DEF1E9 /* dsnp-walletTests */,
-				8223AB7A2818917900DEF1E9 /* dsnp-walletUITests */,
+				8223AB592818917700DEF1E9 /* DSNP-Wallet */,
+				8223AB702818917800DEF1E9 /* DSNP-WalletTests */,
+				8223AB7A2818917900DEF1E9 /* DSNP-WalletUITests */,
 				8223AB582818917700DEF1E9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,14 +163,14 @@
 		8223AB582818917700DEF1E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8223AB572818917700DEF1E9 /* dsnp-wallet.app */,
-				8223AB6D2818917800DEF1E9 /* dsnp-walletTests.xctest */,
-				8223AB772818917900DEF1E9 /* dsnp-walletUITests.xctest */,
+				8223AB572818917700DEF1E9 /* DSNP-Wallet.app */,
+				8223AB6D2818917800DEF1E9 /* DSNP-WalletTests.xctest */,
+				8223AB772818917900DEF1E9 /* DSNP-WalletUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8223AB592818917700DEF1E9 /* dsnp-wallet */ = {
+		8223AB592818917700DEF1E9 /* DSNP-Wallet */ = {
 			isa = PBXGroup;
 			children = (
 				8223AB8B281891ED00DEF1E9 /* Source */,
@@ -182,24 +182,24 @@
 				8223AB652818917800DEF1E9 /* LaunchScreen.storyboard */,
 				8223AB682818917800DEF1E9 /* Info.plist */,
 			);
-			path = "dsnp-wallet";
+			path = "DSNP-Wallet";
 			sourceTree = "<group>";
 		};
-		8223AB702818917800DEF1E9 /* dsnp-walletTests */ = {
+		8223AB702818917800DEF1E9 /* DSNP-WalletTests */ = {
 			isa = PBXGroup;
 			children = (
-				8223AB712818917800DEF1E9 /* dsnp_walletTests.swift */,
+				82C4DDEE283D459400A95E2A /* DSNP-WalletTests.swift */,
 			);
-			path = "dsnp-walletTests";
+			path = "DSNP-WalletTests";
 			sourceTree = "<group>";
 		};
-		8223AB7A2818917900DEF1E9 /* dsnp-walletUITests */ = {
+		8223AB7A2818917900DEF1E9 /* DSNP-WalletUITests */ = {
 			isa = PBXGroup;
 			children = (
-				8223AB7B2818917900DEF1E9 /* dsnp_walletUITests.swift */,
-				8223AB7D2818917900DEF1E9 /* dsnp_walletUITestsLaunchTests.swift */,
+				82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */,
+				82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */,
 			);
-			path = "dsnp-walletUITests";
+			path = "DSNP-WalletUITests";
 			sourceTree = "<group>";
 		};
 		8223AB8B281891ED00DEF1E9 /* Source */ = {
@@ -342,9 +342,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8223AB562818917700DEF1E9 /* dsnp-wallet */ = {
+		8223AB562818917700DEF1E9 /* DSNP-Wallet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8223AB812818917900DEF1E9 /* Build configuration list for PBXNativeTarget "dsnp-wallet" */;
+			buildConfigurationList = 8223AB812818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-Wallet" */;
 			buildPhases = (
 				8223AB532818917700DEF1E9 /* Sources */,
 				8223AB542818917700DEF1E9 /* Frameworks */,
@@ -354,19 +354,19 @@
 			);
 			dependencies = (
 			);
-			name = "dsnp-wallet";
+			name = "DSNP-Wallet";
 			packageProductDependencies = (
 				8223AC0F282C2AEB00DEF1E9 /* SDWebImage */,
 				8223AC12282C2AFB00DEF1E9 /* KeychainSwift */,
 				8223AC15282C2B3E00DEF1E9 /* DSNPWallet */,
 			);
 			productName = "dsnp-wallet";
-			productReference = 8223AB572818917700DEF1E9 /* dsnp-wallet.app */;
+			productReference = 8223AB572818917700DEF1E9 /* DSNP-Wallet.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8223AB6C2818917800DEF1E9 /* dsnp-walletTests */ = {
+		8223AB6C2818917800DEF1E9 /* DSNP-WalletTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8223AB842818917900DEF1E9 /* Build configuration list for PBXNativeTarget "dsnp-walletTests" */;
+			buildConfigurationList = 8223AB842818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-WalletTests" */;
 			buildPhases = (
 				8223AB692818917800DEF1E9 /* Sources */,
 				8223AB6A2818917800DEF1E9 /* Frameworks */,
@@ -377,14 +377,14 @@
 			dependencies = (
 				8223AB6F2818917800DEF1E9 /* PBXTargetDependency */,
 			);
-			name = "dsnp-walletTests";
+			name = "DSNP-WalletTests";
 			productName = "dsnp-walletTests";
-			productReference = 8223AB6D2818917800DEF1E9 /* dsnp-walletTests.xctest */;
+			productReference = 8223AB6D2818917800DEF1E9 /* DSNP-WalletTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8223AB762818917900DEF1E9 /* dsnp-walletUITests */ = {
+		8223AB762818917900DEF1E9 /* DSNP-WalletUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8223AB872818917900DEF1E9 /* Build configuration list for PBXNativeTarget "dsnp-walletUITests" */;
+			buildConfigurationList = 8223AB872818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-WalletUITests" */;
 			buildPhases = (
 				8223AB732818917900DEF1E9 /* Sources */,
 				8223AB742818917900DEF1E9 /* Frameworks */,
@@ -395,9 +395,9 @@
 			dependencies = (
 				8223AB792818917900DEF1E9 /* PBXTargetDependency */,
 			);
-			name = "dsnp-walletUITests";
+			name = "DSNP-WalletUITests";
 			productName = "dsnp-walletUITests";
-			productReference = 8223AB772818917900DEF1E9 /* dsnp-walletUITests.xctest */;
+			productReference = 8223AB772818917900DEF1E9 /* DSNP-WalletUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -419,11 +419,12 @@
 					};
 					8223AB762818917900DEF1E9 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 						TestTargetID = 8223AB562818917700DEF1E9;
 					};
 				};
 			};
-			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "dsnp-wallet" */;
+			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -441,9 +442,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8223AB562818917700DEF1E9 /* dsnp-wallet */,
-				8223AB6C2818917800DEF1E9 /* dsnp-walletTests */,
-				8223AB762818917900DEF1E9 /* dsnp-walletUITests */,
+				8223AB562818917700DEF1E9 /* DSNP-Wallet */,
+				8223AB6C2818917800DEF1E9 /* DSNP-WalletTests */,
+				8223AB762818917900DEF1E9 /* DSNP-WalletUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -524,7 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8223AB722818917800DEF1E9 /* dsnp_walletTests.swift in Sources */,
+				82C4DDEF283D459400A95E2A /* DSNP-WalletTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,8 +533,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8223AB7E2818917900DEF1E9 /* dsnp_walletUITestsLaunchTests.swift in Sources */,
-				8223AB7C2818917900DEF1E9 /* dsnp_walletUITests.swift in Sources */,
+				82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */,
+				82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,12 +543,12 @@
 /* Begin PBXTargetDependency section */
 		8223AB6F2818917800DEF1E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8223AB562818917700DEF1E9 /* dsnp-wallet */;
+			target = 8223AB562818917700DEF1E9 /* DSNP-Wallet */;
 			targetProxy = 8223AB6E2818917800DEF1E9 /* PBXContainerItemProxy */;
 		};
 		8223AB792818917900DEF1E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8223AB562818917700DEF1E9 /* dsnp-wallet */;
+			target = 8223AB562818917700DEF1E9 /* DSNP-Wallet */;
 			targetProxy = 8223AB782818917900DEF1E9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -697,7 +698,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U95Q67332B;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "dsnp-wallet/Info.plist";
+				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -708,7 +709,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.dsnp-wallet";
+				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.DSNP-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -725,7 +726,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U95Q67332B;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "dsnp-wallet/Info.plist";
+				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -736,7 +737,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.dsnp-wallet";
+				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.DSNP-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -760,7 +761,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dsnp-wallet.app/dsnp-wallet";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSNP-Wallet.app/DSNP-Wallet";
 			};
 			name = Debug;
 		};
@@ -780,7 +781,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dsnp-wallet.app/dsnp-wallet";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSNP-Wallet.app/DSNP-Wallet";
 			};
 			name = Release;
 		};
@@ -788,17 +789,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U95Q67332B;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.dsnp-walletUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "dsnp-wallet";
+				TEST_TARGET_NAME = "DSNP-Wallet";
 			};
 			name = Debug;
 		};
@@ -806,24 +816,32 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U95Q67332B;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.dsnp-walletUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "dsnp-wallet";
+				TEST_TARGET_NAME = "DSNP-Wallet";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "dsnp-wallet" */ = {
+		8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8223AB7F2818917900DEF1E9 /* Debug */,
@@ -832,7 +850,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8223AB812818917900DEF1E9 /* Build configuration list for PBXNativeTarget "dsnp-wallet" */ = {
+		8223AB812818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-Wallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8223AB822818917900DEF1E9 /* Debug */,
@@ -841,7 +859,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8223AB842818917900DEF1E9 /* Build configuration list for PBXNativeTarget "dsnp-walletTests" */ = {
+		8223AB842818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-WalletTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8223AB852818917900DEF1E9 /* Debug */,
@@ -850,7 +868,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8223AB872818917900DEF1E9 /* Build configuration list for PBXNativeTarget "dsnp-walletUITests" */ = {
+		8223AB872818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-WalletUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8223AB882818917900DEF1E9 /* Debug */,

@@ -1,13 +1,13 @@
 //
-//  dsnp_walletUITests.swift
-//  dsnp-walletUITests
+//  DSNP-WalletUITests.swift
+//  DSNP-WalletUITests
 //
 //  Created by Ryan Sheh on 4/26/22.
 //
 
 import XCTest
 
-class dsnp_walletUITests: XCTestCase {
+class DSNP_WalletUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

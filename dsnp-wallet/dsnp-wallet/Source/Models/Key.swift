@@ -1,6 +1,6 @@
 //
 //  Key.swift
-//  dsnp-wallet
+//  DSNP-Wallet
 //
 //  Created by Ryan Sheh on 5/17/22.
 //

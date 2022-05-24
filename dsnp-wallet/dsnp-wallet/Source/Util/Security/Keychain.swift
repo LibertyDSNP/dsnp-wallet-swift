@@ -1,6 +1,6 @@
 //
 //  KeychainUtil.swift
-//  dsnp-wallet
+//  DSNP-Wallet
 //
 //  Created by Rigo Carbajal on 6/3/21.
 //
