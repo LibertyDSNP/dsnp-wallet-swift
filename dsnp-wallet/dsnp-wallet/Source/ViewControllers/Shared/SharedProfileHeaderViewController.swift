@@ -30,8 +30,6 @@ extension SharedProfileHeaderViewController {
     private func setViews() {
         self.view.backgroundColor = UIColor.Theme.background
         
-        stackView = getScrollableStackView()
-        
         let profileHeaderView = ProfileHeaderView(parent: self)
         self.profileHeaderView = profileHeaderView
         

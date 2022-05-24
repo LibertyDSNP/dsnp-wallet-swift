@@ -34,7 +34,8 @@ class SharedButton: UIButton {
         
         if self.style == .primary {
             self.backgroundColor = UIColor.Theme.accentBlue
-            self.setTitleColor(.white, for: .normal)
+            self.setTitleColor(UIColor.Theme.background, for: .normal)
+            self.tintColor = UIColor.Theme.background
             self.titleLabel?.font = UIFont.Theme.bold(ofSize: 12)
         }
     }
@@ -42,7 +43,7 @@ class SharedButton: UIButton {
     public func disable() {
         if self.style == .primary {
             self.isEnabled = false
-            self.backgroundColor = UIColor(red: 171/255, green: 172/255, blue: 171/255, alpha: 1)
+            self.backgroundColor = UIColor.Theme.disabledGray
             self.setTitleColor(.white, for: .normal)
         }
     }

@@ -52,6 +52,7 @@
 		82931361282ECF1C000422BC /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931360282ECF1C000422BC /* PinViewController.swift */; };
 		82931363282ED519000422BC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931362282ED519000422BC /* Keychain.swift */; };
 		82931366282ED548000422BC /* AccountKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931365282ED548000422BC /* AccountKeychain.swift */; };
+		8293137328341D45000422BC /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293137228341D45000422BC /* Key.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		82931360282ECF1C000422BC /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		82931362282ED519000422BC /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		82931365282ED548000422BC /* AccountKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountKeychain.swift; sourceTree = "<group>"; };
+		8293137228341D45000422BC /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				8223AC1E282C770700DEF1E9 /* User.swift */,
+				8293137228341D45000422BC /* Key.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */,
 				8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */,
 				8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */,
+				8293137328341D45000422BC /* Key.swift in Sources */,
 				8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */,
 				8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */,
 				8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */,
