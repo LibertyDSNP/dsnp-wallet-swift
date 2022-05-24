@@ -1,6 +1,6 @@
 //
 //  UIColor+Theme.swift
-//  dsnp-wallet
+//  DSNP-Wallet
 //
 //  Created by Ryan Sheh on 4/26/22.
 //

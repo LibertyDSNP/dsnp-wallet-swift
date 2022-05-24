@@ -1,13 +1,13 @@
 //
-//  dsnp_walletUITestsLaunchTests.swift
-//  dsnp-walletUITests
+//  DSNP-WalletUITestsLaunchTests.swift
+//  DSNP-WalletUITests
 //
 //  Created by Ryan Sheh on 4/26/22.
 //
 
 import XCTest
 
-class dsnp_walletUITestsLaunchTests: XCTestCase {
+class DSNP_WalletUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

@@ -1,6 +1,6 @@
 //
 //  SharedStackView.swift
-//  dsnp-wallet
+//  DSNP-Wallet
 //
 //  Created by Rigo Carbajal on 5/18/21.
 //

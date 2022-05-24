@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8223AB562818917700DEF1E9"
-               BuildableName = "dsnp-wallet.app"
-               BlueprintName = "dsnp-wallet"
-               ReferencedContainer = "container:dsnp-wallet.xcodeproj">
+               BuildableName = "DSNP-Wallet.app"
+               BlueprintName = "DSNP-Wallet"
+               ReferencedContainer = "container:DSNP-Wallet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8223AB6C2818917800DEF1E9"
-               BuildableName = "dsnp-walletTests.xctest"
-               BlueprintName = "dsnp-walletTests"
-               ReferencedContainer = "container:dsnp-wallet.xcodeproj">
+               BuildableName = "DSNP-WalletTests.xctest"
+               BlueprintName = "DSNP-WalletTests"
+               ReferencedContainer = "container:DSNP-Wallet.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8223AB762818917900DEF1E9"
-               BuildableName = "dsnp-walletUITests.xctest"
-               BlueprintName = "dsnp-walletUITests"
-               ReferencedContainer = "container:dsnp-wallet.xcodeproj">
+               BuildableName = "DSNP-WalletUITests.xctest"
+               BlueprintName = "DSNP-WalletUITests"
+               ReferencedContainer = "container:DSNP-Wallet.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8223AB562818917700DEF1E9"
-            BuildableName = "dsnp-wallet.app"
-            BlueprintName = "dsnp-wallet"
-            ReferencedContainer = "container:dsnp-wallet.xcodeproj">
+            BuildableName = "DSNP-Wallet.app"
+            BlueprintName = "DSNP-Wallet"
+            ReferencedContainer = "container:DSNP-Wallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8223AB562818917700DEF1E9"
-            BuildableName = "dsnp-wallet.app"
-            BlueprintName = "dsnp-wallet"
-            ReferencedContainer = "container:dsnp-wallet.xcodeproj">
+            BuildableName = "DSNP-Wallet.app"
+            BlueprintName = "DSNP-Wallet"
+            ReferencedContainer = "container:DSNP-Wallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
