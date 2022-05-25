@@ -699,6 +699,8 @@
 				DEVELOPMENT_TEAM = U95Q67332B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your photos for your profile.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow access to your camera for your profile. ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -709,7 +711,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.DSNP-Wallet";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.unfinished.dsnp-wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -727,6 +729,8 @@
 				DEVELOPMENT_TEAM = U95Q67332B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your photos for your profile.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow access to your camera for your profile. ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -737,7 +741,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.DSNP-Wallet";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.unfinished.dsnp-wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
