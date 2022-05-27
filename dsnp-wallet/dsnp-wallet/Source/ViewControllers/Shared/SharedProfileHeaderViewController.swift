@@ -9,14 +9,15 @@ import UIKit
 
 class SharedProfileHeaderViewController: UIViewController {
     //MARK: UI
-    lazy var stackView = getScrollableStackView()
+    lazy var stackView: SharedStackView = getScrollableStackView()
     var scrollView = UIScrollView()
     var profileHeaderView: ProfileHeaderView?
     var scrollViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        setNavBar()
         setViews()
     }
     
@@ -27,6 +28,19 @@ class SharedProfileHeaderViewController: UIViewController {
 
 //MARK: UI Helper Funcs
 extension SharedProfileHeaderViewController {
+    private func setNavBar() {
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundColor = .clear
+            
+            navigationController?.navigationBar.tintColor = .clear
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().compactAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
+    }
+    
     private func setViews() {
         self.view.backgroundColor = UIColor.Theme.background
         
@@ -36,7 +50,13 @@ extension SharedProfileHeaderViewController {
         stackView.addArrangedSubview(profileHeaderView)
     }
     
-    private func getScrollableStackView() -> UIStackView {
+    internal func clearStackView() {
+        stackView.replaceViews([])
+        guard let view = profileHeaderView else { return }
+        stackView.addArrangedSubview(view)
+    }
+    
+    private func getScrollableStackView() -> SharedStackView {
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -56,7 +76,7 @@ extension SharedProfileHeaderViewController {
         embeddedView.layoutAttachAll(to: scrollView.contentLayoutGuide)
         embeddedView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive = true
         
-        let stackView = UIStackView()
+        let stackView = SharedStackView()
         stackView.axis = .vertical
         stackView.distribution = .fill
         

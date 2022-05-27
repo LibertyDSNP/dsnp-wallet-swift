@@ -8,8 +8,20 @@
 import Foundation
 import UIKit
 
+enum KeysViewControllerState {
+    case keys
+    case backupKeys
+}
+
 class KeysViewController: SharedProfileHeaderViewController {
-    //Temp
+    internal var viewModel = KeysViewModel()
+    internal var state: KeysViewControllerState = .keys {
+        didSet {
+            manageStateViews()
+        }
+    }
+    
+    //TODO: Remove after api connected
     var keys: [Key] = [Key(isRoot: true, title: "rootKey", address: "0x0123456789") ,
                        Key(title: "iPhone", address: "0x0123456789"),
                        Key(title: "Macbook", address: "0x0123456789"),
@@ -26,6 +38,42 @@ class KeysViewController: SharedProfileHeaderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        state = .keys
+    }
+}
+
+//MARK: UI Helper Funcs
+extension KeysViewController {
+    internal func setBackBtn(hide: Bool = false) {
+        let backButton = UINavigationBar.Theme.backButton()
+        backButton.tintColor = .white
+        backButton.addAction(UIAction { _ in
+            self.state = .keys
+        }, for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        
+        backButton.isHidden = hide
+    }
+    
+    private func manageStateViews() {
+        clearStackView()
+        
+        setBackBtn(hide: state == .keys)
+        
+        switch state {
+        case .keys:
+            setKeysStackView()
+        case .backupKeys:
+            setBackupStackView()
+        }
+        
+        connectDeviceBtn.isHidden = state != .keys
+    }
+    
+    private func setKeysStackView() {
+        stackView.alignment = .fill
+        stackView.spacing = 0
+        
         stackView.addArrangedSubview(SharedSpacer(height: 20))
         stackView.addArrangedSubview(getKeysLabel())
         stackView.addArrangedSubview(SharedSpacer(height: 5))
@@ -36,10 +84,7 @@ class KeysViewController: SharedProfileHeaderViewController {
         
         setConnectDeviceBtn()
     }
-}
-
-//MARK: UI Helper Funcs
-extension KeysViewController {
+    
     private func getKeysLabel() -> UIView {
         let view = UIView()
         let myKeysLabel = SharedLabel(text: "My Keys")
@@ -146,7 +191,7 @@ extension KeysViewController {
 //MARK: Outlets
 extension KeysViewController {
     @objc func tappedBackUpRootKeyBtn(selector: UIButton?) {
-        
+        state = .backupKeys
     }
     
     @objc func tappedConnectKeyBtn(selector: UIButton?) {

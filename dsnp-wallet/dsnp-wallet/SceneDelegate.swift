@@ -21,12 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 #if DEBUG
         let rootViewController = BaseViewController()
-        let navigationController = SharedNavigationController(rootViewController: rootViewController)
-        window.rootViewController = navigationController
 #else
-        window.rootViewController = GenerateKeysViewController()
+        let rootViewController = GenerateKeysViewController()
 #endif
-        
+      
+        window.rootViewController = rootViewController
         self.window = window
         window.makeKeyAndVisible()
     }
