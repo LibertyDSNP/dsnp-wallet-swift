@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		822349DA284004D700A59775 /* KeysViewController+Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349D9284004D700A59775 /* KeysViewController+Backup.swift */; };
+		822349DD28401C4E00A59775 /* UIImage+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349DC28401C4E00A59775 /* UIImage+Theme.swift */; };
+		822349DF28401E0500A59775 /* UINavigationBar+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349DE28401E0500A59775 /* UINavigationBar+Theme.swift */; };
 		8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5A2818917700DEF1E9 /* AppDelegate.swift */; };
 		8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */; };
 		8223AB622818917700DEF1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB602818917700DEF1E9 /* Main.storyboard */; };
@@ -46,6 +49,7 @@
 		8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */; };
 		8223AC1F282C770700DEF1E9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC1E282C770700DEF1E9 /* User.swift */; };
 		8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */; };
+		8279BAF3283EDC1C00543C0F /* KeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */; };
 		82931361282ECF1C000422BC /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931360282ECF1C000422BC /* PinViewController.swift */; };
 		82931363282ED519000422BC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931362282ED519000422BC /* Keychain.swift */; };
 		82931366282ED548000422BC /* AccountKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931365282ED548000422BC /* AccountKeychain.swift */; };
@@ -73,6 +77,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		822349D9284004D700A59775 /* KeysViewController+Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeysViewController+Backup.swift"; sourceTree = "<group>"; };
+		822349DC28401C4E00A59775 /* UIImage+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Theme.swift"; sourceTree = "<group>"; };
+		822349DE28401E0500A59775 /* UINavigationBar+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Theme.swift"; sourceTree = "<group>"; };
 		8223AB572818917700DEF1E9 /* DSNP-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSNP-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223AB5A2818917700DEF1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +120,7 @@
 		8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateKeysViewController.swift; sourceTree = "<group>"; };
 		8223AC1E282C770700DEF1E9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysViewModel.swift; sourceTree = "<group>"; };
 		82931360282ECF1C000422BC /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		82931362282ED519000422BC /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		82931365282ED548000422BC /* AccountKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountKeychain.swift; sourceTree = "<group>"; };
@@ -150,6 +158,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		822349DB2840054D00A59775 /* KeysViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8223AB93281891ED00DEF1E9 /* KeysViewController.swift */,
+				822349D9284004D700A59775 /* KeysViewController+Backup.swift */,
+				8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */,
+			);
+			path = KeysViewController;
+			sourceTree = "<group>";
+		};
 		8223AB4E2818917700DEF1E9 = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +240,8 @@
 				8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */,
 				8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */,
 				8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */,
+				822349DC28401C4E00A59775 /* UIImage+Theme.swift */,
+				822349DE28401E0500A59775 /* UINavigationBar+Theme.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -236,7 +256,7 @@
 				82931360282ECF1C000422BC /* PinViewController.swift */,
 				8223AB94281891ED00DEF1E9 /* HomeViewController.swift */,
 				8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */,
-				8223AB93281891ED00DEF1E9 /* KeysViewController.swift */,
+				822349DB2840054D00A59775 /* KeysViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -503,16 +523,20 @@
 				8293137328341D45000422BC /* Key.swift in Sources */,
 				8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */,
 				8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */,
+				822349DF28401E0500A59775 /* UINavigationBar+Theme.swift in Sources */,
 				8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */,
 				8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */,
 				8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */,
+				8279BAF3283EDC1C00543C0F /* KeysViewModel.swift in Sources */,
 				82931361282ECF1C000422BC /* PinViewController.swift in Sources */,
 				8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */,
 				8223AC082829B3AF00DEF1E9 /* SharedImagePicker.swift in Sources */,
+				822349DD28401C4E00A59775 /* UIImage+Theme.swift in Sources */,
 				8223ABFC28247E6600DEF1E9 /* UIColor+Theme.swift in Sources */,
 				8223AC042829993B00DEF1E9 /* SharedLabel.swift in Sources */,
 				8223AB9E281891EE00DEF1E9 /* BaseViewController.swift in Sources */,
 				8223AB9F281891EE00DEF1E9 /* KeysViewController.swift in Sources */,
+				822349DA284004D700A59775 /* KeysViewController+Backup.swift in Sources */,
 				8223ABC82819ECFA00DEF1E9 /* UIFont+Theme.swift in Sources */,
 				8223ABA4281891EE00DEF1E9 /* ViewControllerFactory.swift in Sources */,
 				8223AC1F282C770700DEF1E9 /* User.swift in Sources */,

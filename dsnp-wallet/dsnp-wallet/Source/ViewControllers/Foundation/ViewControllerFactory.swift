@@ -34,7 +34,7 @@ enum ViewControllerFactory: String, CaseIterable {
         }
     }
     
-    func instance() -> UIViewController {
+    func instance() -> UIViewController {        
         var vc: UIViewController?
         if let storyboardName = self.storyboardName {
             let storyboard = UIStoryboard(name: storyboardName, bundle: nil)

@@ -12,7 +12,6 @@ import DSNPWallet
 class TabBarViewController: UITabBarController {
     
     var viewModel = TabBarViewModel()
-    private var navVC: UINavigationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,22 +40,25 @@ class TabBarViewController: UITabBarController {
         }
  
         guard let homeVC = ViewControllerFactory.homeViewController.instance() as? SharedProfileHeaderViewController else { return }
+        let navHomeVC = SharedNavigationController(rootViewController: homeVC)
         let homeIcon = UITabBarItem(title: "Home", image: UIImage(named: "Home"), selectedImage: UIImage(named: "Home"))
         homeIcon.accessibilityIdentifier = "homeTabBarButton"
-        homeVC.tabBarItem = homeIcon
+        navHomeVC.tabBarItem = homeIcon
         
         guard let profileVC = ViewControllerFactory.profileViewController.instance() as? ProfileViewController else { return }
+        let navProfileVC = SharedNavigationController(rootViewController: profileVC)
         let profileIcon = UITabBarItem(title: "Profile", image: UIImage(named: "Profile"), selectedImage: UIImage(named: "Profile"))
         profileIcon.accessibilityIdentifier = "profileIconTabBarButton"
-        profileVC.tabBarItem = profileIcon
+        navProfileVC.tabBarItem = profileIcon
         profileVC.updateUserBlock = viewModel.updateUserBlock 
         
         let keysVC = ViewControllerFactory.keysViewController.instance()
+        let navKeysVC = SharedNavigationController(rootViewController: keysVC)
         let keysIcon = UITabBarItem(title: "Keys", image: UIImage(named: "Keys"), selectedImage: UIImage(named: "Keys"))
         keysIcon.accessibilityIdentifier = "keysTabBarButton"
-        keysVC.tabBarItem = keysIcon
+        navKeysVC.tabBarItem = keysIcon
 
-        self.viewControllers? = [homeVC, profileVC, keysVC]
+        self.viewControllers? = [navHomeVC, navProfileVC, navKeysVC]
         homeVC.set(name: user?.name, address: user?.keys?.address)
     }
 }

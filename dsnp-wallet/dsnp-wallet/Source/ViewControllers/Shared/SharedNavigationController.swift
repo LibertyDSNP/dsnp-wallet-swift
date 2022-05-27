@@ -10,7 +10,7 @@ import UIKit
 class SharedNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarHidden(true, animated: false)
+        self.setNavigationBarHidden(false, animated: false)
     }
 }
 

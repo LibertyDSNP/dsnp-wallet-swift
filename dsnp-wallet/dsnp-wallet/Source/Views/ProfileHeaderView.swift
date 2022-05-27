@@ -122,7 +122,7 @@ extension ProfileHeaderView {
         imageView.centerXAnchor.constraint(equalTo: imageSubview.centerXAnchor).isActive = true
         imageView.heightAnchor.constraint(equalTo: imageSubview.heightAnchor).isActive = true
         
-        stackView.replaceViews([SharedSpacer(height: 30),
+        stackView.replaceViews([SharedSpacer(height: 10),
                                 smartIdLabel,
                                 SharedSpacer(height: 12),
                                 imageSubview,
