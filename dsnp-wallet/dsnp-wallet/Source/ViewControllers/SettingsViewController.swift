@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import DSNPWallet
 
 class SettingsViewController: UIViewController {
     override func viewDidLoad() {
@@ -14,9 +15,21 @@ class SettingsViewController: UIViewController {
     }
     
     @objc func tappedLogOut(selector: UIButton?) {
-        let vc = ViewControllerFactory.generateKeysViewController.instance()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        do {
+            let _ = try DSNPWallet().deleteKeys()
+        } catch {
+            let alert = UIAlertController(title: "Error deleting keys", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        
+        let alert = UIAlertController(title: "Cleared Keys", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            let vc = ViewControllerFactory.generateKeysViewController.instance()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
     }
 }
 
