@@ -23,13 +23,9 @@ class SettingsViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
         
-        let alert = UIAlertController(title: "Cleared Keys", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            let vc = ViewControllerFactory.generateKeysViewController.instance()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-        }))
-        present(alert, animated: true, completion: nil)
+        AccountKeychain.shared.clearAuthorization()
+        
+        present(getCancelAlert(), animated: true, completion: nil)
     }
 }
 
@@ -50,5 +46,18 @@ extension SettingsViewController {
         logOutBtn.translatesAutoresizingMaskIntoConstraints = false
         logOutBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logOutBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    private func getCancelAlert() -> UIAlertController {
+        let alert = UIAlertController(title: "Logging out will clear your keys.", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            let vc = ViewControllerFactory.generateKeysViewController.instance()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            self.dismiss(animated: true, completion: nil)
+        })
+        return alert
     }
 }
