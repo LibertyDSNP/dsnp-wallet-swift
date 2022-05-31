@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		822349DA284004D700A59775 /* KeysViewController+Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349D9284004D700A59775 /* KeysViewController+Backup.swift */; };
 		822349DD28401C4E00A59775 /* UIImage+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349DC28401C4E00A59775 /* UIImage+Theme.swift */; };
-		822349DF28401E0500A59775 /* UINavigationBar+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349DE28401E0500A59775 /* UINavigationBar+Theme.swift */; };
+		822349E12846908000A59775 /* UIButton+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349E02846908000A59775 /* UIButton+Theme.swift */; };
+		822349E3284693B100A59775 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349E2284693B100A59775 /* SettingsViewController.swift */; };
 		8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5A2818917700DEF1E9 /* AppDelegate.swift */; };
 		8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */; };
 		8223AB622818917700DEF1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB602818917700DEF1E9 /* Main.storyboard */; };
@@ -79,7 +80,8 @@
 /* Begin PBXFileReference section */
 		822349D9284004D700A59775 /* KeysViewController+Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeysViewController+Backup.swift"; sourceTree = "<group>"; };
 		822349DC28401C4E00A59775 /* UIImage+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Theme.swift"; sourceTree = "<group>"; };
-		822349DE28401E0500A59775 /* UINavigationBar+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Theme.swift"; sourceTree = "<group>"; };
+		822349E02846908000A59775 /* UIButton+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Theme.swift"; sourceTree = "<group>"; };
+		822349E2284693B100A59775 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8223AB572818917700DEF1E9 /* DSNP-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSNP-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223AB5A2818917700DEF1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -241,7 +243,7 @@
 				8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */,
 				8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */,
 				822349DC28401C4E00A59775 /* UIImage+Theme.swift */,
-				822349DE28401E0500A59775 /* UINavigationBar+Theme.swift */,
+				822349E02846908000A59775 /* UIButton+Theme.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -257,6 +259,7 @@
 				8223AB94281891ED00DEF1E9 /* HomeViewController.swift */,
 				8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */,
 				822349DB2840054D00A59775 /* KeysViewController */,
+				822349E2284693B100A59775 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -523,7 +526,6 @@
 				8293137328341D45000422BC /* Key.swift in Sources */,
 				8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */,
 				8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */,
-				822349DF28401E0500A59775 /* UINavigationBar+Theme.swift in Sources */,
 				8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */,
 				8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */,
 				8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */,
@@ -542,6 +544,8 @@
 				8223AC1F282C770700DEF1E9 /* User.swift in Sources */,
 				8223ABA1281891EE00DEF1E9 /* TabBarViewController.swift in Sources */,
 				8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */,
+				822349E12846908000A59775 /* UIButton+Theme.swift in Sources */,
+				822349E3284693B100A59775 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

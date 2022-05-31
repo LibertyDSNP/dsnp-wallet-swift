@@ -17,7 +17,6 @@ class SharedProfileHeaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setNavBar()
         setViews()
     }
     
@@ -28,20 +27,15 @@ class SharedProfileHeaderViewController: UIViewController {
 
 //MARK: UI Helper Funcs
 extension SharedProfileHeaderViewController {
-    private func setNavBar() {
-        if #available(iOS 15.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithTransparentBackground()
-            appearance.backgroundColor = .clear
-            
-            navigationController?.navigationBar.tintColor = .clear
-            UINavigationBar.appearance().standardAppearance = appearance
-            UINavigationBar.appearance().compactAppearance = appearance
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        }
-    }
-    
     private func setViews() {
+        let settingsBtn = UIButton.Theme.settings
+        settingsBtn.addAction(UIAction { _ in
+            let vc = ViewControllerFactory.settingsViewController.instance()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }, for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsBtn)
+        
         self.view.backgroundColor = UIColor.Theme.background
         
         let profileHeaderView = ProfileHeaderView(parent: self)

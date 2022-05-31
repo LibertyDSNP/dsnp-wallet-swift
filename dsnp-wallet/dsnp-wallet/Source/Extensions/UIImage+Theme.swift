@@ -10,6 +10,6 @@ import UIKit
 
 extension UIImage {
     struct Theme {
-        static var backArrow: UIImage { return UIImage(named: "BackArrowIcon") ?? UIImage() }
+        static var backArrow: UIImage { return UIImage(named: "Back") ?? UIImage() }
     }
 }
