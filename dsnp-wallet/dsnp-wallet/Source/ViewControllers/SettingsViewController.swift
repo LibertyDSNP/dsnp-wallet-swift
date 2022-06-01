@@ -19,13 +19,12 @@ class SettingsViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
             do {
                 let _ = try AuthManager.shared.logout()
+                self.presentGenKeysVC()
             } catch {
                 let alert = UIAlertController(title: "Problem deleting keys, log out failed.", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
-            
-            self.presentGenKeysVC()
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
