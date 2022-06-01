@@ -44,14 +44,17 @@ class KeysViewController: SharedProfileHeaderViewController {
 
 //MARK: UI Helper Funcs
 extension KeysViewController {
-    internal func setBackBtn(hide: Bool = false) {
-        let backBtn = UIButton.Theme.back
-        backBtn.addAction(UIAction { _ in
-            self.state = .keys
-        }, for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backBtn)
+    private func setBackBtn(hide: Bool = false) {
+        guard hide else {
+            self.navigationItem.setBarButton(item: .back, target: self, selector: #selector(tappedBack(tap:)))
+            return
+        }
         
-        backBtn.isHidden = hide
+        self.navigationItem.hide(barButtonItem: .back)
+    }
+    
+    @objc func tappedBack(tap: UITapGestureRecognizer) {
+        self.state = .keys
     }
     
     private func manageStateViews() {

@@ -16,7 +16,7 @@ class SharedProfileHeaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setViews()
     }
     
@@ -28,20 +28,18 @@ class SharedProfileHeaderViewController: UIViewController {
 //MARK: UI Helper Funcs
 extension SharedProfileHeaderViewController {
     private func setViews() {
-        let settingsBtn = UIButton.Theme.settings
-        settingsBtn.addAction(UIAction { _ in
-            let vc = ViewControllerFactory.settingsViewController.instance()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-        }, for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsBtn)
-        
         self.view.backgroundColor = UIColor.Theme.background
         
+        self.navigationItem.setBarButton(item: .settings, target: self, selector: #selector(tappedSettings))
         let profileHeaderView = ProfileHeaderView(parent: self)
         self.profileHeaderView = profileHeaderView
         
         stackView.addArrangedSubview(profileHeaderView)
+    }
+    
+    @objc func tappedSettings() {
+        let vc = ViewControllerFactory.settingsViewController.instance()
+        self.present(vc, animated: true)
     }
     
     internal func clearStackView() {

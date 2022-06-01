@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import DSNPWallet
 
 class SettingsViewController: UIViewController {
     override func viewDidLoad() {
@@ -15,17 +14,28 @@ class SettingsViewController: UIViewController {
     }
     
     @objc func tappedLogOut(selector: UIButton?) {
-        do {
-            let _ = try DSNPWallet().deleteKeys()
-        } catch {
-            let alert = UIAlertController(title: "Error deleting keys", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Logging out will clear your keys.", message: nil, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+            do {
+                let _ = try AuthManager.shared.logout()
+            } catch {
+                let alert = UIAlertController(title: "Problem deleting keys, log out failed.", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            self.presentGenKeysVC()
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            alert.dismiss(animated: true, completion: nil)
         }
         
-        AccountKeychain.shared.clearAuthorization()
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
         
-        present(getCancelAlert(), animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -48,16 +58,9 @@ extension SettingsViewController {
         logOutBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
-    private func getCancelAlert() -> UIAlertController {
-        let alert = UIAlertController(title: "Logging out will clear your keys.", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            let vc = ViewControllerFactory.generateKeysViewController.instance()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            self.dismiss(animated: true, completion: nil)
-        })
-        return alert
+    private func presentGenKeysVC() {
+        let vc = ViewControllerFactory.generateKeysViewController.instance()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
     }
 }
