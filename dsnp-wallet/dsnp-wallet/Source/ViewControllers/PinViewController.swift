@@ -21,7 +21,6 @@ class PinViewController: UIViewController {
     //MARK: UI
     private lazy var pinTextField = getPinTextField()
     private lazy var saveBtn = getSaveBtn()
-    private lazy var clearPinBtn = getClearPinBtn()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +46,6 @@ extension PinViewController {
         stackview.addArrangedSubview(pinTextField)
         stackview.addArrangedSubview(SharedSpacer(height: 4))
         stackview.addArrangedSubview(saveBtn)
-        stackview.addArrangedSubview(SharedSpacer(height: 4))
-        stackview.addArrangedSubview(clearPinBtn)
         
         view.addSubview(stackview)
         stackview.translatesAutoresizingMaskIntoConstraints = false
@@ -98,22 +95,6 @@ extension PinViewController {
             }
         }))
         present(alert, animated: true)
-    }
-    
-    //TODO: Clear logic strictly for testing purposes.
-    private func getClearPinBtn() -> UIButton {
-        let clearPinBtn = UIButton(type: .system)
-        clearPinBtn.setTitle("Clear Pin", for: .normal)
-        clearPinBtn.addTarget(self, action: #selector(tappedClearPinBtn(selector:)), for: .touchUpInside)
-        clearPinBtn.titleLabel?.textColor = .black
-        clearPinBtn.contentHorizontalAlignment = .center
-
-        return clearPinBtn
-    }
-    
-    @objc func tappedClearPinBtn(selector: UIButton?) {
-        AccountKeychain.shared.clearAuthorization()
-        saveBtn.setTitle(saveBtnText, for: .normal) 
     }
 }
 

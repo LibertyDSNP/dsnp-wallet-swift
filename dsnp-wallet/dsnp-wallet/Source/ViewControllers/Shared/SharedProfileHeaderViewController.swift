@@ -16,8 +16,7 @@ class SharedProfileHeaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setNavBar()
+        
         setViews()
     }
     
@@ -28,26 +27,19 @@ class SharedProfileHeaderViewController: UIViewController {
 
 //MARK: UI Helper Funcs
 extension SharedProfileHeaderViewController {
-    private func setNavBar() {
-        if #available(iOS 15.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithTransparentBackground()
-            appearance.backgroundColor = .clear
-            
-            navigationController?.navigationBar.tintColor = .clear
-            UINavigationBar.appearance().standardAppearance = appearance
-            UINavigationBar.appearance().compactAppearance = appearance
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        }
-    }
-    
     private func setViews() {
         self.view.backgroundColor = UIColor.Theme.background
         
+        self.navigationItem.setBarButton(item: .settings, target: self, selector: #selector(tappedSettings))
         let profileHeaderView = ProfileHeaderView(parent: self)
         self.profileHeaderView = profileHeaderView
         
         stackView.addArrangedSubview(profileHeaderView)
+    }
+    
+    @objc func tappedSettings() {
+        let vc = ViewControllerFactory.settingsViewController.instance()
+        self.present(vc, animated: true)
     }
     
     internal func clearStackView() {
