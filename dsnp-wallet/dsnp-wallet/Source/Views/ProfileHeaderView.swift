@@ -13,7 +13,7 @@ protocol ProfileHeaderDelegate: AnyObject {
 }
 
 class ProfileHeaderView: UIView {
-    var parent: UIViewController?
+    public weak var parent: UIViewController?
     public weak var delegate: ProfileHeaderDelegate?
     public var didSelectImage: ((UIImage?) -> Void)?
     
