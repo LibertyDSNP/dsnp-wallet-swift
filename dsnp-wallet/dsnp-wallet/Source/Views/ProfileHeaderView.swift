@@ -13,7 +13,6 @@ protocol ProfileHeaderDelegate: AnyObject {
 }
 
 class ProfileHeaderView: UIView {
-    public weak var parent: UIViewController?
     public weak var delegate: ProfileHeaderDelegate?
     public var didSelectImage: ((UIImage?) -> Void)?
     
@@ -95,8 +94,9 @@ extension ProfileHeaderView {
 //MARK: UI Helper Func
 extension ProfileHeaderView {
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: parent?.view.frame.width ?? 0,
-                      height: parent?.view.frame.width ?? 0)
+        let width = UIScreen.main.bounds.size.width
+        return CGSize(width: width ?? 0,
+                      height: width ?? 0)
     }
     
     private func setBottomCornerRadius() {

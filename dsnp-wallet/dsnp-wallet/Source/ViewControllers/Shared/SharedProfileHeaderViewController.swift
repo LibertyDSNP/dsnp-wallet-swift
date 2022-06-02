@@ -17,7 +17,6 @@ class SharedProfileHeaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileHeaderView.parent = self
         setViews()
     }
     
