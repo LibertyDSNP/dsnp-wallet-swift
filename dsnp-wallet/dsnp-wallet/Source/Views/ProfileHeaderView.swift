@@ -16,8 +16,6 @@ class ProfileHeaderView: UIView {
     public weak var delegate: ProfileHeaderDelegate?
     public var didSelectImage: ((UIImage?) -> Void)?
     
-    private var parent: UIViewController?
-    
     //MARK: Constants
     let imageViewWidth: CGFloat = 185.0
     
@@ -61,9 +59,8 @@ class ProfileHeaderView: UIView {
         return label
     }()
 
-    init(parent: UIViewController?) {
+    init() {
         super.init(frame: .zero)
-        self.parent = parent
         self.setupView()
     }
     
@@ -96,11 +93,6 @@ extension ProfileHeaderView {
 
 //MARK: UI Helper Func
 extension ProfileHeaderView {
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: parent?.view.frame.width ?? 0,
-                      height: parent?.view.frame.width ?? 0)
-    }
-    
     private func setBottomCornerRadius() {
         self.clipsToBounds = true
         self.layer.cornerRadius = 17

@@ -17,7 +17,6 @@ enum BackupKeyMethods: String, CaseIterable {
 
 extension KeysViewController {
     internal func setBackupStackView() {
-        stackView.alignment = .center
         stackView.spacing = 10
         
         stackView.addArrangedSubview(SharedSpacer(height: 10))

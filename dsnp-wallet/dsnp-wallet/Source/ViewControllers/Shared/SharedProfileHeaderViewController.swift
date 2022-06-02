@@ -11,7 +11,7 @@ class SharedProfileHeaderViewController: UIViewController {
     //MARK: UI
     lazy var stackView: SharedStackView = getScrollableStackView()
     var scrollView = UIScrollView()
-    var profileHeaderView: ProfileHeaderView?
+    var profileHeaderView: ProfileHeaderView = ProfileHeaderView()
     var scrollViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ class SharedProfileHeaderViewController: UIViewController {
     }
     
     func set(name: String?, address: String?) {
-        profileHeaderView?.set(name: name, address: address)
+        profileHeaderView.set(name: name, address: address)
     }
 }
 
@@ -31,8 +31,6 @@ extension SharedProfileHeaderViewController {
         self.view.backgroundColor = UIColor.Theme.background
         
         self.navigationItem.setBarButton(item: .settings, target: self, selector: #selector(tappedSettings))
-        let profileHeaderView = ProfileHeaderView(parent: self)
-        self.profileHeaderView = profileHeaderView
         
         stackView.addArrangedSubview(profileHeaderView)
     }
@@ -44,8 +42,7 @@ extension SharedProfileHeaderViewController {
     
     internal func clearStackView() {
         stackView.replaceViews([])
-        guard let view = profileHeaderView else { return }
-        stackView.addArrangedSubview(view)
+        stackView.addArrangedSubview(profileHeaderView)
     }
     
     private func getScrollableStackView() -> SharedStackView {
