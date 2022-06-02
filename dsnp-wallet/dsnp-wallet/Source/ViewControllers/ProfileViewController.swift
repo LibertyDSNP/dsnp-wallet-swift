@@ -27,7 +27,7 @@ class ProfileViewController: SharedProfileHeaderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileHeaderView?.delegate = self
+        profileHeaderView.delegate = self
         
         setViews()
         setImagePicker()
@@ -230,7 +230,7 @@ extension ProfileViewController: UITextFieldDelegate {
 
 extension ProfileViewController: SharedImagePickerDelegate {
     func didSelect(image: UIImage) {
-        profileHeaderView?.imageView.image = image
+        profileHeaderView.imageView.image = image
         saveBtn(enabled: true)
     }
 }

@@ -13,10 +13,9 @@ protocol ProfileHeaderDelegate: AnyObject {
 }
 
 class ProfileHeaderView: UIView {
+    var parent: UIViewController?
     public weak var delegate: ProfileHeaderDelegate?
     public var didSelectImage: ((UIImage?) -> Void)?
-    
-    private var parent: UIViewController?
     
     //MARK: Constants
     let imageViewWidth: CGFloat = 185.0
@@ -61,9 +60,8 @@ class ProfileHeaderView: UIView {
         return label
     }()
 
-    init(parent: UIViewController?) {
+    init() {
         super.init(frame: .zero)
-        self.parent = parent
         self.setupView()
     }
     

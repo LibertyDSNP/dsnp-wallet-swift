@@ -16,19 +16,15 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.delegate = self
         setupTabs()
     }
     
     func set(_ keys: DSNPKeys?) {
         guard let keys = keys else { return }
-        let user = OpenUser(keys: keys)
-        viewModel.user = user
+        viewModel.user = OpenUser(keys: keys)
     }
     
     func setupTabs() {
-        let user = viewModel.user
-        
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .white
@@ -59,13 +55,18 @@ class TabBarViewController: UITabBarController {
         navKeysVC.tabBarItem = keysIcon
 
         self.viewControllers? = [navHomeVC, navProfileVC, navKeysVC]
-        homeVC.set(name: user?.name, address: user?.keys?.address)
+        
+        updateViewControllers(with: viewModel.user)
     }
-}
 
-extension TabBarViewController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let viewController = viewController as? SharedProfileHeaderViewController else { return }
-        viewController.set(name: viewModel.user?.name, address: viewModel.user?.keys?.address)
+    private func updateViewControllers(with user: User?) {
+        if let viewControllers = self.viewControllers {
+            for viewController in viewControllers {
+                if let navVc = viewController as? SharedNavigationController,
+                   let vc = navVc.topViewController as? SharedProfileHeaderViewController {
+                    vc.set(name: user?.name, address: user?.keys?.address)
+                }
+            }
+        }
     }
 }
