@@ -93,12 +93,6 @@ extension ProfileHeaderView {
 
 //MARK: UI Helper Func
 extension ProfileHeaderView {
-    override var intrinsicContentSize: CGSize {
-        let width = UIScreen.main.bounds.size.width
-        return CGSize(width: width ?? 0,
-                      height: width ?? 0)
-    }
-    
     private func setBottomCornerRadius() {
         self.clipsToBounds = true
         self.layer.cornerRadius = 17
