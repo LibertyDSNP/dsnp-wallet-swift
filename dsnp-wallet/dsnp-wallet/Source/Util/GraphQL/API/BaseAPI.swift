@@ -8,5 +8,5 @@
 import Apollo
 
 class BaseAPI {
-    public var client: ApolloClientProtocol = ApolloManager.shared
+    public var client: DSNPWalletApolloClientProtocol = ApolloManager.shared
 }

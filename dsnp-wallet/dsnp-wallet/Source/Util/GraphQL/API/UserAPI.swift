@@ -9,6 +9,9 @@ import Foundation
 import DSNPWallet
 
 class UserAPI: BaseAPI {
+    
+    static let shared = UserAPI()
+    
     private func loginUser(keys: DSNPKeys,
                            didReceiveAuthorization: (() -> Void)?,
                            didCompleteWithError: ((Error?) -> Void)?) {

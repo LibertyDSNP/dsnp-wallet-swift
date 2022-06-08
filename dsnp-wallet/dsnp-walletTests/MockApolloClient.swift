@@ -10,7 +10,7 @@ import XCTest
 import Apollo
 import Mocker
 
-class MockApolloClient: ApolloClientProtocol {
+class MockApolloClient: DSNPWalletApolloClientProtocol {
     
     static let shared = MockApolloClient()
 
@@ -22,14 +22,14 @@ class MockApolloClient: ApolloClientProtocol {
         let client = URLSessionClient(sessionConfiguration: configuration)
         let cache = InMemoryNormalizedCache()
         let store = ApolloStore(cache: cache)
-        let provider = NetworkInterceptorProvider(client: client, store: store)
+        let provider = DefaultInterceptorProvider(store: store)
         let url = self.baseUrl
         var request = URLRequest(url: url)
         let transport = RequestChainNetworkTransport(interceptorProvider: provider, endpointURL: url)
         return ApolloClient(networkTransport: transport, store: store)
     }()
 
-    public func getUrlWithMethod(_ method: String) -> URL {
+    public func getUrlWithMethod(_ method: String) -> URL? {
         return URL(string: "")
     }
 }

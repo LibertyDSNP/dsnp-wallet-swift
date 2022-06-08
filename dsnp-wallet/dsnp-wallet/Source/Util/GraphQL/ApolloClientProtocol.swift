@@ -8,7 +8,7 @@
 import Foundation
 import Apollo
 
-protocol ApolloClientProtocol {
+protocol DSNPWalletApolloClientProtocol {
     
     var client: ApolloClient { get }
     
@@ -33,7 +33,7 @@ protocol ApolloClientProtocol {
         resultHandler: @escaping GraphQLResultHandler<Subscription.Data>) -> Cancellable?
 }
 
-extension ApolloClientProtocol {
+extension DSNPWalletApolloClientProtocol {
     
     @discardableResult
     func fetch<Query: GraphQLQuery>(

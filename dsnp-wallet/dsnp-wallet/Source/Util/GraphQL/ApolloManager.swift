@@ -9,7 +9,7 @@ import Foundation
 import Apollo
 import ApolloWebSocket
 
-class ApolloManager: ApolloClientProtocol {
+class ApolloManager: DSNPWalletApolloClientProtocol {
     
     static let shared = ApolloManager()
     public var environment: GraphQLEnvironment

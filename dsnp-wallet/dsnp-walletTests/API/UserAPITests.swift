@@ -13,20 +13,9 @@ class UserAPITests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        UserAPI.shared.client = MockApolloClient.shared
-        AccountKeychain.shared.clearAuthorization()
+        
         Mocker.removeAll()
     }
     
-    func testAPILogin() {
-        let expectation = self.expectation(description: "")
-
-        let url = MockApolloClient.shared.getUrlWithMethod("")
-        let mock = Mock(url: url, dataType: .json, statusCode: 200, data: [
-            .post: MockedData.loginNonce.data
-        ])
-        mock.register()
-
-        waitForExpectations(timeout: 1.0, handler: nil)
-    }
+    func testAPILogin() {}
 }
