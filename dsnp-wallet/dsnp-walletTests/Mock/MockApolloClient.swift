@@ -30,6 +30,6 @@ class MockApolloClient: DSNPWalletApolloClientProtocol {
     }()
 
     public func getUrlWithMethod(_ method: String) -> URL? {
-        return URL(string: "")
+        return URL(string: method)
     }
 }

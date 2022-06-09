@@ -7,14 +7,14 @@
 
 import Foundation
 import DSNPWallet
+import Apollo
 
 class UserAPI: BaseAPI {
     
     static let shared = UserAPI()
     
-    private func loginUser(keys: DSNPKeys,
-                           didReceiveAuthorization: (() -> Void)?,
-                           didCompleteWithError: ((Error?) -> Void)?) {
-        
+    func loginUser(keys: DSNPKeys?,
+                   didReceiveAuthorization: (() -> Void)?,
+                   didCompleteWithError: ((Error?) -> Void)?) {
     }
 }

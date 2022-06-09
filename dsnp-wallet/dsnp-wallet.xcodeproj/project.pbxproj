@@ -23,6 +23,7 @@
 		82234A09284FCD1D00A59775 /* MockApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A08284FCD1D00A59775 /* MockApolloClient.swift */; };
 		82234A10284FED0E00A59775 /* Mocker in Frameworks */ = {isa = PBXBuildFile; productRef = 82234A0F284FED0E00A59775 /* Mocker */; };
 		82234A14284FF54B00A59775 /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A13284FF54B00A59775 /* MockedData.swift */; };
+		82234A182851656D00A59775 /* Login.json in Resources */ = {isa = PBXBuildFile; fileRef = 82234A162851656800A59775 /* Login.json */; };
 		8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5A2818917700DEF1E9 /* AppDelegate.swift */; };
 		8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */; };
 		8223AB622818917700DEF1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB602818917700DEF1E9 /* Main.storyboard */; };
@@ -102,6 +103,7 @@
 		82234A06284FCA1800A59775 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		82234A08284FCD1D00A59775 /* MockApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApolloClient.swift; sourceTree = "<group>"; };
 		82234A13284FF54B00A59775 /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
+		82234A162851656800A59775 /* Login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Login.json; sourceTree = "<group>"; };
 		8223AB572818917700DEF1E9 /* DSNP-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSNP-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223AB5A2818917700DEF1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,24 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		82234A152851653C00A59775 /* MockResponses */ = {
+			isa = PBXGroup;
+			children = (
+				82234A162851656800A59775 /* Login.json */,
+			);
+			path = MockResponses;
+			sourceTree = "<group>";
+		};
+		82234A19285165A200A59775 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				82234A08284FCD1D00A59775 /* MockApolloClient.swift */,
+				82234A13284FF54B00A59775 /* MockedData.swift */,
+				82234A152851653C00A59775 /* MockResponses */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		8223AB4E2818917700DEF1E9 = {
 			isa = PBXGroup;
 			children = (
@@ -267,9 +287,8 @@
 		8223AB702818917800DEF1E9 /* DSNP-WalletTests */ = {
 			isa = PBXGroup;
 			children = (
+				82234A19285165A200A59775 /* Mock */,
 				82234A0A284FD00E00A59775 /* API */,
-				82234A08284FCD1D00A59775 /* MockApolloClient.swift */,
-				82234A13284FF54B00A59775 /* MockedData.swift */,
 			);
 			path = "DSNP-WalletTests";
 			sourceTree = "<group>";
@@ -562,6 +581,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82234A182851656D00A59775 /* Login.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
