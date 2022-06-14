@@ -12,6 +12,18 @@
 		822349E12846908000A59775 /* UINavigationItem+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349E02846908000A59775 /* UINavigationItem+Theme.swift */; };
 		822349E3284693B100A59775 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349E2284693B100A59775 /* SettingsViewController.swift */; };
 		822349E72846DBD100A59775 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349E62846DBD100A59775 /* AuthManager.swift */; };
+		822349ED284A8C9100A59775 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 822349EC284A8C9100A59775 /* Apollo */; };
+		822349EF284A8C9100A59775 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 822349EE284A8C9100A59775 /* ApolloWebSocket */; };
+		822349F3284A951B00A59775 /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349F2284A951B00A59775 /* ApolloManager.swift */; };
+		822349F5284A953600A59775 /* GraphQLEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349F4284A953600A59775 /* GraphQLEnvironment.swift */; };
+		822349F7284A9A3800A59775 /* ApolloClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349F6284A9A3800A59775 /* ApolloClientProtocol.swift */; };
+		82234A03284FC66800A59775 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A02284FC66800A59775 /* User.swift */; };
+		82234A05284FC9FB00A59775 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A04284FC9FB00A59775 /* BaseAPI.swift */; };
+		82234A07284FCA1800A59775 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A06284FCA1800A59775 /* UserAPI.swift */; };
+		82234A09284FCD1D00A59775 /* MockApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A08284FCD1D00A59775 /* MockApolloClient.swift */; };
+		82234A10284FED0E00A59775 /* Mocker in Frameworks */ = {isa = PBXBuildFile; productRef = 82234A0F284FED0E00A59775 /* Mocker */; };
+		82234A14284FF54B00A59775 /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A13284FF54B00A59775 /* MockedData.swift */; };
+		82234A182851656D00A59775 /* Login.json in Resources */ = {isa = PBXBuildFile; fileRef = 82234A162851656800A59775 /* Login.json */; };
 		8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5A2818917700DEF1E9 /* AppDelegate.swift */; };
 		8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */; };
 		8223AB622818917700DEF1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB602818917700DEF1E9 /* Main.storyboard */; };
@@ -49,14 +61,13 @@
 		8223AC13282C2AFB00DEF1E9 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC12282C2AFB00DEF1E9 /* KeychainSwift */; };
 		8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC15282C2B3E00DEF1E9 /* DSNPWallet */; };
 		8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */; };
-		8223AC1F282C770700DEF1E9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC1E282C770700DEF1E9 /* User.swift */; };
 		8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */; };
 		8279BAF3283EDC1C00543C0F /* KeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */; };
 		82931361282ECF1C000422BC /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931360282ECF1C000422BC /* PinViewController.swift */; };
 		82931363282ED519000422BC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931362282ED519000422BC /* Keychain.swift */; };
 		82931366282ED548000422BC /* AccountKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931365282ED548000422BC /* AccountKeychain.swift */; };
 		8293137328341D45000422BC /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293137228341D45000422BC /* Key.swift */; };
-		82C4DDEF283D459400A95E2A /* DSNP-WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDEE283D459400A95E2A /* DSNP-WalletTests.swift */; };
+		82C4DDEF283D459400A95E2A /* UserAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDEE283D459400A95E2A /* UserAPITests.swift */; };
 		82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */; };
 		82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */; };
 /* End PBXBuildFile section */
@@ -84,6 +95,15 @@
 		822349E02846908000A59775 /* UINavigationItem+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Theme.swift"; sourceTree = "<group>"; };
 		822349E2284693B100A59775 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		822349E62846DBD100A59775 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		822349F2284A951B00A59775 /* ApolloManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloManager.swift; sourceTree = "<group>"; };
+		822349F4284A953600A59775 /* GraphQLEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLEnvironment.swift; sourceTree = "<group>"; };
+		822349F6284A9A3800A59775 /* ApolloClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClientProtocol.swift; sourceTree = "<group>"; };
+		82234A02284FC66800A59775 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		82234A04284FC9FB00A59775 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		82234A06284FCA1800A59775 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		82234A08284FCD1D00A59775 /* MockApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApolloClient.swift; sourceTree = "<group>"; };
+		82234A13284FF54B00A59775 /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
+		82234A162851656800A59775 /* Login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Login.json; sourceTree = "<group>"; };
 		8223AB572818917700DEF1E9 /* DSNP-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSNP-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223AB5A2818917700DEF1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,14 +142,13 @@
 		8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImagePicker.swift; sourceTree = "<group>"; };
 		8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProfileHeaderViewController.swift; sourceTree = "<group>"; };
 		8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateKeysViewController.swift; sourceTree = "<group>"; };
-		8223AC1E282C770700DEF1E9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysViewModel.swift; sourceTree = "<group>"; };
 		82931360282ECF1C000422BC /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		82931362282ED519000422BC /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		82931365282ED548000422BC /* AccountKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountKeychain.swift; sourceTree = "<group>"; };
 		8293137228341D45000422BC /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
-		82C4DDEE283D459400A95E2A /* DSNP-WalletTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletTests/DSNP-WalletTests.swift"; sourceTree = "<group>"; };
+		82C4DDEE283D459400A95E2A /* UserAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPITests.swift; sourceTree = "<group>"; };
 		82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITestsLaunchTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +159,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8223AC13282C2AFB00DEF1E9 /* KeychainSwift in Frameworks */,
+				822349ED284A8C9100A59775 /* Apollo in Frameworks */,
+				822349EF284A8C9100A59775 /* ApolloWebSocket in Frameworks */,
 				8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */,
 				8223AC10282C2AEB00DEF1E9 /* SDWebImage in Frameworks */,
 			);
@@ -149,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82234A10284FED0E00A59775 /* Mocker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +192,61 @@
 				8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */,
 			);
 			path = KeysViewController;
+			sourceTree = "<group>";
+		};
+		822349F1284A949C00A59775 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				82234A00284FC65A00A59775 /* API */,
+				822349F2284A951B00A59775 /* ApolloManager.swift */,
+				822349F4284A953600A59775 /* GraphQLEnvironment.swift */,
+				822349F6284A9A3800A59775 /* ApolloClientProtocol.swift */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		82234A00284FC65A00A59775 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				82234A01284FC65E00A59775 /* Models */,
+				82234A04284FC9FB00A59775 /* BaseAPI.swift */,
+				82234A06284FCA1800A59775 /* UserAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		82234A01284FC65E00A59775 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				82234A02284FC66800A59775 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		82234A0A284FD00E00A59775 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				82C4DDEE283D459400A95E2A /* UserAPITests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		82234A152851653C00A59775 /* MockResponses */ = {
+			isa = PBXGroup;
+			children = (
+				82234A162851656800A59775 /* Login.json */,
+			);
+			path = MockResponses;
+			sourceTree = "<group>";
+		};
+		82234A19285165A200A59775 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				82234A08284FCD1D00A59775 /* MockApolloClient.swift */,
+				82234A13284FF54B00A59775 /* MockedData.swift */,
+				82234A152851653C00A59775 /* MockResponses */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		8223AB4E2818917700DEF1E9 = {
@@ -210,7 +287,8 @@
 		8223AB702818917800DEF1E9 /* DSNP-WalletTests */ = {
 			isa = PBXGroup;
 			children = (
-				82C4DDEE283D459400A95E2A /* DSNP-WalletTests.swift */,
+				82234A19285165A200A59775 /* Mock */,
+				82234A0A284FD00E00A59775 /* API */,
 			);
 			path = "DSNP-WalletTests";
 			sourceTree = "<group>";
@@ -322,6 +400,7 @@
 		8223AC09282ACB8100DEF1E9 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				822349F1284A949C00A59775 /* GraphQL */,
 				82931364282ED51C000422BC /* Security */,
 				8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */,
 				822349E62846DBD100A59775 /* AuthManager.swift */,
@@ -350,7 +429,6 @@
 		8223AC1D282C76FC00DEF1E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8223AC1E282C770700DEF1E9 /* User.swift */,
 				8293137228341D45000422BC /* Key.swift */,
 			);
 			path = Models;
@@ -385,6 +463,8 @@
 				8223AC0F282C2AEB00DEF1E9 /* SDWebImage */,
 				8223AC12282C2AFB00DEF1E9 /* KeychainSwift */,
 				8223AC15282C2B3E00DEF1E9 /* DSNPWallet */,
+				822349EC284A8C9100A59775 /* Apollo */,
+				822349EE284A8C9100A59775 /* ApolloWebSocket */,
 			);
 			productName = "dsnp-wallet";
 			productReference = 8223AB572818917700DEF1E9 /* DSNP-Wallet.app */;
@@ -404,6 +484,9 @@
 				8223AB6F2818917800DEF1E9 /* PBXTargetDependency */,
 			);
 			name = "DSNP-WalletTests";
+			packageProductDependencies = (
+				82234A0F284FED0E00A59775 /* Mocker */,
+			);
 			productName = "dsnp-walletTests";
 			productReference = 8223AB6D2818917800DEF1E9 /* DSNP-WalletTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -463,6 +546,8 @@
 				8223AC0E282C2AEB00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				8223AC14282C2B3E00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */,
+				822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				82234A0E284FED0E00A59775 /* XCRemoteSwiftPackageReference "Mocker" */,
 			);
 			productRefGroup = 8223AB582818917700DEF1E9 /* Products */;
 			projectDirPath = "";
@@ -496,6 +581,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82234A182851656D00A59775 /* Login.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,28 +613,33 @@
 				8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */,
 				8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */,
 				8293137328341D45000422BC /* Key.swift in Sources */,
+				82234A07284FCA1800A59775 /* UserAPI.swift in Sources */,
 				8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */,
 				8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */,
+				822349F3284A951B00A59775 /* ApolloManager.swift in Sources */,
 				8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */,
 				8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */,
 				8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */,
+				82234A03284FC66800A59775 /* User.swift in Sources */,
 				8279BAF3283EDC1C00543C0F /* KeysViewModel.swift in Sources */,
 				82931361282ECF1C000422BC /* PinViewController.swift in Sources */,
 				8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */,
 				8223AC082829B3AF00DEF1E9 /* SharedImagePicker.swift in Sources */,
 				822349DD28401C4E00A59775 /* UIImage+Theme.swift in Sources */,
 				8223ABFC28247E6600DEF1E9 /* UIColor+Theme.swift in Sources */,
+				82234A05284FC9FB00A59775 /* BaseAPI.swift in Sources */,
 				8223AC042829993B00DEF1E9 /* SharedLabel.swift in Sources */,
 				8223AB9E281891EE00DEF1E9 /* BaseViewController.swift in Sources */,
 				8223AB9F281891EE00DEF1E9 /* KeysViewController.swift in Sources */,
+				822349F7284A9A3800A59775 /* ApolloClientProtocol.swift in Sources */,
 				822349DA284004D700A59775 /* KeysViewController+Backup.swift in Sources */,
 				8223ABC82819ECFA00DEF1E9 /* UIFont+Theme.swift in Sources */,
 				8223ABA4281891EE00DEF1E9 /* ViewControllerFactory.swift in Sources */,
-				8223AC1F282C770700DEF1E9 /* User.swift in Sources */,
 				8223ABA1281891EE00DEF1E9 /* TabBarViewController.swift in Sources */,
 				8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */,
 				822349E72846DBD100A59775 /* AuthManager.swift in Sources */,
 				822349E12846908000A59775 /* UINavigationItem+Theme.swift in Sources */,
+				822349F5284A953600A59775 /* GraphQLEnvironment.swift in Sources */,
 				822349E3284693B100A59775 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,7 +648,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82C4DDEF283D459400A95E2A /* DSNP-WalletTests.swift in Sources */,
+				82C4DDEF283D459400A95E2A /* UserAPITests.swift in Sources */,
+				82234A09284FCD1D00A59775 /* MockApolloClient.swift in Sources */,
+				82234A14284FF54B00A59775 /* MockedData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,6 +1009,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.5;
+			};
+		};
+		82234A0E284FED0E00A59775 /* XCRemoteSwiftPackageReference "Mocker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WeTransfer/Mocker";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		8223AC0E282C2AEB00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
@@ -943,6 +1052,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		822349EC284A8C9100A59775 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		822349EE284A8C9100A59775 /* ApolloWebSocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloWebSocket;
+		};
+		82234A0F284FED0E00A59775 /* Mocker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82234A0E284FED0E00A59775 /* XCRemoteSwiftPackageReference "Mocker" */;
+			productName = Mocker;
+		};
 		8223AC0F282C2AEB00DEF1E9 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8223AC0E282C2AEB00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */;
