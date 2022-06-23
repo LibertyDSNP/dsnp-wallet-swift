@@ -31,8 +31,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         
-        dlManager.set(with: connectionOptions.urlContexts.first?.url)
-        addDeeplinkObserver()
+        if let urlContext = connectionOptions.urlContexts.first {
+            dlManager.set(with: urlContext.url)
+            addDeeplinkObserver()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -64,7 +66,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        dlManager.set(with: URLContexts.first?.url)
+        guard let urlContext = URLContexts.first else { return }
+        dlManager.set(with: urlContext.url)
+        
+        if let _ = try? DSNPWallet().loadKeys() {
+            dlManager.signMsg()
+        } else {
+            // This observer will only be hit when we've implemented enter pin
+            // after app enters foreground.
+            addDeeplinkObserver()
+        }
     }
 }
 
@@ -79,5 +90,6 @@ extension SceneDelegate {
     
     @objc func handleDeeplinkNotification(notification: Notification) {
         dlManager.signMsg()
+        NotificationCenter.default.removeObserver(self)
     }
 }

@@ -11,7 +11,6 @@ import UIKit
 class HomeViewController: SharedProfileHeaderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.post(name: Notification.Name(Notifications.retrievedKeys.rawValue),
-                                        object: nil)
+        
     }
 }
