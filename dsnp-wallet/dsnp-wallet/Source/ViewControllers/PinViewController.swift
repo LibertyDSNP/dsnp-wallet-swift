@@ -84,7 +84,16 @@ extension PinViewController {
             pinSuccess = true
         }
         
-        let alert = UIAlertController(title: alertText, message: nil, preferredStyle: .alert)
+        if pinSuccess {
+            NotificationCenter.default.post(name: Notification.Name(Notifications.retrievedKeys.rawValue),
+                                            object: nil)
+        }
+        
+        presentPinSuccessAlert(title: alertText, pinSuccess: pinSuccess)
+    }
+    
+    private func presentPinSuccessAlert(title: String, pinSuccess: Bool) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             if !pinSuccess {
                 return

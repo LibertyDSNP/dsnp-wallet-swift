@@ -24,6 +24,8 @@
 		82234A10284FED0E00A59775 /* Mocker in Frameworks */ = {isa = PBXBuildFile; productRef = 82234A0F284FED0E00A59775 /* Mocker */; };
 		82234A14284FF54B00A59775 /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A13284FF54B00A59775 /* MockedData.swift */; };
 		82234A182851656D00A59775 /* Login.json in Resources */ = {isa = PBXBuildFile; fileRef = 82234A162851656800A59775 /* Login.json */; };
+		82234A1F2863B78000A59775 /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A1E2863B78000A59775 /* DeeplinkManager.swift */; };
+		82234A232863B82000A59775 /* URL+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A222863B82000A59775 /* URL+Components.swift */; };
 		8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5A2818917700DEF1E9 /* AppDelegate.swift */; };
 		8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */; };
 		8223AB622818917700DEF1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB602818917700DEF1E9 /* Main.storyboard */; };
@@ -105,6 +107,9 @@
 		82234A13284FF54B00A59775 /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		82234A162851656800A59775 /* Login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Login.json; sourceTree = "<group>"; };
 		8223AB572818917700DEF1E9 /* DSNP-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSNP-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82234A1E2863B78000A59775 /* DeeplinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeeplinkManager.swift; path = "DSNP-Wallet/Source/Util/DeeplinkManager.swift"; sourceTree = SOURCE_ROOT; };
+		82234A222863B82000A59775 /* URL+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL+Components.swift"; path = "DSNP-Wallet/Source/Extensions/URL+Components.swift"; sourceTree = SOURCE_ROOT; };
+		8223AB572818917700DEF1E9 /* dsnp-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dsnp-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223AB5A2818917700DEF1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8223AB612818917700DEF1E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -324,6 +329,7 @@
 				8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */,
 				822349DC28401C4E00A59775 /* UIImage+Theme.swift */,
 				822349E02846908000A59775 /* UINavigationItem+Theme.swift */,
+				82234A222863B82000A59775 /* URL+Components.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				82931364282ED51C000422BC /* Security */,
 				8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */,
 				822349E62846DBD100A59775 /* AuthManager.swift */,
+				82234A1E2863B78000A59775 /* DeeplinkManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -607,6 +614,7 @@
 				82931366282ED548000422BC /* AccountKeychain.swift in Sources */,
 				8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */,
 				8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */,
+				82234A1F2863B78000A59775 /* DeeplinkManager.swift in Sources */,
 				82931363282ED519000422BC /* Keychain.swift in Sources */,
 				8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */,
 				8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */,
@@ -614,6 +622,7 @@
 				8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */,
 				8293137328341D45000422BC /* Key.swift in Sources */,
 				82234A07284FCA1800A59775 /* UserAPI.swift in Sources */,
+				82234A232863B82000A59775 /* URL+Components.swift in Sources */,
 				8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */,
 				8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */,
 				822349F3284A951B00A59775 /* ApolloManager.swift in Sources */,

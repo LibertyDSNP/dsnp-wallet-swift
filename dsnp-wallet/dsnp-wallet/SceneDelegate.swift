@@ -7,10 +7,12 @@
 
 import UIKit
 import DSNPWallet
+import Foundation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private let dlManager = DeeplinkManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -28,6 +30,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = rootViewController
         self.window = window
         window.makeKeyAndVisible()
+        
+        dlManager.set(with: connectionOptions.urlContexts.first?.url)
+        addDeeplinkObserver()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -57,7 +62,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        dlManager.set(with: URLContexts.first?.url)
+    }
 }
 
+//Deeplinking Logic
+extension SceneDelegate {
+    private func addDeeplinkObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.handleDeeplinkNotification(notification:)),
+                                               name: Notification.Name(Notifications.retrievedKeys.rawValue),
+                                               object: nil)
+    }
+    
+    @objc func handleDeeplinkNotification(notification: Notification) {
+        dlManager.signMsg()
+    }
+}
