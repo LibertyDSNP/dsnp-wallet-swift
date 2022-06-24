@@ -74,17 +74,15 @@ extension PinViewController {
     }
     
     @objc func tappedSaveBtn(selector: UIButton?) {
-        var alertText = ""
-        var pinSuccess = AccountKeychain.shared.accessPin == pinTextField.text
-        if hasAccessPin {
-            alertText = pinSuccess ? "Signed in" : "Incorrect pin"
-        } else {
-            AccountKeychain.shared.accessPin = pinTextField.text
-            alertText = "Saved pin"
-            pinSuccess = true
-        }
-        
-        let alert = UIAlertController(title: alertText, message: nil, preferredStyle: .alert)
+        let isAuthorized = AccountKeychain.shared.validatePin(pinTextField.text)
+        let authorizeTitle = isAuthorized ? "Signed in" : "Incorrect pin"
+        let alertTitle = hasAccessPin ? authorizeTitle : "Saved pin"
+        presentPinSuccessAlert(title: alertTitle,
+                               pinSuccess: isAuthorized)
+    }
+    
+    private func presentPinSuccessAlert(title: String, pinSuccess: Bool) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             if !pinSuccess {
                 return
