@@ -57,6 +57,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        
+        //Accounts for when user has already entered pin, and has keys, then notify of retrieved keys.
+        if let _ = try? DSNPWallet().loadKeys(),
+           AccountKeychain.shared.isAuthorized {
+            NotificationCenter.default.post(name: Notification.Name(Notifications.retrievedKeys.rawValue),
+                                            object: nil)
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -68,14 +75,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let urlContext = URLContexts.first else { return }
         dlManager.set(with: urlContext.url)
-        
-        if let _ = try? DSNPWallet().loadKeys() {
-            dlManager.signMsg()
-        } else {
-            // This observer will only be hit when we've implemented enter pin
-            // after app enters foreground.
-            addDeeplinkObserver()
-        }
+
+        addDeeplinkObserver()
     }
 }
 
