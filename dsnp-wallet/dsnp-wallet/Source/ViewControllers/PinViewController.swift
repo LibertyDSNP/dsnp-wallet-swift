@@ -13,7 +13,7 @@ class PinViewController: UIViewController {
     private var keys: DSNPKeys?
     
     //MARK: Constants
-    private lazy var hasAccessPin = AccountKeychain.shared.accessPin != nil
+    private lazy var hasAccessPin = AuthManager.shared.accessPin != nil
     private lazy var saveBtnText: String = { return hasAccessPin ? "Enter" : "Save" }()
     private let pinLength = 6
     private lazy var pinTextFieldPlaceHolderText = "Enter \(pinLength) digit pin"
@@ -74,7 +74,7 @@ extension PinViewController {
     }
     
     @objc func tappedSaveBtn(selector: UIButton?) {
-        let isAuthorized = AccountKeychain.shared.validatePin(pinTextField.text)
+        let isAuthorized = AuthManager.shared.validatePin(pinTextField.text)
         let authorizeTitle = isAuthorized ? "Signed in" : "Incorrect pin"
         let alertTitle = hasAccessPin ? authorizeTitle : "Saved pin"
         presentPinSuccessAlert(title: alertTitle,

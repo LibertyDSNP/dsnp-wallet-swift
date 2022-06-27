@@ -9,7 +9,7 @@ import Foundation
 import DSNPWallet
 import UIKit
 
-enum Notifications: String {
+enum NotificationType: String {
     case retrievedKeys
 }
 
@@ -21,8 +21,10 @@ class DeeplinkManager {
         guard let url = url else { return }
         callback = url.components?["x-callback-url"]
         message = url.components?["message"]
+        
+        addDeeplinkObserver(for: .retrievedKeys)
     }
-    
+        
     func signMsg() {
         guard let callback = callback,
               let message = message else { return }
@@ -51,4 +53,17 @@ class DeeplinkManager {
             print("Invalid url")
         }
     }
+    
+    private func addDeeplinkObserver(for notification: NotificationType) {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.handleDeeplinkNotification(notification:)),
+                                               name: Notification.Name(notification.rawValue),
+                                               object: nil)
+    }
+    
+    @objc func handleDeeplinkNotification(notification: Notification) {
+        signMsg()
+        NotificationCenter.default.removeObserver(self)
+    }
 }
+

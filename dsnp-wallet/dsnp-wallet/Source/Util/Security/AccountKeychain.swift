@@ -8,12 +8,10 @@
 import Foundation
 
 class AccountKeychain {
-    static var shared = AccountKeychain()
-    
     private let kAccessPin = "access_pin"
     var isAuthorized: Bool = false {
         didSet {
-            NotificationCenter.default.post(name: Notification.Name(Notifications.retrievedKeys.rawValue),
+            NotificationCenter.default.post(name: Notification.Name(NotificationType.retrievedKeys.rawValue),
                                             object: nil)
         }
     }

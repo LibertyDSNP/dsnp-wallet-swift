@@ -33,7 +33,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let urlContext = connectionOptions.urlContexts.first {
             dlManager.set(with: urlContext.url)
-            addDeeplinkObserver()
         }
     }
 
@@ -59,9 +58,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to undo the changes made on entering the background.
         
         //Accounts for when user has already entered pin, and has keys, then notify of retrieved keys.
-        if let _ = try? DSNPWallet().loadKeys(),
-           AccountKeychain.shared.isAuthorized {
-            NotificationCenter.default.post(name: Notification.Name(Notifications.retrievedKeys.rawValue),
+        if let _ = AuthManager.shared.loadKeys(authRequired: true) {
+            NotificationCenter.default.post(name: Notification.Name(NotificationType.retrievedKeys.rawValue),
                                             object: nil)
         }
     }
@@ -75,22 +73,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let urlContext = URLContexts.first else { return }
         dlManager.set(with: urlContext.url)
-
-        addDeeplinkObserver()
-    }
-}
-
-//Deeplinking Logic
-extension SceneDelegate {
-    private func addDeeplinkObserver() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.handleDeeplinkNotification(notification:)),
-                                               name: Notification.Name(Notifications.retrievedKeys.rawValue),
-                                               object: nil)
-    }
-    
-    @objc func handleDeeplinkNotification(notification: Notification) {
-        dlManager.signMsg()
-        NotificationCenter.default.removeObserver(self)
     }
 }
