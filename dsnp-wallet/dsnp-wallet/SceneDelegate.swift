@@ -12,7 +12,7 @@ import Foundation
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private let dlManager = DeeplinkManager()
+    private lazy var dlManager = DeeplinkManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         
         if let urlContext = connectionOptions.urlContexts.first {
-            dlManager.set(with: urlContext.url)
+            dlManager.add(url: urlContext.url)
         }
     }
 
@@ -59,6 +59,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //Accounts for when user has already entered pin, and has keys, then notify of retrieved keys.
         if let _ = AuthManager.shared.loadKeys(authRequired: true) {
+            dlManager.viewController = window?.rootViewController
             NotificationCenter.default.post(name: Notification.Name(NotificationType.retrievedKeys.rawValue),
                                             object: nil)
         }
@@ -72,6 +73,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let urlContext = URLContexts.first else { return }
-        dlManager.set(with: urlContext.url)
+        dlManager.viewController = window?.rootViewController
+        dlManager.add(url: urlContext.url)
     }
 }

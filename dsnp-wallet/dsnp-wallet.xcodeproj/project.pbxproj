@@ -64,6 +64,7 @@
 		8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC15282C2B3E00DEF1E9 /* DSNPWallet */; };
 		8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */; };
 		8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */; };
+		82685A1628761DC2006E1B35 /* NotificationCenter+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82685A1528761DC2006E1B35 /* NotificationCenter+Duplicates.swift */; };
 		8279BAF3283EDC1C00543C0F /* KeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */; };
 		82931361282ECF1C000422BC /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931360282ECF1C000422BC /* PinViewController.swift */; };
 		82931363282ED519000422BC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931362282ED519000422BC /* Keychain.swift */; };
@@ -108,7 +109,7 @@
 		82234A162851656800A59775 /* Login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Login.json; sourceTree = "<group>"; };
 		82234A1E2863B78000A59775 /* DeeplinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeeplinkManager.swift; path = "DSNP-Wallet/Source/Util/DeeplinkManager.swift"; sourceTree = SOURCE_ROOT; };
 		82234A222863B82000A59775 /* URL+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL+Components.swift"; path = "DSNP-Wallet/Source/Extensions/URL+Components.swift"; sourceTree = SOURCE_ROOT; };
-		8223AB572818917700DEF1E9 /* dsnp-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "dsnp-wallet.app"; path = "DSNP-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8223AB572818917700DEF1E9 /* DSNP-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSNP-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223AB5A2818917700DEF1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8223AB612818917700DEF1E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 		8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProfileHeaderViewController.swift; sourceTree = "<group>"; };
 		8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateKeysViewController.swift; sourceTree = "<group>"; };
 		8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		82685A1528761DC2006E1B35 /* NotificationCenter+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Duplicates.swift"; sourceTree = "<group>"; };
 		8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysViewModel.swift; sourceTree = "<group>"; };
 		82931360282ECF1C000422BC /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		82931362282ED519000422BC /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -266,7 +268,7 @@
 		8223AB582818917700DEF1E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8223AB572818917700DEF1E9 /* dsnp-wallet.app */,
+				8223AB572818917700DEF1E9 /* DSNP-Wallet.app */,
 				8223AB6D2818917800DEF1E9 /* DSNP-WalletTests.xctest */,
 				8223AB772818917900DEF1E9 /* DSNP-WalletUITests.xctest */,
 			);
@@ -329,6 +331,7 @@
 				822349DC28401C4E00A59775 /* UIImage+Theme.swift */,
 				822349E02846908000A59775 /* UINavigationItem+Theme.swift */,
 				82234A222863B82000A59775 /* URL+Components.swift */,
+				82685A1528761DC2006E1B35 /* NotificationCenter+Duplicates.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -473,7 +476,7 @@
 				822349EE284A8C9100A59775 /* ApolloWebSocket */,
 			);
 			productName = "dsnp-wallet";
-			productReference = 8223AB572818917700DEF1E9 /* dsnp-wallet.app */;
+			productReference = 8223AB572818917700DEF1E9 /* DSNP-Wallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8223AB6C2818917800DEF1E9 /* DSNP-WalletTests */ = {
@@ -615,6 +618,7 @@
 				8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */,
 				82234A1F2863B78000A59775 /* DeeplinkManager.swift in Sources */,
 				82931363282ED519000422BC /* Keychain.swift in Sources */,
+				82685A1628761DC2006E1B35 /* NotificationCenter+Duplicates.swift in Sources */,
 				8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */,
 				8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */,
 				8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */,
@@ -828,7 +832,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = U95Q67332B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
@@ -858,7 +862,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = U95Q67332B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";

@@ -69,4 +69,8 @@ class TabBarViewController: UITabBarController {
             }
         }
     }
+    
+    public func navigateToProfile() {
+        //TODO: Deeplinking to different parts of the app
+    }
 }
