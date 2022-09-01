@@ -18,13 +18,11 @@ class GenerateKeysViewController: UIViewController {
     }
     
     private func manageKeys() {
-        do {
-            if let keys = try DSNPWallet().loadKeys() {
-                DispatchQueue.main.async { [weak self] in
-                    self?.presentPinVC(with: keys)
-                }
+        if let keys = AuthManager.shared.loadKeys() {
+            DispatchQueue.main.async { [weak self] in
+                self?.presentPinVC(with: keys)
             }
-        } catch {
+        } else {
             setBtn()
             
             let alert = UIAlertController(title: "Error loading keys", message: nil, preferredStyle: .alert)

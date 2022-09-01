@@ -13,7 +13,7 @@ class PinViewController: UIViewController {
     private var keys: DSNPKeys?
     
     //MARK: Constants
-    private lazy var hasAccessPin = AccountKeychain.shared.accessPin != nil
+    private lazy var hasAccessPin = AuthManager.shared.accessPin != nil
     private lazy var saveBtnText: String = { return hasAccessPin ? "Enter" : "Save" }()
     private let pinLength = 6
     private lazy var pinTextFieldPlaceHolderText = "Enter \(pinLength) digit pin"
@@ -74,17 +74,15 @@ extension PinViewController {
     }
     
     @objc func tappedSaveBtn(selector: UIButton?) {
-        var alertText = ""
-        var pinSuccess = AccountKeychain.shared.accessPin == pinTextField.text
-        if hasAccessPin {
-            alertText = pinSuccess ? "Signed in" : "Incorrect pin"
-        } else {
-            AccountKeychain.shared.accessPin = pinTextField.text
-            alertText = "Saved pin"
-            pinSuccess = true
-        }
-        
-        let alert = UIAlertController(title: alertText, message: nil, preferredStyle: .alert)
+        let isAuthorized = AuthManager.shared.validatePin(pinTextField.text)
+        let authorizeTitle = isAuthorized ? "Signed in" : "Incorrect pin"
+        let alertTitle = hasAccessPin ? authorizeTitle : "Saved pin"
+        presentPinSuccessAlert(title: alertTitle,
+                               pinSuccess: isAuthorized)
+    }
+    
+    private func presentPinSuccessAlert(title: String, pinSuccess: Bool) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             if !pinSuccess {
                 return

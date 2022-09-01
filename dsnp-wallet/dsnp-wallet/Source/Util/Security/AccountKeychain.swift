@@ -8,10 +8,15 @@
 import Foundation
 
 class AccountKeychain {
-    static var shared = AccountKeychain()
-    
     private let kAccessPin = "access_pin"
-    
+    var isAuthorized: Bool = false {
+        didSet {
+            guard isAuthorized else { return }
+            NotificationCenter.default.post(name: Notification.Name(NotificationType.retrievedKeys.rawValue),
+                                            object: nil)
+        }
+    }
+
     var accessPin: String? {
         get {
             return Keychain.shared[kAccessPin]
@@ -21,7 +26,18 @@ class AccountKeychain {
         }
     }
     
+    func validatePin(_ pin: String?) -> Bool {
+        if accessPin != nil {
+            isAuthorized = pin == accessPin
+        } else {
+            accessPin = pin
+            isAuthorized = true
+        }
+        return isAuthorized
+    }
+    
     public func clearAuthorization() {
         self.accessPin = nil
+        isAuthorized = false
     }
 }
