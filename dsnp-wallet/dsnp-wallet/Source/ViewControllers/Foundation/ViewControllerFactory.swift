@@ -17,6 +17,7 @@ enum ViewControllerFactory: String, CaseIterable {
     case profileViewController
     case keysViewController
     case settingsViewController
+    case testViewController
     
     var className: String {
         return self.rawValue.firstUppercased
@@ -29,7 +30,8 @@ enum ViewControllerFactory: String, CaseIterable {
                 .keysViewController,
                 .generateKeysViewController,
                 .pinViewController,
-                .settingsViewController:
+                .settingsViewController,
+                .testViewController:
             return nil
         default:
             return self.rawValue.firstUppercased

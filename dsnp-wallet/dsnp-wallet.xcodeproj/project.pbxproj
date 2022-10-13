@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27C3984DA18D870595132577 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */; };
+		5CDA78E486CB5F1D23F6E3B1 /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646DFA7C356C444F0BB8417C /* Pods_DSNP_Wallet.framework */; };
+		660C87667D9146961E570C4F /* Pods_DSNP_WalletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E83422E569F45BDA5DB7FF3 /* Pods_DSNP_WalletTests.framework */; };
+		821855AE28F787530047D479 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821855AD28F787530047D479 /* Logger.swift */; };
 		822349DA284004D700A59775 /* KeysViewController+Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349D9284004D700A59775 /* KeysViewController+Backup.swift */; };
 		822349DD28401C4E00A59775 /* UIImage+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349DC28401C4E00A59775 /* UIImage+Theme.swift */; };
 		822349E12846908000A59775 /* UINavigationItem+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349E02846908000A59775 /* UINavigationItem+Theme.swift */; };
@@ -64,6 +68,8 @@
 		8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC15282C2B3E00DEF1E9 /* DSNPWallet */; };
 		8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */; };
 		8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */; };
+		8255B9BB28F77F2400FA941A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255B9BA28F77F2400FA941A /* TestViewController.swift */; };
+		8255B9CD28F782DF00FA941A /* RuntimeVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255B9CC28F782DF00FA941A /* RuntimeVersion.swift */; };
 		82685A1628761DC2006E1B35 /* NotificationCenter+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82685A1528761DC2006E1B35 /* NotificationCenter+Duplicates.swift */; };
 		8279BAF3283EDC1C00543C0F /* KeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */; };
 		82931361282ECF1C000422BC /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931360282ECF1C000422BC /* PinViewController.swift */; };
@@ -73,6 +79,7 @@
 		82C4DDEF283D459400A95E2A /* UserAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDEE283D459400A95E2A /* UserAPITests.swift */; };
 		82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */; };
 		82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */; };
+		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +100,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E83422E569F45BDA5DB7FF3 /* Pods_DSNP_WalletTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_WalletTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23745CD68A0AB70F94ADE1C3 /* Pods-DSNP-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet/Pods-DSNP-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
+		2517E3B47142A1580358DD88 /* Pods-DSNP-Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet.release.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet/Pods-DSNP-Wallet.release.xcconfig"; sourceTree = "<group>"; };
+		646DFA7C356C444F0BB8417C /* Pods_DSNP_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6B0E5797BCF918F0CDA75F /* Pods-DSNP-WalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-WalletTests.release.xcconfig"; path = "Target Support Files/Pods-DSNP-WalletTests/Pods-DSNP-WalletTests.release.xcconfig"; sourceTree = "<group>"; };
+		76D937A6B40AB26A1A861F45 /* Pods-DSNP-Wallet-DSNP-WalletUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.release.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.release.xcconfig"; sourceTree = "<group>"; };
+		770C3B73C1BC90FB3DCC269E /* Pods-DSNP-WalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-WalletTests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-WalletTests/Pods-DSNP-WalletTests.debug.xcconfig"; sourceTree = "<group>"; };
+		821855AD28F787530047D479 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		822349D9284004D700A59775 /* KeysViewController+Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeysViewController+Backup.swift"; sourceTree = "<group>"; };
 		822349DC28401C4E00A59775 /* UIImage+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Theme.swift"; sourceTree = "<group>"; };
 		822349E02846908000A59775 /* UINavigationItem+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Theme.swift"; sourceTree = "<group>"; };
@@ -148,6 +163,9 @@
 		8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProfileHeaderViewController.swift; sourceTree = "<group>"; };
 		8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateKeysViewController.swift; sourceTree = "<group>"; };
 		8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		8255B9BA28F77F2400FA941A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		8255B9CC28F782DF00FA941A /* RuntimeVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeVersion.swift; sourceTree = "<group>"; };
+		8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_DSNP_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82685A1528761DC2006E1B35 /* NotificationCenter+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Duplicates.swift"; sourceTree = "<group>"; };
 		8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysViewModel.swift; sourceTree = "<group>"; };
 		82931360282ECF1C000422BC /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +175,8 @@
 		82C4DDEE283D459400A95E2A /* UserAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPITests.swift; sourceTree = "<group>"; };
 		82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITestsLaunchTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITests.swift"; sourceTree = "<group>"; };
+		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +189,8 @@
 				822349EF284A8C9100A59775 /* ApolloWebSocket in Frameworks */,
 				8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */,
 				8223AC10282C2AEB00DEF1E9 /* SDWebImage in Frameworks */,
+				5CDA78E486CB5F1D23F6E3B1 /* Pods_DSNP_Wallet.framework in Frameworks */,
+				B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82234A10284FED0E00A59775 /* Mocker in Frameworks */,
+				660C87667D9146961E570C4F /* Pods_DSNP_WalletTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,12 +207,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27C3984DA18D870595132577 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01C8E457838017A024F8F6D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */,
+				646DFA7C356C444F0BB8417C /* Pods_DSNP_Wallet.framework */,
+				DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */,
+				0E83422E569F45BDA5DB7FF3 /* Pods_DSNP_WalletTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B866B93A2C7BFEBD23DFEDA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23745CD68A0AB70F94ADE1C3 /* Pods-DSNP-Wallet.debug.xcconfig */,
+				2517E3B47142A1580358DD88 /* Pods-DSNP-Wallet.release.xcconfig */,
+				D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */,
+				76D937A6B40AB26A1A861F45 /* Pods-DSNP-Wallet-DSNP-WalletUITests.release.xcconfig */,
+				770C3B73C1BC90FB3DCC269E /* Pods-DSNP-WalletTests.debug.xcconfig */,
+				6A6B0E5797BCF918F0CDA75F /* Pods-DSNP-WalletTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		822349DB2840054D00A59775 /* KeysViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,7 +248,7 @@
 			path = KeysViewController;
 			sourceTree = "<group>";
 		};
-		822349F1284A949C00A59775 /* GraphQL */ = {
+		822349F1284A949C00A59775 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				82234A00284FC65A00A59775 /* API */,
@@ -208,7 +256,7 @@
 				822349F4284A953600A59775 /* GraphQLEnvironment.swift */,
 				822349F6284A9A3800A59775 /* ApolloClientProtocol.swift */,
 			);
-			path = GraphQL;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		82234A00284FC65A00A59775 /* API */ = {
@@ -262,6 +310,8 @@
 				8223AB702818917800DEF1E9 /* DSNP-WalletTests */,
 				8223AB7A2818917900DEF1E9 /* DSNP-WalletUITests */,
 				8223AB582818917700DEF1E9 /* Products */,
+				3B866B93A2C7BFEBD23DFEDA /* Pods */,
+				01C8E457838017A024F8F6D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -343,11 +393,12 @@
 				8223AC17282C2DBF00DEF1E9 /* Shared */,
 				8223AC18282C2DD400DEF1E9 /* Foundation */,
 				8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */,
-				82931360282ECF1C000422BC /* PinViewController.swift */,
 				8223AB94281891ED00DEF1E9 /* HomeViewController.swift */,
+				82931360282ECF1C000422BC /* PinViewController.swift */,
 				8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */,
 				822349DB2840054D00A59775 /* KeysViewController */,
 				822349E2284693B100A59775 /* SettingsViewController.swift */,
+				8255B9BA28F77F2400FA941A /* TestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -408,11 +459,12 @@
 		8223AC09282ACB8100DEF1E9 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				822349F1284A949C00A59775 /* GraphQL */,
-				82931364282ED51C000422BC /* Security */,
+				8255B9C328F780A300FA941A /* JSONRPC */,
+				822349F1284A949C00A59775 /* Networking */,
+				82931364282ED51C000422BC /* Account */,
 				8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */,
-				822349E62846DBD100A59775 /* AuthManager.swift */,
 				82234A1E2863B78000A59775 /* DeeplinkManager.swift */,
+				821855AD28F787530047D479 /* Logger.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -443,13 +495,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		82931364282ED51C000422BC /* Security */ = {
+		8255B9C328F780A300FA941A /* JSONRPC */ = {
 			isa = PBXGroup;
 			children = (
+				8255B9CC28F782DF00FA941A /* RuntimeVersion.swift */,
+			);
+			path = JSONRPC;
+			sourceTree = "<group>";
+		};
+		82931364282ED51C000422BC /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				822349E62846DBD100A59775 /* AuthManager.swift */,
 				82931362282ED519000422BC /* Keychain.swift */,
 				82931365282ED548000422BC /* AccountKeychain.swift */,
 			);
-			path = Security;
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,9 +520,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8223AB812818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-Wallet" */;
 			buildPhases = (
+				B2CB0F8E091017122AD374A2 /* [CP] Check Pods Manifest.lock */,
 				8223AB532818917700DEF1E9 /* Sources */,
 				8223AB542818917700DEF1E9 /* Frameworks */,
 				8223AB552818917700DEF1E9 /* Resources */,
+				B6D9CA606F8C0101AD965AD2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -483,6 +546,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8223AB842818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-WalletTests" */;
 			buildPhases = (
+				0D9708DABE28B6C745195F1B /* [CP] Check Pods Manifest.lock */,
 				8223AB692818917800DEF1E9 /* Sources */,
 				8223AB6A2818917800DEF1E9 /* Frameworks */,
 				8223AB6B2818917800DEF1E9 /* Resources */,
@@ -504,9 +568,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8223AB872818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-WalletUITests" */;
 			buildPhases = (
+				BD1CF4B49E79AEAED3C39AF6 /* [CP] Check Pods Manifest.lock */,
 				8223AB732818917900DEF1E9 /* Sources */,
 				8223AB742818917900DEF1E9 /* Frameworks */,
 				8223AB752818917900DEF1E9 /* Resources */,
+				14C477B901AF0BBEB359D290 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -553,9 +619,9 @@
 			mainGroup = 8223AB4E2818917700DEF1E9;
 			packageReferences = (
 				8223AC0E282C2AEB00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift.git" */,
 				8223AC14282C2B3E00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */,
-				822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios.git" */,
 				82234A0E284FED0E00A59775 /* XCRemoteSwiftPackageReference "Mocker" */,
 			);
 			productRefGroup = 8223AB582818917700DEF1E9 /* Products */;
@@ -603,6 +669,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D9708DABE28B6C745195F1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DSNP-WalletTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14C477B901AF0BBEB359D290 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2CB0F8E091017122AD374A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DSNP-Wallet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6D9CA606F8C0101AD965AD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet/Pods-DSNP-Wallet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet/Pods-DSNP-Wallet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet/Pods-DSNP-Wallet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD1CF4B49E79AEAED3C39AF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DSNP-Wallet-DSNP-WalletUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8223AB532818917700DEF1E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -610,16 +779,19 @@
 			files = (
 				8223AC062829AFC500DEF1E9 /* SharedTextField.swift in Sources */,
 				8223AC0228247EDA00DEF1E9 /* SharedStackView.swift in Sources */,
+				8255B9BB28F77F2400FA941A /* TestViewController.swift in Sources */,
 				8223AC0B282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift in Sources */,
 				8223ABFF28247E8F00DEF1E9 /* UIView+FromNib.swift in Sources */,
 				8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */,
 				82931366282ED548000422BC /* AccountKeychain.swift in Sources */,
+				821855AE28F787530047D479 /* Logger.swift in Sources */,
 				8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */,
 				8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */,
 				82234A1F2863B78000A59775 /* DeeplinkManager.swift in Sources */,
 				82931363282ED519000422BC /* Keychain.swift in Sources */,
 				82685A1628761DC2006E1B35 /* NotificationCenter+Duplicates.swift in Sources */,
 				8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */,
+				8255B9CD28F782DF00FA941A /* RuntimeVersion.swift in Sources */,
 				8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */,
 				8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */,
 				8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */,
@@ -828,6 +1000,7 @@
 		};
 		8223AB822818917900DEF1E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23745CD68A0AB70F94ADE1C3 /* Pods-DSNP-Wallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -858,6 +1031,7 @@
 		};
 		8223AB832818917900DEF1E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2517E3B47142A1580358DD88 /* Pods-DSNP-Wallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -888,6 +1062,7 @@
 		};
 		8223AB852818917900DEF1E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 770C3B73C1BC90FB3DCC269E /* Pods-DSNP-WalletTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -908,6 +1083,7 @@
 		};
 		8223AB862818917900DEF1E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A6B0E5797BCF918F0CDA75F /* Pods-DSNP-WalletTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -928,6 +1104,7 @@
 		};
 		8223AB882818917900DEF1E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -955,6 +1132,7 @@
 		};
 		8223AB892818917900DEF1E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76D937A6B40AB26A1A861F45 /* Pods-DSNP-Wallet-DSNP-WalletUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1021,7 +1199,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+		822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
 			requirement = {
@@ -1045,7 +1223,7 @@
 				kind = branch;
 			};
 		};
-		8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+		8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
 			requirement = {
@@ -1066,12 +1244,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		822349EC284A8C9100A59775 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			package = 822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios.git" */;
 			productName = Apollo;
 		};
 		822349EE284A8C9100A59775 /* ApolloWebSocket */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			package = 822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios.git" */;
 			productName = ApolloWebSocket;
 		};
 		82234A0F284FED0E00A59775 /* Mocker */ = {
@@ -1086,7 +1264,7 @@
 		};
 		8223AC12282C2AFB00DEF1E9 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			package = 8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift.git" */;
 			productName = KeychainSwift;
 		};
 		8223AC15282C2B3E00DEF1E9 /* DSNPWallet */ = {
