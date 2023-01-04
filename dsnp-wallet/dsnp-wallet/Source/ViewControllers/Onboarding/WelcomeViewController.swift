@@ -26,7 +26,7 @@ class WelcomeViewController: UIViewController {
         
         view.backgroundColor = .white
         setBtns()
-        setLinksLabel()
+        setLinksTextView()
         setupStackView()
     }
     
@@ -83,7 +83,7 @@ class WelcomeViewController: UIViewController {
         restoreBtn?.addTarget(self, action: #selector(didTapBtn(selector:)), for: .touchUpInside)
     }
     
-    private func setLinksLabel() {
+    private func setLinksTextView() {
         let attributedString = NSMutableAttributedString(string: "By signing up, you agree to our Terms and Privacy Policy")
         let termsLinkWasSet = attributedString.setAsLink(textToFind: "Terms", linkURL: "https://www.dsnp.org/privacy.html")
         let privacyPolicyLinkWasSet = attributedString.setAsLink(textToFind: "Privacy Policy", linkURL: "https://www.dsnp.org/privacy.html")
