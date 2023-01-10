@@ -73,6 +73,11 @@
 		82C4DDEF283D459400A95E2A /* UserAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDEE283D459400A95E2A /* UserAPITests.swift */; };
 		82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */; };
 		82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */; };
+		82DD90FB2966007F00A508B9 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FA2966007F00A508B9 /* WelcomeViewController.swift */; };
+		82DD90FD2966162600A508B9 /* NSMutableAttributedString+Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FC2966162600A508B9 /* NSMutableAttributedString+Link.swift */; };
+		82DD910029661D8300A508B9 /* LookUpDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */; };
+		82DD910229661DBB00A508B9 /* CreateDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */; };
+		82DD910429661E1200A508B9 /* RestoreDsnpWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +162,11 @@
 		82C4DDEE283D459400A95E2A /* UserAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPITests.swift; sourceTree = "<group>"; };
 		82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITestsLaunchTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITests.swift"; sourceTree = "<group>"; };
+		82DD90FA2966007F00A508B9 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		82DD90FC2966162600A508B9 /* NSMutableAttributedString+Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Link.swift"; sourceTree = "<group>"; };
+		82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpDsnpIdViewController.swift; sourceTree = "<group>"; };
+		82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDsnpIdViewController.swift; sourceTree = "<group>"; };
+		82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreDsnpWalletViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */,
+				82DD90FC2966162600A508B9 /* NSMutableAttributedString+Link.swift */,
 				8223AB90281891ED00DEF1E9 /* String+Utils.swift */,
 				8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */,
 				8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */,
@@ -339,6 +350,7 @@
 		8223AB91281891ED00DEF1E9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				82DD90FE29661D3900A508B9 /* Onboarding */,
 				8223AB95281891EE00DEF1E9 /* TabBarViewController */,
 				8223AC17282C2DBF00DEF1E9 /* Shared */,
 				8223AC18282C2DD400DEF1E9 /* Foundation */,
@@ -450,6 +462,17 @@
 				82931365282ED548000422BC /* AccountKeychain.swift */,
 			);
 			path = Security;
+			sourceTree = "<group>";
+		};
+		82DD90FE29661D3900A508B9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				82DD90FA2966007F00A508B9 /* WelcomeViewController.swift */,
+				82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */,
+				82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */,
+				82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -613,8 +636,11 @@
 				8223AC0B282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift in Sources */,
 				8223ABFF28247E8F00DEF1E9 /* UIView+FromNib.swift in Sources */,
 				8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */,
+				82DD90FB2966007F00A508B9 /* WelcomeViewController.swift in Sources */,
+				82DD910229661DBB00A508B9 /* CreateDsnpIdViewController.swift in Sources */,
 				82931366282ED548000422BC /* AccountKeychain.swift in Sources */,
 				8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */,
+				82DD90FD2966162600A508B9 /* NSMutableAttributedString+Link.swift in Sources */,
 				8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */,
 				82234A1F2863B78000A59775 /* DeeplinkManager.swift in Sources */,
 				82931363282ED519000422BC /* Keychain.swift in Sources */,
@@ -626,6 +652,7 @@
 				8293137328341D45000422BC /* Key.swift in Sources */,
 				82234A07284FCA1800A59775 /* UserAPI.swift in Sources */,
 				82234A232863B82000A59775 /* URL+Components.swift in Sources */,
+				82DD910429661E1200A508B9 /* RestoreDsnpWalletViewController.swift in Sources */,
 				8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */,
 				8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */,
 				822349F3284A951B00A59775 /* ApolloManager.swift in Sources */,
@@ -652,6 +679,7 @@
 				822349E72846DBD100A59775 /* AuthManager.swift in Sources */,
 				822349E12846908000A59775 /* UINavigationItem+Theme.swift in Sources */,
 				822349F5284A953600A59775 /* GraphQLEnvironment.swift in Sources */,
+				82DD910029661D8300A508B9 /* LookUpDsnpIdViewController.swift in Sources */,
 				822349E3284693B100A59775 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
