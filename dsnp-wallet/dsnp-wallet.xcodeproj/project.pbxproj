@@ -78,6 +78,10 @@
 		82DD910029661D8300A508B9 /* LookUpDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */; };
 		82DD910229661DBB00A508B9 /* CreateDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */; };
 		82DD910429661E1200A508B9 /* RestoreDsnpWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */; };
+		82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD91052967755200A508B9 /* SeedPhraseViewController.swift */; };
+		82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */; };
+		82DD910B296CBC7100A508B9 /* SeedPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */; };
+		82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +171,10 @@
 		82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpDsnpIdViewController.swift; sourceTree = "<group>"; };
 		82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDsnpIdViewController.swift; sourceTree = "<group>"; };
 		82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreDsnpWalletViewController.swift; sourceTree = "<group>"; };
+		82DD91052967755200A508B9 /* SeedPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewController.swift; sourceTree = "<group>"; };
+		82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseColumnFlowLayout.swift; sourceTree = "<group>"; };
+		82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewModel.swift; sourceTree = "<group>"; };
+		82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,8 +479,20 @@
 				82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */,
 				82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */,
 				82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */,
+				82DD9107296CBB4E00A508B9 /* SeedPhrase */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		82DD9107296CBB4E00A508B9 /* SeedPhrase */ = {
+			isa = PBXGroup;
+			children = (
+				82DD91052967755200A508B9 /* SeedPhraseViewController.swift */,
+				82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */,
+				82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */,
+				82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */,
+			);
+			path = SeedPhrase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -633,6 +653,7 @@
 			files = (
 				8223AC062829AFC500DEF1E9 /* SharedTextField.swift in Sources */,
 				8223AC0228247EDA00DEF1E9 /* SharedStackView.swift in Sources */,
+				82DD910B296CBC7100A508B9 /* SeedPhraseViewModel.swift in Sources */,
 				8223AC0B282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift in Sources */,
 				8223ABFF28247E8F00DEF1E9 /* UIView+FromNib.swift in Sources */,
 				8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */,
@@ -646,6 +667,7 @@
 				82931363282ED519000422BC /* Keychain.swift in Sources */,
 				82685A1628761DC2006E1B35 /* NotificationCenter+Duplicates.swift in Sources */,
 				8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */,
+				82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */,
 				8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */,
 				8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */,
 				8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */,
@@ -661,6 +683,7 @@
 				8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */,
 				82234A03284FC66800A59775 /* User.swift in Sources */,
 				8279BAF3283EDC1C00543C0F /* KeysViewModel.swift in Sources */,
+				82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */,
 				82931361282ECF1C000422BC /* PinViewController.swift in Sources */,
 				8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */,
 				8223AC082829B3AF00DEF1E9 /* SharedImagePicker.swift in Sources */,
@@ -676,6 +699,7 @@
 				8223ABA4281891EE00DEF1E9 /* ViewControllerFactory.swift in Sources */,
 				8223ABA1281891EE00DEF1E9 /* TabBarViewController.swift in Sources */,
 				8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */,
+				82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */,
 				822349E72846DBD100A59775 /* AuthManager.swift in Sources */,
 				822349E12846908000A59775 /* UINavigationItem+Theme.swift in Sources */,
 				822349F5284A953600A59775 /* GraphQLEnvironment.swift in Sources */,
