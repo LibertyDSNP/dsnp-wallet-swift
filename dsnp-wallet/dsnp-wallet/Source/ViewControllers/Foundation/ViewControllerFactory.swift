@@ -21,6 +21,7 @@ enum ViewControllerFactory: String, CaseIterable {
     case lookUpDsnpIdViewController
     case createDsnpIdViewController
     case restoreDsnpIdViewController
+    case seedPhraseViewController
     
     var className: String {
         return self.rawValue.firstUppercased
@@ -37,7 +38,8 @@ enum ViewControllerFactory: String, CaseIterable {
                 .welcomeViewController,
                 .lookUpDsnpIdViewController,
                 .createDsnpIdViewController,
-                .restoreDsnpIdViewController:
+                .restoreDsnpIdViewController,
+                .seedPhraseViewController:
             return nil
         default:
             return self.rawValue.firstUppercased
