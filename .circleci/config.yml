@@ -1,0 +1,65 @@
+version: 2.1
+
+orbs:
+  slack: circleci/slack@4.12.0
+
+commands: # a reusable command with parameters
+  send_slack_message:
+    parameters:
+      icon: 
+        default: ":large_blue_circle:"
+        type: string
+      message:
+        default: "No Message were provided"
+        type: string
+      event: # always, fail
+        default: "always"
+        type: string  
+    steps:
+      - slack/notify:
+          custom: >
+            {
+               "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                      "type": "mrkdwn",
+                      "text": "<<parameters.icon>> <<parameters.message>>"
+                  }
+                }
+              ]
+            } 
+          event: <<parameters.event>>
+          channel: automation-alerts
+
+jobs:
+  build-simulator-app-center:
+    macos:
+      xcode: 14.0.1 
+    parameters: # parameters are at the job level
+      build_env:
+        type: string
+        default: "dev" 
+    steps:
+      - send_slack_message: 
+          event: "always"
+          message: "Building an app for simulator... \\n *Git Branch*: $CIRCLE_BRANCH \\n *Launch trigger*: $CIRCLE_USERNAME"
+      - checkout
+      - run:
+          name: Build an app for simulator
+          command: fastlane build_app_for_simulator
+      
+      - run:
+          name: Archiving the binary app
+          command: fastlane zip_simulator_bin 
+      - run:
+          name: Upload build file for app center 
+          command: |
+            fastlane add_plugin appcenter
+            fastlane appcenter_upload_sim_app env:"<<parameters.build_env>>"
+
+workflows:
+  build_and_deploy:
+    jobs:
+      build-simulator-app-center:
+        test-suite : "dev" # dev or stg should be used
