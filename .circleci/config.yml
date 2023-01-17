@@ -30,7 +30,7 @@ commands: # a reusable command with parameters
               ]
             } 
           event: <<parameters.event>>
-          channel: automation-alerts
+          channel: ios-ci-alerts
 
 jobs:
   build-simulator-app-center:
