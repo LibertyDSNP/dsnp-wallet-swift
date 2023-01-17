@@ -63,4 +63,4 @@ workflows:
   build_and_deploy:
     jobs:
       - build-simulator-app-center:
-          test-suite : "dev" # dev or stg should be used
+          build_env : "dev" # dev or stg should be used
