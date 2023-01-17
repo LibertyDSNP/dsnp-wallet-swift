@@ -43,7 +43,7 @@ jobs:
     steps:
       - run:
           name: Run Smoke Test
-          command: circleci run --project-slug Liberty30/ios-testing --branch main
+          command: circleci build --project-slug Liberty30/ios-testing --branch main
 
   build-simulator-app-center:
     macos:
