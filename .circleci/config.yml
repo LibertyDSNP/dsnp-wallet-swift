@@ -59,7 +59,8 @@ jobs:
             fastlane appcenter_upload_sim_app env:"<<parameters.build_env>>"
 
 workflows:
+  version: 2
   build_and_deploy:
     jobs:
-      build-simulator-app-center:
-        test-suite : "dev" # dev or stg should be used
+      - build-simulator-app-center:
+          test-suite : "dev" # dev or stg should be used
