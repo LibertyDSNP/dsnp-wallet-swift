@@ -57,6 +57,15 @@ jobs:
           command: |
             fastlane add_plugin appcenter
             fastlane appcenter_upload_sim_app env:"<<parameters.build_env>>"
+      - send_slack_message: #"If all steps has passed"
+          event : "pass" 
+          icon: ":large_green_circle:"
+          message: "The app for simulator has been uploaded to App Center successfully"  
+      - send_slack_message: #"If atleast one step has failed"
+          event : "fail"  
+          icon: ":red_circle:"
+          message: "The Circle Ci build has failed!\\n 
+          *Ci Build URL*: $CIRCLE_BUILD_URL"
 
 workflows:
   version: 2
