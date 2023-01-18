@@ -1,0 +1,44 @@
+/**
+* Copyright Soramitsu Co., Ltd. All Rights Reserved.
+* SPDX-License-Identifier: GPL-3.0
+*/
+
+import Foundation
+
+public protocol AccountListViewModelFactoryProtocol: AnyObject {
+    func createAssetViewModel(for asset: WalletAsset,
+                              balance: BalanceData,
+                              commandFactory: WalletCommandFactoryProtocol,
+                              locale: Locale) -> WalletViewModelProtocol?
+    func createActionsViewModel(for assetId: String?,
+                                commandFactory: WalletCommandFactoryProtocol,
+                                locale: Locale) -> WalletViewModelProtocol?
+    func createShowMoreViewModel(for delegate: ShowMoreViewModelDelegate?,
+                                 locale: Locale) -> WalletViewModelProtocol?
+    func createAssetIconViewModel(for asset: WalletAsset) -> WalletImageViewModelProtocol?
+}
+
+public extension AccountListViewModelFactoryProtocol {
+    func createAssetViewModel(for asset: WalletAsset,
+                              balance: BalanceData,
+                              commandFactory: WalletCommandFactoryProtocol,
+                              locale: Locale)
+        -> WalletViewModelProtocol? {
+        return nil
+    }
+
+    func createActionsViewModel(for assetId: String?,
+                                commandFactory: WalletCommandFactoryProtocol,
+                                locale: Locale) -> WalletViewModelProtocol? {
+        return nil
+    }
+
+    func createShowMoreViewModel(for delegate: ShowMoreViewModelDelegate?,
+                                 locale: Locale) -> WalletViewModelProtocol? {
+        return nil
+    }
+
+    func createAssetIconViewModel(for asset: WalletAsset) -> WalletImageViewModelProtocol? {
+        return nil
+    }
+}
