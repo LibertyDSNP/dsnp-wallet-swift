@@ -17,6 +17,11 @@ enum ViewControllerFactory: String, CaseIterable {
     case profileViewController
     case keysViewController
     case settingsViewController
+    case welcomeViewController
+    case lookUpDsnpIdViewController
+    case createDsnpIdViewController
+    case restoreDsnpIdViewController
+    case seedPhraseViewController
     case testViewController
     
     var className: String {
@@ -31,6 +36,11 @@ enum ViewControllerFactory: String, CaseIterable {
                 .generateKeysViewController,
                 .pinViewController,
                 .settingsViewController,
+                .welcomeViewController,
+                .lookUpDsnpIdViewController,
+                .createDsnpIdViewController,
+                .restoreDsnpIdViewController,
+                .seedPhraseViewController,
                 .testViewController:
             return nil
         default:
@@ -38,7 +48,7 @@ enum ViewControllerFactory: String, CaseIterable {
         }
     }
     
-    func instance() -> UIViewController {        
+    func instance() -> UIViewController {
         var vc: UIViewController?
         if let storyboardName = self.storyboardName {
             let storyboard = UIStoryboard(name: storyboardName, bundle: nil)

@@ -17,4 +17,3 @@ extension NSMutableAttributedString {
        return false
    }
 }
-
