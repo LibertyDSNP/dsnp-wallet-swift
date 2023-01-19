@@ -47,7 +47,7 @@ platform :ios do
       api_token: ENV["APPCENTER_API_KEY"],
       owner_name: "Unfinished",
       app_name: "standalone-wallet-simulator-" + options[:"env"],
-      version: "next", #TODO needs tobe 
+      version: options[:"build_version"], #TODO needs to be 
       file: derived_data_path + "Build/Products/Debug-iphonesimulator/DSNP-Wallet.zip"
     )
   end

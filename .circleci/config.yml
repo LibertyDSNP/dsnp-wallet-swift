@@ -33,25 +33,18 @@ commands: # a reusable command with parameters
           channel: ios-ci-alerts
 
 jobs:
-  demo:
-    macos:
-      xcode: 14.0.1 
-    parameters: # parameters are at the job level
-      build_env:
-        type: string
-        default: "dev" 
-    steps:
-      - run:
-          name: Run Smoke Test
-          command: circleci build --project-slug Liberty30/ios-testing --branch main
-
   build-simulator-app-center:
     macos:
       xcode: 14.0.1 
+    
     parameters: # parameters are at the job level
       build_env:
         type: string
         default: "dev" 
+      build_version:
+        type: string
+        default: "1"  
+    
     steps:
       - send_slack_message: 
           event: "always"
@@ -68,7 +61,7 @@ jobs:
           name: Upload build file for app center 
           command: |
             fastlane add_plugin appcenter
-            fastlane appcenter_upload_sim_app env:"<<parameters.build_env>>"
+            fastlane appcenter_upload_sim_app  build_version:"<<parameters.build_version>>" env:"<<parameters.build_env>>"
       - send_slack_message: #"If all steps has passed"
           event : "pass" 
           icon: ":large_green_circle:"
@@ -78,11 +71,16 @@ jobs:
           icon: ":red_circle:"
           message: "The Circle Ci build has failed!\\n 
           *Ci Build URL*: $CIRCLE_BUILD_URL"
-
+      - run:
+          name: Launch Smoke Test 
+          command: |
+            curl --location --request POST 'https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline' \
+            --header 'Content-Type: application/json' \
+            --header 'Circle-Token: $TEST_FRAMEWORK_CIRCLECI_KEY' \
+            --data-raw '{"branch": "main"}'
 workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - demo
-      # - build-simulator-app-center:
-      #     build_env : "dev" # dev or stg should be used
+      - build-simulator-app-center:
+            build_env : "dev" # dev or stg should be used
