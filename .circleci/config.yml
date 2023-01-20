@@ -51,37 +51,32 @@ jobs:
           message: "Building an app for simulator... \\n *Git Branch*: $CIRCLE_BRANCH \\n *Launch trigger*: $CIRCLE_USERNAME"
       - checkout
       - run:
+          name: Build an app for simulator
+          command: fastlane build_app_for_simulator
+      - run:
+          name: Archiving the binary app
+          command: fastlane zip_simulator_bin 
+      - run:
+          name: Upload build file for app center 
+          command: |
+            fastlane add_plugin appcenter
+            fastlane appcenter_upload_sim_app  build_version:"<<parameters.build_version>>" env:"<<parameters.build_env>>"
+      - send_slack_message: #"If all steps has passed"
+          event : "pass" 
+          icon: ":large_green_circle:"
+          message: "The app for simulator has been uploaded to App Center successfully"  
+      - send_slack_message: #"If atleast one step has failed"
+          event : "fail"  
+          icon: ":red_circle:"
+          message: "The Circle Ci build has failed!\\n 
+          *Ci Build URL*: $CIRCLE_BUILD_URL"
+      - run:
           name: Launch Smoke Test 
           command: |
-            curl --location --request POST 'https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline' --header 'Content-Type: application/json' --header 'Circle-Token: $IOS_TEST_CIRCLEKEY' --data-raw '{"branch": "main"}'
-      # - run:
-      #     name: Build an app for simulator
-      #     command: fastlane build_app_for_simulator
-      
-      # - run:
-      #     name: Archiving the binary app
-      #     command: fastlane zip_simulator_bin 
-      # - run:
-      #     name: Upload build file for app center 
-      #     command: |
-      #       fastlane add_plugin appcenter
-      #       fastlane appcenter_upload_sim_app  build_version:"<<parameters.build_version>>" env:"<<parameters.build_env>>"
-      # - send_slack_message: #"If all steps has passed"
-      #     event : "pass" 
-      #     icon: ":large_green_circle:"
-      #     message: "The app for simulator has been uploaded to App Center successfully"  
-      # - send_slack_message: #"If atleast one step has failed"
-      #     event : "fail"  
-      #     icon: ":red_circle:"
-      #     message: "The Circle Ci build has failed!\\n 
-      #     *Ci Build URL*: $CIRCLE_BUILD_URL"
-      # - run:
-      #     name: Launch Smoke Test 
-      #     command: |
-      #       curl --location --request POST 'https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline' \
-      #       --header 'Content-Type: application/json' \
-      #       --header 'Circle-Token: "$TEST_FRAMEWORK_CIRCLECI_KEY"' \
-      #       --data-raw '{"branch": "main"}'
+            curl --location --request POST "https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline" \
+            --header "Content-Type: application/json" \
+            --header "Circle-Token: $IOS_TEST_CIRCLEKEY" \
+            "{\"branch\": \"main\"}"
 workflows:
   version: 2
   build_and_deploy:
