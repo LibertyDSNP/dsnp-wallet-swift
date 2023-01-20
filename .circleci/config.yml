@@ -61,6 +61,14 @@ jobs:
           command: |
             fastlane add_plugin appcenter
             fastlane appcenter_upload_sim_app  build_version:"<<parameters.build_version>>" env:"<<parameters.build_env>>"
+      - run:
+          name: Launch Smoke Test 
+          command: |
+            curl --location --request POST "https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline" \
+            --header "Content-Type: application/json" \
+            --header "Circle-Token: $IOS_TEST_CIRCLEKEY" \
+            "{\"branch\": \"main\"}"
+          continue_on_failure: true
       - send_slack_message: #"If all steps has passed"
           event : "pass" 
           icon: ":large_green_circle:"
@@ -70,13 +78,7 @@ jobs:
           icon: ":red_circle:"
           message: "The Circle Ci build has failed!\\n 
           *Ci Build URL*: $CIRCLE_BUILD_URL"
-      - run:
-          name: Launch Smoke Test 
-          command: |
-            curl --location --request POST "https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline" \
-            --header "Content-Type: application/json" \
-            --header "Circle-Token: $IOS_TEST_CIRCLEKEY" \
-            "{\"branch\": \"main\"}"
+      
 workflows:
   version: 2
   build_and_deploy:
