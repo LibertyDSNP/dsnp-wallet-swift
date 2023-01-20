@@ -53,7 +53,7 @@ jobs:
       - run:
           name: Launch Smoke Test 
           command: |
-            curl --location --request POST 'https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline' --header 'Content-Type: application/json' --header 'Circle-Token: $TEST_FRAMEWORK_CIRCLECI_KEY' --data-raw '{"branch": "main"}'
+            curl --location --request POST 'https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline' --header 'Content-Type: application/json' --header 'Circle-Token: $IOS_TEST_CIRCLEKEY' --data-raw '{"branch": "main"}'
       # - run:
       #     name: Build an app for simulator
       #     command: fastlane build_app_for_simulator
