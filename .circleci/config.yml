@@ -68,7 +68,6 @@ jobs:
             --header "Content-Type: application/json" \
             --header "Circle-Token: $IOS_TEST_CIRCLEKEY" \
             --data-raw "{\"branch\": \"main\"}"
-          continue_on_failure: true
       - send_slack_message: #"If all steps has passed"
           event : "pass" 
           icon: ":large_green_circle:"
