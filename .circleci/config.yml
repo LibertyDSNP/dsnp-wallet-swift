@@ -74,9 +74,10 @@ jobs:
       - run:
           name: Launch Smoke Test 
           command: |
+            echo $TEST_FRAMEWORK_CIRCLECI_KEY
             curl --location --request POST 'https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline' \
             --header 'Content-Type: application/json' \
-            --header 'Circle-Token: $TEST_FRAMEWORK_CIRCLECI_KEY' \
+            --header 'Circle-Token: \$TEST_FRAMEWORK_CIRCLECI_KEY' \
             --data-raw '{"branch": "main"}'
 workflows:
   version: 2
