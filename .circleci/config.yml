@@ -67,7 +67,7 @@ jobs:
             curl --location --request POST "https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline" \
             --header "Content-Type: application/json" \
             --header "Circle-Token: $IOS_TEST_CIRCLEKEY" \
-            "{\"branch\": \"main\"}"
+            --data-raw "{\"branch\": \"main\"}"
           continue_on_failure: true
       - send_slack_message: #"If all steps has passed"
           event : "pass" 
