@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SoraKeystore
 
-public class Keychain {
+//MARK: RYAN This needs to be consolidated with, or separated from the Nova SoraKeyChain()
+public class DSNPKeychain {
     public var loggingEnabled = false
-    public static let shared = Keychain()
+    public static let shared = DSNPKeychain()
 
     private init() {}
 

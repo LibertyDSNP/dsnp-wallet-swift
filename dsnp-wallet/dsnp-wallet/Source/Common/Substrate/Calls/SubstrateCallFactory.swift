@@ -8,20 +8,20 @@ protocol SubstrateCallFactoryProtocol {
         to receiver: AccountId,
         amount: BigUInt
     ) -> RuntimeCall<TransferCall>
-//
-//    func assetsTransfer(
-//        to receiver: AccountId,
-//        assetId: String,
-//        amount: BigUInt
-//    ) -> RuntimeCall<AssetsTransfer>
-//
-//    func ormlTransfer(
-//        in moduleName: String,
-//        currencyId: JSON,
-//        receiverId: AccountId,
-//        amount: BigUInt
-//    ) -> RuntimeCall<OrmlTokenTransfer>
-//
+
+    func assetsTransfer(
+        to receiver: AccountId,
+        assetId: String,
+        amount: BigUInt
+    ) -> RuntimeCall<AssetsTransfer>
+
+    func ormlTransfer(
+        in moduleName: String,
+        currencyId: JSON,
+        receiverId: AccountId,
+        amount: BigUInt
+    ) -> RuntimeCall<OrmlTokenTransfer>
+
 //    func bond(
 //        amount: BigUInt,
 //        controller: String,
@@ -30,22 +30,22 @@ protocol SubstrateCallFactoryProtocol {
 
     func bondExtra(amount: BigUInt) -> RuntimeCall<BondExtraCall>
 
-//    func unbond(amount: BigUInt) -> RuntimeCall<UnbondCall>
-//
-//    func rebond(amount: BigUInt) -> RuntimeCall<RebondCall>
-//
+    func unbond(amount: BigUInt) -> RuntimeCall<UnbondCall>
+
+    func rebond(amount: BigUInt) -> RuntimeCall<RebondCall>
+
 //    func nominate(targets: [SelectedValidatorInfo]) throws -> RuntimeCall<NominateCall>
-//
+
 //    func payout(validatorId: Data, era: EraIndex) throws -> RuntimeCall<PayoutCall>
-//
-//    func setPayee(for destination: RewardDestinationArg) -> RuntimeCall<SetPayeeCall>
-//
-//    func withdrawUnbonded(for numberOfSlashingSpans: UInt32) -> RuntimeCall<WithdrawUnbondedCall>
-//
-//    func setController(_ controller: AccountAddress) throws -> RuntimeCall<SetControllerCall>
-//
-//    func chill() -> RuntimeCall<NoRuntimeArgs>
-//
+
+    func setPayee(for destination: RewardDestinationArg) -> RuntimeCall<SetPayeeCall>
+
+    func withdrawUnbonded(for numberOfSlashingSpans: UInt32) -> RuntimeCall<WithdrawUnbondedCall>
+
+    func setController(_ controller: AccountAddress) throws -> RuntimeCall<SetControllerCall>
+
+    func chill() -> RuntimeCall<NoRuntimeArgs>
+
 //    func contribute(
 //        to paraId: ParaId,
 //        amount: BigUInt,
@@ -88,16 +88,16 @@ final class SubstrateCallFactory: SubstrateCallFactoryProtocol {
         return RuntimeCall(moduleName: "Staking", callName: "bond_extra", args: args)
     }
 
-//    func unbond(amount: BigUInt) -> RuntimeCall<UnbondCall> {
-//        let args = UnbondCall(amount: amount)
-//        return RuntimeCall(moduleName: "Staking", callName: "unbond", args: args)
-//    }
-//
-//    func rebond(amount: BigUInt) -> RuntimeCall<RebondCall> {
-//        let args = RebondCall(amount: amount)
-//        return RuntimeCall(moduleName: "Staking", callName: "rebond", args: args)
-//    }
-//
+    func unbond(amount: BigUInt) -> RuntimeCall<UnbondCall> {
+        let args = UnbondCall(amount: amount)
+        return RuntimeCall(moduleName: "Staking", callName: "unbond", args: args)
+    }
+
+    func rebond(amount: BigUInt) -> RuntimeCall<RebondCall> {
+        let args = RebondCall(amount: amount)
+        return RuntimeCall(moduleName: "Staking", callName: "rebond", args: args)
+    }
+
 //    func nominate(targets: [SelectedValidatorInfo]) throws -> RuntimeCall<NominateCall> {
 //        let addresses: [MultiAddress] = try targets.map { info in
 //            let accountId = try info.address.toAccountId()
@@ -108,7 +108,7 @@ final class SubstrateCallFactory: SubstrateCallFactoryProtocol {
 //
 //        return RuntimeCall(moduleName: "Staking", callName: "nominate", args: args)
 //    }
-//
+
 //    func payout(validatorId: Data, era: EraIndex) throws -> RuntimeCall<PayoutCall> {
 //        let args = PayoutCall(
 //            validatorStash: validatorId,
@@ -117,16 +117,16 @@ final class SubstrateCallFactory: SubstrateCallFactoryProtocol {
 //
 //        return RuntimeCall(moduleName: "Staking", callName: "payout_stakers", args: args)
 //    }
-//
-//    func assetsTransfer(
-//        to receiver: AccountId,
-//        assetId: String,
-//        amount: BigUInt
-//    ) -> RuntimeCall<AssetsTransfer> {
-//        let args = AssetsTransfer(assetId: assetId, target: .accoundId(receiver), amount: amount)
-//        return RuntimeCall(moduleName: "Assets", callName: "transfer", args: args)
-//    }
-//
+
+    func assetsTransfer(
+        to receiver: AccountId,
+        assetId: String,
+        amount: BigUInt
+    ) -> RuntimeCall<AssetsTransfer> {
+        let args = AssetsTransfer(assetId: assetId, target: .accoundId(receiver), amount: amount)
+        return RuntimeCall(moduleName: "Assets", callName: "transfer", args: args)
+    }
+
     func nativeTransfer(
         to receiver: AccountId,
         amount: BigUInt
@@ -134,42 +134,42 @@ final class SubstrateCallFactory: SubstrateCallFactoryProtocol {
         let args = TransferCall(dest: .accoundId(receiver), value: amount)
         return RuntimeCall(moduleName: "Balances", callName: "transfer", args: args)
     }
-//
-//    func ormlTransfer(
-//        in moduleName: String,
-//        currencyId: JSON,
-//        receiverId: AccountId,
-//        amount: BigUInt
-//    ) -> RuntimeCall<OrmlTokenTransfer> {
-//        let args = OrmlTokenTransfer(
-//            dest: .accoundId(receiverId),
-//            currencyId: currencyId,
-//            amount: amount
-//        )
-//
-//        return RuntimeCall(moduleName: moduleName, callName: "transfer", args: args)
-//    }
-//
-//    func setPayee(for destination: RewardDestinationArg) -> RuntimeCall<SetPayeeCall> {
-//        let args = SetPayeeCall(payee: destination)
-//        return RuntimeCall(moduleName: "Staking", callName: "set_payee", args: args)
-//    }
-//
-//    func withdrawUnbonded(for numberOfSlashingSpans: UInt32) -> RuntimeCall<WithdrawUnbondedCall> {
-//        let args = WithdrawUnbondedCall(numberOfSlashingSpans: numberOfSlashingSpans)
-//        return RuntimeCall(moduleName: "Staking", callName: "withdraw_unbonded", args: args)
-//    }
-//
-//    func setController(_ controller: AccountAddress) throws -> RuntimeCall<SetControllerCall> {
-//        let controllerId = try controller.toAccountId()
-//        let args = SetControllerCall(controller: .accoundId(controllerId))
-//        return RuntimeCall(moduleName: "Staking", callName: "set_controller", args: args)
-//    }
-//
-//    func chill() -> RuntimeCall<NoRuntimeArgs> {
-//        RuntimeCall(moduleName: "Staking", callName: "chill")
-//    }
-//
+
+    func ormlTransfer(
+        in moduleName: String,
+        currencyId: JSON,
+        receiverId: AccountId,
+        amount: BigUInt
+    ) -> RuntimeCall<OrmlTokenTransfer> {
+        let args = OrmlTokenTransfer(
+            dest: .accoundId(receiverId),
+            currencyId: currencyId,
+            amount: amount
+        )
+
+        return RuntimeCall(moduleName: moduleName, callName: "transfer", args: args)
+    }
+
+    func setPayee(for destination: RewardDestinationArg) -> RuntimeCall<SetPayeeCall> {
+        let args = SetPayeeCall(payee: destination)
+        return RuntimeCall(moduleName: "Staking", callName: "set_payee", args: args)
+    }
+
+    func withdrawUnbonded(for numberOfSlashingSpans: UInt32) -> RuntimeCall<WithdrawUnbondedCall> {
+        let args = WithdrawUnbondedCall(numberOfSlashingSpans: numberOfSlashingSpans)
+        return RuntimeCall(moduleName: "Staking", callName: "withdraw_unbonded", args: args)
+    }
+
+    func setController(_ controller: AccountAddress) throws -> RuntimeCall<SetControllerCall> {
+        let controllerId = try controller.toAccountId()
+        let args = SetControllerCall(controller: .accoundId(controllerId))
+        return RuntimeCall(moduleName: "Staking", callName: "set_controller", args: args)
+    }
+
+    func chill() -> RuntimeCall<NoRuntimeArgs> {
+        RuntimeCall(moduleName: "Staking", callName: "chill")
+    }
+
 //    func contribute(
 //        to paraId: ParaId,
 //        amount: BigUInt,
@@ -178,21 +178,21 @@ final class SubstrateCallFactory: SubstrateCallFactoryProtocol {
 //        let args = CrowdloanContributeCall(index: paraId, value: amount, signature: signature)
 //        return RuntimeCall(moduleName: "Crowdloan", callName: "contribute", args: args)
 //    }
-//
+
 //    func addMemo(to paraId: ParaId, memo: Data) -> RuntimeCall<CrowdloanAddMemo> {
 //        let args = CrowdloanAddMemo(index: paraId, memo: memo)
 //        return RuntimeCall(moduleName: "Crowdloan", callName: "add_memo", args: args)
 //    }
-//
-//    func remark(remark: Data) -> RuntimeCall<SystemRemarkCall> {
-//        let args = SystemRemarkCall(remark: remark)
-//        return RuntimeCall(moduleName: "System", callName: "remark", args: args)
-//    }
-//
-//    func remarkWithEvent(remark: Data) -> RuntimeCall<SystemRemarkCall> {
-//        let args = SystemRemarkCall(remark: remark)
-//        return RuntimeCall(moduleName: "System", callName: "remark_with_event", args: args)
-//    }
+
+    func remark(remark: Data) -> RuntimeCall<SystemRemarkCall> {
+        let args = SystemRemarkCall(remark: remark)
+        return RuntimeCall(moduleName: "System", callName: "remark", args: args)
+    }
+
+    func remarkWithEvent(remark: Data) -> RuntimeCall<SystemRemarkCall> {
+        let args = SystemRemarkCall(remark: remark)
+        return RuntimeCall(moduleName: "System", callName: "remark_with_event", args: args)
+    }
 }
 
 extension SubstrateCallFactory {

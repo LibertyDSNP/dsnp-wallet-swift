@@ -19,10 +19,10 @@ class AccountKeychain {
 
     var accessPin: String? {
         get {
-            return Keychain.shared[kAccessPin]
+            return DSNPKeychain.shared[kAccessPin]
         }
         set {
-            Keychain.shared[kAccessPin] = newValue
+            DSNPKeychain.shared[kAccessPin] = newValue
         }
     }
     
