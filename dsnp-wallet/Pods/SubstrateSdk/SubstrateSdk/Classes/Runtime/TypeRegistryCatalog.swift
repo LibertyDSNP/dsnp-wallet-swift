@@ -106,11 +106,12 @@ public class TypeRegistryCatalog: TypeRegistryCatalogProtocol {
             versions = []
         }
 
-        guard let minVersion = versions.reversed().first(where: { $0 <= version }) else {
-            return baseRegistry
-        }
+//        guard let minVersion = versions.reversed().first(where: { $0 <= version }) else {
+//            return baseRegistry
+//        }
 
-        return versionedRegistries[minVersion] ?? baseRegistry
+//        return versionedRegistries[minVersion] ?? baseRegistry
+        return versionedRegistries[versions.first ?? 0] ?? baseRegistry //MARK: RYAN IF WE HIT THIS, ITS GOOD
     }
 
     private func fallbackToRuntimeMetadataIfNeeded(from registry: TypeRegistryProtocol,
