@@ -74,7 +74,6 @@ class ExtrinsicTest: XCTestCase {
                                                 engine: connection,
                                                 operationManager: operationManager)
         
-        //RyanKeyManager hardcode grabs publicKey of testAccountId
         let keyManager = RyanKeyManager()
         let keypair = keyManager.getKeypair()
         guard let publicKey = keypair?.publicKey().rawData() else { return }

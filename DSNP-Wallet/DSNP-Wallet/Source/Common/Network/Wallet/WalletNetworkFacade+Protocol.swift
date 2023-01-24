@@ -122,7 +122,6 @@ extension WalletNetworkFacade: WalletNetworkOperationFactoryProtocol {
     func transferMetadataOperation(
         _ info: TransferMetadataInfo
     ) -> CompoundOperationWrapper<TransferMetaData?> {
-//        nodeOperationFactory.transferMetadataOperation(info)
         CompoundOperationWrapper(targetOperation: BaseOperation<TransferMetaData?>())
     }
 
@@ -191,8 +190,7 @@ extension WalletNetworkFacade: WalletNetworkOperationFactoryProtocol {
                     .extractResultData(throwing: BaseOperationError.parentOperationCancelled)
             }
 
-            let dependencies = [codingFactoryOperation, txSaveOperation] + contactSaveWrapper.allOperations +
-                transferWrapper.allOperations
+            let dependencies = [codingFactoryOperation, txSaveOperation] + contactSaveWrapper.allOperations + transferWrapper.allOperations
 
             completionOperation.addDependency(txSaveOperation)
             completionOperation.addDependency(contactSaveWrapper.targetOperation)

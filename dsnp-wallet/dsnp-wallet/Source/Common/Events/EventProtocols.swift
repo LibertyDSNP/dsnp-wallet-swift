@@ -17,9 +17,6 @@ extension EventCenterProtocol {
 }
 
 protocol EventVisitorProtocol: AnyObject {
-    func processChainAccountChanged(event: ChainAccountChanged)
-    func processSelectedAccountChanged(event: SelectedAccountChanged)
-    func processSelectedUsernameChanged(event: SelectedUsernameChanged)
     func processSelectedConnectionChanged(event: SelectedConnectionChanged)
     func processBalanceChanged(event: WalletBalanceChanged)
     func processNewTransaction(event: WalletNewTransactionInserted)
@@ -36,21 +33,14 @@ protocol EventVisitorProtocol: AnyObject {
 
     func processRuntimeCoderReady(event: RuntimeCoderCreated)
     func processRuntimeCoderCreationFailed(event: RuntimeCoderCreationFailed)
-
-    func processHideZeroBalances(event: HideZeroBalancesChanged)
 }
 
 extension EventVisitorProtocol {
-    func processChainAccountChanged(event _: ChainAccountChanged) {}
-    func processSelectedAccountChanged(event _: SelectedAccountChanged) {}
     func processSelectedConnectionChanged(event _: SelectedConnectionChanged) {}
     func processBalanceChanged(event _: WalletBalanceChanged) {}
-//    func processStakingChanged(event _: WalletStakingInfoChanged) {}
     func processNewTransaction(event _: WalletNewTransactionInserted) {}
-    func processSelectedUsernameChanged(event _: SelectedUsernameChanged) {}
     func processPurchaseCompletion(event _: PurchaseCompleted) {}
     func processTypeRegistryPrepared(event _: TypeRegistryPrepared) {}
-//    func processEraStakersInfoChanged(event _: EraStakersInfoChanged) {}
 
     func processChainSyncDidStart(event _: ChainSyncDidStart) {}
     func processChainSyncDidComplete(event _: ChainSyncDidComplete) {}
@@ -62,6 +52,4 @@ extension EventVisitorProtocol {
 
     func processRuntimeCoderReady(event _: RuntimeCoderCreated) {}
     func processRuntimeCoderCreationFailed(event _: RuntimeCoderCreationFailed) {}
-
-    func processHideZeroBalances(event _: HideZeroBalancesChanged) {}
 }

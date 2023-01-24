@@ -10,8 +10,6 @@ final class WalletNetworkFacade {
     let chainRegistry: ChainRegistryProtocol
     let storageFacade: StorageFacadeProtocol
     let nodeOperationFactory: WalletNetworkOperationFactoryProtocol
-//    let subscanOperationFactory: SubscanOperationFactoryProtocol
-//    let coingeckoOperationFactory: CoingeckoOperationFactoryProtocol
     let totalPriceId: String
     let totalPriceAssetInfo: AssetBalanceDisplayInfo
     let chainStorage: AnyDataProviderRepository<ChainStorageItem>
@@ -27,8 +25,6 @@ final class WalletNetworkFacade {
         chainRegistry: ChainRegistryProtocol,
         storageFacade: StorageFacadeProtocol,
         nodeOperationFactory: WalletNetworkOperationFactoryProtocol,
-//        subscanOperationFactory: SubscanOperationFactoryProtocol,
-//        coingeckoOperationFactory: CoingeckoOperationFactoryProtocol,
         totalPriceId: String,
         totalPriceAssetInfo: AssetBalanceDisplayInfo,
         chainStorage: AnyDataProviderRepository<ChainStorageItem>,
@@ -43,8 +39,6 @@ final class WalletNetworkFacade {
         self.chainRegistry = chainRegistry
         self.storageFacade = storageFacade
         self.nodeOperationFactory = nodeOperationFactory
-//        self.subscanOperationFactory = subscanOperationFactory
-//        self.coingeckoOperationFactory = coingeckoOperationFactory
         self.totalPriceId = totalPriceId
         self.totalPriceAssetInfo = totalPriceAssetInfo
         self.chainStorage = chainStorage

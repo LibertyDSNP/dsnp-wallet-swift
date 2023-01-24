@@ -12,18 +12,15 @@ final class ServiceCoordinator {
     let walletSettings: SelectedWalletSettings?
     let accountInfoService: AccountInfoUpdatingServiceProtocol
     let assetsService: AssetsUpdatingServiceProtocol
-    let githubPhishingService: ApplicationServiceProtocol
 
     init(
         walletSettings: SelectedWalletSettings?,
         accountInfoService: AccountInfoUpdatingServiceProtocol,
-        assetsService: AssetsUpdatingServiceProtocol,
-        githubPhishingService: ApplicationServiceProtocol
+        assetsService: AssetsUpdatingServiceProtocol
     ) {
         self.walletSettings = walletSettings
         self.accountInfoService = accountInfoService
         self.assetsService = assetsService
-        self.githubPhishingService = githubPhishingService
     }
 
     private func setup(chainRegistry: ChainRegistryProtocol) {
@@ -43,13 +40,11 @@ extension ServiceCoordinator: ServiceCoordinatorProtocol {
         let chainRegistry = ChainRegistryFacade.sharedRegistry
         setup(chainRegistry: chainRegistry)
 
-        githubPhishingService.setup()
         accountInfoService.setup()
         assetsService.setup()
     }
 
     func throttle() {
-        githubPhishingService.throttle()
         accountInfoService.throttle()
         assetsService.throttle()
     }
@@ -57,8 +52,6 @@ extension ServiceCoordinator: ServiceCoordinatorProtocol {
 
 extension ServiceCoordinator {
     static func createDefault() -> ServiceCoordinatorProtocol {
-        let githubPhishingAPIService = GitHubPhishingServiceFactory.createService()
-
         let chainRegistry = ChainRegistryFacade.sharedRegistry
         let repository = SubstrateRepositoryFactory().createChainStorageItemRepository()
         let logger = Logger.shared
@@ -106,8 +99,7 @@ extension ServiceCoordinator {
         return ServiceCoordinator(
             walletSettings: walletSettings,
             accountInfoService: accountInfoService,
-            assetsService: assetsService,
-            githubPhishingService: githubPhishingAPIService
+            assetsService: assetsService
         )
     }
 }

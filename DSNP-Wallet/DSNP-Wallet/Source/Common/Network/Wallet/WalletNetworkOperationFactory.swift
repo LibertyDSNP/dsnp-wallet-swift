@@ -251,50 +251,7 @@ final class WalletNetworkOperationFactory {
         coderFactory: RuntimeCoderFactoryProtocol
     ) throws -> ExtrinsicBuilderProtocol {
         let callFactory = SubstrateCallFactory()
-
-        if let rawType = asset.type, let assetType = AssetType(rawValue: rawType) {
-            switch assetType {
-            case .statemine:
-                guard let extras = try asset.typeExtras?.map(to: StatemineAssetExtras.self) else {
-                    return builder
-                }
-
-                let call = callFactory.assetsTransfer(to: receiver, assetId: extras.assetId, amount: amount)
-                return try builder.adding(call: call)
-            case .orml:
-                guard
-                    let extras = try asset.typeExtras?.map(to: OrmlTokenExtras.self),
-                    let rawCurrencyId = try? Data(hexString: extras.currencyIdScale) else {
-                    return builder
-                }
-
-                let decoder = try coderFactory.createDecoder(from: rawCurrencyId)
-                let currencyId = try decoder.read(type: extras.currencyIdType)
-
-                let moduleName: String
-
-                let tokensTransfer = CallCodingPath.tokensTransfer
-                if coderFactory.metadata.getCall(
-                    from: tokensTransfer.moduleName,
-                    with: tokensTransfer.callName
-                ) != nil {
-                    moduleName = tokensTransfer.moduleName
-                } else {
-                    moduleName = CallCodingPath.currenciesTransfer.moduleName
-                }
-
-                let call = callFactory.ormlTransfer(
-                    in: moduleName,
-                    currencyId: currencyId,
-                    receiverId: receiver,
-                    amount: amount
-                )
-
-                return try builder.adding(call: call)
-            }
-        } else {
             let call = callFactory.nativeTransfer(to: receiver, amount: amount)
             return try builder.adding(call: call)
-        }
     }
 }
