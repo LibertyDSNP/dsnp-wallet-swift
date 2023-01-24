@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ChainModelMapper.swift">
+   </FileRef>
+   <FileRef
       location = "group:DSNP-Wallet.xcodeproj">
    </FileRef>
    <FileRef
