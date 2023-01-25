@@ -25,94 +25,129 @@ struct Currency {
 }
 
 class ExtrinsicTest: XCTestCase {
+    //MARK: Constants
     let chainId = "496e2f8a93bf4576317f998d01480f9068014b368856ec088a63e57071cd1d49"
-    let finalizedBlockHash = "0x19b40c89e73be7a18addb8f2825e7ee00ab38d8ec24073976c1a017e2e918f51"
     
     let aliceAddress = "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
     let bobAddress = "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty"
-    let testAddress = "5FxxBckLfzKYA42vsj7tihMMrUY7tF7mGk5Asez7JfRPsAsw" //"third" address
+    let thirdAddress = "5FxxBckLfzKYA42vsj7tihMMrUY7tF7mGk5Asez7JfRPsAsw"
     let secondTestAddress = "5FF2rYk6NCBpHAYjjE2RTQutVHK5BTGoBtcdvU3SQGxz4sZx"
     
     var aliceAccountId: Data!
     var bobAccountId: Data!
-    var testAccountId: Data!
+    var thirdAccountId: Data!
     var secondTestAccountId: Data!
     
     let frequencyPrefixValue: UInt16 = 42
     
     let seedPhrase = "quote grocery buzz staff merit patch outdoor depth eight raw rubber once" //"third" account
     
+    //MARK: Variables
+    var extrinsicService: ExtrinsicService?
+    let callFactory: SubstrateCallFactory = SubstrateCallFactory()
+    var signer: SigningWrapper?
+    
+    enum TestError: Error {
+        case badSetup
+    }
+    
     override func setUpWithError() throws {
         aliceAccountId = try aliceAddress.toAccountId(using: .substrate(frequencyPrefixValue))
         bobAccountId = try bobAddress.toAccountId(using: .substrate(frequencyPrefixValue))
-        testAccountId = try testAddress.toAccountId(using: .substrate(frequencyPrefixValue))
+        thirdAccountId = try thirdAddress.toAccountId(using: .substrate(frequencyPrefixValue))
         secondTestAccountId = try secondTestAddress.toAccountId(using: .substrate(frequencyPrefixValue))
+        
+        let keyManager = RyanKeyManager()
+        let keypair = keyManager.getKeypair()
+        
+        guard let senderId = thirdAccountId,
+              let publicKey = keypair?.publicKey().rawData() else { throw TestError.badSetup }
+        
+        setExtrinsicService(with: senderId)
+        setSigner(with: senderId, publicKey: publicKey)
     }
 
     override func tearDownWithError() throws {
         
     }
     
-    func testTransfer() throws {
-        let receiverId: Data = secondTestAccountId//bobAccountId
-        let senderId: Data = testAccountId
+    func testCreateMSA() throws {
+        let closure: ExtrinsicBuilderClosure = { builder in
+            let call = self.callFactory.createMsa()
+            _ = try builder.adding(call: call)
+            return builder
+        }
         
-        let chainRegistry = ChainRegistryFactory.createDefaultRegistry()
-        
-        let serviceCoordinator = ServiceCoordinator.createDefault()
-        serviceCoordinator.setup()
-        
-        guard let chain = chainRegistry.getChain(for: chainId),
-              let connection = chainRegistry.getConnection(for: chainId),
-              let runtimeService = chainRegistry.getRuntimeProvider(for: chainId) else { return }
-        let operationManager = OperationManager(operationQueue: .main)
-
-        let extrinsicService = ExtrinsicService(accountId: senderId,
-                                                chain: chain,
-                                                cryptoType: .sr25519,
-                                                runtimeRegistry: runtimeService,
-                                                engine: connection,
-                                                operationManager: operationManager)
-        
-        let keyManager = RyanKeyManager()
-        let keypair = keyManager.getKeypair()
-        guard let publicKey = keypair?.publicKey().rawData() else { return }
-
-        let closure = createExtrinsicBuilderClosure(accountId: receiverId, amount: 100000000) //receiver
-        let accountResponse = ChainAccountResponse(chainId: chainId,
-                                                   accountId: senderId,
-                                                   publicKey: publicKey,
-                                                   name: "Ryan",
-                                                   cryptoType: .sr25519,
-                                                   addressPrefix: 42,
-                                                   isEthereumBased: false,
-                                                   isChainAccount: false)
-        
-        let signer = SigningWrapper(keystore: RyanKeyManager(),
-                                    metaId: "",
-                                    accountResponse: accountResponse)
+        guard let signer = signer else { throw TestError.badSetup }
         
         let feeExpectation = XCTestExpectation()
-        extrinsicService.submit(closure,
+        extrinsicService?.submit(closure,
                                 signer: signer,
                                 runningIn: .main) { result in
-            print("RYAN: \(result)")
+            switch result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                XCTFail("\(error)")
+            }
             feeExpectation.fulfill()
         }
         
         wait(for: [feeExpectation], timeout: 10)
     }
     
-    private func createExtrinsicBuilderClosure(accountId: AccountId, amount: BigUInt) -> ExtrinsicBuilderClosure {
-        let callFactory = SubstrateCallFactory()
+//    func testAddPublicKeyToMsa() throws {
+//        let closure: ExtrinsicBuilderClosure = { builder in
+//            let call = self.callFactory.addPublicKeyToMsa()
+//            _ = try builder.adding(call: call)
+//            return builder
+//        }
+//        
+//        guard let signer = signer else { throw TestError.badSetup }
+//        
+//        let feeExpectation = XCTestExpectation()
+//        extrinsicService?.submit(closure,
+//                                signer: signer,
+//                                runningIn: .main) { result in
+//            switch result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                XCTFail("\(error)")
+//            }
+//            
+//            feeExpectation.fulfill()
+//        }
+//        
+//        wait(for: [feeExpectation], timeout: 10)
+//    }
+    
+    func testTransfer() throws {
+        let receiverId: Data = secondTestAccountId
         
         let closure: ExtrinsicBuilderClosure = { builder in
-            let call = callFactory.nativeTransfer(to: accountId, amount: amount)
+            let call = self.callFactory.nativeTransfer(to: receiverId, amount: 100000000)
             _ = try builder.adding(call: call)
             return builder
         }
         
-        return closure
+        guard let signer = signer else { throw TestError.badSetup }
+        
+        let feeExpectation = XCTestExpectation()
+        extrinsicService?.submit(closure,
+                                signer: signer,
+                                runningIn: .main) { result in
+            switch result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                XCTFail("\(error)")
+            }
+            
+            feeExpectation.fulfill()
+        }
+        
+        wait(for: [feeExpectation], timeout: 10)
     }
 }
 
@@ -154,6 +189,50 @@ class RyanKeyManager: KeystoreProtocol {
         )
         
         return keypair
+    }
+}
+
+//MARK: Helper Funcs for Setup
+extension ExtrinsicTest {
+    private func setExtrinsicService(with senderId: Data) {
+        let chainRegistry = ChainRegistryFactory.createDefaultRegistry()
+        
+        let serviceCoordinator = ServiceCoordinator.createDefault()
+        serviceCoordinator.setup()
+        
+        guard let chain = chainRegistry.getChain(for: chainId),
+              let connection = chainRegistry.getConnection(for: chainId),
+              let runtimeService = chainRegistry.getRuntimeProvider(for: chainId) else {
+            XCTFail("Couldn't setup extrinsic service or public key")
+            return
+        }
+        let operationManager = OperationManager(operationQueue: .main)
+        
+        extrinsicService = ExtrinsicService(accountId: senderId,
+                                chain: chain,
+                                cryptoType: .sr25519,
+                                runtimeRegistry: runtimeService,
+                                engine: connection,
+                                operationManager: operationManager)
+    }
+    
+    private func setSigner(with senderId: Data, publicKey: Data) {
+        let keystore = RyanKeyManager()
+        let accountResponse = getChainAccountResponse(senderId: senderId, publicKey: publicKey)
+        signer = SigningWrapper(keystore: keystore,
+                                    metaId: "",
+                                    accountResponse: accountResponse)
+    }
+    
+    private func getChainAccountResponse(senderId: Data, publicKey: Data) -> ChainAccountResponse {
+        return ChainAccountResponse(chainId: chainId,
+                                    accountId: senderId,
+                                    publicKey: publicKey,
+                                    name: "Ryan",
+                                    cryptoType: .sr25519,
+                                    addressPrefix: frequencyPrefixValue,
+                                    isEthereumBased: false,
+                                    isChainAccount: false)
     }
 }
 

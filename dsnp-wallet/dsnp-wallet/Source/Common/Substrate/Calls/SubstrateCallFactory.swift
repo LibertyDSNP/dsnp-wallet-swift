@@ -22,6 +22,9 @@ protocol SubstrateCallFactoryProtocol {
         amount: BigUInt
     ) -> RuntimeCall<OrmlTokenTransfer>
     
+    func createMsa() -> RuntimeCall<CreateMsaCall>
+//    func addPublicKeyToMsa() -> RuntimeCall<AddPublicKeyToMsaCall>
+    
     func chill() -> RuntimeCall<NoRuntimeArgs>
 }
 
@@ -58,6 +61,16 @@ final class SubstrateCallFactory: SubstrateCallFactoryProtocol {
 
         return RuntimeCall(moduleName: moduleName, callName: "transfer", args: args)
     }
+    
+    func createMsa() -> RuntimeCall<CreateMsaCall> {
+        let args = CreateMsaCall()
+        return RuntimeCall(moduleName: "Msa", callName: "create", args: args)
+    }
+    
+//    func addPublicKeyToMsa() -> RuntimeCall<AddPublicKeyToMsaCall> {
+//        let args = addPublicKeyToMsa()
+//        return RuntimeCall(moduleName: "Msa", callName: "create", args: args)
+//    }
 
     func chill() -> RuntimeCall<NoRuntimeArgs> {
         RuntimeCall(moduleName: "Staking", callName: "chill")
