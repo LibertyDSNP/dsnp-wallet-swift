@@ -51,6 +51,9 @@ jobs:
           message: "Building an app for simulator... \\n *Git Branch*: $CIRCLE_BRANCH \\n *Launch trigger*: $CIRCLE_USERNAME"
       - checkout
       - run:
+          name: Install dependecies
+          command: pod install
+      - run:
           name: Build an app for simulator
           command: fastlane build_app_for_simulator
       - run:
