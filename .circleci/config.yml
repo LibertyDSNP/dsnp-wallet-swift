@@ -55,6 +55,7 @@ jobs:
           command: |
             cd DSNP-Wallet
             pod install
+            pod update
       - run:
           name: Build an app for simulator
           command: fastlane build_app_for_simulator
