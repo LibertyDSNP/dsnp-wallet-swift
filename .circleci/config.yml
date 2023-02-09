@@ -52,7 +52,9 @@ jobs:
       - checkout
       - run:
           name: Install dependecies
-          command: pod install
+          command: |
+            cd DSNP-Wallet
+            pod install
       - run:
           name: Build an app for simulator
           command: fastlane build_app_for_simulator
