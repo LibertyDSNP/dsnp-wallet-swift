@@ -22,7 +22,7 @@ platform :ios do
   lane :build_app_for_simulator do
     build_app(
       scheme: "dsnp-wallet",
-      project: "./DSNP-Wallet/dsnp-wallet.xcworkspace",
+      workspace: "./DSNP-Wallet/dsnp-wallet.xcworkspace",
       derived_data_path: derived_data_path,
       skip_package_ipa: true,
       skip_archive: true,
