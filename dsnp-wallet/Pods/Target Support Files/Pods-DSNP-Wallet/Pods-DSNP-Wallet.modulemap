@@ -1,0 +1,6 @@
+framework module Pods_DSNP_Wallet {
+  umbrella header "Pods-DSNP-Wallet-umbrella.h"
+
+  export *
+  module * { export * }
+}
