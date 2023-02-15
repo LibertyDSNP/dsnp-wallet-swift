@@ -2665,6 +2665,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = U95Q67332B;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your photos for your profile.";
@@ -2696,6 +2697,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = U95Q67332B;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your photos for your profile.";
