@@ -36,7 +36,7 @@ jobs:
   build-simulator-app-center:
     macos:
       xcode: 14.0.1 
-    
+    resource_class: macos.x86.medium.gen2
     parameters: # parameters are at the job level
       build_env:
         type: string
