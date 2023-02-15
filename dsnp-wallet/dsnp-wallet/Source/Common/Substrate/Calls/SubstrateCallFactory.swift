@@ -23,13 +23,16 @@ protocol SubstrateCallFactoryProtocol {
     ) -> RuntimeCall<OrmlTokenTransfer>
     
     func createMsa() -> RuntimeCall<CreateMsaCall>
-//    func addPublicKeyToMsa() -> RuntimeCall<AddPublicKeyToMsaCall>
+    func addPublicKeyToMsa(msaOwnerPublicKey: AccountId,
+                           msaOwnerProof: MultiSignature,
+                           newKeyOwnerProof: MultiSignature,
+                           addKeyPayload: AddKeyPayloadArg) -> RuntimeCall<AddPublicKeyToMsaCall>
     
     func chill() -> RuntimeCall<NoRuntimeArgs>
 }
 
 final class SubstrateCallFactory: SubstrateCallFactoryProtocol {
-
+    
     func assetsTransfer(
         to receiver: AccountId,
         assetId: String,
@@ -67,11 +70,17 @@ final class SubstrateCallFactory: SubstrateCallFactoryProtocol {
         return RuntimeCall(moduleName: "Msa", callName: "create", args: args)
     }
     
-//    func addPublicKeyToMsa() -> RuntimeCall<AddPublicKeyToMsaCall> {
-//        let args = addPublicKeyToMsa()
-//        return RuntimeCall(moduleName: "Msa", callName: "create", args: args)
-//    }
-
+    func addPublicKeyToMsa(msaOwnerPublicKey: AccountId,
+                           msaOwnerProof: MultiSignature,
+                           newKeyOwnerProof: MultiSignature,
+                           addKeyPayload: AddKeyPayloadArg) -> RuntimeCall<AddPublicKeyToMsaCall> {
+        let args = AddPublicKeyToMsaCall(msaOwnerPublicKey: msaOwnerPublicKey,
+                                         msaOwnerProof: msaOwnerProof,
+                                         newKeyOwnerProof: newKeyOwnerProof,
+                                         addKeyPayload: addKeyPayload)
+        return RuntimeCall(moduleName: "Msa", callName: "add_public_key_to_msa", args: args)
+    }
+    
     func chill() -> RuntimeCall<NoRuntimeArgs> {
         RuntimeCall(moduleName: "Staking", callName: "chill")
     }
