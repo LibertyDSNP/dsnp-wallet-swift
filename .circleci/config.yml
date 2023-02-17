@@ -36,7 +36,6 @@ jobs:
   build-simulator-app-center:
     macos:
       xcode: 14.0.1 
-    
     parameters: # parameters are at the job level
       build_env:
         type: string
