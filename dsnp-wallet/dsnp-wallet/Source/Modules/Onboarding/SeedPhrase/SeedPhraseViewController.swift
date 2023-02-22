@@ -116,7 +116,6 @@ class SeedPhraseViewController: UIViewController {
         bottomCollectionView?.accessibilityIdentifier = "selectionGridInput"
     }
     
-    
     private func setBtns() {
         let nextBtnTitle = state == .viewSeedPhrase ? "I've written it down" : "Continue"
         nextBtn.setTitle(nextBtnTitle, for: .normal)
