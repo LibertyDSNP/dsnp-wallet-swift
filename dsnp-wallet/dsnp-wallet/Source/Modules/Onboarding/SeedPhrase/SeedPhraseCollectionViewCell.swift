@@ -37,9 +37,17 @@ class SeedPhraseCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    private func setupAccessibilityIds() {
+        accessibilityIdentifier = "resultCell"
+        accessibilityElements = [numberLabel as Any, wordLabel as Any]
+        numberLabel.accessibilityIdentifier = "cellNumber"
+        wordLabel.accessibilityIdentifier = "cellValue"
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        setupAccessibilityIds()
     }
     
     required init?(coder: NSCoder) {

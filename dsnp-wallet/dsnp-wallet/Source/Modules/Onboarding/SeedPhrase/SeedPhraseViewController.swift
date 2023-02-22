@@ -63,6 +63,7 @@ class SeedPhraseViewController: UIViewController {
         setBtns()
         setCollectionViews()
         setStackView()
+        setAccessibilityIds()
     }
     
     //MARK: UI
@@ -104,10 +105,17 @@ class SeedPhraseViewController: UIViewController {
     
     private func setLabels() {
         titleLabel.text = state == .viewSeedPhrase ? "There will be a test" : "This is the test"
-        
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = state == .viewSeedPhrase ? "Please carefully write down these 12 words below in numerical order (1-12) and store your secret phrase securely. You will confirm them in order on the next screen." : "Tap the words in numerical order (1-12) to verify your recovery phrase"
     }
+    
+    private func setAccessibilityIds() {
+        titleLabel.accessibilityIdentifier = "pageTitle"
+        descriptionLabel.accessibilityIdentifier = "pageDescriptionLabel"
+        topCollectionView?.accessibilityIdentifier = "selectionGridResult"
+        bottomCollectionView?.accessibilityIdentifier = "selectionGridInput"
+    }
+    
     
     private func setBtns() {
         let nextBtnTitle = state == .viewSeedPhrase ? "I've written it down" : "Continue"
@@ -234,7 +242,7 @@ extension SeedPhraseViewController: UICollectionViewDelegate, UICollectionViewDa
         
         if collectionView == topCollectionView {
             cell?.number = vertIndex
-            
+            cell?.accessibilityIdentifier = "resultCell"
             if state == .viewSeedPhrase {
                 cell?.word = viewModel?.seedPhraseWords[vertIndex]
             } else if state == .confirmSeedPhrase {
