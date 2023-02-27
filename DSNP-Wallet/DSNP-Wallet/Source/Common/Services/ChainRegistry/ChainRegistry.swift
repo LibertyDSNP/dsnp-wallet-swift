@@ -61,11 +61,9 @@ final class ChainRegistry {
     }
 
     private func subscribeToChains() {
-        // MARK: RYAN
-
         var newChanges: [DataProviderChange<ChainModel>] = []
-        newChanges.append(getFreqChainChange())
-        handle(changes: newChanges) // had to manually call handle because have yet to figure out this chainsync/provider logic
+        newChanges.append(FrequencyChain.shared.getFreqChainChange())
+        handle(changes: newChanges)
 
         let updateClosure: ([DataProviderChange<ChainModel>]) -> Void = { [weak self] changes in
             self?.handle(changes: changes)
@@ -98,8 +96,7 @@ final class ChainRegistry {
         }
 
         var newChanges: [DataProviderChange<ChainModel>] = []
-        newChanges.append(getFreqChainChange())
-//        handle(changes: newChanges) // had to manually call handle because have yet to figure out this chainsync/provider logic
+        newChanges.append(FrequencyChain.shared.getFreqChainChange())
 
         guard !newChanges.isEmpty else {
             return
@@ -253,62 +250,5 @@ extension ChainRegistry: ChainRegistryProtocol {
 
     func syncUp() {
         syncUpServices()
-    }
-}
-
-// MARK: RYAN
-
-extension ChainRegistry {
-    func getFreqChainChange() -> DataProviderChange<ChainModel> {
-        let typesSettingsUrl = URL(string: "https://raw.githubusercontent.com/nova-wallet/nova-utils/master/chains/v2/types/polkadot.json")!
-        let typesSettings = ChainModel.TypesSettings(
-            url: typesSettingsUrl,
-            overridesCommon: true
-        )
-
-        let asset = AssetModel(
-            assetId: 0,
-            icon: nil,
-
-            name: "Freq", // MARK: RYAN VERIFY
-
-            symbol: "Freq", // MARK: RYAN VERIFY
-
-            precision: 42,
-            priceId: nil,
-            staking: nil,
-            type: nil,
-            typeExtras: nil,
-            buyProviders: nil
-        )
-
-        let localNodeString = "ws://127.0.0.1:9944"
-        let localNodeUrl = URL(string: localNodeString)
-        let chainNodeModel = ChainNodeModel(
-            url: localNodeUrl!,
-            name: "Local Node",
-            apikey: nil,
-            order: 0
-        )
-        let frequencyChainModel = ChainModel(
-            chainId: "496e2f8a93bf4576317f998d01480f9068014b368856ec088a63e57071cd1d49",
-            parentId: nil,
-            name: "FREQUENCY",
-            assets: [asset],
-            nodes: [chainNodeModel],
-            addressPrefix: 42,
-            types: typesSettings,
-            icon: URL(string: "www.google.com")!,
-            color: nil,
-            options: nil,
-            externalApi: nil,
-            explorers: nil,
-            order: 0,
-            additional: nil
-        )
-
-        let frequencyChange = DataProviderChange<ChainModel>.insert(newItem: frequencyChainModel)
-        return frequencyChange
-//        var changesWithFrequency: [DataProviderChange<ChainModel>] = [] // changes
     }
 }

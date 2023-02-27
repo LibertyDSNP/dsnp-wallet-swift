@@ -249,7 +249,6 @@
 		829965EA297A1AF1009A769F /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 829965CC297A1AF0009A769F /* UserDataModel.xcdatamodeld */; };
 		829965ED297A1AF1009A769F /* SubstrateDataStorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829965D4297A1AF0009A769F /* SubstrateDataStorageFacade.swift */; };
 		829965EE297A1AF1009A769F /* SubstrateDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 829965D5297A1AF0009A769F /* SubstrateDataModel.xcdatamodeld */; };
-		829965EF297A1AF1009A769F /* ChainModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829965D7297A1AF0009A769F /* ChainModelMapper.swift */; };
 		829965F0297A1AF1009A769F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 829965D8297A1AF0009A769F /* Model.xcdatamodeld */; };
 		829965F1297A1AF1009A769F /* SingleToMultiasset.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 829965DB297A1AF0009A769F /* SingleToMultiasset.xcmappingmodel */; };
 		829965F2297A1AF1009A769F /* MetaAccountMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829965DD297A1AF0009A769F /* MetaAccountMapper.swift */; };
@@ -397,6 +396,7 @@
 		82C4DDEF283D459400A95E2A /* UserAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDEE283D459400A95E2A /* UserAPITests.swift */; };
 		82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */; };
 		82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */; };
+		82D16325299D57F100536349 /* ChainModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D16324299D57F100536349 /* ChainModelMapper.swift */; };
 		82DD90FB2966007F00A508B9 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FA2966007F00A508B9 /* WelcomeViewController.swift */; };
 		82DD910029661D8300A508B9 /* LookUpDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */; };
 		82DD910229661DBB00A508B9 /* CreateDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */; };
@@ -405,6 +405,10 @@
 		82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */; };
 		82DD910B296CBC7100A508B9 /* SeedPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */; };
 		82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */; };
+		82E4AEC729A587B50071758A /* ExtrinsicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AEC629A587B50071758A /* ExtrinsicManager.swift */; };
+		82E4AECA29A6E22B0071758A /* ExtrinsicManager+Msa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */; };
+		82E4AECC29A6E2330071758A /* ExtrinsicManager+Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */; };
+		82E4AECE29A6E2E40071758A /* FrequencyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AECD29A6E2E40071758A /* FrequencyChain.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -675,7 +679,6 @@
 		829965D1297A1AF0009A769F /* MultiassetUserDataModel2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MultiassetUserDataModel2.xcdatamodel; sourceTree = "<group>"; };
 		829965D4297A1AF0009A769F /* SubstrateDataStorageFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubstrateDataStorageFacade.swift; sourceTree = "<group>"; };
 		829965D6297A1AF0009A769F /* SubstrateDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel.xcdatamodel; sourceTree = "<group>"; };
-		829965D7297A1AF0009A769F /* ChainModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainModelMapper.swift; sourceTree = "<group>"; };
 		829965D9297A1AF0009A769F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		829965DB297A1AF0009A769F /* SingleToMultiasset.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = SingleToMultiasset.xcmappingmodel; sourceTree = "<group>"; };
 		829965DD297A1AF0009A769F /* MetaAccountMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaAccountMapper.swift; sourceTree = "<group>"; };
@@ -823,6 +826,7 @@
 		82C4DDEE283D459400A95E2A /* UserAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPITests.swift; sourceTree = "<group>"; };
 		82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITestsLaunchTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITests.swift"; sourceTree = "<group>"; };
+		82D16324299D57F100536349 /* ChainModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainModelMapper.swift; sourceTree = "<group>"; };
 		82DD90FA2966007F00A508B9 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpDsnpIdViewController.swift; sourceTree = "<group>"; };
 		82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDsnpIdViewController.swift; sourceTree = "<group>"; };
@@ -831,6 +835,10 @@
 		82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseColumnFlowLayout.swift; sourceTree = "<group>"; };
 		82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewModel.swift; sourceTree = "<group>"; };
 		82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseCollectionViewCell.swift; sourceTree = "<group>"; };
+		82E4AEC629A587B50071758A /* ExtrinsicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrinsicManager.swift; sourceTree = "<group>"; };
+		82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtrinsicManager+Msa.swift"; sourceTree = "<group>"; };
+		82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtrinsicManager+Balance.swift"; sourceTree = "<group>"; };
+		82E4AECD29A6E2E40071758A /* FrequencyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyChain.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1005,6 +1013,7 @@
 				8299609C2978C45E009A769F /* DeeplinkManager.swift */,
 				8299609D2978C45E009A769F /* Events */,
 				829967A1297B5D55009A769F /* Extension */,
+				82E4AEC829A6E2190071758A /* ExtrinsicManager */,
 				8299606F2978C45D009A769F /* Foundation */,
 				829960BE2978C45F009A769F /* Helpers */,
 				829960452978C45D009A769F /* Logger.swift */,
@@ -1179,7 +1188,6 @@
 		829960822978C45E009A769F /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				829965D7297A1AF0009A769F /* ChainModelMapper.swift */,
 				829965CA297A1AF0009A769F /* ChainStorageIdFactory.swift */,
 				829965DC297A1AF0009A769F /* EntityToModel */,
 				829965CB297A1AF0009A769F /* LocalStorageKeyFactory.swift */,
@@ -1576,6 +1584,7 @@
 		829965DC297A1AF0009A769F /* EntityToModel */ = {
 			isa = PBXGroup;
 			children = (
+				82D16324299D57F100536349 /* ChainModelMapper.swift */,
 				829965DD297A1AF0009A769F /* MetaAccountMapper.swift */,
 				829965DE297A1AF0009A769F /* ManagedMetaAccountMapper.swift */,
 				8299692F297B7445009A769F /* AssetBalanceMapper.swift */,
@@ -1847,6 +1856,17 @@
 				82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */,
 			);
 			path = SeedPhrase;
+			sourceTree = "<group>";
+		};
+		82E4AEC829A6E2190071758A /* ExtrinsicManager */ = {
+			isa = PBXGroup;
+			children = (
+				82E4AECD29A6E2E40071758A /* FrequencyChain.swift */,
+				82E4AEC629A587B50071758A /* ExtrinsicManager.swift */,
+				82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */,
+				82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */,
+			);
+			path = ExtrinsicManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2180,7 +2200,6 @@
 				829968F8297B721C009A769F /* ScaleCoder+Extension.swift in Sources */,
 				82996905297B721C009A769F /* AssetTransactionData+HistoryItemData.swift in Sources */,
 				8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */,
-				829965EF297A1AF1009A769F /* ChainModelMapper.swift in Sources */,
 				829965F0297A1AF1009A769F /* Model.xcdatamodeld in Sources */,
 				8299663E297A1B5E009A769F /* BalanceDepositEvent.swift in Sources */,
 				82996358297A13CF009A769F /* StorageUpdate.swift in Sources */,
@@ -2212,6 +2231,7 @@
 				82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */,
 				82996687297B141A009A769F /* ByteLengthProcessor.swift in Sources */,
 				82996660297A1B5E009A769F /* SubstrateCallFactory.swift in Sources */,
+				82E4AECA29A6E22B0071758A /* ExtrinsicManager+Msa.swift in Sources */,
 				82996379297A13CF009A769F /* RuntimeCodingService.swift in Sources */,
 				8299649B297A17F4009A769F /* StorageQuery.swift in Sources */,
 				82996362297A13CF009A769F /* ExtrinsicProcessor+Fee.swift in Sources */,
@@ -2290,6 +2310,7 @@
 				829966BF297B28A9009A769F /* StorageRequestFactory.swift in Sources */,
 				8299658D297A1955009A769F /* Key.swift in Sources */,
 				829966A6297B276D009A769F /* JSONListConvertible.swift in Sources */,
+				82E4AEC729A587B50071758A /* ExtrinsicManager.swift in Sources */,
 				8299639A297A13CF009A769F /* ExtrinsicServiceFactory.swift in Sources */,
 				82996924297B7285009A769F /* BigInt+Hex.swift in Sources */,
 				829968D8297B721C009A769F /* CDContactItem+CoreDataDecodable.swift in Sources */,
@@ -2338,6 +2359,7 @@
 				829968DF297B721C009A769F /* DataProviderChange+Result.swift in Sources */,
 				8299612C2978C461009A769F /* WalletNewTransactionInserted.swift in Sources */,
 				829964D4297A17F4009A769F /* UserAPI.swift in Sources */,
+				82D16325299D57F100536349 /* ChainModelMapper.swift in Sources */,
 				829961482978C461009A769F /* TestViewController.swift in Sources */,
 				82996585297A1955009A769F /* SubstrateAlias.swift in Sources */,
 				82996369297A13CF009A769F /* SpecVersionSubscription.swift in Sources */,
@@ -2385,6 +2407,7 @@
 				8299634F297A13CF009A769F /* RemoteSubscriptionService.swift in Sources */,
 				829966C0297B28A9009A769F /* StorageDecodingOperation.swift in Sources */,
 				829968D7297B721C009A769F /* CDChainStorageItem+CoreDataDecodable.swift in Sources */,
+				82E4AECC29A6E2330071758A /* ExtrinsicManager+Balance.swift in Sources */,
 				82996361297A13CF009A769F /* EmptyHandlingStorageSubscription.swift in Sources */,
 				829961492978C461009A769F /* ProfileHeaderView.swift in Sources */,
 				82996649297A1B5E009A769F /* MultiSigner.swift in Sources */,
@@ -2419,6 +2442,7 @@
 				829965B3297A1955009A769F /* ChainStorageItem.swift in Sources */,
 				82996365297A13CF009A769F /* RuntimeFilesOperationFactory.swift in Sources */,
 				829968DD297B721C009A769F /* CDRuntimeMetadataItem+CoreDataCodable.swift in Sources */,
+				82E4AECE29A6E2E40071758A /* FrequencyChain.swift in Sources */,
 				82996351297A13CF009A769F /* OrmlAccountSubcriptionHandlingFactory.swift in Sources */,
 				82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */,
 				8299635C297A13CF009A769F /* ChildSubscriptionFactory.swift in Sources */,
@@ -2669,6 +2693,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = U95Q67332B;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your photos for your profile.";
@@ -2700,6 +2725,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = U95Q67332B;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your photos for your profile.";

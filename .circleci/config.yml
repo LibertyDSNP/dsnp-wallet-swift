@@ -1,0 +1,90 @@
+version: 2.1
+
+orbs:
+  slack: circleci/slack@4.12.0
+
+commands: # a reusable command with parameters
+  send_slack_message:
+    parameters:
+      icon: 
+        default: ":large_blue_circle:"
+        type: string
+      message:
+        default: "No Message were provided"
+        type: string
+      event: # always, fail
+        default: "always"
+        type: string  
+    steps:
+      - slack/notify:
+          custom: >
+            {
+               "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                      "type": "mrkdwn",
+                      "text": "<<parameters.icon>> <<parameters.message>>"
+                  }
+                }
+              ]
+            } 
+          event: <<parameters.event>>
+          channel: ios-ci-alerts
+
+jobs:
+  build-simulator-app-center:
+    macos:
+      xcode: 14.0.1 
+    parameters: # parameters are at the job level
+      build_env:
+        type: string
+        default: "dev" 
+      build_version:
+        type: string
+        default: "1"  
+    
+    steps:
+      - send_slack_message: 
+          event: "always"
+          message: "Building an app for simulator... \\n *Git Branch*: $CIRCLE_BRANCH \\n *Launch trigger*: $CIRCLE_USERNAME"
+      - checkout
+      - run:
+          name: Install dependecies
+          command: |
+            cd DSNP-Wallet
+            pod install
+      - run:
+          name: Build an app for simulator
+          command: fastlane build_app_for_simulator
+      - run:
+          name: Archiving the binary app
+          command: fastlane zip_simulator_bin 
+      - run:
+          name: Upload build file for app center 
+          command: |
+            fastlane add_plugin appcenter
+            fastlane appcenter_upload_sim_app  build_version:"<<parameters.build_version>>" env:"<<parameters.build_env>>"
+      - run:
+          name: Launch Smoke Test 
+          command: |
+            curl --location --request POST "https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline" \
+            --header "Content-Type: application/json" \
+            --header "Circle-Token: $IOS_TEST_CIRCLEKEY" \
+            --data-raw "{\"branch\": \"main\"}"
+      - send_slack_message: #"If all steps has passed"
+          event : "pass" 
+          icon: ":large_green_circle:"
+          message: "The app for simulator has been uploaded to App Center successfully"  
+      - send_slack_message: #"If atleast one step has failed"
+          event : "fail"  
+          icon: ":red_circle:"
+          message: "The Circle Ci build has failed!\\n 
+          *Ci Build URL*: $CIRCLE_BUILD_URL"
+      
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build-simulator-app-center:
+            build_env : "dev" # dev or stg should be used

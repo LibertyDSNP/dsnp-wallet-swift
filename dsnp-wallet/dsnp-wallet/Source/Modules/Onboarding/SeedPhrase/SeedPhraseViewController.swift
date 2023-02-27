@@ -63,6 +63,7 @@ class SeedPhraseViewController: UIViewController {
         setBtns()
         setCollectionViews()
         setStackView()
+        setAccessibilityIds()
     }
     
     //MARK: UI
@@ -104,9 +105,15 @@ class SeedPhraseViewController: UIViewController {
     
     private func setLabels() {
         titleLabel.text = state == .viewSeedPhrase ? "There will be a test" : "This is the test"
-        
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = state == .viewSeedPhrase ? "Please carefully write down these 12 words below in numerical order (1-12) and store your secret phrase securely. You will confirm them in order on the next screen." : "Tap the words in numerical order (1-12) to verify your recovery phrase"
+    }
+    
+    private func setAccessibilityIds() {
+        titleLabel.accessibilityIdentifier = "pageTitle"
+        descriptionLabel.accessibilityIdentifier = "pageDescriptionLabel"
+        topCollectionView?.accessibilityIdentifier = "selectionGridResult"
+        bottomCollectionView?.accessibilityIdentifier = "selectionGridInput"
     }
     
     private func setBtns() {
@@ -227,18 +234,19 @@ extension SeedPhraseViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let vertIndex = convertToVerticalIndex(from: indexPath.row, totalCount: viewModel?.seedPhraseWords.count ?? 0) else { return UICollectionViewCell() }
         let index = indexPath.row
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeedPhraseCollectionViewCell.cellId, for: indexPath) as? SeedPhraseCollectionViewCell
         
         if collectionView == topCollectionView {
-            cell?.number = indexPath.row
-            
+            cell?.number = vertIndex
+            cell?.accessibilityIdentifier = "resultCell"
             if state == .viewSeedPhrase {
-                cell?.word = viewModel?.seedPhraseWords[index]
+                cell?.word = viewModel?.seedPhraseWords[vertIndex]
             } else if state == .confirmSeedPhrase {
-                let validIndex = selectedWords.indices.contains(index)
-                cell?.word = validIndex ? selectedWords[index] : nil
+                let validIndex = selectedWords.indices.contains(vertIndex)
+                cell?.word = validIndex ? selectedWords[vertIndex] : nil
             }
         }
         
@@ -252,16 +260,17 @@ extension SeedPhraseViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let vertIndex = convertToVerticalIndex(from: indexPath.row, totalCount: viewModel?.seedPhraseWords.count ?? 0) else { return }
         let index = indexPath.row
         
         let _ = collectionView.dequeueReusableCell(withReuseIdentifier: SeedPhraseCollectionViewCell.cellId, for: indexPath) as? SeedPhraseCollectionViewCell
         
         if collectionView == topCollectionView {
-            guard selectedWords.indices.contains(index) else { return }
+            guard selectedWords.indices.contains(vertIndex) else { return }
             
-            let selectedWord = selectedWords[index]
+            let selectedWord = selectedWords[vertIndex]
             remainingWords.append(selectedWord)
-            selectedWords.remove(at: index)
+            selectedWords.remove(at: vertIndex)
         }
         
         if collectionView == bottomCollectionView {
@@ -273,5 +282,18 @@ extension SeedPhraseViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
         return
+    }
+    
+    private func convertToVerticalIndex(from horizontalIndex: Int, totalCount: Int) -> Int? {
+        var newIndex: Int?
+         
+        //even indices = left column
+        if horizontalIndex % 2 == 0 {
+            newIndex = horizontalIndex/2
+        } else if horizontalIndex % 2 == 1  { //odd indices = right column
+            newIndex = horizontalIndex + ((totalCount - horizontalIndex)/2)
+        }
+        
+        return newIndex ?? nil
     }
 }
