@@ -371,7 +371,6 @@
 		82996907297B721C009A769F /* TransactionHistoryItem+Extrinsic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829968C8297B721B009A769F /* TransactionHistoryItem+Extrinsic.swift */; };
 		82996908297B721C009A769F /* ErrorContent+Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829968C9297B721B009A769F /* ErrorContent+Wallet.swift */; };
 		82996909297B721C009A769F /* TransactionType+Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829968CA297B721B009A769F /* TransactionType+Wallet.swift */; };
-		8299690A297B721C009A769F /* SearchData+Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829968CB297B721B009A769F /* SearchData+Contacts.swift */; };
 		8299690B297B721C009A769F /* TransactionHistoryItem+Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829968CC297B721B009A769F /* TransactionHistoryItem+Wallet.swift */; };
 		8299690E297B721C009A769F /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829968CF297B721C009A769F /* String+Utils.swift */; };
 		8299690F297B721C009A769F /* UIFont+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829968D0297B721C009A769F /* UIFont+Theme.swift */; };
@@ -392,6 +391,8 @@
 		82996932297B750B009A769F /* FeeMetadataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996931297B750B009A769F /* FeeMetadataContext.swift */; };
 		82996934297F3510009A769F /* OrmlTokenTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996933297F3510009A769F /* OrmlTokenTransfer.swift */; };
 		82996936297F3776009A769F /* AssetsTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996935297F3776009A769F /* AssetsTransfer.swift */; };
+		829969392980918C009A769F /* CreateMsaCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829969382980918C009A769F /* CreateMsaCall.swift */; };
+		8299693B29809C71009A769F /* AddPublicKeyToMsaCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299693A29809C71009A769F /* AddPublicKeyToMsaCall.swift */; };
 		82C4DDEF283D459400A95E2A /* UserAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDEE283D459400A95E2A /* UserAPITests.swift */; };
 		82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */; };
 		82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */; };
@@ -796,7 +797,6 @@
 		829968C8297B721B009A769F /* TransactionHistoryItem+Extrinsic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionHistoryItem+Extrinsic.swift"; sourceTree = "<group>"; };
 		829968C9297B721B009A769F /* ErrorContent+Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ErrorContent+Wallet.swift"; sourceTree = "<group>"; };
 		829968CA297B721B009A769F /* TransactionType+Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionType+Wallet.swift"; sourceTree = "<group>"; };
-		829968CB297B721B009A769F /* SearchData+Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchData+Contacts.swift"; sourceTree = "<group>"; };
 		829968CC297B721B009A769F /* TransactionHistoryItem+Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionHistoryItem+Wallet.swift"; sourceTree = "<group>"; };
 		829968CF297B721C009A769F /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		829968D0297B721C009A769F /* UIFont+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Theme.swift"; sourceTree = "<group>"; };
@@ -817,6 +817,8 @@
 		82996931297B750B009A769F /* FeeMetadataContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeMetadataContext.swift; sourceTree = "<group>"; };
 		82996933297F3510009A769F /* OrmlTokenTransfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrmlTokenTransfer.swift; sourceTree = "<group>"; };
 		82996935297F3776009A769F /* AssetsTransfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsTransfer.swift; sourceTree = "<group>"; };
+		829969382980918C009A769F /* CreateMsaCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMsaCall.swift; sourceTree = "<group>"; };
+		8299693A29809C71009A769F /* AddPublicKeyToMsaCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPublicKeyToMsaCall.swift; sourceTree = "<group>"; };
 		82C4DDEE283D459400A95E2A /* UserAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPITests.swift; sourceTree = "<group>"; };
 		82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITestsLaunchTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITests.swift"; sourceTree = "<group>"; };
@@ -1640,6 +1642,8 @@
 				82996933297F3510009A769F /* OrmlTokenTransfer.swift */,
 				8299662B297A1B5E009A769F /* TransferCall.swift */,
 				8299662D297A1B5E009A769F /* SubstrateCallFactory.swift */,
+				8299693A29809C71009A769F /* AddPublicKeyToMsaCall.swift */,
+				829969382980918C009A769F /* CreateMsaCall.swift */,
 			);
 			path = Calls;
 			sourceTree = "<group>";
@@ -1806,7 +1810,6 @@
 				829968C8297B721B009A769F /* TransactionHistoryItem+Extrinsic.swift */,
 				829968C9297B721B009A769F /* ErrorContent+Wallet.swift */,
 				829968CA297B721B009A769F /* TransactionType+Wallet.swift */,
-				829968CB297B721B009A769F /* SearchData+Contacts.swift */,
 				829968CC297B721B009A769F /* TransactionHistoryItem+Wallet.swift */,
 			);
 			path = Wallet;
@@ -2141,6 +2144,7 @@
 				829968D4297B721C009A769F /* UIColor+Theme.swift in Sources */,
 				829965F6297A1AF1009A769F /* UserDataStorageFacade.swift in Sources */,
 				829968EC297B721C009A769F /* CompoundOperationWrapper+Dependency.swift in Sources */,
+				829969392980918C009A769F /* CreateMsaCall.swift in Sources */,
 				829964A8297A17F4009A769F /* WalletContactOperationFactory.swift in Sources */,
 				829965A4297A1955009A769F /* EraValidatorInfo.swift in Sources */,
 				82996368297A13CF009A769F /* ChainRegistryError.swift in Sources */,
@@ -2185,6 +2189,7 @@
 				8299612A2978C461009A769F /* WalletBalanceChanged.swift in Sources */,
 				8299658F297A1955009A769F /* BlockWeights.swift in Sources */,
 				829965F2297A1AF1009A769F /* MetaAccountMapper.swift in Sources */,
+				8299693B29809C71009A769F /* AddPublicKeyToMsaCall.swift in Sources */,
 				8299690B297B721C009A769F /* TransactionHistoryItem+Wallet.swift in Sources */,
 				829964D6297A17F4009A769F /* User.swift in Sources */,
 				829968EB297B721C009A769F /* CompoundOperationWrapper+Result.swift in Sources */,
@@ -2347,7 +2352,6 @@
 				8299634B297A13CF009A769F /* RemoteSubscriptionHandlingFactory.swift in Sources */,
 				82996903297B721C009A769F /* NSMutableAttributedString+Link.swift in Sources */,
 				829960FF2978C460009A769F /* ViewControllerFactory.swift in Sources */,
-				8299690A297B721C009A769F /* SearchData+Contacts.swift in Sources */,
 				829960D52978C460009A769F /* SigningWrapperProtocol.swift in Sources */,
 				82996586297A1955009A769F /* ChainAsset.swift in Sources */,
 				829965F3297A1AF1009A769F /* ManagedMetaAccountMapper.swift in Sources */,
