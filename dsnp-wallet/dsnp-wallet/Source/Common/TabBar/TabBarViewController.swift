@@ -19,11 +19,6 @@ class TabBarViewController: UITabBarController {
         setupTabs()
     }
     
-    func set(_ keys: DSNPKeys?) {
-        guard let keys = keys else { return }
-        viewModel.user = OpenUser(keys: keys)
-    }
-    
     func setupTabs() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -60,11 +55,15 @@ class TabBarViewController: UITabBarController {
     }
 
     private func updateViewControllers(with user: User?) {
+        guard let address = try? user?.getAddress() else {
+            return
+        }
+        
         if let viewControllers = self.viewControllers {
             for viewController in viewControllers {
                 if let navVc = viewController as? SharedNavigationController,
                    let vc = navVc.topViewController as? SharedProfileHeaderViewController {
-                    vc.set(name: user?.name, address: user?.keys?.address)
+                    vc.set(name: user?.name, address: address)
                 }
             }
         }

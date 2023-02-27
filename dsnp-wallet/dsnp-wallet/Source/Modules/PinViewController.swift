@@ -88,7 +88,6 @@ extension PinViewController {
                 return
             }
             if let tabBarVC = ViewControllerFactory.tabBarViewController.instance() as? TabBarViewController {
-                tabBarVC.set(self.keys)
                 self.present(tabBarVC, animated: true)
             }
         }))
