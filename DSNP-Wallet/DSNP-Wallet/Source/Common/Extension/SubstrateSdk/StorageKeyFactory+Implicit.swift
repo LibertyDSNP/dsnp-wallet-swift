@@ -60,4 +60,11 @@ extension StorageKeyFactoryProtocol {
     func key(from codingPath: StorageCodingPath) throws -> Data {
         try createStorageKey(moduleName: codingPath.moduleName, storageName: codingPath.itemName)
     }
+    
+    func msa(from publicKey: Data) throws -> Data {
+        try createStorageKey(moduleName: "Msa",
+                             storageName: "PublicKeyToMsaId",
+                             key: publicKey,
+                             hasher: .twox64Concat)
+    }
 }

@@ -17,7 +17,7 @@ extension ExtrinsicManager {
             return builder
         }
         
-        guard let signer = user.signer else { throw ExtrinsicError.BadSetup }
+        guard let signer = user?.signer else { throw ExtrinsicError.BadSetup }
         
         extrinsicService?.submit(closure,
                                  signer: signer,

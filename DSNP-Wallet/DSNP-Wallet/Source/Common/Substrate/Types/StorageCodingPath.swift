@@ -6,6 +6,10 @@ struct StorageCodingPath: Equatable {
 }
 
 extension StorageCodingPath {
+    static var publicKeyToMsa: StorageCodingPath {
+        StorageCodingPath(moduleName: "Msa", itemName: "PublicKeyToMsaId")
+    }
+    
     static var account: StorageCodingPath {
         StorageCodingPath(moduleName: "System", itemName: "Account")
     }

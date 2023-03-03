@@ -10,7 +10,6 @@ import UIKit
 import DSNPWallet
 
 class TabBarViewController: UITabBarController {
-    
     var viewModel = TabBarViewModel()
     
     override func viewDidLoad() {
@@ -18,7 +17,10 @@ class TabBarViewController: UITabBarController {
         
         setupTabs()
     }
-    
+}
+
+//MARK: UI
+extension TabBarViewController {
     func setupTabs() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -41,7 +43,7 @@ class TabBarViewController: UITabBarController {
         let profileIcon = UITabBarItem(title: "Profile", image: UIImage(named: "Profile"), selectedImage: UIImage(named: "Profile"))
         profileIcon.accessibilityIdentifier = "profileIconTabBarButton"
         navProfileVC.tabBarItem = profileIcon
-        profileVC.updateUserBlock = viewModel.updateUserBlock 
+        profileVC.updateUserBlock = viewModel.updateUserBlock
         
         let keysVC = ViewControllerFactory.keysViewController.instance()
         let navKeysVC = SharedNavigationController(rootViewController: keysVC)

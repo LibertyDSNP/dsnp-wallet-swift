@@ -409,6 +409,8 @@
 		82E4AECA29A6E22B0071758A /* ExtrinsicManager+Msa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */; };
 		82E4AECC29A6E2330071758A /* ExtrinsicManager+Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */; };
 		82E4AECE29A6E2E40071758A /* FrequencyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AECD29A6E2E40071758A /* FrequencyChain.swift */; };
+		82E4AED129B020B00071758A /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AED029B020AF0071758A /* ServiceViewController.swift */; };
+		82E4AED329B020B60071758A /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AED229B020B60071758A /* ServiceViewModel.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -839,6 +841,8 @@
 		82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtrinsicManager+Msa.swift"; sourceTree = "<group>"; };
 		82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtrinsicManager+Balance.swift"; sourceTree = "<group>"; };
 		82E4AECD29A6E2E40071758A /* FrequencyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyChain.swift; sourceTree = "<group>"; };
+		82E4AED029B020AF0071758A /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		82E4AED229B020B60071758A /* ServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1282,6 +1286,7 @@
 				829960CF2978C45F009A769F /* PinViewController.swift */,
 				829960CC2978C45F009A769F /* Profile */,
 				829960CB2978C45F009A769F /* TestViewController.swift */,
+				82E4AECF29B0209A0071758A /* Service */,
 				829960D22978C45F009A769F /* SettingsViewController.swift */,
 				82996884297B6C30009A769F /* Wallet */,
 			);
@@ -1869,6 +1874,15 @@
 			path = ExtrinsicManager;
 			sourceTree = "<group>";
 		};
+		82E4AECF29B0209A0071758A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				82E4AED029B020AF0071758A /* ServiceViewController.swift */,
+				82E4AED229B020B60071758A /* ServiceViewModel.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2235,6 +2249,7 @@
 				82996379297A13CF009A769F /* RuntimeCodingService.swift in Sources */,
 				8299649B297A17F4009A769F /* StorageQuery.swift in Sources */,
 				82996362297A13CF009A769F /* ExtrinsicProcessor+Fee.swift in Sources */,
+				82E4AED329B020B60071758A /* ServiceViewModel.swift in Sources */,
 				829966C2297B28A9009A769F /* OperationManagerFacade.swift in Sources */,
 				829965ED297A1AF1009A769F /* SubstrateDataStorageFacade.swift in Sources */,
 				82996371297A13CF009A769F /* RuntimeCoderFactory.swift in Sources */,
@@ -2501,6 +2516,7 @@
 				829961442978C461009A769F /* KeysViewController.swift in Sources */,
 				829961432978C461009A769F /* KeysViewController+Backup.swift in Sources */,
 				829965EE297A1AF1009A769F /* SubstrateDataModel.xcdatamodeld in Sources */,
+				82E4AED129B020B00071758A /* ServiceViewController.swift in Sources */,
 				82996598297A1955009A769F /* AboutData.swift in Sources */,
 				8299612D2978C461009A769F /* RuntimeCoderEvents.swift in Sources */,
 				829965B7297A1955009A769F /* MultiassetCryptoType.swift in Sources */,
