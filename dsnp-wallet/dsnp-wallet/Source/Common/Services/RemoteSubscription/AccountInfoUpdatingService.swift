@@ -125,7 +125,7 @@ final class AccountInfoUpdatingService {
 //            transactionSubscription: transactionSubscription,
 //            eventCenter: eventCenter
 //        )
-//
+
 //        let maybeSubscriptionId = remoteSubscriptionService.attachToAccountInfo(
 //            of: accountId,
 //            chainId: chain.chainId,
@@ -135,9 +135,9 @@ final class AccountInfoUpdatingService {
 //            subscriptionHandlingFactory: subscriptionHandlingFactory
 //        )
 //
-//        if let subsciptionId = maybeSubscriptionId {
+//        if let subscriptionId = maybeSubscriptionId {
 //            subscribedChains[chain.chainId] = SubscriptionInfo(
-//                subscriptionId: subsciptionId,
+//                subscriptionId: subscriptionId,
 //                accountId: accountId
 //            )
 //        }

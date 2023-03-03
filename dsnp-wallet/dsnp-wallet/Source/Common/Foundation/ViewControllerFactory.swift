@@ -57,6 +57,11 @@ enum ViewControllerFactory: String, CaseIterable {
             vc = UIViewController.fromString(viewControllerName: self.className)
         }
 
+        if let serviceVc = vc as? ServiceViewController {
+            serviceVc.viewModel = ServiceViewModel()
+            return serviceVc
+        }
+        
         return vc ?? UIViewController()
     }
 }

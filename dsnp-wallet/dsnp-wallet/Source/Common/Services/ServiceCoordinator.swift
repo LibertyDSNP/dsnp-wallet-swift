@@ -41,12 +41,12 @@ extension ServiceCoordinator: ServiceCoordinatorProtocol {
         setup(chainRegistry: chainRegistry)
 
         accountInfoService.setup()
-        assetsService.setup()
+//        assetsService.setup()
     }
 
     func throttle() {
         accountInfoService.throttle()
-        assetsService.throttle()
+//        assetsService.throttle()
     }
 }
 
