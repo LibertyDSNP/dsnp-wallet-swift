@@ -9,13 +9,16 @@ import UIKit
 
 enum TestButtons: String, CaseIterable {
     case create = "Create MSA"
-//    case addPublicKeyToMsa = "Add Public Key to MSA"
     case getMsa = "Get MSA"
+    
+    case addPublicKeyToMsa = "Add Public Key to MSA"
+    case transfer = "Transfer"
 }
 
 class TestViewController: ServiceViewController, UITextFieldDelegate {
     //MARK: UI
-    private lazy var textField = getTextField()
+    private lazy var primaryTextField = getTextField(placeholder: "Primary Mnemomic")
+    private lazy var secondaryTextField = getTextField(placeholder: "Secondary Mnemomic")
     
     var extrinsicManager: ExtrinsicManager?
     
@@ -32,7 +35,8 @@ extension TestViewController {
         stackview.axis = .vertical
         stackview.distribution = .equalSpacing
         stackview.addArrangedSubview(SharedSpacer(height: 25))
-        stackview.addArrangedSubview(textField)
+        stackview.addArrangedSubview(primaryTextField)
+        stackview.addArrangedSubview(secondaryTextField)
         
         for testButton in TestButtons.allCases {
             let btn = UIButton(type: .system)
@@ -52,8 +56,8 @@ extension TestViewController {
         stackview.layoutAttachAll(to: view)
     }
 
-    private func getTextField() -> SharedTextField {
-        let textField = SharedTextField(with: "Mnemonic")
+    private func getTextField(placeholder: String) -> SharedTextField {
+        let textField = SharedTextField(with: placeholder)
         textField.delegate = self
         textField.textAlignment = .center
         
@@ -77,15 +81,23 @@ extension TestViewController {
             self.present(alert, animated: true)
         }
         
-        let mnemonicInput = textField.text?.isEmpty ?? true ? "quote grocery buzz staff merit patch outdoor depth eight raw rubber once" : textField.text ?? ""
-        let primaryUser = User(mnemonic: mnemonicInput)
-        let secondaryUser = User(mnemonic: "wink settle steak second tuition whale question must honey fossil spider melt")
+        let primaryMnemonicInput = primaryTextField.text?.isEmpty ?? true ? "quote grocery buzz staff merit patch outdoor depth eight raw rubber once" : primaryTextField.text ?? ""
+        let primaryUser = User(mnemonic: primaryMnemonicInput)
+        
+        let secondaryMnemonicInput = secondaryTextField.text?.isEmpty ?? true ? "wink settle steak second tuition whale question must honey fossil spider melt" : secondaryTextField.text ?? ""
+        let secondaryUser = User(mnemonic: secondaryMnemonicInput)
         
         switch selector?.titleLabel?.text ?? "" {
         case TestButtons.create.rawValue:
             createMsa(user: primaryUser, completion: completion)
         case TestButtons.getMsa.rawValue:
             getMsa(from: primaryUser)
+        case TestButtons.addPublicKeyToMsa.rawValue:
+            addPublicKeyToMsa(primaryUser: primaryUser,
+                              secondaryUser: secondaryUser,
+                              completion: completion)
+        case TestButtons.transfer.rawValue:
+            transfer(primaryUser: primaryUser, secondaryUser: secondaryUser, completion: completion)
         default:
             return
         }
