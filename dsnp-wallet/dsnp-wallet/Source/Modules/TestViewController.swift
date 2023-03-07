@@ -29,7 +29,7 @@ class TestViewController: ServiceViewController, UITextFieldDelegate {
 
 extension TestViewController {
     private func setViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = .lightGray
         
         let stackview = UIStackView()
         stackview.axis = .vertical
