@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SharedScrollableStackView" customModule="UsNative" customModuleProvider="target">
+            <connections>
+                <outlet property="stackView" destination="8mA-nM-rxU" id="2NU-15-3aa"/>
+                <outlet property="stackViewBottomLayoutConstraint" destination="8an-lL-JEY" id="fLD-SK-MVn"/>
+                <outlet property="stackViewLeadingLayoutConstraint" destination="jue-lh-MdZ" id="d47-j6-wqz"/>
+                <outlet property="stackViewTopLayoutConstraint" destination="kpf-dL-upE" id="pfx-wG-6LC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="D1K-z1-ppr">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgG-dc-QYg">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="298"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="314" placeholderIntrinsicHeight="200" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="8mA-nM-rxU" customClass="SharedStackView" customModule="UsNative" customModuleProvider="target">
+                            <rect key="frame" x="53" y="58" width="308" height="200"/>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="8mA-nM-rxU" secondAttribute="bottom" constant="40" id="8an-lL-JEY"/>
+                        <constraint firstItem="8mA-nM-rxU" firstAttribute="leading" secondItem="qgG-dc-QYg" secondAttribute="leading" constant="53" id="jue-lh-MdZ"/>
+                        <constraint firstItem="8mA-nM-rxU" firstAttribute="top" secondItem="qgG-dc-QYg" secondAttribute="top" constant="58" id="kpf-dL-upE"/>
+                        <constraint firstItem="8mA-nM-rxU" firstAttribute="centerX" secondItem="qgG-dc-QYg" secondAttribute="centerX" id="uDe-qP-aLC"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="ctC-Ut-avo"/>
+            <constraints>
+                <constraint firstItem="qgG-dc-QYg" firstAttribute="width" secondItem="bMp-mh-ryN" secondAttribute="width" id="BsL-nb-TQ5"/>
+                <constraint firstItem="AdY-qu-gui" firstAttribute="leading" secondItem="qgG-dc-QYg" secondAttribute="leading" id="FS1-Qq-Omu"/>
+                <constraint firstItem="qgG-dc-QYg" firstAttribute="bottom" secondItem="AdY-qu-gui" secondAttribute="bottom" id="e1S-rq-WoX"/>
+                <constraint firstItem="qgG-dc-QYg" firstAttribute="trailing" secondItem="AdY-qu-gui" secondAttribute="trailing" id="jzb-wR-mFX"/>
+                <constraint firstItem="AdY-qu-gui" firstAttribute="top" secondItem="qgG-dc-QYg" secondAttribute="top" id="ql4-UJ-8Nt"/>
+            </constraints>
+            <viewLayoutGuide key="contentLayoutGuide" id="AdY-qu-gui"/>
+            <viewLayoutGuide key="frameLayoutGuide" id="bMp-mh-ryN"/>
+            <point key="canvasLocation" x="720" y="53"/>
+        </scrollView>
+    </objects>
+</document>
