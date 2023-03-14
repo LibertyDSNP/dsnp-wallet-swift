@@ -10,6 +10,8 @@ import UIKit
 
 class SeedPhraseViewController: UIViewController {
     
+    public var didSucceed:(() -> Void)?
+    
     private enum SeedPhraseCreationState {
         case viewSeedPhrase
         case confirmSeedPhrase
@@ -205,7 +207,10 @@ class SeedPhraseViewController: UIViewController {
             
             if isValidSeedPhrase {
                 alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { _ in
-                    self.dismiss(animated: true)
+                    self.dismiss(animated: true) {
+                        self.didSucceed?()
+                    }
+                    
                 }))
             } else {
                 alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: { _ in
@@ -215,16 +220,6 @@ class SeedPhraseViewController: UIViewController {
             
             self.present(alert, animated: true)
         }
-    }
-    
-    private func presentVC() {
-        let vc: UIViewController?
-        
-        vc = ViewControllerFactory.restoreDsnpIdViewController.instance()
-        
-        guard let vc = vc else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
     }
 }
 

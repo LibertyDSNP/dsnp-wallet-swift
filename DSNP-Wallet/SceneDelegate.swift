@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 #if DEBUG
         let rootViewController = BaseViewController()
 #else
-        let rootViewController = GenerateKeysViewController() //TODO: Update with service instantiation
+        let rootViewController = StartupSequenceViewController() //TODO: Update with service instantiation
 #endif
       
         window.rootViewController = rootViewController

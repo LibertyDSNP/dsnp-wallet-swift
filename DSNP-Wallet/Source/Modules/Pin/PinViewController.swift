@@ -1,5 +1,5 @@
 //
-//  PinViewController.swift
+//  EnterPinViewController.swift
 //  DSNP-Wallet
 //
 //  Created by Ryan Sheh on 5/13/22.
@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 import DSNPWallet
+import LocalAuthentication
 
-class PinViewController: SharedStackViewController {
+class EnterPinViewController: SharedStackViewController {
 
     public var didSucceed:(() -> Void)?
     public var didCancel:(() -> Void)?
     
-    private var pinIsSet: Bool { return false } //!(AccountKeychain.shared.accessPin?.isEmpty ?? true) }
+    private var pinIsSet: Bool { return !(AccountKeychain.shared.accessPin?.isEmpty ?? true) }
     private var loadingAlertController: SharedLoadingAlertController?
     private var viewModel: EnterPin_BaseViewModel?
     
@@ -35,16 +36,20 @@ class PinViewController: SharedStackViewController {
             self.didCancel?()
         }
         self.scrollableStackView?.replaceViews(self.viewModel?.stackViews())
+        
+        if self.pinIsSet {
+            self.biometricAuth()
+        }
     }
     
     private func login() {
         self.loadingAlertController?.presentLoadingView(title: "Authenticating...")
 //        AccountAPI.shared.refreshAccessToken {
-//            DispatchQueue.main.async {
-//                self.loadingAlertController?.dismissLoadingView(completion: {
-//                    self.didSucceed?()
-//                })
-//            }
+            DispatchQueue.main.async {
+                self.loadingAlertController?.dismissLoadingView(completion: {
+                    self.didSucceed?()
+                })
+            }
 //        } didCompleteWithError: { error in
 //            DispatchQueue.main.async {
 //                self.loadingAlertController?.dismissLoadingView(completion: {
@@ -53,106 +58,27 @@ class PinViewController: SharedStackViewController {
 //            }
 //        }
     }
+    
+    private func biometricAuth() {
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Authenticate with Touch ID"
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                DispatchQueue.main.async {
+                    if success {
+                        // User authenticated successfully, proceed with desired action
+                        self.didSucceed?()
+                    } else {
+                        // Authentication failed, display error message
+//                        self.didCancel?()
+                    }
+                }
+            }
+        } else {
+            // Biometric authentication not available on this device
+//            self.didCancel?()
+        }
+    }
 }
-
-
-//class PinViewController: UIViewController {
-//    private var keys: DSNPKeys?
-//
-//    //MARK: Constants
-//    private lazy var hasAccessPin = AuthManager.shared.accessPin != nil
-//    private lazy var saveBtnText: String = { return hasAccessPin ? "Enter" : "Save" }()
-//    private let pinLength = 6
-//    private lazy var pinTextFieldPlaceHolderText = "Enter \(pinLength) digit pin"
-//
-//    //MARK: UI
-//    private lazy var pinTextField = getPinTextField()
-//    private lazy var saveBtn = getSaveBtn()
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        setViews()
-//    }
-//
-//    func set(_ keys: DSNPKeys?) {
-//        self.keys = keys
-//    }
-//}
-//
-////MARK: UI Helper
-//extension PinViewController {
-//    private func setViews() {
-//        view.backgroundColor = .white
-//        setPasswordView()
-//    }
-//
-//    private func setPasswordView() {
-//        let stackview = UIStackView()
-//        stackview.axis = .vertical
-//        stackview.addArrangedSubview(pinTextField)
-//        stackview.addArrangedSubview(SharedSpacer(height: 4))
-//        stackview.addArrangedSubview(saveBtn)
-//
-//        view.addSubview(stackview)
-//        stackview.translatesAutoresizingMaskIntoConstraints = false
-//        stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-//    }
-//
-//    private func getPinTextField() -> SharedTextField {
-//        let pinTextField = SharedTextField(with: pinTextFieldPlaceHolderText)
-//        pinTextField.keyboardType = .numberPad
-//        pinTextField.delegate = self
-//        pinTextField.textAlignment = .center
-//
-//        return pinTextField
-//    }
-//
-//    private func getSaveBtn() -> UIButton {
-//        let saveBtn = UIButton(type: .system)
-//        saveBtn.setTitle(saveBtnText, for: .normal)
-//        saveBtn.addTarget(self, action: #selector(tappedSaveBtn(selector:)), for: .touchUpInside)
-//        saveBtn.titleLabel?.textColor = .black
-//        saveBtn.contentHorizontalAlignment = .center
-//        saveBtn.isEnabled = false
-//
-//        return saveBtn
-//    }
-//
-//    @objc func tappedSaveBtn(selector: UIButton?) {
-//        let isAuthorized = AuthManager.shared.validatePin(pinTextField.text)
-//        let authorizeTitle = isAuthorized ? "Signed in" : "Incorrect pin"
-//        let alertTitle = hasAccessPin ? authorizeTitle : "Saved pin"
-//        presentPinSuccessAlert(title: alertTitle,
-//                               pinSuccess: isAuthorized)
-//    }
-//
-//    private func presentPinSuccessAlert(title: String, pinSuccess: Bool) {
-//        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-//            if !pinSuccess {
-//                return
-//            }
-//            if let tabBarVC = ViewControllerFactory.tabBarViewController.instance() as? TabBarViewController {
-//                tabBarVC.set(self.keys)
-//                self.present(tabBarVC, animated: true)
-//            }
-//        }))
-//        present(alert, animated: true)
-//    }
-//}
-//
-//extension PinViewController: UITextFieldDelegate {
-//    func textFieldDidChangeSelection(_ textField: UITextField) {
-//        saveBtn.isEnabled = textField.text?.count == pinLength
-//    }
-//
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        let currentText = textField.text ?? ""
-//        guard let stringRange = Range(range, in: currentText) else { return false }
-//        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-//
-//        return updatedText.count <= pinLength
-//    }
-//}

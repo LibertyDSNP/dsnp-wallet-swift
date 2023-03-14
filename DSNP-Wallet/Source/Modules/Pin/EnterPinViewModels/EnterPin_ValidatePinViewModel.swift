@@ -15,7 +15,7 @@ class EnterPin_ValidatePinViewModel: EnterPin_BaseViewModel  {
     }
     
     override public func handleDidCompleteSequence(_ sequence: SharedNumPadTypeSequence) {
-        if sequence.toString() == "1111" {//AccountKeychain.shared.accessPin {
+        if sequence.toString() == AccountKeychain.shared.accessPin {
             // Pin matches
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                 self.didSucceed?()

@@ -8,10 +8,13 @@
 import Foundation
 
 class AccountKeychain {
+    
+    static var shared = AccountKeychain()
+    
     private let kAccessPin = "access_pin"
     var isAuthorized: Bool = false {
         didSet {
-            guard isAuthorized else { return }
+            guard isAuthorized else { return } //TODO: May want to refactor notification for retrieving keys?
             NotificationCenter.default.post(name: Notification.Name(NotificationType.retrievedKeys.rawValue),
                                             object: nil)
         }

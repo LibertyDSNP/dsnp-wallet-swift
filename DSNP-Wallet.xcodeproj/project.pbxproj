@@ -63,7 +63,6 @@
 		829961372978C461009A769F /* SharedSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960B62978C45F009A769F /* SharedSpacer.swift */; };
 		8299613D2978C461009A769F /* SharedImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960BD2978C45F009A769F /* SharedImagePicker.swift */; };
 		829961462978C461009A769F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960C92978C45F009A769F /* HomeViewController.swift */; };
-		829961472978C461009A769F /* GenerateKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960CA2978C45F009A769F /* GenerateKeysViewController.swift */; };
 		829961482978C461009A769F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960CB2978C45F009A769F /* TestViewController.swift */; };
 		829961492978C461009A769F /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960CD2978C45F009A769F /* ProfileHeaderView.swift */; };
 		8299614A2978C461009A769F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960CE2978C45F009A769F /* ProfileViewController.swift */; };
@@ -425,6 +424,8 @@
 		82F3C97129BA9A6100E2190A /* KeysViewController+Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3C96E29BA9A6100E2190A /* KeysViewController+Backup.swift */; };
 		82F3C97229BA9A6100E2190A /* KeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3C96F29BA9A6100E2190A /* KeysViewController.swift */; };
 		82F3C97329BA9A6100E2190A /* KeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3C97029BA9A6100E2190A /* KeysViewModel.swift */; };
+		82F3C97529BAAA6600E2190A /* StartupSequenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3C97429BAAA6600E2190A /* StartupSequenceViewController.swift */; };
+		82F3C97829BAAAD400E2190A /* AccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3C97729BAAAD400E2190A /* AccountCoordinator.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -505,7 +506,6 @@
 		829960B62978C45F009A769F /* SharedSpacer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedSpacer.swift; sourceTree = "<group>"; };
 		829960BD2978C45F009A769F /* SharedImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedImagePicker.swift; sourceTree = "<group>"; };
 		829960C92978C45F009A769F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		829960CA2978C45F009A769F /* GenerateKeysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateKeysViewController.swift; sourceTree = "<group>"; };
 		829960CB2978C45F009A769F /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		829960CD2978C45F009A769F /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		829960CE2978C45F009A769F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -871,6 +871,8 @@
 		82F3C96E29BA9A6100E2190A /* KeysViewController+Backup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeysViewController+Backup.swift"; sourceTree = "<group>"; };
 		82F3C96F29BA9A6100E2190A /* KeysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysViewController.swift; sourceTree = "<group>"; };
 		82F3C97029BA9A6100E2190A /* KeysViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysViewModel.swift; sourceTree = "<group>"; };
+		82F3C97429BAAA6600E2190A /* StartupSequenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupSequenceViewController.swift; sourceTree = "<group>"; };
+		82F3C97729BAAAD400E2190A /* AccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1309,8 +1311,8 @@
 		829960C42978C45F009A769F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				82F3C97629BAAACB00E2190A /* Account */,
 				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
-				829960CA2978C45F009A769F /* GenerateKeysViewController.swift */,
 				829960C92978C45F009A769F /* HomeViewController.swift */,
 				82F3C96D29BA9A6100E2190A /* Keys */,
 				82DD90FE29661D3900A508B9 /* Onboarding */,
@@ -1320,6 +1322,7 @@
 				82E4AECF29B0209A0071758A /* Service */,
 				829960D22978C45F009A769F /* SettingsViewController.swift */,
 				82996884297B6C30009A769F /* Wallet */,
+				82F3C97429BAAA6600E2190A /* StartupSequenceViewController.swift */,
 			);
 			name = Modules;
 			path = Source/Modules;
@@ -1965,6 +1968,14 @@
 			path = Keys;
 			sourceTree = "<group>";
 		};
+		82F3C97629BAAACB00E2190A /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				82F3C97729BAAAD400E2190A /* AccountCoordinator.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2250,6 +2261,7 @@
 				8299614A2978C461009A769F /* ProfileViewController.swift in Sources */,
 				829968FB297B721C009A769F /* RuntimeMetadata+Internal.swift in Sources */,
 				82996366297A13CF009A769F /* ChainRegistryFactory.swift in Sources */,
+				82F3C97829BAAAD400E2190A /* AccountCoordinator.swift in Sources */,
 				829961312978C461009A769F /* SharedDivider.swift in Sources */,
 				8299669E297B141A009A769F /* DataChangesDiffCalculator.swift in Sources */,
 				82996354297A13CF009A769F /* WebSocketProtocols.swift in Sources */,
@@ -2491,6 +2503,7 @@
 				82996636297A1B5E009A769F /* Identity.swift in Sources */,
 				829968FD297B721C009A769F /* SS58FactoryExtensions.swift in Sources */,
 				829965B4297A1955009A769F /* AssetBalanceId.swift in Sources */,
+				82F3C97529BAAA6600E2190A /* StartupSequenceViewController.swift in Sources */,
 				82996908297B721C009A769F /* ErrorContent+Wallet.swift in Sources */,
 				829968E9297B721C009A769F /* Chain+ViewModel.swift in Sources */,
 				829961262978C460009A769F /* ChainSyncEvents.swift in Sources */,
@@ -2576,7 +2589,6 @@
 				82996498297A17F4009A769F /* ExtrinsicStatus.swift in Sources */,
 				829965A2297A1955009A769F /* RuntimeMetadataItem.swift in Sources */,
 				829960D92978C460009A769F /* AuthManager.swift in Sources */,
-				829961472978C461009A769F /* GenerateKeysViewController.swift in Sources */,
 				82996596297A1955009A769F /* ChainStorageDecodedItem.swift in Sources */,
 				82996375297A13CF009A769F /* RuntimeSyncService.swift in Sources */,
 				829965AD297A1955009A769F /* SubstrateConstansts.swift in Sources */,

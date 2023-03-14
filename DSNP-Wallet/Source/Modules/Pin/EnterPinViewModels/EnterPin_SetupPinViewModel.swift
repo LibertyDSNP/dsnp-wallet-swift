@@ -20,7 +20,7 @@ class EnterPin_SetupPinViewModel: EnterPin_BaseViewModel  {
         if let storedPinSequence = self.storedPinSequence {
             if storedPinSequence == sequence {
                 // Pin matches. Save to Keychain.
-//                AccountKeychain.shared.accessPin = sequence.toString()
+                AccountKeychain.shared.accessPin = sequence.toString()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.didSucceed?()
                 }
