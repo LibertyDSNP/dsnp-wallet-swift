@@ -168,7 +168,7 @@ class LookUpDsnpIdViewController: UIViewController {
         }
 
         guard let vc = vc else { return }
-//        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }
  }

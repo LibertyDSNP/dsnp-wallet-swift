@@ -1,15 +1,26 @@
 //
 //  SharedLabel.swift
-//  DSNP-Wallet
+//  UsNative
 //
-//  Created by Ryan Sheh on 5/9/22.
+//  Created by Rigo Carbajal on 5/11/21.
 //
 
 import UIKit
 
+enum SharedLabelStyle {
+    case title
+    case subtitle
+    case detail
+    case body
+}
+
 class SharedLabel: UILabel {
-    init() {
+    
+    var style: SharedLabelStyle = .body
+    
+    init(style: SharedLabelStyle = .body) {
         super.init(frame: .zero)
+        self.style = style
         self.setupView()
         self.updateWithStyle()
     }
@@ -30,9 +41,20 @@ class SharedLabel: UILabel {
     }
     
     private func updateWithStyle() {
+        
         self.numberOfLines = 0
+        
+//        switch self.style {
+//        case .title:
+//            self.font = UIFont.Theme.poppinsBold(ofSize: 24)
+//        case .subtitle:
+//            self.font = UIFont.Theme.poppinsBold(ofSize: 16)
+//        case .detail:
+//            self.font = UIFont.Theme.poppinsBold(ofSize: 14)
+//        case .body:
+//            self.font = UIFont.Theme.poppinsRegular(ofSize: 16)
+//        }
+        
         self.textColor = .black
-        self.font = UIFont.Theme.semibold(ofSize: 15)
-        self.textColor = UIColor.Theme.accentBlue
     }
 }
