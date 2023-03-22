@@ -59,10 +59,8 @@ extension RestoreDsnpIdViewController {
     }
     
     @objc func tappedBtn(selector: UIButton?) {
-        guard let mnemonic = mnemonicTextField.text else { return }
         //TODO: Decide how we want to include keys/user through this submit and pass through didSucceed completion block up to TabBarVC?
-        print(mnemonic)
-        if (try? viewModel?.submit(mnemonic: mnemonic)) != nil {
+        if (try? viewModel?.submit(mnemonic: mnemonicTextField.text ?? "")) != nil {
             didSucceed?()
         } else {
             let alert = UIAlertController(title: "Bad mnemonic", message: nil, preferredStyle: .alert)
