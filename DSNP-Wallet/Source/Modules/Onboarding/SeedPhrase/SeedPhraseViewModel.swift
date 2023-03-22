@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import SoraKeystore
 
 class SeedPhraseViewModel {
-    var seedPhraseWords = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]
+    var seedPhraseWords: [String] = []
+    var keychainManager = KeychainManager.shared
+    
+    init() {
+        guard let mnemonic = SeedManager.shared.generateMnemonic() else { return }
+        seedPhraseWords = mnemonic.components(separatedBy: " ")
+    }
 }

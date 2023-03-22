@@ -33,7 +33,7 @@ class User: UserFacadeProtocol, Equatable {
     private(set) var signer: SigningWrapper?
     
     init(mnemonic: String) {
-        self.keypair = getKeypair(mnemonic: mnemonic)
+        self.keypair = SeedManager.shared.getKeypair(mnemonic: mnemonic)
         self.publicKey = keypair?.publicKey()
 
         try? saveSecretKey(privateKeyData: self.keypair?.privateKey().rawData())
@@ -54,21 +54,6 @@ class User: UserFacadeProtocol, Equatable {
     
     func getAccountId() -> Data? {
         return try? publicKey?.rawData().publicKeyToAccountId()
-    }
-    
-    private func getKeypair(mnemonic: String) -> IRCryptoKeypairProtocol? {
-        let seedFactory = SeedFactory(mnemonicLanguage: .english)
-
-        guard let seedResult = try? seedFactory.deriveSeed(from: mnemonic, password: "") else {
-            return nil
-        }
-
-        let keypair = try? SR25519KeypairFactory().createKeypairFromSeed(
-            seedResult.seed.miniSeed,
-            chaincodeList: []
-        )
-
-        return keypair
     }
     
     private func saveSecretKey(privateKeyData: Data?) throws {
