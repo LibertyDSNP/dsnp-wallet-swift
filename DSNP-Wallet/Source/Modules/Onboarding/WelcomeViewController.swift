@@ -102,14 +102,14 @@ class WelcomeViewController: UIViewController {
         switch selector?.titleLabel?.text {
         case WelcomeOptions.existing.rawValue:
             navToLookupDsnpId?()
-            return
         case WelcomeOptions.create.rawValue:
             navToCreateDsnpId?()
         case WelcomeOptions.restore.rawValue:
             navToRestoreDsnpId?()
-            return
         default:
             return
         }
+        
+        return
     }
 }

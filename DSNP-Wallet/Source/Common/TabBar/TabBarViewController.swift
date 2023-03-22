@@ -10,7 +10,7 @@ import UIKit
 import DSNPWallet
 
 class TabBarViewController: UITabBarController {
-    var viewModel = TabBarViewModel()
+    var viewModel: TabBarViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ extension TabBarViewController {
         let profileIcon = UITabBarItem(title: "Profile", image: UIImage(named: "Profile"), selectedImage: UIImage(named: "Profile"))
         profileIcon.accessibilityIdentifier = "profileIconTabBarButton"
         navProfileVC.tabBarItem = profileIcon
-        profileVC.updateUserBlock = viewModel.updateUserBlock
+        profileVC.updateUserBlock = viewModel?.updateUserBlock
         
         let keysVC = ViewControllerFactory.keysViewController.instance()
         let navKeysVC = SharedNavigationController(rootViewController: keysVC)
@@ -53,7 +53,7 @@ extension TabBarViewController {
 
         self.viewControllers? = [navHomeVC, navProfileVC, navKeysVC]
         
-        updateViewControllers(with: viewModel.user)
+        updateViewControllers(with: viewModel?.user)
     }
 
     private func updateViewControllers(with user: User?) {

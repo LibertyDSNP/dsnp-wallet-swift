@@ -67,8 +67,10 @@ class SeedPhraseViewController: UIViewController {
         setStackView()
         setAccessibilityIds()
     }
-    
-    //MARK: UI
+}
+
+//MARK: UI
+extension SeedPhraseViewController {
     func setStackView() {
         stackView = UIStackView()
         
