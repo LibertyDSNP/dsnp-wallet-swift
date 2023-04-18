@@ -9,11 +9,15 @@ import Foundation
 import SoraKeystore
 
 class SeedPhraseViewModel {
-    var seedPhraseWords: [String] = []
+    var seedPhrase: String?
     var keychainManager = KeychainManager.shared
     
     init() {
         guard let mnemonic = SeedManager.shared.generateMnemonic() else { return }
-        seedPhraseWords = mnemonic.components(separatedBy: " ")
+        seedPhrase = mnemonic
+    }
+    
+    func save(mnemonic: String) {
+        try? AccountKeychain.shared.save(mnemonic: mnemonic)
     }
 }

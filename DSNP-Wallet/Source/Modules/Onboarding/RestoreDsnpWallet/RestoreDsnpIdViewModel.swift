@@ -11,8 +11,11 @@ import IrohaCrypto
 
 class RestoreDsnpIdViewModel {
     func submit(mnemonic: String) throws -> IRCryptoKeypairProtocol?  {
-        let keypair = SeedManager.shared.getKeypair(mnemonic: mnemonic)
-        
-        return keypair
+        if let keypair = SeedManager.shared.getKeypair(mnemonic: mnemonic) {
+            try? AccountKeychain.shared.save(mnemonic: mnemonic)
+            return keypair
+        } else {
+            return nil
+        }
     }
 }

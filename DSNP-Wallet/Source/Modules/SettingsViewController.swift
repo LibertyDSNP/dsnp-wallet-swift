@@ -18,7 +18,9 @@ class SettingsViewController: UIViewController {
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
             do {
-                AccountCoordinator.shared.logout()
+                self.dismiss(animated: true, completion: {
+                    AccountCoordinator.shared.logout()
+                })
             } catch {
                 let alert = UIAlertController(title: "Problem deleting keys, log out failed.", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -54,11 +56,5 @@ extension SettingsViewController {
         logOutBtn.translatesAutoresizingMaskIntoConstraints = false
         logOutBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logOutBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    }
-    
-    private func presentWelcomeVc() {
-        let vc = ViewControllerFactory.welcomeViewController.instance()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
     }
 }

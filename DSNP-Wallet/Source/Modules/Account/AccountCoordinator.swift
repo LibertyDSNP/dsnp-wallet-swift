@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IrohaCrypto
 
 class AccountCoordinator {
     public static let shared = AccountCoordinator()
@@ -14,32 +15,21 @@ class AccountCoordinator {
     }()
     
     private func startingVc() -> UIViewController {
-        let vc = ViewControllerFactory.welcomeViewController.instance() as! WelcomeViewController
-        vc.navToLookupDsnpId = {}
-        
-        //MARK: Update this flow to present pin screen on second load ticket #92
-        vc.navToCreateDsnpId = {
-            self.navigationController?.pushViewController(self.getEnterPinVc(didSucceed: {
-//                if let keys = AuthManager.shared.loadKeys() {
-//                    self.navigateToTabBarVc()
-//                } else {
-                    self.navigateToSeedPhraseVc(didSucceed: { self.navigateToTabBarVc() })
-//                }
-            }), animated: true)
+        if let _ = try? AccountKeychain.shared.fetchKey(),
+           let mnemonic = AccountKeychain.shared.getMnemonic() {
+            let user = User(mnemonic: mnemonic)
+            return getEnterPinVc(user: user)
+        } else {
+            return getWelcomeVc()
         }
-        
-        vc.navToRestoreDsnpId = {
-            self.navigationController?.pushViewController(self.getRestoreDsnpIdVc(didSucceed: { self.navigateToTabBarVc() }), animated: true)
-        }
-        
-        return vc
     }
     
     public func logout() {
-        try? AuthManager.shared.logout()
+        try? AccountKeychain.shared.clearAuthorization()
+        
         DispatchQueue.main.async {
             if let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first {
-                self.navigationController?.viewControllers = [self.startingVc()]
+                self.navigationController?.viewControllers = [self.getWelcomeVc()]
                 window.rootViewController = self.navigationController
                 window.makeKeyAndVisible()
             }
@@ -50,19 +40,23 @@ class AccountCoordinator {
 //MARK: Navigation
 extension AccountCoordinator {
     //Presents tabbar as new window, not part of onboarding navigation controller flow
-    public func navigateToTabBarVc() {
+    public func navigateToTabBarVc(user: User) {
         DispatchQueue.main.async {
             if let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first {
-                let vc = ViewControllerFactory.tabBarViewController.instance()
-                vc.modalPresentationStyle = .fullScreen
-                
-                window.rootViewController?.present(vc, animated: true)
+                if let navigationController = window.rootViewController as? SharedNavigationController,
+                   !(navigationController.viewControllers.first is BaseViewController) {
+                    guard let vc = ViewControllerFactory.tabBarViewController.instance() as? TabBarViewController else { return }
+                    vc.viewModel = TabBarViewModel(user: user)
+                    
+                    window.rootViewController = vc
+                    window.makeKeyAndVisible()
+                }
             }
         }
     }
     
     //Part of onboarding nav bar flow
-    private func navigateToSeedPhraseVc(didSucceed: @escaping ()->()) {
+    private func navigateToSeedPhraseVc(didSucceed: @escaping (User)->()) {
         DispatchQueue.main.async {
             guard let seedPhraseVc = ViewControllerFactory.seedPhraseViewController.instance() as? SeedPhraseViewController else { return }
             seedPhraseVc.modalPresentationStyle = .fullScreen
@@ -75,15 +69,38 @@ extension AccountCoordinator {
 
 //MARK: ViewControllers
 extension AccountCoordinator {
-    private func getEnterPinVc(didSucceed: @escaping ()->()) -> UIViewController {
+    private func getWelcomeVc() -> UIViewController {
+        let vc = ViewControllerFactory.welcomeViewController.instance() as! WelcomeViewController
+        vc.navToLookupDsnpId = {}
+        
+        vc.navToCreateDsnpId = {
+            self.navigateToSeedPhraseVc(didSucceed: { user in
+                self.navigateToTabBarVc(user: user)
+            })
+        }
+        
+        vc.navToRestoreDsnpId = {
+            let restoreVc = self.getRestoreDsnpIdVc(didSucceed: { user in
+                self.navigateToTabBarVc(user: user)
+            })
+            
+            self.navigationController?.pushViewController(restoreVc, animated: true)
+        }
+        
+        return vc
+    }
+    
+    private func getEnterPinVc(user: User) -> UIViewController {
         let enterPinViewController = ViewControllerFactory.enterPinViewController.instance() as! EnterPinViewController
-        enterPinViewController.didSucceed = didSucceed
+        enterPinViewController.didSucceed = {
+            self.navigateToTabBarVc(user: user)
+        }
         enterPinViewController.didCancel = {}
         
         return enterPinViewController
     }
     
-    private func getRestoreDsnpIdVc(didSucceed: @escaping ()->()) -> UIViewController {
+    private func getRestoreDsnpIdVc(didSucceed: @escaping (User)->()) -> UIViewController {
         let vc = ViewControllerFactory.restoreDsnpIdViewController.instance() as! RestoreDsnpIdViewController
         vc.viewModel = RestoreDsnpIdViewModel()
         vc.didSucceed = didSucceed
