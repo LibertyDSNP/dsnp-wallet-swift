@@ -41,6 +41,7 @@ extension ExtrinsicServiceFactory: ExtrinsicServiceFactoryProtocol {
             accountId: accountId,
             chain: chain,
             cryptoType: cryptoType,
+            walletType: .watchOnly,
             runtimeRegistry: runtimeRegistry,
             engine: engine,
             operationManager: operationManager

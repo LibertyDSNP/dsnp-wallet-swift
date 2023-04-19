@@ -6,7 +6,7 @@ target 'DSNP-Wallet' do
   use_frameworks!
 
   # Pods for DSNP-Wallet
-  pod 'SubstrateSdk', :git => 'https://github.com/nova-wallet/substrate-sdk-ios.git', :tag => '1.1.0'
+  pod 'SubstrateSdk', :git => 'https://github.com/nova-wallet/substrate-sdk-ios.git', :tag => '1.7.0'
   pod 'SwiftLint'
   pod 'R.swift', :inhibit_warnings => true
   pod 'SoraKeystore', '~> 1.0.0'
