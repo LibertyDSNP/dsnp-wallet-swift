@@ -5,7 +5,7 @@ ${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework
 ${BUILT_PRODUCTS_DIR}/CommonWallet/CommonWallet.framework
 ${BUILT_PRODUCTS_DIR}/IrohaCrypto/IrohaCrypto.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
-${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework
+${BUILT_PRODUCTS_DIR}/R.swift/RswiftResources.framework
 ${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework
 ${BUILT_PRODUCTS_DIR}/RobinHood/RobinHood.framework
 ${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework

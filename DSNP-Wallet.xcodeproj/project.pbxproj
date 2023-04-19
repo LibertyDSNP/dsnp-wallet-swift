@@ -393,6 +393,11 @@
 		82996936297F3776009A769F /* AssetsTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996935297F3776009A769F /* AssetsTransfer.swift */; };
 		829969392980918C009A769F /* CreateMsaCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829969382980918C009A769F /* CreateMsaCall.swift */; };
 		8299693B29809C71009A769F /* AddPublicKeyToMsaCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299693A29809C71009A769F /* AddPublicKeyToMsaCall.swift */; };
+		82ADCB0629F0407500E8F8A2 /* ExtrinsicServiceTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADCB0529F0407400E8F8A2 /* ExtrinsicServiceTypes.swift */; };
+		82ADCB0829F045A000E8F8A2 /* MetaAccountModelType+SignatureFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADCB0729F045A000E8F8A2 /* MetaAccountModelType+SignatureFormat.swift */; };
+		82ADCB0A29F046F600E8F8A2 /* NoSigningSupportWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADCB0929F046F600E8F8A2 /* NoSigningSupportWrapper.swift */; };
+		82ADCB0C29F04DC200E8F8A2 /* RemoteStateCallRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADCB0B29F04DC200E8F8A2 /* RemoteStateCallRequest.swift */; };
+		82ADCB0E29F0564A00E8F8A2 /* ExtrinsicSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADCB0D29F0564A00E8F8A2 /* ExtrinsicSplitter.swift */; };
 		82C4DDEF283D459400A95E2A /* UserAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDEE283D459400A95E2A /* UserAPITests.swift */; };
 		82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */; };
 		82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */; };
@@ -825,6 +830,11 @@
 		82996935297F3776009A769F /* AssetsTransfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsTransfer.swift; sourceTree = "<group>"; };
 		829969382980918C009A769F /* CreateMsaCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMsaCall.swift; sourceTree = "<group>"; };
 		8299693A29809C71009A769F /* AddPublicKeyToMsaCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPublicKeyToMsaCall.swift; sourceTree = "<group>"; };
+		82ADCB0529F0407400E8F8A2 /* ExtrinsicServiceTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrinsicServiceTypes.swift; sourceTree = "<group>"; };
+		82ADCB0729F045A000E8F8A2 /* MetaAccountModelType+SignatureFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetaAccountModelType+SignatureFormat.swift"; sourceTree = "<group>"; };
+		82ADCB0929F046F600E8F8A2 /* NoSigningSupportWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSigningSupportWrapper.swift; sourceTree = "<group>"; };
+		82ADCB0B29F04DC200E8F8A2 /* RemoteStateCallRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteStateCallRequest.swift; sourceTree = "<group>"; };
+		82ADCB0D29F0564A00E8F8A2 /* ExtrinsicSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrinsicSplitter.swift; sourceTree = "<group>"; };
 		82C4DDEE283D459400A95E2A /* UserAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPITests.swift; sourceTree = "<group>"; };
 		82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITestsLaunchTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITests.swift"; sourceTree = "<group>"; };
@@ -1024,7 +1034,6 @@
 				829960782978C45E009A769F /* Model */,
 				8299604B2978C45D009A769F /* Network */,
 				8299603A2978C45D009A769F /* Operation */,
-				829966A4297B2760009A769F /* Protocols */,
 				829961512978CA26009A769F /* Services */,
 				8299603D2978C45D009A769F /* Signer */,
 				829960BD2978C45F009A769F /* SharedImagePicker.swift */,
@@ -1081,6 +1090,7 @@
 				8299661A297A1B5E009A769F /* Extension */,
 				8299661C297A1B5E009A769F /* SiMappers */,
 				829965F8297A1B5D009A769F /* Types */,
+				82ADCB0D29F0564A00E8F8A2 /* ExtrinsicSplitter.swift */,
 			);
 			path = Substrate;
 			sourceTree = "<group>";
@@ -1088,6 +1098,7 @@
 		8299604B2978C45D009A769F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				829966A4297B2760009A769F /* Protocols */,
 				8299648C297A17F4009A769F /* API */,
 				82996482297A17F3009A769F /* ApolloClientProtocol.swift */,
 				8299646E297A17F3009A769F /* ApolloManager.swift */,
@@ -1333,6 +1344,8 @@
 			isa = PBXGroup;
 			children = (
 				8299616A2978CD7E009A769F /* SigningWrapper.swift */,
+				82ADCB0729F045A000E8F8A2 /* MetaAccountModelType+SignatureFormat.swift */,
+				82ADCB0929F046F600E8F8A2 /* NoSigningSupportWrapper.swift */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -1444,6 +1457,7 @@
 		82996331297A13CF009A769F /* ExtrinsicService */ = {
 			isa = PBXGroup;
 			children = (
+				82ADCB0429F0404A00E8F8A2 /* Substrate */,
 				82996332297A13CF009A769F /* MortalEraOperationFactory.swift */,
 				82996333297A13CF009A769F /* ExtrinsicService.swift */,
 				82996334297A13CF009A769F /* ExtrinsicOperationFactory.swift */,
@@ -1487,6 +1501,7 @@
 				82996447297A17F2009A769F /* StorageQuery.swift */,
 				82996448297A17F2009A769F /* RuntimeVersion.swift */,
 				82996449297A17F2009A769F /* ConnectionAutobalancing.swift */,
+				82ADCB0B29F04DC200E8F8A2 /* RemoteStateCallRequest.swift */,
 			);
 			path = JSONRPC;
 			sourceTree = "<group>";
@@ -1840,6 +1855,14 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		82ADCB0429F0404A00E8F8A2 /* Substrate */ = {
+			isa = PBXGroup;
+			children = (
+				82ADCB0529F0407400E8F8A2 /* ExtrinsicServiceTypes.swift */,
+			);
+			path = Substrate;
+			sourceTree = "<group>";
+		};
 		82DD90FE29661D3900A508B9 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -1978,7 +2001,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */;
+			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "dsnp-wallet" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2176,6 +2199,7 @@
 				829961362978C461009A769F /* SharedTextField.swift in Sources */,
 				829965C1297A1955009A769F /* Language.swift in Sources */,
 				829968D4297B721C009A769F /* UIColor+Theme.swift in Sources */,
+				82ADCB0629F0407500E8F8A2 /* ExtrinsicServiceTypes.swift in Sources */,
 				829965F6297A1AF1009A769F /* UserDataStorageFacade.swift in Sources */,
 				829968EC297B721C009A769F /* CompoundOperationWrapper+Dependency.swift in Sources */,
 				829969392980918C009A769F /* CreateMsaCall.swift in Sources */,
@@ -2192,6 +2216,7 @@
 				82DD910229661DBB00A508B9 /* CreateDsnpIdViewController.swift in Sources */,
 				8299663D297A1B5E009A769F /* SlashingSpans.swift in Sources */,
 				82996370297A13CF009A769F /* SpecVersionSubscriptionFactory.swift in Sources */,
+				82ADCB0A29F046F600E8F8A2 /* NoSigningSupportWrapper.swift in Sources */,
 				8299612E2978C461009A769F /* PurchaseCompleted.swift in Sources */,
 				829968F9297B721C009A769F /* StorageKeyFactory+Size.swift in Sources */,
 				8299649A297A17F4009A769F /* JSONRPCError+Presentable.swift in Sources */,
@@ -2275,6 +2300,7 @@
 				829961452978C461009A769F /* KeysViewModel.swift in Sources */,
 				8299659A297A1955009A769F /* TransactionHistoryItem.swift in Sources */,
 				82996492297A17F4009A769F /* DistributedUrlParser.swift in Sources */,
+				82ADCB0E29F0564A00E8F8A2 /* ExtrinsicSplitter.swift in Sources */,
 				829966B8297B28A9009A769F /* LocalStorageRequestFactory.swift in Sources */,
 				829965E6297A1AF1009A769F /* PersistentValueSettings.swift in Sources */,
 				8299663C297A1B5E009A769F /* ValidatorPrefs.swift in Sources */,
@@ -2501,8 +2527,10 @@
 				829964A5297A17F4009A769F /* WalletNetworkFacade.swift in Sources */,
 				829965AA297A1955009A769F /* RemoteChainModel.swift in Sources */,
 				829968EF297B721C009A769F /* BaseOperation+Cancellable.swift in Sources */,
+				82ADCB0C29F04DC200E8F8A2 /* RemoteStateCallRequest.swift in Sources */,
 				829964D7297A17F4009A769F /* GraphQLEnvironment.swift in Sources */,
 				829965BD297A1955009A769F /* FeeType.swift in Sources */,
+				82ADCB0829F045A000E8F8A2 /* MetaAccountModelType+SignatureFormat.swift in Sources */,
 				8299692C297B7285009A769F /* Data+Random.swift in Sources */,
 				82996497297A17F4009A769F /* Block.swift in Sources */,
 				82996909297B721C009A769F /* TransactionType+Wallet.swift in Sources */,
@@ -2864,7 +2892,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */ = {
+		8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "dsnp-wallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8223AB7F2818917900DEF1E9 /* Debug */,

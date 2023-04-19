@@ -69,6 +69,7 @@ class ExtrinsicManager {
         extrinsicService = ExtrinsicService(accountId: senderId,
                                             chain: chain,
                                             cryptoType: .sr25519,
+                                            walletType: .watchOnly,
                                             runtimeRegistry: runtimeService,
                                             engine: connection,
                                             operationManager: operationManager)
