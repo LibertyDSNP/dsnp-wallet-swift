@@ -10,6 +10,9 @@ import IrohaCrypto
 import SubstrateSdk
 
 //TODO: Migrate this to DSNPWallet?
+//This class should strictly handle:
+// i)   generation of seed phrase
+// ii)  derivation of seed phrase
 class SeedManager {
     static let shared = SeedManager()
     

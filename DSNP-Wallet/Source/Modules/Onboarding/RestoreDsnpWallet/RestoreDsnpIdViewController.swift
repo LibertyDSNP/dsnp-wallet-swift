@@ -11,7 +11,7 @@ import DSNPWallet
 
 class RestoreDsnpIdViewController: UIViewController, UITextFieldDelegate {
     
-    public var didSucceed:(() -> Void)?
+    public var didSucceed:((User) -> Void)?
     
     public var viewModel: RestoreDsnpIdViewModel?
     
@@ -60,8 +60,10 @@ extension RestoreDsnpIdViewController {
     
     @objc func tappedBtn(selector: UIButton?) {
         //TODO: Decide how we want to include keys/user through this submit and pass through didSucceed completion block up to TabBarVC?
-        if (try? viewModel?.submit(mnemonic: mnemonicTextField.text ?? "")) != nil {
-            didSucceed?()
+        if let mnemonic = mnemonicTextField.text,
+           (try? viewModel?.submit(mnemonic: mnemonic)) != nil {
+            let user = User(mnemonic: mnemonic)
+            didSucceed?(user)
         } else {
             let alert = UIAlertController(title: "Bad mnemonic", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
