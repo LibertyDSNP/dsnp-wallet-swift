@@ -29,6 +29,9 @@
 		8223AC10282C2AEB00DEF1E9 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC0F282C2AEB00DEF1E9 /* SDWebImage */; };
 		8223AC13282C2AFB00DEF1E9 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC12282C2AFB00DEF1E9 /* KeychainSwift */; };
 		8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC15282C2B3E00DEF1E9 /* DSNPWallet */; };
+		826B5F8C29F0A01C0028253D /* MSASubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B5F8B29F0A01C0028253D /* MSASubscription.swift */; };
+		826B5F8E29F0A0530028253D /* SubscriptionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B5F8D29F0A0530028253D /* SubscriptionError.swift */; };
+		826B5F9029F0A0900028253D /* EventSubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B5F8F29F0A0900028253D /* EventSubscriptionManager.swift */; };
 		829960D52978C460009A769F /* SigningWrapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299603E2978C45D009A769F /* SigningWrapperProtocol.swift */; };
 		829960D62978C460009A769F /* DummySigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299603F2978C45D009A769F /* DummySigner.swift */; };
 		829960D72978C460009A769F /* ApplicationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960402978C45D009A769F /* ApplicationConfig.swift */; };
@@ -335,7 +338,6 @@
 		829968DE297B721C009A769F /* ChainStorage+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996899297B721A009A769F /* ChainStorage+Decodable.swift */; };
 		829968DF297B721C009A769F /* DataProviderChange+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299689A297B721A009A769F /* DataProviderChange+Result.swift */; };
 		829968E0297B721C009A769F /* CDSingleValue+CoreDataCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299689B297B721A009A769F /* CDSingleValue+CoreDataCodable.swift */; };
-		829968E1297B721C009A769F /* CDPhishingItem+CoreDataDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299689C297B721A009A769F /* CDPhishingItem+CoreDataDecodable.swift */; };
 		829968E2297B721C009A769F /* SNAddressType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299689E297B721A009A769F /* SNAddressType+Codable.swift */; };
 		829968E3297B721C009A769F /* SNAddressType+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299689F297B721A009A769F /* SNAddressType+ViewModel.swift */; };
 		829968E4297B721C009A769F /* NSDictionary+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829968A0297B721A009A769F /* NSDictionary+Map.swift */; };
@@ -462,6 +464,9 @@
 		8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Thin.ttf"; sourceTree = "<group>"; };
 		8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.ttf"; sourceTree = "<group>"; };
 		8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_DSNP_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		826B5F8B29F0A01C0028253D /* MSASubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSASubscription.swift; sourceTree = "<group>"; };
+		826B5F8D29F0A0530028253D /* SubscriptionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionError.swift; sourceTree = "<group>"; };
+		826B5F8F29F0A0900028253D /* EventSubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSubscriptionManager.swift; sourceTree = "<group>"; };
 		8299603E2978C45D009A769F /* SigningWrapperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigningWrapperProtocol.swift; sourceTree = "<group>"; };
 		8299603F2978C45D009A769F /* DummySigner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySigner.swift; sourceTree = "<group>"; };
 		829960402978C45D009A769F /* ApplicationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationConfig.swift; sourceTree = "<group>"; };
@@ -772,7 +777,6 @@
 		82996899297B721A009A769F /* ChainStorage+Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChainStorage+Decodable.swift"; sourceTree = "<group>"; };
 		8299689A297B721A009A769F /* DataProviderChange+Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataProviderChange+Result.swift"; sourceTree = "<group>"; };
 		8299689B297B721A009A769F /* CDSingleValue+CoreDataCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDSingleValue+CoreDataCodable.swift"; sourceTree = "<group>"; };
-		8299689C297B721A009A769F /* CDPhishingItem+CoreDataDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDPhishingItem+CoreDataDecodable.swift"; sourceTree = "<group>"; };
 		8299689E297B721A009A769F /* SNAddressType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SNAddressType+Codable.swift"; sourceTree = "<group>"; };
 		8299689F297B721A009A769F /* SNAddressType+ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SNAddressType+ViewModel.swift"; sourceTree = "<group>"; };
 		829968A0297B721A009A769F /* NSDictionary+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Map.swift"; sourceTree = "<group>"; };
@@ -1018,6 +1022,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		826B5F8A29F09FF50028253D /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				826B5F8B29F0A01C0028253D /* MSASubscription.swift */,
+				826B5F8D29F0A0530028253D /* SubscriptionError.swift */,
+				826B5F8F29F0A0900028253D /* EventSubscriptionManager.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
 		829960392978C45D009A769F /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1038,6 +1052,7 @@
 				8299603D2978C45D009A769F /* Signer */,
 				829960BD2978C45F009A769F /* SharedImagePicker.swift */,
 				829960822978C45E009A769F /* Storage */,
+				826B5F8A29F09FF50028253D /* Subscriptions */,
 				829960462978C45D009A769F /* Substrate */,
 				829960742978C45E009A769F /* TabBar */,
 				829960AF2978C45E009A769F /* Views */,
@@ -1775,7 +1790,6 @@
 				82996899297B721A009A769F /* ChainStorage+Decodable.swift */,
 				8299689A297B721A009A769F /* DataProviderChange+Result.swift */,
 				8299689B297B721A009A769F /* CDSingleValue+CoreDataCodable.swift */,
-				8299689C297B721A009A769F /* CDPhishingItem+CoreDataDecodable.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -2001,7 +2015,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "dsnp-wallet" */;
+			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2233,7 +2247,6 @@
 				8299658C297A1955009A769F /* KeystoreTag.swift in Sources */,
 				829968F2297B721C009A769F /* UIImage+Theme.swift in Sources */,
 				8299639D297A13CF009A769F /* StorageKeysQueryService.swift in Sources */,
-				829968E1297B721C009A769F /* CDPhishingItem+CoreDataDecodable.swift in Sources */,
 				8299659F297A1955009A769F /* AmountInputResult.swift in Sources */,
 				829964A7297A17F4009A769F /* WalletNetworkFacade+Price.swift in Sources */,
 				829968F8297B721C009A769F /* ScaleCoder+Extension.swift in Sources */,
@@ -2257,6 +2270,7 @@
 				82996493297A17F4009A769F /* DistributedStorageFactory.swift in Sources */,
 				82996691297B141A009A769F /* Mapping.swift in Sources */,
 				82996901297B721C009A769F /* UIView+FromNib.swift in Sources */,
+				826B5F8C29F0A01C0028253D /* MSASubscription.swift in Sources */,
 				829965A3297A1955009A769F /* Chain.swift in Sources */,
 				8299613D2978C461009A769F /* SharedImagePicker.swift in Sources */,
 				82996642297A1B5E009A769F /* SuperIdentity.swift in Sources */,
@@ -2375,6 +2389,7 @@
 				829961342978C461009A769F /* SharedStackView.swift in Sources */,
 				829964A6297A17F4009A769F /* WalletNetworkFacade+BalanceLocks.swift in Sources */,
 				82996633297A1B5E009A769F /* BalanceLock.swift in Sources */,
+				826B5F9029F0A0900028253D /* EventSubscriptionManager.swift in Sources */,
 				829968F7297B721C009A769F /* ExtrinsicBuilder+Signing.swift in Sources */,
 				82996922297B7285009A769F /* Decimal+String.swift in Sources */,
 				82996902297B721C009A769F /* UINavigationItem+Theme.swift in Sources */,
@@ -2544,6 +2559,7 @@
 				829961442978C461009A769F /* KeysViewController.swift in Sources */,
 				829961432978C461009A769F /* KeysViewController+Backup.swift in Sources */,
 				829965EE297A1AF1009A769F /* SubstrateDataModel.xcdatamodeld in Sources */,
+				826B5F8E29F0A0530028253D /* SubscriptionError.swift in Sources */,
 				82E4AED129B020B00071758A /* ServiceViewController.swift in Sources */,
 				82996598297A1955009A769F /* AboutData.swift in Sources */,
 				8299612D2978C461009A769F /* RuntimeCoderEvents.swift in Sources */,
@@ -2892,7 +2908,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "dsnp-wallet" */ = {
+		8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8223AB7F2818917900DEF1E9 /* Debug */,
