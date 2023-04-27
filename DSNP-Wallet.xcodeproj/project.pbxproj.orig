@@ -1,0 +1,1342 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27C3984DA18D870595132577 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */; };
+		5CDA78E486CB5F1D23F6E3B1 /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646DFA7C356C444F0BB8417C /* Pods_DSNP_Wallet.framework */; };
+		660C87667D9146961E570C4F /* Pods_DSNP_WalletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E83422E569F45BDA5DB7FF3 /* Pods_DSNP_WalletTests.framework */; };
+		821855AE28F787530047D479 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821855AD28F787530047D479 /* Logger.swift */; };
+		822349DA284004D700A59775 /* KeysViewController+Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349D9284004D700A59775 /* KeysViewController+Backup.swift */; };
+		822349DD28401C4E00A59775 /* UIImage+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349DC28401C4E00A59775 /* UIImage+Theme.swift */; };
+		822349E12846908000A59775 /* UINavigationItem+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349E02846908000A59775 /* UINavigationItem+Theme.swift */; };
+		822349E3284693B100A59775 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349E2284693B100A59775 /* SettingsViewController.swift */; };
+		822349E72846DBD100A59775 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349E62846DBD100A59775 /* AuthManager.swift */; };
+		822349ED284A8C9100A59775 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 822349EC284A8C9100A59775 /* Apollo */; };
+		822349EF284A8C9100A59775 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 822349EE284A8C9100A59775 /* ApolloWebSocket */; };
+		822349F3284A951B00A59775 /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349F2284A951B00A59775 /* ApolloManager.swift */; };
+		822349F5284A953600A59775 /* GraphQLEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349F4284A953600A59775 /* GraphQLEnvironment.swift */; };
+		822349F7284A9A3800A59775 /* ApolloClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822349F6284A9A3800A59775 /* ApolloClientProtocol.swift */; };
+		82234A03284FC66800A59775 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A02284FC66800A59775 /* User.swift */; };
+		82234A05284FC9FB00A59775 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A04284FC9FB00A59775 /* BaseAPI.swift */; };
+		82234A07284FCA1800A59775 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A06284FCA1800A59775 /* UserAPI.swift */; };
+		82234A09284FCD1D00A59775 /* MockApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A08284FCD1D00A59775 /* MockApolloClient.swift */; };
+		82234A10284FED0E00A59775 /* Mocker in Frameworks */ = {isa = PBXBuildFile; productRef = 82234A0F284FED0E00A59775 /* Mocker */; };
+		82234A14284FF54B00A59775 /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A13284FF54B00A59775 /* MockedData.swift */; };
+		82234A182851656D00A59775 /* Login.json in Resources */ = {isa = PBXBuildFile; fileRef = 82234A162851656800A59775 /* Login.json */; };
+		82234A1F2863B78000A59775 /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A1E2863B78000A59775 /* DeeplinkManager.swift */; };
+		82234A232863B82000A59775 /* URL+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82234A222863B82000A59775 /* URL+Components.swift */; };
+		8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5A2818917700DEF1E9 /* AppDelegate.swift */; };
+		8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */; };
+		8223AB622818917700DEF1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB602818917700DEF1E9 /* Main.storyboard */; };
+		8223AB642818917800DEF1E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB632818917800DEF1E9 /* Assets.xcassets */; };
+		8223AB672818917800DEF1E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB652818917800DEF1E9 /* LaunchScreen.storyboard */; };
+		8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */; };
+		8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB90281891ED00DEF1E9 /* String+Utils.swift */; };
+		8223AB9E281891EE00DEF1E9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB92281891ED00DEF1E9 /* BaseViewController.swift */; };
+		8223AB9F281891EE00DEF1E9 /* KeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB93281891ED00DEF1E9 /* KeysViewController.swift */; };
+		8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB94281891ED00DEF1E9 /* HomeViewController.swift */; };
+		8223ABA1281891EE00DEF1E9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB96281891EE00DEF1E9 /* TabBarViewController.swift */; };
+		8223ABA2281891EE00DEF1E9 /* TabBarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB97281891EE00DEF1E9 /* TabBarViewController.storyboard */; };
+		8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */; };
+		8223ABA4281891EE00DEF1E9 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */; };
+		8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */; };
+		8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC02819B9B200DEF1E9 /* ProfileHeaderView.swift */; };
+		8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */; };
+		8223ABC82819ECFA00DEF1E9 /* UIFont+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */; };
+		8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */; };
+		8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABCB28205EBC00DEF1E9 /* SharedDivider.swift */; };
+		8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABD728208C9200DEF1E9 /* SharedButton.swift */; };
+		8223ABF42821A1C800DEF1E9 /* ProximaNova-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABEF2821A1C800DEF1E9 /* ProximaNova-Bold.ttf */; };
+		8223ABF52821A1C800DEF1E9 /* ProximaNova-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF02821A1C800DEF1E9 /* ProximaNova-Italic.ttf */; };
+		8223ABF62821A1C800DEF1E9 /* ProximaNova-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF12821A1C800DEF1E9 /* ProximaNova-Semibold.ttf */; };
+		8223ABF72821A1C900DEF1E9 /* ProximaNova-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */; };
+		8223ABF82821A1C900DEF1E9 /* ProximaNova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */; };
+		8223ABFC28247E6600DEF1E9 /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */; };
+		8223ABFF28247E8F00DEF1E9 /* UIView+FromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */; };
+		8223AC0228247EDA00DEF1E9 /* SharedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC0128247ED900DEF1E9 /* SharedStackView.swift */; };
+		8223AC042829993B00DEF1E9 /* SharedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC032829993B00DEF1E9 /* SharedLabel.swift */; };
+		8223AC062829AFC500DEF1E9 /* SharedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC052829AFC500DEF1E9 /* SharedTextField.swift */; };
+		8223AC082829B3AF00DEF1E9 /* SharedImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */; };
+		8223AC0B282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */; };
+		8223AC10282C2AEB00DEF1E9 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC0F282C2AEB00DEF1E9 /* SDWebImage */; };
+		8223AC13282C2AFB00DEF1E9 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC12282C2AFB00DEF1E9 /* KeychainSwift */; };
+		8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC15282C2B3E00DEF1E9 /* DSNPWallet */; };
+		8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */; };
+		8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */; };
+		8255B9BB28F77F2400FA941A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255B9BA28F77F2400FA941A /* TestViewController.swift */; };
+		8255B9CD28F782DF00FA941A /* RuntimeVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255B9CC28F782DF00FA941A /* RuntimeVersion.swift */; };
+		82685A1628761DC2006E1B35 /* NotificationCenter+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82685A1528761DC2006E1B35 /* NotificationCenter+Duplicates.swift */; };
+		8279BAF3283EDC1C00543C0F /* KeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */; };
+		82931361282ECF1C000422BC /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931360282ECF1C000422BC /* PinViewController.swift */; };
+		82931363282ED519000422BC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931362282ED519000422BC /* Keychain.swift */; };
+		82931366282ED548000422BC /* AccountKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82931365282ED548000422BC /* AccountKeychain.swift */; };
+		8293137328341D45000422BC /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293137228341D45000422BC /* Key.swift */; };
+		82C4DDEF283D459400A95E2A /* UserAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDEE283D459400A95E2A /* UserAPITests.swift */; };
+		82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */; };
+		82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */; };
+<<<<<<< HEAD
+		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
+=======
+		82DD90FB2966007F00A508B9 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FA2966007F00A508B9 /* WelcomeViewController.swift */; };
+		82DD90FD2966162600A508B9 /* NSMutableAttributedString+Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FC2966162600A508B9 /* NSMutableAttributedString+Link.swift */; };
+		82DD910029661D8300A508B9 /* LookUpDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */; };
+		82DD910229661DBB00A508B9 /* CreateDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */; };
+		82DD910429661E1200A508B9 /* RestoreDsnpWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */; };
+		82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD91052967755200A508B9 /* SeedPhraseViewController.swift */; };
+		82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */; };
+		82DD910B296CBC7100A508B9 /* SeedPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */; };
+		82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */; };
+>>>>>>> d20fc7dd541b3bc572de7efbe89783ae6375b9eb
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8223AB6E2818917800DEF1E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8223AB4F2818917700DEF1E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8223AB562818917700DEF1E9;
+			remoteInfo = "dsnp-wallet";
+		};
+		8223AB782818917900DEF1E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8223AB4F2818917700DEF1E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8223AB562818917700DEF1E9;
+			remoteInfo = "dsnp-wallet";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E83422E569F45BDA5DB7FF3 /* Pods_DSNP_WalletTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_WalletTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23745CD68A0AB70F94ADE1C3 /* Pods-DSNP-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet/Pods-DSNP-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
+		2517E3B47142A1580358DD88 /* Pods-DSNP-Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet.release.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet/Pods-DSNP-Wallet.release.xcconfig"; sourceTree = "<group>"; };
+		646DFA7C356C444F0BB8417C /* Pods_DSNP_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6B0E5797BCF918F0CDA75F /* Pods-DSNP-WalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-WalletTests.release.xcconfig"; path = "Target Support Files/Pods-DSNP-WalletTests/Pods-DSNP-WalletTests.release.xcconfig"; sourceTree = "<group>"; };
+		76D937A6B40AB26A1A861F45 /* Pods-DSNP-Wallet-DSNP-WalletUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.release.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.release.xcconfig"; sourceTree = "<group>"; };
+		770C3B73C1BC90FB3DCC269E /* Pods-DSNP-WalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-WalletTests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-WalletTests/Pods-DSNP-WalletTests.debug.xcconfig"; sourceTree = "<group>"; };
+		821855AD28F787530047D479 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		822349D9284004D700A59775 /* KeysViewController+Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeysViewController+Backup.swift"; sourceTree = "<group>"; };
+		822349DC28401C4E00A59775 /* UIImage+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Theme.swift"; sourceTree = "<group>"; };
+		822349E02846908000A59775 /* UINavigationItem+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Theme.swift"; sourceTree = "<group>"; };
+		822349E2284693B100A59775 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		822349E62846DBD100A59775 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		822349F2284A951B00A59775 /* ApolloManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloManager.swift; sourceTree = "<group>"; };
+		822349F4284A953600A59775 /* GraphQLEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLEnvironment.swift; sourceTree = "<group>"; };
+		822349F6284A9A3800A59775 /* ApolloClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClientProtocol.swift; sourceTree = "<group>"; };
+		82234A02284FC66800A59775 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		82234A04284FC9FB00A59775 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		82234A06284FCA1800A59775 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		82234A08284FCD1D00A59775 /* MockApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApolloClient.swift; sourceTree = "<group>"; };
+		82234A13284FF54B00A59775 /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
+		82234A162851656800A59775 /* Login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Login.json; sourceTree = "<group>"; };
+		82234A1E2863B78000A59775 /* DeeplinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeeplinkManager.swift; path = "DSNP-Wallet/Source/Util/DeeplinkManager.swift"; sourceTree = SOURCE_ROOT; };
+		82234A222863B82000A59775 /* URL+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL+Components.swift"; path = "DSNP-Wallet/Source/Extensions/URL+Components.swift"; sourceTree = SOURCE_ROOT; };
+		8223AB572818917700DEF1E9 /* DSNP-Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSNP-Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8223AB5A2818917700DEF1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8223AB612818917700DEF1E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8223AB632818917800DEF1E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8223AB662818917800DEF1E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8223AB682818917800DEF1E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8223AB6D2818917800DEF1E9 /* DSNP-WalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DSNP-WalletTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8223AB772818917900DEF1E9 /* DSNP-WalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DSNP-WalletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+FromString.swift"; sourceTree = "<group>"; };
+		8223AB90281891ED00DEF1E9 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		8223AB92281891ED00DEF1E9 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		8223AB93281891ED00DEF1E9 /* KeysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysViewController.swift; sourceTree = "<group>"; };
+		8223AB94281891ED00DEF1E9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8223AB96281891EE00DEF1E9 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		8223AB97281891EE00DEF1E9 /* TabBarViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarViewController.storyboard; sourceTree = "<group>"; };
+		8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationController.swift; sourceTree = "<group>"; };
+		8223ABC02819B9B200DEF1E9 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAvatarImageView.swift; sourceTree = "<group>"; };
+		8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Theme.swift"; sourceTree = "<group>"; };
+		8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSpacer.swift; sourceTree = "<group>"; };
+		8223ABCB28205EBC00DEF1E9 /* SharedDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDivider.swift; sourceTree = "<group>"; };
+		8223ABD728208C9200DEF1E9 /* SharedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedButton.swift; sourceTree = "<group>"; };
+		8223ABEF2821A1C800DEF1E9 /* ProximaNova-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.ttf"; sourceTree = "<group>"; };
+		8223ABF02821A1C800DEF1E9 /* ProximaNova-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Italic.ttf"; sourceTree = "<group>"; };
+		8223ABF12821A1C800DEF1E9 /* ProximaNova-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.ttf"; sourceTree = "<group>"; };
+		8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Thin.ttf"; sourceTree = "<group>"; };
+		8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.ttf"; sourceTree = "<group>"; };
+		8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
+		8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FromNib.swift"; sourceTree = "<group>"; };
+		8223AC0128247ED900DEF1E9 /* SharedStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStackView.swift; sourceTree = "<group>"; };
+		8223AC032829993B00DEF1E9 /* SharedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLabel.swift; sourceTree = "<group>"; };
+		8223AC052829AFC500DEF1E9 /* SharedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTextField.swift; sourceTree = "<group>"; };
+		8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImagePicker.swift; sourceTree = "<group>"; };
+		8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProfileHeaderViewController.swift; sourceTree = "<group>"; };
+		8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateKeysViewController.swift; sourceTree = "<group>"; };
+		8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		8255B9BA28F77F2400FA941A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		8255B9CC28F782DF00FA941A /* RuntimeVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeVersion.swift; sourceTree = "<group>"; };
+		8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_DSNP_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82685A1528761DC2006E1B35 /* NotificationCenter+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Duplicates.swift"; sourceTree = "<group>"; };
+		8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysViewModel.swift; sourceTree = "<group>"; };
+		82931360282ECF1C000422BC /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
+		82931362282ED519000422BC /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		82931365282ED548000422BC /* AccountKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountKeychain.swift; sourceTree = "<group>"; };
+		8293137228341D45000422BC /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		82C4DDEE283D459400A95E2A /* UserAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPITests.swift; sourceTree = "<group>"; };
+		82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITestsLaunchTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITestsLaunchTests.swift"; sourceTree = "<group>"; };
+		82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITests.swift"; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		82DD90FA2966007F00A508B9 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		82DD90FC2966162600A508B9 /* NSMutableAttributedString+Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Link.swift"; sourceTree = "<group>"; };
+		82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpDsnpIdViewController.swift; sourceTree = "<group>"; };
+		82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDsnpIdViewController.swift; sourceTree = "<group>"; };
+		82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreDsnpWalletViewController.swift; sourceTree = "<group>"; };
+		82DD91052967755200A508B9 /* SeedPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewController.swift; sourceTree = "<group>"; };
+		82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseColumnFlowLayout.swift; sourceTree = "<group>"; };
+		82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewModel.swift; sourceTree = "<group>"; };
+		82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseCollectionViewCell.swift; sourceTree = "<group>"; };
+>>>>>>> d20fc7dd541b3bc572de7efbe89783ae6375b9eb
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8223AB542818917700DEF1E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8223AC13282C2AFB00DEF1E9 /* KeychainSwift in Frameworks */,
+				822349ED284A8C9100A59775 /* Apollo in Frameworks */,
+				822349EF284A8C9100A59775 /* ApolloWebSocket in Frameworks */,
+				8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */,
+				8223AC10282C2AEB00DEF1E9 /* SDWebImage in Frameworks */,
+				5CDA78E486CB5F1D23F6E3B1 /* Pods_DSNP_Wallet.framework in Frameworks */,
+				B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8223AB6A2818917800DEF1E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82234A10284FED0E00A59775 /* Mocker in Frameworks */,
+				660C87667D9146961E570C4F /* Pods_DSNP_WalletTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8223AB742818917900DEF1E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27C3984DA18D870595132577 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01C8E457838017A024F8F6D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */,
+				646DFA7C356C444F0BB8417C /* Pods_DSNP_Wallet.framework */,
+				DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */,
+				0E83422E569F45BDA5DB7FF3 /* Pods_DSNP_WalletTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B866B93A2C7BFEBD23DFEDA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23745CD68A0AB70F94ADE1C3 /* Pods-DSNP-Wallet.debug.xcconfig */,
+				2517E3B47142A1580358DD88 /* Pods-DSNP-Wallet.release.xcconfig */,
+				D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */,
+				76D937A6B40AB26A1A861F45 /* Pods-DSNP-Wallet-DSNP-WalletUITests.release.xcconfig */,
+				770C3B73C1BC90FB3DCC269E /* Pods-DSNP-WalletTests.debug.xcconfig */,
+				6A6B0E5797BCF918F0CDA75F /* Pods-DSNP-WalletTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		822349DB2840054D00A59775 /* KeysViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8223AB93281891ED00DEF1E9 /* KeysViewController.swift */,
+				822349D9284004D700A59775 /* KeysViewController+Backup.swift */,
+				8279BAF2283EDC1C00543C0F /* KeysViewModel.swift */,
+			);
+			path = KeysViewController;
+			sourceTree = "<group>";
+		};
+		822349F1284A949C00A59775 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				82234A00284FC65A00A59775 /* API */,
+				822349F2284A951B00A59775 /* ApolloManager.swift */,
+				822349F4284A953600A59775 /* GraphQLEnvironment.swift */,
+				822349F6284A9A3800A59775 /* ApolloClientProtocol.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		82234A00284FC65A00A59775 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				82234A01284FC65E00A59775 /* Models */,
+				82234A04284FC9FB00A59775 /* BaseAPI.swift */,
+				82234A06284FCA1800A59775 /* UserAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		82234A01284FC65E00A59775 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				82234A02284FC66800A59775 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		82234A0A284FD00E00A59775 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				82C4DDEE283D459400A95E2A /* UserAPITests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		82234A152851653C00A59775 /* MockResponses */ = {
+			isa = PBXGroup;
+			children = (
+				82234A162851656800A59775 /* Login.json */,
+			);
+			path = MockResponses;
+			sourceTree = "<group>";
+		};
+		82234A19285165A200A59775 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				82234A08284FCD1D00A59775 /* MockApolloClient.swift */,
+				82234A13284FF54B00A59775 /* MockedData.swift */,
+				82234A152851653C00A59775 /* MockResponses */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		8223AB4E2818917700DEF1E9 = {
+			isa = PBXGroup;
+			children = (
+				8223AB592818917700DEF1E9 /* DSNP-Wallet */,
+				8223AB702818917800DEF1E9 /* DSNP-WalletTests */,
+				8223AB7A2818917900DEF1E9 /* DSNP-WalletUITests */,
+				8223AB582818917700DEF1E9 /* Products */,
+				3B866B93A2C7BFEBD23DFEDA /* Pods */,
+				01C8E457838017A024F8F6D0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8223AB582818917700DEF1E9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8223AB572818917700DEF1E9 /* DSNP-Wallet.app */,
+				8223AB6D2818917800DEF1E9 /* DSNP-WalletTests.xctest */,
+				8223AB772818917900DEF1E9 /* DSNP-WalletUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8223AB592818917700DEF1E9 /* DSNP-Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				8223AB8B281891ED00DEF1E9 /* Source */,
+				8223ABCD2820808500DEF1E9 /* Resources */,
+				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
+				8223AB5C2818917700DEF1E9 /* SceneDelegate.swift */,
+				8223AB602818917700DEF1E9 /* Main.storyboard */,
+				8223AB632818917800DEF1E9 /* Assets.xcassets */,
+				8223AB652818917800DEF1E9 /* LaunchScreen.storyboard */,
+				8223AB682818917800DEF1E9 /* Info.plist */,
+			);
+			path = "DSNP-Wallet";
+			sourceTree = "<group>";
+		};
+		8223AB702818917800DEF1E9 /* DSNP-WalletTests */ = {
+			isa = PBXGroup;
+			children = (
+				82234A19285165A200A59775 /* Mock */,
+				82234A0A284FD00E00A59775 /* API */,
+			);
+			path = "DSNP-WalletTests";
+			sourceTree = "<group>";
+		};
+		8223AB7A2818917900DEF1E9 /* DSNP-WalletUITests */ = {
+			isa = PBXGroup;
+			children = (
+				82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */,
+				82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */,
+			);
+			path = "DSNP-WalletUITests";
+			sourceTree = "<group>";
+		};
+		8223AB8B281891ED00DEF1E9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8223AC1D282C76FC00DEF1E9 /* Models */,
+				8223ABB22819AF4800DEF1E9 /* Views */,
+				8223AB91281891ED00DEF1E9 /* ViewControllers */,
+				8223AB8D281891ED00DEF1E9 /* Extensions */,
+				8223AC09282ACB8100DEF1E9 /* Util */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		8223AB8D281891ED00DEF1E9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8223AB8F281891ED00DEF1E9 /* UIViewController+FromString.swift */,
+				82DD90FC2966162600A508B9 /* NSMutableAttributedString+Link.swift */,
+				8223AB90281891ED00DEF1E9 /* String+Utils.swift */,
+				8223ABFB28247E6600DEF1E9 /* UIColor+Theme.swift */,
+				8223ABFD28247E8F00DEF1E9 /* UIView+FromNib.swift */,
+				8223ABC72819ECFA00DEF1E9 /* UIFont+Theme.swift */,
+				822349DC28401C4E00A59775 /* UIImage+Theme.swift */,
+				822349E02846908000A59775 /* UINavigationItem+Theme.swift */,
+				82234A222863B82000A59775 /* URL+Components.swift */,
+				82685A1528761DC2006E1B35 /* NotificationCenter+Duplicates.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8223AB91281891ED00DEF1E9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				82DD90FE29661D3900A508B9 /* Onboarding */,
+				8223AB95281891EE00DEF1E9 /* TabBarViewController */,
+				8223AC17282C2DBF00DEF1E9 /* Shared */,
+				8223AC18282C2DD400DEF1E9 /* Foundation */,
+				8223AC19282C2E4100DEF1E9 /* GenerateKeysViewController.swift */,
+				8223AB94281891ED00DEF1E9 /* HomeViewController.swift */,
+				82931360282ECF1C000422BC /* PinViewController.swift */,
+				8223AB98281891EE00DEF1E9 /* ProfileViewController.swift */,
+				822349DB2840054D00A59775 /* KeysViewController */,
+				822349E2284693B100A59775 /* SettingsViewController.swift */,
+				8255B9BA28F77F2400FA941A /* TestViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8223AB95281891EE00DEF1E9 /* TabBarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8223AB96281891EE00DEF1E9 /* TabBarViewController.swift */,
+				8223AB97281891EE00DEF1E9 /* TabBarViewController.storyboard */,
+				8223AC20282DBF9500DEF1E9 /* TabBarViewModel.swift */,
+			);
+			path = TabBarViewController;
+			sourceTree = "<group>";
+		};
+		8223ABB22819AF4800DEF1E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8223ABB32819AF4E00DEF1E9 /* Shared */,
+				8223ABC02819B9B200DEF1E9 /* ProfileHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8223ABB32819AF4E00DEF1E9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8223ABC22819BE8500DEF1E9 /* SharedAvatarImageView.swift */,
+				8223ABD728208C9200DEF1E9 /* SharedButton.swift */,
+				8223ABCB28205EBC00DEF1E9 /* SharedDivider.swift */,
+				8223AC032829993B00DEF1E9 /* SharedLabel.swift */,
+				8223ABC9281A0C7200DEF1E9 /* SharedSpacer.swift */,
+				8223AC0128247ED900DEF1E9 /* SharedStackView.swift */,
+				8223AC052829AFC500DEF1E9 /* SharedTextField.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8223ABCD2820808500DEF1E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8223ABCE2820808B00DEF1E9 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8223ABCE2820808B00DEF1E9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8223ABEF2821A1C800DEF1E9 /* ProximaNova-Bold.ttf */,
+				8223ABF02821A1C800DEF1E9 /* ProximaNova-Italic.ttf */,
+				8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */,
+				8223ABF12821A1C800DEF1E9 /* ProximaNova-Semibold.ttf */,
+				8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8223AC09282ACB8100DEF1E9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8255B9C328F780A300FA941A /* JSONRPC */,
+				822349F1284A949C00A59775 /* Networking */,
+				82931364282ED51C000422BC /* Account */,
+				8223AC072829B3AF00DEF1E9 /* SharedImagePicker.swift */,
+				82234A1E2863B78000A59775 /* DeeplinkManager.swift */,
+				821855AD28F787530047D479 /* Logger.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		8223AC17282C2DBF00DEF1E9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8223AB9A281891EE00DEF1E9 /* SharedNavigationController.swift */,
+				8223AC0A282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8223AC18282C2DD400DEF1E9 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				8223AB92281891ED00DEF1E9 /* BaseViewController.swift */,
+				8223AB99281891EE00DEF1E9 /* ViewControllerFactory.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		8223AC1D282C76FC00DEF1E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8293137228341D45000422BC /* Key.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8255B9C328F780A300FA941A /* JSONRPC */ = {
+			isa = PBXGroup;
+			children = (
+				8255B9CC28F782DF00FA941A /* RuntimeVersion.swift */,
+			);
+			path = JSONRPC;
+			sourceTree = "<group>";
+		};
+		82931364282ED51C000422BC /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				822349E62846DBD100A59775 /* AuthManager.swift */,
+				82931362282ED519000422BC /* Keychain.swift */,
+				82931365282ED548000422BC /* AccountKeychain.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		82DD90FE29661D3900A508B9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				82DD90FA2966007F00A508B9 /* WelcomeViewController.swift */,
+				82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */,
+				82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */,
+				82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */,
+				82DD9107296CBB4E00A508B9 /* SeedPhrase */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		82DD9107296CBB4E00A508B9 /* SeedPhrase */ = {
+			isa = PBXGroup;
+			children = (
+				82DD91052967755200A508B9 /* SeedPhraseViewController.swift */,
+				82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */,
+				82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */,
+				82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */,
+			);
+			path = SeedPhrase;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8223AB562818917700DEF1E9 /* DSNP-Wallet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8223AB812818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-Wallet" */;
+			buildPhases = (
+				B2CB0F8E091017122AD374A2 /* [CP] Check Pods Manifest.lock */,
+				8223AB532818917700DEF1E9 /* Sources */,
+				8223AB542818917700DEF1E9 /* Frameworks */,
+				8223AB552818917700DEF1E9 /* Resources */,
+				B6D9CA606F8C0101AD965AD2 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DSNP-Wallet";
+			packageProductDependencies = (
+				8223AC0F282C2AEB00DEF1E9 /* SDWebImage */,
+				8223AC12282C2AFB00DEF1E9 /* KeychainSwift */,
+				8223AC15282C2B3E00DEF1E9 /* DSNPWallet */,
+				822349EC284A8C9100A59775 /* Apollo */,
+				822349EE284A8C9100A59775 /* ApolloWebSocket */,
+			);
+			productName = "dsnp-wallet";
+			productReference = 8223AB572818917700DEF1E9 /* DSNP-Wallet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8223AB6C2818917800DEF1E9 /* DSNP-WalletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8223AB842818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-WalletTests" */;
+			buildPhases = (
+				0D9708DABE28B6C745195F1B /* [CP] Check Pods Manifest.lock */,
+				8223AB692818917800DEF1E9 /* Sources */,
+				8223AB6A2818917800DEF1E9 /* Frameworks */,
+				8223AB6B2818917800DEF1E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8223AB6F2818917800DEF1E9 /* PBXTargetDependency */,
+			);
+			name = "DSNP-WalletTests";
+			packageProductDependencies = (
+				82234A0F284FED0E00A59775 /* Mocker */,
+			);
+			productName = "dsnp-walletTests";
+			productReference = 8223AB6D2818917800DEF1E9 /* DSNP-WalletTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8223AB762818917900DEF1E9 /* DSNP-WalletUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8223AB872818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-WalletUITests" */;
+			buildPhases = (
+				BD1CF4B49E79AEAED3C39AF6 /* [CP] Check Pods Manifest.lock */,
+				8223AB732818917900DEF1E9 /* Sources */,
+				8223AB742818917900DEF1E9 /* Frameworks */,
+				8223AB752818917900DEF1E9 /* Resources */,
+				14C477B901AF0BBEB359D290 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8223AB792818917900DEF1E9 /* PBXTargetDependency */,
+			);
+			name = "DSNP-WalletUITests";
+			productName = "dsnp-walletUITests";
+			productReference = 8223AB772818917900DEF1E9 /* DSNP-WalletUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8223AB4F2818917700DEF1E9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					8223AB562818917700DEF1E9 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					8223AB6C2818917800DEF1E9 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 8223AB562818917700DEF1E9;
+					};
+					8223AB762818917900DEF1E9 = {
+						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
+						TestTargetID = 8223AB562818917700DEF1E9;
+					};
+				};
+			};
+			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8223AB4E2818917700DEF1E9;
+			packageReferences = (
+				8223AC0E282C2AEB00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift.git" */,
+				8223AC14282C2B3E00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */,
+				822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios.git" */,
+				82234A0E284FED0E00A59775 /* XCRemoteSwiftPackageReference "Mocker" */,
+			);
+			productRefGroup = 8223AB582818917700DEF1E9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8223AB562818917700DEF1E9 /* DSNP-Wallet */,
+				8223AB6C2818917800DEF1E9 /* DSNP-WalletTests */,
+				8223AB762818917900DEF1E9 /* DSNP-WalletUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8223AB552818917700DEF1E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8223AB672818917800DEF1E9 /* LaunchScreen.storyboard in Resources */,
+				8223ABA2281891EE00DEF1E9 /* TabBarViewController.storyboard in Resources */,
+				8223AB642818917800DEF1E9 /* Assets.xcassets in Resources */,
+				8223AB622818917700DEF1E9 /* Main.storyboard in Resources */,
+				8223ABF62821A1C800DEF1E9 /* ProximaNova-Semibold.ttf in Resources */,
+				8223ABF52821A1C800DEF1E9 /* ProximaNova-Italic.ttf in Resources */,
+				8223ABF82821A1C900DEF1E9 /* ProximaNova-Regular.ttf in Resources */,
+				8223ABF72821A1C900DEF1E9 /* ProximaNova-Thin.ttf in Resources */,
+				8223ABF42821A1C800DEF1E9 /* ProximaNova-Bold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8223AB6B2818917800DEF1E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82234A182851656D00A59775 /* Login.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8223AB752818917900DEF1E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D9708DABE28B6C745195F1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DSNP-WalletTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14C477B901AF0BBEB359D290 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2CB0F8E091017122AD374A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DSNP-Wallet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6D9CA606F8C0101AD965AD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet/Pods-DSNP-Wallet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet/Pods-DSNP-Wallet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DSNP-Wallet/Pods-DSNP-Wallet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD1CF4B49E79AEAED3C39AF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DSNP-Wallet-DSNP-WalletUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8223AB532818917700DEF1E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8223AC062829AFC500DEF1E9 /* SharedTextField.swift in Sources */,
+				8223AC0228247EDA00DEF1E9 /* SharedStackView.swift in Sources */,
+<<<<<<< HEAD
+				8255B9BB28F77F2400FA941A /* TestViewController.swift in Sources */,
+=======
+				82DD910B296CBC7100A508B9 /* SeedPhraseViewModel.swift in Sources */,
+>>>>>>> d20fc7dd541b3bc572de7efbe89783ae6375b9eb
+				8223AC0B282B176A00DEF1E9 /* SharedProfileHeaderViewController.swift in Sources */,
+				8223ABFF28247E8F00DEF1E9 /* UIView+FromNib.swift in Sources */,
+				8223AB9C281891EE00DEF1E9 /* UIViewController+FromString.swift in Sources */,
+				82DD90FB2966007F00A508B9 /* WelcomeViewController.swift in Sources */,
+				82DD910229661DBB00A508B9 /* CreateDsnpIdViewController.swift in Sources */,
+				82931366282ED548000422BC /* AccountKeychain.swift in Sources */,
+				821855AE28F787530047D479 /* Logger.swift in Sources */,
+				8223AB9D281891EE00DEF1E9 /* String+Utils.swift in Sources */,
+				82DD90FD2966162600A508B9 /* NSMutableAttributedString+Link.swift in Sources */,
+				8223AB5B2818917700DEF1E9 /* AppDelegate.swift in Sources */,
+				82234A1F2863B78000A59775 /* DeeplinkManager.swift in Sources */,
+				82931363282ED519000422BC /* Keychain.swift in Sources */,
+				82685A1628761DC2006E1B35 /* NotificationCenter+Duplicates.swift in Sources */,
+				8223AC1A282C2E4100DEF1E9 /* GenerateKeysViewController.swift in Sources */,
+<<<<<<< HEAD
+				8255B9CD28F782DF00FA941A /* RuntimeVersion.swift in Sources */,
+=======
+				82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */,
+>>>>>>> d20fc7dd541b3bc572de7efbe89783ae6375b9eb
+				8223ABA0281891EE00DEF1E9 /* HomeViewController.swift in Sources */,
+				8223ABA5281891EE00DEF1E9 /* SharedNavigationController.swift in Sources */,
+				8223ABC12819B9B200DEF1E9 /* ProfileHeaderView.swift in Sources */,
+				8293137328341D45000422BC /* Key.swift in Sources */,
+				82234A07284FCA1800A59775 /* UserAPI.swift in Sources */,
+				82234A232863B82000A59775 /* URL+Components.swift in Sources */,
+				82DD910429661E1200A508B9 /* RestoreDsnpWalletViewController.swift in Sources */,
+				8223ABCA281A0C7200DEF1E9 /* SharedSpacer.swift in Sources */,
+				8223ABA3281891EE00DEF1E9 /* ProfileViewController.swift in Sources */,
+				822349F3284A951B00A59775 /* ApolloManager.swift in Sources */,
+				8223ABCC28205EBC00DEF1E9 /* SharedDivider.swift in Sources */,
+				8223ABD828208C9200DEF1E9 /* SharedButton.swift in Sources */,
+				8223AC21282DBF9500DEF1E9 /* TabBarViewModel.swift in Sources */,
+				82234A03284FC66800A59775 /* User.swift in Sources */,
+				8279BAF3283EDC1C00543C0F /* KeysViewModel.swift in Sources */,
+				82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */,
+				82931361282ECF1C000422BC /* PinViewController.swift in Sources */,
+				8223ABC32819BE8500DEF1E9 /* SharedAvatarImageView.swift in Sources */,
+				8223AC082829B3AF00DEF1E9 /* SharedImagePicker.swift in Sources */,
+				822349DD28401C4E00A59775 /* UIImage+Theme.swift in Sources */,
+				8223ABFC28247E6600DEF1E9 /* UIColor+Theme.swift in Sources */,
+				82234A05284FC9FB00A59775 /* BaseAPI.swift in Sources */,
+				8223AC042829993B00DEF1E9 /* SharedLabel.swift in Sources */,
+				8223AB9E281891EE00DEF1E9 /* BaseViewController.swift in Sources */,
+				8223AB9F281891EE00DEF1E9 /* KeysViewController.swift in Sources */,
+				822349F7284A9A3800A59775 /* ApolloClientProtocol.swift in Sources */,
+				822349DA284004D700A59775 /* KeysViewController+Backup.swift in Sources */,
+				8223ABC82819ECFA00DEF1E9 /* UIFont+Theme.swift in Sources */,
+				8223ABA4281891EE00DEF1E9 /* ViewControllerFactory.swift in Sources */,
+				8223ABA1281891EE00DEF1E9 /* TabBarViewController.swift in Sources */,
+				8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */,
+				82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */,
+				822349E72846DBD100A59775 /* AuthManager.swift in Sources */,
+				822349E12846908000A59775 /* UINavigationItem+Theme.swift in Sources */,
+				822349F5284A953600A59775 /* GraphQLEnvironment.swift in Sources */,
+				82DD910029661D8300A508B9 /* LookUpDsnpIdViewController.swift in Sources */,
+				822349E3284693B100A59775 /* SettingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8223AB692818917800DEF1E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82C4DDEF283D459400A95E2A /* UserAPITests.swift in Sources */,
+				82234A09284FCD1D00A59775 /* MockApolloClient.swift in Sources */,
+				82234A14284FF54B00A59775 /* MockedData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8223AB732818917900DEF1E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */,
+				82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8223AB6F2818917800DEF1E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8223AB562818917700DEF1E9 /* DSNP-Wallet */;
+			targetProxy = 8223AB6E2818917800DEF1E9 /* PBXContainerItemProxy */;
+		};
+		8223AB792818917900DEF1E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8223AB562818917700DEF1E9 /* DSNP-Wallet */;
+			targetProxy = 8223AB782818917900DEF1E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8223AB602818917700DEF1E9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8223AB612818917700DEF1E9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8223AB652818917800DEF1E9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8223AB662818917800DEF1E9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8223AB7F2818917900DEF1E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8223AB802818917900DEF1E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8223AB822818917900DEF1E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23745CD68A0AB70F94ADE1C3 /* Pods-DSNP-Wallet.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = U95Q67332B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your photos for your profile.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow access to your camera for your profile. ";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.unfinished.dsnp-wallet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8223AB832818917900DEF1E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2517E3B47142A1580358DD88 /* Pods-DSNP-Wallet.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = U95Q67332B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your photos for your profile.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow access to your camera for your profile. ";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.unfinished.dsnp-wallet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8223AB852818917900DEF1E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 770C3B73C1BC90FB3DCC269E /* Pods-DSNP-WalletTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U95Q67332B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.dsnp-walletTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSNP-Wallet.app/DSNP-Wallet";
+			};
+			name = Debug;
+		};
+		8223AB862818917900DEF1E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A6B0E5797BCF918F0CDA75F /* Pods-DSNP-WalletTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U95Q67332B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.dsnp-walletTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSNP-Wallet.app/DSNP-Wallet";
+			};
+			name = Release;
+		};
+		8223AB882818917900DEF1E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U95Q67332B;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.dsnp-walletUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "DSNP-Wallet";
+			};
+			name = Debug;
+		};
+		8223AB892818917900DEF1E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76D937A6B40AB26A1A861F45 /* Pods-DSNP-Wallet-DSNP-WalletUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U95Q67332B;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Unfinished-LLC.dsnp-walletUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "DSNP-Wallet";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8223AB7F2818917900DEF1E9 /* Debug */,
+				8223AB802818917900DEF1E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8223AB812818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-Wallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8223AB822818917900DEF1E9 /* Debug */,
+				8223AB832818917900DEF1E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8223AB842818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-WalletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8223AB852818917900DEF1E9 /* Debug */,
+				8223AB862818917900DEF1E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8223AB872818917900DEF1E9 /* Build configuration list for PBXNativeTarget "DSNP-WalletUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8223AB882818917900DEF1E9 /* Debug */,
+				8223AB892818917900DEF1E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.5;
+			};
+		};
+		82234A0E284FED0E00A59775 /* XCRemoteSwiftPackageReference "Mocker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WeTransfer/Mocker";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		8223AC0E282C2AEB00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		8223AC14282C2B3E00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LibertyDSNP/dsnp-embedded-wallet-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		822349EC284A8C9100A59775 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios.git" */;
+			productName = Apollo;
+		};
+		822349EE284A8C9100A59775 /* ApolloWebSocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 822349EB284A8C9100A59775 /* XCRemoteSwiftPackageReference "apollo-ios.git" */;
+			productName = ApolloWebSocket;
+		};
+		82234A0F284FED0E00A59775 /* Mocker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82234A0E284FED0E00A59775 /* XCRemoteSwiftPackageReference "Mocker" */;
+			productName = Mocker;
+		};
+		8223AC0F282C2AEB00DEF1E9 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8223AC0E282C2AEB00DEF1E9 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		8223AC12282C2AFB00DEF1E9 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8223AC11282C2AFB00DEF1E9 /* XCRemoteSwiftPackageReference "keychain-swift.git" */;
+			productName = KeychainSwift;
+		};
+		8223AC15282C2B3E00DEF1E9 /* DSNPWallet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8223AC14282C2B3E00DEF1E9 /* XCRemoteSwiftPackageReference "dsnp-embedded-wallet-swift" */;
+			productName = DSNPWallet;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 8223AB4F2818917700DEF1E9 /* Project object */;
+}

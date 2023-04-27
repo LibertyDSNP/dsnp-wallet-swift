@@ -1,6 +1,0 @@
-framework module SubstrateSdk {
-  umbrella header "SubstrateSdk-umbrella.h"
-
-  export *
-  module * { export * }
-}
