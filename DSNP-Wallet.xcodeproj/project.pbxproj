@@ -160,7 +160,6 @@
 		829964A7297A17F4009A769F /* WalletNetworkFacade+Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996456297A17F3009A769F /* WalletNetworkFacade+Price.swift */; };
 		829964A8297A17F4009A769F /* WalletContactOperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996457297A17F3009A769F /* WalletContactOperationFactory.swift */; };
 		829964A9297A17F4009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996458297A17F3009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift */; };
-		829964AB297A17F4009A769F /* WalletNetworkOperationFactory+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299645A297A17F3009A769F /* WalletNetworkOperationFactory+Protocol.swift */; };
 		829964AC297A17F4009A769F /* WalletNetworkFacade+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299645B297A17F3009A769F /* WalletNetworkFacade+Storage.swift */; };
 		829964BC297A17F4009A769F /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299646E297A17F3009A769F /* ApolloManager.swift */; };
 		829964BD297A17F4009A769F /* EthereumRpcRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996470297A17F3009A769F /* EthereumRpcRequest.swift */; };
@@ -593,7 +592,6 @@
 		82996456297A17F3009A769F /* WalletNetworkFacade+Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkFacade+Price.swift"; sourceTree = "<group>"; };
 		82996457297A17F3009A769F /* WalletContactOperationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletContactOperationFactory.swift; sourceTree = "<group>"; };
 		82996458297A17F3009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkOperationFactory+MinimalBalance.swift"; sourceTree = "<group>"; };
-		8299645A297A17F3009A769F /* WalletNetworkOperationFactory+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkOperationFactory+Protocol.swift"; sourceTree = "<group>"; };
 		8299645B297A17F3009A769F /* WalletNetworkFacade+Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkFacade+Storage.swift"; sourceTree = "<group>"; };
 		8299646E297A17F3009A769F /* ApolloManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApolloManager.swift; sourceTree = "<group>"; };
 		82996470297A17F3009A769F /* EthereumRpcRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumRpcRequest.swift; sourceTree = "<group>"; };
@@ -1517,7 +1515,6 @@
 				82996456297A17F3009A769F /* WalletNetworkFacade+Price.swift */,
 				82996457297A17F3009A769F /* WalletContactOperationFactory.swift */,
 				82996458297A17F3009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift */,
-				8299645A297A17F3009A769F /* WalletNetworkOperationFactory+Protocol.swift */,
 				8299645B297A17F3009A769F /* WalletNetworkFacade+Storage.swift */,
 			);
 			path = Wallet;
@@ -2488,7 +2485,6 @@
 				82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */,
 				8299635C297A13CF009A769F /* ChildSubscriptionFactory.swift in Sources */,
 				8299639C297A13CF009A769F /* StorageKeySuffixMapper.swift in Sources */,
-				829964AB297A17F4009A769F /* WalletNetworkOperationFactory+Protocol.swift in Sources */,
 				82996932297B750B009A769F /* FeeMetadataContext.swift in Sources */,
 				829965E8297A1AF1009A769F /* ChainStorageIdFactory.swift in Sources */,
 				829965C0297A1955009A769F /* RestoreJson.swift in Sources */,

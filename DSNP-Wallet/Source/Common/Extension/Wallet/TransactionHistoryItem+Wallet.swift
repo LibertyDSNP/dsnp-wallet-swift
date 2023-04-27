@@ -1,8 +1,4 @@
-import Foundation
 import CommonWallet
-import IrohaCrypto
-import BigInt
-import SubstrateSdk
 
 extension TransactionHistoryItem.Status {
     var walletValue: AssetTransactionStatus {

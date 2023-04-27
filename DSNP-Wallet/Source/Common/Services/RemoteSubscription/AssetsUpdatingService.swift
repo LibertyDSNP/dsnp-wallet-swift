@@ -71,7 +71,8 @@ final class AssetsUpdatingService {
         for change in changes {
             switch change {
             case let .insert(newItem):
-                addSubscriptionIfNeeded(for: newItem)
+                print("Hello, is it me you're looking for?")
+//                addSubscriptionIfNeeded(for: newItem)
             case .update:
                 break
             case let .delete(deletedIdentifier):
@@ -80,7 +81,7 @@ final class AssetsUpdatingService {
         }
     }
 
-    private func addSubscriptionIfNeeded(for chain: ChainModel) {
+//    private func addSubscriptionIfNeeded(for chain: ChainModel) {
 //        guard let accountId = selectedMetaAccount?.fetch(for: chain.accountRequest())?.accountId else {
 //            logger.warning("Couldn't create account for chain \(chain.chainId)")
 //            return
@@ -99,7 +100,7 @@ final class AssetsUpdatingService {
 //        }
 
 //        subscribedChains[chain.chainId] = assetSubscriptions
-    }
+//    }
 
 //    private func createSubscription(
 //        for asset: AssetModel,
