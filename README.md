@@ -10,6 +10,8 @@ Navigate to your machine's Applications folder, right click Xcode, select Get In
 
 ![Rosetta](./docs/rosettaInfo.png)
 
+If you don't have Rosetta installed, simply run: 
 
+`softwareupdate --install-rosetta` in your terminal 
 
 
