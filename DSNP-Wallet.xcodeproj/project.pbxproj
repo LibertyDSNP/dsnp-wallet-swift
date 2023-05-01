@@ -416,6 +416,9 @@
 		82E4AED129B020B00071758A /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AED029B020AF0071758A /* ServiceViewController.swift */; };
 		82E4AED329B020B60071758A /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AED229B020B60071758A /* ServiceViewModel.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
+		B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F242A0007FF00A17F08 /* QAViewController.swift */; };
+		B5966F272A00080900A17F08 /* QAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F262A00080900A17F08 /* QAView.swift */; };
+		B5966F292A0009BD00A17F08 /* ChainEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F282A0009BD00A17F08 /* ChainEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -851,6 +854,9 @@
 		82E4AECD29A6E2E40071758A /* FrequencyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyChain.swift; sourceTree = "<group>"; };
 		82E4AED029B020AF0071758A /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		82E4AED229B020B60071758A /* ServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
+		B5966F242A0007FF00A17F08 /* QAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
+		B5966F262A00080900A17F08 /* QAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
+		B5966F282A0009BD00A17F08 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainEnvironment.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1287,6 +1293,8 @@
 		829960C42978C45F009A769F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B5966F282A0009BD00A17F08 /* ChainEnvironment.swift */,
+				B5966F232A0007EA00A17F08 /* QA */,
 				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
 				829960CA2978C45F009A769F /* GenerateKeysViewController.swift */,
 				829960C92978C45F009A769F /* HomeViewController.swift */,
@@ -1903,6 +1911,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		B5966F232A0007EA00A17F08 /* QA */ = {
+			isa = PBXGroup;
+			children = (
+				B5966F242A0007FF00A17F08 /* QAViewController.swift */,
+				B5966F262A00080900A17F08 /* QAView.swift */,
+			);
+			path = QA;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2251,6 +2268,7 @@
 				829968EB297B721C009A769F /* CompoundOperationWrapper+Result.swift in Sources */,
 				829965B8297A1955009A769F /* OrmlAssetExtras.swift in Sources */,
 				829961002978C460009A769F /* SharedNavigationController.swift in Sources */,
+				B5966F272A00080900A17F08 /* QAView.swift in Sources */,
 				82996493297A17F4009A769F /* DistributedStorageFactory.swift in Sources */,
 				82996691297B141A009A769F /* Mapping.swift in Sources */,
 				82996901297B721C009A769F /* UIView+FromNib.swift in Sources */,
@@ -2471,6 +2489,7 @@
 				82996645297A1B5E009A769F /* StorageCodingPath.swift in Sources */,
 				8299635A297A13CF009A769F /* StorageSubscriptionContainer.swift in Sources */,
 				8299639E297A13CF009A769F /* IdentityMapper.swift in Sources */,
+				B5966F292A0009BD00A17F08 /* ChainEnvironment.swift in Sources */,
 				829965F1297A1AF1009A769F /* SingleToMultiasset.xcmappingmodel in Sources */,
 				82996936297F3776009A769F /* AssetsTransfer.swift in Sources */,
 				829961022978C460009A769F /* TabBarViewController.swift in Sources */,
@@ -2489,6 +2508,7 @@
 				829965E8297A1AF1009A769F /* ChainStorageIdFactory.swift in Sources */,
 				829965C0297A1955009A769F /* RestoreJson.swift in Sources */,
 				8299669D297B141A009A769F /* SubstrateRepositoryFactory.swift in Sources */,
+				B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */,
 				8299633D297A13CF009A769F /* ApplicationService.swift in Sources */,
 				829965AF297A1955009A769F /* DisplayAddress.swift in Sources */,
 				829965B2297A1955009A769F /* StashItem.swift in Sources */,
