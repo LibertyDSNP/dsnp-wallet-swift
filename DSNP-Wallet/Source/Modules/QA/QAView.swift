@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let bgColor = UIColor(red: 35.0/255.0, green: 35.0/255.0, blue: 47.0/255.0, alpha: 1.0)
+
 struct QAView: View {
     
     @State private var input: String = ""
@@ -14,29 +16,57 @@ struct QAView: View {
     var body: some View {
         VStack {
             wsInputTextField
+                .padding()
             currentWsValue
+            submitWsButton
         }
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
             alignment: .topLeading
         )
-        .background(Color.black)
+        .background(Color(uiColor: bgColor))
+    }
+    
+    var submitWsButton: some View {
+        HStack {
+            Button{
+                ChainEnvironment.setNodeURL(url: "ws://\(input)")
+            } label: {
+                Text("Submit WS Address")
+                    .padding(8)
+                    .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
+            }
+            Button {
+                ChainEnvironment.resetNodeURL()
+            } label: {
+                Text("Reset WS Address")
+                    .padding(8)
+                    .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
+            }
+        }
     }
     
     var wsInputTextField: some View {
-        TextField("WS Address: ", text: $input)
-            .onSubmit {
-                // validate format
-            }
-            .textInputAutocapitalization(.never)
-            .disableAutocorrection(true)
-            .border(.secondary)
-            .padding()
+        HStack {
+            Text("ws://")
+                .font(Font.system(size: 14))
+                .foregroundColor(.white)
+            TextField("WS Address", text: $input)
+                .onSubmit {
+                    // validate format
+                }
+                .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
+                .border(.secondary)
+                .foregroundColor(.white)
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
+        }
     }
     
     var currentWsValue: some View {
-        Text(ChainEnvironment.getNodeURL())
+        Text("Current WS Address: \(ChainEnvironment.getNodeURL())")
             .foregroundColor(.blue)
     }
 }
