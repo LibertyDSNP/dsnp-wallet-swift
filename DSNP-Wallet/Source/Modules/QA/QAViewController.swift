@@ -11,7 +11,7 @@ import SwiftUI
 class QAViewController: UIHostingController<QAView> {
 
     init() {
-        super.init(rootView: QAView())
+        super.init(rootView: QAView(viewModel: QAViewModel()))
     }
     
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {

@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-let bgColor = UIColor(red: 35.0/255.0, green: 35.0/255.0, blue: 47.0/255.0, alpha: 1.0)
-
 struct QAView: View {
-    
-    @State private var input: String = ""
+
+    let bgColor = UIColor(red: 35.0/255.0, green: 35.0/255.0, blue: 47.0/255.0, alpha: 1.0)
+
+    @ObservedObject var viewModel: QAViewModel
     
     var body: some View {
         VStack {
@@ -31,7 +31,7 @@ struct QAView: View {
     var submitWsButton: some View {
         HStack {
             Button{
-                ChainEnvironment.setNodeURL(url: "ws://\(input)")
+                viewModel.submitAction.send()
             } label: {
                 Text("Submit WS Address")
                     .padding(8)
@@ -52,14 +52,11 @@ struct QAView: View {
             Text("ws://")
                 .font(Font.system(size: 14))
                 .foregroundColor(.white)
-            TextField("WS Address", text: $input)
-                .onSubmit {
-                    // validate format
-                }
+            TextField("WS Address", text: $viewModel.wsURLText)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .border(.secondary)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
         }
@@ -73,6 +70,6 @@ struct QAView: View {
 
 struct QAView_Previews: PreviewProvider {
     static var previews: some View {
-        QAView()
+        QAView(viewModel: QAViewModel())
     }
 }
