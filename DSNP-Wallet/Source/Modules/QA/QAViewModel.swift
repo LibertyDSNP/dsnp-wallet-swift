@@ -20,7 +20,7 @@ class QAViewModel: ObservableObject {
     var submitAction = PassthroughSubject<Void, Never>()
     var resetAction = PassthroughSubject<Void, Never>()
 
-    private var validCharSet = CharacterSet(charactersIn: "1234567890.")
+    private var validCharSet = CharacterSet(charactersIn: "1234567890:.")
     
     init() {
         setupObservables()
@@ -28,34 +28,46 @@ class QAViewModel: ObservableObject {
     
     private func setupObservables() {
         // Monitoring user text input, filter for WS URL related vals
-        $wsURLText.sink { val in
-            //check if the new string contains any invalid characters
-            if val.rangeOfCharacter(from: self.validCharSet.inverted) != nil {
-                DispatchQueue.main.async {
+        $wsURLText
+            .receive(on: RunLoop.main)
+            .sink { [weak self] inputText in
+                guard let self else { return }
+                //check if the new string contains any invalid characters
+                if inputText.rangeOfCharacter(from: self.validCharSet.inverted) != nil {
                     self.wsURLText = String(self.wsURLText.unicodeScalars.filter {
                         self.validCharSet.contains($0)
                     })
                 }
             }
-        }
-        .store(in: &cancellables)
+            .store(in: &cancellables)
         
         // Submit
-        submitAction.sink { [weak self] in
-            guard let self else { return }
-            ChainEnvironment.setNodeURL(url: "ws://\(self.wsURLText)")
-            self.currentWsUrl = ChainEnvironment.getNodeURL()
-        }
-        .store(in: &cancellables)
+        submitAction
+            .receive(on: RunLoop.main)
+            .sink { [weak self] in
+                guard let self else { return }
+                
+                // Can't submit empty string
+                if self.wsURLText.isEmpty { return }
+                
+                ChainEnvironment.setNodeURL(url: "ws://\(self.wsURLText)")
+                self.resetFields()
+            }
+            .store(in: &cancellables)
         
         // Reset
         resetAction
             .receive(on: RunLoop.main)
             .sink { [weak self] in
-            guard let self else { return }
-            ChainEnvironment.resetNodeURL()
-            self.currentWsUrl = ChainEnvironment.getNodeURL()
-        }
-        .store(in: &cancellables)
+                guard let self else { return }
+                ChainEnvironment.resetNodeURL()
+                self.resetFields()
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func resetFields() {
+        currentWsUrl = ChainEnvironment.getNodeURL()
+        wsURLText = ""
     }
 }

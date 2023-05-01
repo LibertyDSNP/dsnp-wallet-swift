@@ -38,7 +38,7 @@ struct QAView: View {
                     .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
             }
             Button {
-                ChainEnvironment.resetNodeURL()
+                viewModel.resetAction.send()
             } label: {
                 Text("Reset WS Address")
                     .padding(8)
@@ -63,7 +63,7 @@ struct QAView: View {
     }
     
     var currentWsValue: some View {
-        Text("Current WS Address: \(ChainEnvironment.getNodeURL())")
+        Text("Current WS Address: \(viewModel.currentWsUrl)")
             .foregroundColor(.blue)
     }
 }
