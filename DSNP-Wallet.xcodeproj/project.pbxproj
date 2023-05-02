@@ -1295,7 +1295,7 @@
 		829960C42978C45F009A769F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B5966F232A0007EA00A17F08 /* QA */,
+				B53BD7BF2A01571000967477 /* ChainEnvironment.swift */,
 				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
 				829960CA2978C45F009A769F /* GenerateKeysViewController.swift */,
 				829960C92978C45F009A769F /* HomeViewController.swift */,
@@ -1307,6 +1307,7 @@
 				82E4AECF29B0209A0071758A /* Service */,
 				829960D22978C45F009A769F /* SettingsViewController.swift */,
 				82996884297B6C30009A769F /* Wallet */,
+				B5966F232A0007EA00A17F08 /* QA */,
 			);
 			name = Modules;
 			path = Source/Modules;
@@ -1915,7 +1916,6 @@
 		B5966F232A0007EA00A17F08 /* QA */ = {
 			isa = PBXGroup;
 			children = (
-				B53BD7BF2A01571000967477 /* ChainEnvironment.swift */,
 				B5966F242A0007FF00A17F08 /* QAViewController.swift */,
 				B5966F262A00080900A17F08 /* QAView.swift */,
 				B53BD7BD2A00408200967477 /* QAViewModel.swift */,
