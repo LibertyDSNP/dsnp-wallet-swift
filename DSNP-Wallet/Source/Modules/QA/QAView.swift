@@ -35,14 +35,14 @@ struct QAView: View {
             } label: {
                 Text("Submit WS Address")
                     .padding(8)
-                    .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
+                    .background(RoundedRectangle(cornerRadius: 30).fill(Color.white))
             }
             Button {
                 viewModel.resetAction.send()
             } label: {
                 Text("Reset WS Address")
                     .padding(8)
-                    .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
+                    .background(RoundedRectangle(cornerRadius: 30).fill(Color.white))
             }
         }
     }
