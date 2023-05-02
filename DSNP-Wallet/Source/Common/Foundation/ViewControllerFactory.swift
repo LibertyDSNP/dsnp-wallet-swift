@@ -56,7 +56,6 @@ enum ViewControllerFactory: String, CaseIterable {
             let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
             vc = storyboard.instantiateInitialViewController()
         } else {
-            // TODO: Temp Fix
             if self.className == "QaViewController" {
                 vc = QAViewController()
             } else {
