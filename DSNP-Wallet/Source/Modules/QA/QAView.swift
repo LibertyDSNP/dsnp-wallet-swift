@@ -55,7 +55,6 @@ struct QAView: View {
             TextField("WS Address", text: $viewModel.wsURLText)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
-                .border(.secondary)
                 .foregroundColor(.black)
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
