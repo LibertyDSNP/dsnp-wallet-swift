@@ -1,13 +1,16 @@
 import Foundation
 import RobinHood
 
-final class OrmlAccountSubscription: BaseStorageChildSubscription {
+final class OrmlAccountSubscription {
+    let remoteStorageKey: Data
     let chainAssetId: ChainAssetId
     let accountId: AccountId
     let chainRegistry: ChainRegistryProtocol
     let assetRepository: AnyDataProviderRepository<AssetBalance>
     let eventCenter: EventCenterProtocol
     let transactionSubscription: TransactionSubscription?
+    let logger: LoggerProtocol
+    let operationManager: OperationManagerProtocol
 
     init(
         chainAssetId: ChainAssetId,
@@ -15,8 +18,6 @@ final class OrmlAccountSubscription: BaseStorageChildSubscription {
         chainRegistry: ChainRegistryProtocol,
         assetRepository: AnyDataProviderRepository<AssetBalance>,
         remoteStorageKey: Data,
-        localStorageKey: String,
-        storage: AnyDataProviderRepository<ChainStorageItem>,
         operationManager: OperationManagerProtocol,
         logger: LoggerProtocol,
         eventCenter: EventCenterProtocol,
@@ -28,37 +29,13 @@ final class OrmlAccountSubscription: BaseStorageChildSubscription {
         self.assetRepository = assetRepository
         self.eventCenter = eventCenter
         self.transactionSubscription = transactionSubscription
-
-        super.init(
-            remoteStorageKey: remoteStorageKey,
-            localStorageKey: localStorageKey,
-            storage: storage,
-            operationManager: operationManager,
-            logger: logger
-        )
-    }
-
-    override func handle(
-        result: Result<DataProviderChange<ChainStorageItem>?, Error>,
-        remoteItem: ChainStorageItem?,
-        blockHash: Data?
-    ) {
-        logger.debug("Did orml account update")
-
-        decodeAndSaveAccountInfo(
-            remoteItem,
-            chainAssetId: chainAssetId,
-            accountId: accountId
-        )
-
-        if case let .success(optionalChange) = result, optionalChange != nil, let blockHash = blockHash {
-            logger.debug("Handle orml transaction")
-            transactionSubscription?.process(blockHash: blockHash)
-        }
+        self.remoteStorageKey = remoteStorageKey
+        self.operationManager = operationManager
+        self.logger = logger
     }
 
     private func createDecodingOperationWrapper(
-        _ item: ChainStorageItem?,
+        _ item: Data?,
         chainAssetId: ChainAssetId
     ) -> CompoundOperationWrapper<OrmlAccount?> {
         guard let runtimeProvider = chainRegistry.getRuntimeProvider(for: chainAssetId.chainId) else {
@@ -70,7 +47,7 @@ final class OrmlAccountSubscription: BaseStorageChildSubscription {
         let codingFactoryOperation = runtimeProvider.fetchCoderFactoryOperation()
         let decodingOperation = StorageFallbackDecodingOperation<OrmlAccount>(
             path: .ormlTokenAccount,
-            data: item?.data
+            data: item
         )
 
         decodingOperation.configurationBlock = {
@@ -129,9 +106,10 @@ final class OrmlAccountSubscription: BaseStorageChildSubscription {
     }
 
     private func decodeAndSaveAccountInfo(
-        _ item: ChainStorageItem?,
+        _ item: Data?,
         chainAssetId: ChainAssetId,
-        accountId: AccountId
+        accountId: AccountId,
+        blockHash: Data?
     ) {
         let decodingWrapper = createDecodingOperationWrapper(
             item,
@@ -166,11 +144,20 @@ final class OrmlAccountSubscription: BaseStorageChildSubscription {
         saveOperation.addDependency(changesWrapper.targetOperation)
 
         saveOperation.completionBlock = { [weak self] in
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 let maybeItem = try? changesWrapper.targetOperation.extractNoCancellableResultData()
 
                 if maybeItem != nil {
-                    self?.eventCenter.notify(with: WalletBalanceChanged())
+                    self?.handleTransactionIfNeeded(for: blockHash)
+
+                    let assetBalanceChangeEvent = AssetBalanceChanged(
+                        chainAssetId: chainAssetId,
+                        accountId: accountId,
+                        changes: item,
+                        block: blockHash
+                    )
+
+                    self?.eventCenter.notify(with: assetBalanceChangeEvent)
                 }
             }
         }
@@ -178,5 +165,25 @@ final class OrmlAccountSubscription: BaseStorageChildSubscription {
         let operations = decodingWrapper.allOperations + changesWrapper.allOperations + [saveOperation]
 
         operationManager.enqueue(operations: operations, in: .transient)
+    }
+
+    private func handleTransactionIfNeeded(for blockHash: Data?) {
+        if let blockHash = blockHash {
+            logger.debug("Handle orml transaction")
+            transactionSubscription?.process(blockHash: blockHash)
+        }
+    }
+}
+
+extension OrmlAccountSubscription: StorageChildSubscribing {
+    func processUpdate(_ data: Data?, blockHash: Data?) {
+        logger.debug("Did receive orml account update")
+
+        decodeAndSaveAccountInfo(
+            data,
+            chainAssetId: chainAssetId,
+            accountId: accountId,
+            blockHash: blockHash
+        )
     }
 }

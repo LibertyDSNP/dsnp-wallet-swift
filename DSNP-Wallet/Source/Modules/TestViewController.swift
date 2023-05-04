@@ -7,6 +7,7 @@
 
 import UIKit
 import SubstrateSdk
+import RobinHood
 
 enum TestButtons: String, CaseIterable {
     case create = "Create MSA"
@@ -17,30 +18,21 @@ enum TestButtons: String, CaseIterable {
 }
 
 class TestViewController: ServiceViewController, UITextFieldDelegate {
-    //MARK: UI
     private lazy var primaryTextField = getTextField(placeholder: "Primary Mnemomic")
     private lazy var secondaryTextField = getTextField(placeholder: "Secondary Mnemomic")
     
-    var extrinsicManager: ExtrinsicManager?
-    private(set) var extrinsicSubscriptionId: UInt16?
-    
     override func viewDidLoad() {
+        viewModel?.txHandlerDelegate = self
+        
         setViews()
     }
     
     deinit {
-        cancelExtrinsicSubscriptionIfNeeded()
-    }
-
-    private func cancelExtrinsicSubscriptionIfNeeded() {
-        if let extrinsicSubscriptionId = extrinsicSubscriptionId,
-           let extrinsicService = extrinsicManager?.extrinsicService {
-            extrinsicService.cancelExtrinsicWatch(for: extrinsicSubscriptionId)
-            self.extrinsicSubscriptionId = nil
-        }
+        viewModel?.cancelExtrinsicSubscriptionIfNeeded()
     }
 }
 
+//MARK: UI
 extension TestViewController {
     private func setViews() {
         view.backgroundColor = .lightGray
@@ -84,14 +76,25 @@ extension TestViewController {
         
         let secondaryMnemonicInput = secondaryTextField.text?.isEmpty ?? true ? "wink settle steak second tuition whale question must honey fossil spider melt" : secondaryTextField.text ?? ""
         let secondaryUser = User(mnemonic: secondaryMnemonicInput)
+        
+        //Closures
         let subscriptionIdClosure = getSubscriptionIdClosure()
-        let notificationClosure = getSubscriptionNotificationClosure()
+        let notificationClosure = getSubscriptionNotificationClosure(completion: { items in
+            guard let item = items.first else { return }
+            
+            let processingResult = item.processingResult
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Extrinsic Result", message: "\(processingResult)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+            }
+        })
         
         switch selector?.titleLabel?.text ?? "" {
         case TestButtons.create.rawValue:
-            createMsa(user: primaryUser, subscriptionIdClosure: subscriptionIdClosure, notificationClosure: notificationClosure)
+            createMsa(primaryUser: primaryUser, subscriptionIdClosure: subscriptionIdClosure, notificationClosure: notificationClosure)
         case TestButtons.getMsa.rawValue:
-            getMsa(from: primaryUser)
+            getMsa(primaryUser: primaryUser)
         case TestButtons.addPublicKeyToMsa.rawValue:
             addPublicKeyToMsa(primaryUser: primaryUser,
                               secondaryUser: secondaryUser,
@@ -110,12 +113,12 @@ extension TestViewController {
 
 //MARK: Extrinsic Logic
 extension TestViewController {
-    func createMsa(user: User,
+    func createMsa(primaryUser: User,
                    subscriptionIdClosure: @escaping ExtrinsicSubscriptionIdClosure,
                    notificationClosure: @escaping ExtrinsicSubscriptionStatusClosure) {
         let extrinsic: ExtrinsicCalls = .createMsa
         viewModel?.execute(extrinsic: extrinsic,
-                           from: user,
+                           from: primaryUser,
                            subscriptionIdClosure: subscriptionIdClosure,
                            notificationClosure: notificationClosure)
     }
@@ -133,18 +136,23 @@ extension TestViewController {
                            notificationClosure: notificationClosure)
     }
     
-    func addPublicKeyToMsa(primaryUser: User, secondaryUser: User,
+    func addPublicKeyToMsa(primaryUser: User,
+                           secondaryUser: User,
                            subscriptionIdClosure: @escaping ExtrinsicSubscriptionIdClosure,
                            notificationClosure: @escaping ExtrinsicSubscriptionStatusClosure) {
         let extrinsic: ExtrinsicCalls = .addPublicKeyToMsa(primaryUser: primaryUser, secondaryUser: secondaryUser)
     
-        viewModel?.execute(extrinsic: extrinsic, from: primaryUser,
+        viewModel?.execute(extrinsic: extrinsic,
+                           from: primaryUser,
                            subscriptionIdClosure: subscriptionIdClosure,
                            notificationClosure: notificationClosure)
     }
-    
-    func getMsa(from user: User) {
-        viewModel?.getMsa(from: user , completion: { msa in
+}
+
+//MARK: StorageQuery {
+extension TestViewController {
+    func getMsa(primaryUser: User) {
+        viewModel?.getMsa(from: primaryUser, completion: { msa in
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "Result", message: "\(msa)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
@@ -154,11 +162,11 @@ extension TestViewController {
     }
 }
 
-//Extrinsic Closure
+//MARK: Extrinsic Closure
 extension TestViewController {
     func getSubscriptionIdClosure() -> ExtrinsicSubscriptionIdClosure {
         let subscriptionIdClosure: ExtrinsicSubscriptionIdClosure = { [weak self] subscriptionId in
-            self?.extrinsicSubscriptionId = subscriptionId
+            self?.viewModel?.extrinsicSubscriptionId = subscriptionId
             
             return self != nil
         }
@@ -166,7 +174,7 @@ extension TestViewController {
         return subscriptionIdClosure
     }
     
-    func getSubscriptionNotificationClosure() -> ExtrinsicSubscriptionStatusClosure {
+    func getSubscriptionNotificationClosure(completion: @escaping TransactionSubscriptionCompletion) -> ExtrinsicSubscriptionStatusClosure {
         let notificationClosure: ExtrinsicSubscriptionStatusClosure = { [weak self] result in
             var text = ""
             
@@ -176,11 +184,7 @@ extension TestViewController {
                 case .finalized(let hash):
                     text = "finalized \(hash)"
                     
-                    DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "Result", message: text, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                        self?.present(alert, animated: true)
-                    }
+                    self?.process(blockHash: hash, completion: completion)
                 case .inBlock(let hash):
                     text = "inBlock \(hash)"
                 case .finalityTimeout(let hash):
@@ -188,7 +192,8 @@ extension TestViewController {
                 case .other:
                     text = "other status"
                 }
-                self?.cancelExtrinsicSubscriptionIfNeeded()
+                
+                self?.viewModel?.cancelExtrinsicSubscriptionIfNeeded()
 
             case .failure(let error):
                 text = "\(error)"
@@ -196,5 +201,32 @@ extension TestViewController {
         }
         
         return notificationClosure
+    }
+}
+
+//MARK: Subscription
+extension TestViewController {
+    private func process(blockHash: String, completion: @escaping TransactionSubscriptionCompletion) {
+        let primaryMnemonicInput = primaryTextField.text?.isEmpty ?? true ? "quote grocery buzz staff merit patch outdoor depth eight raw rubber once" : primaryTextField.text ?? ""
+        let primaryUser = User(mnemonic: primaryMnemonicInput)
+        
+        guard
+            let blockHash = try? Data(hexString: blockHash)
+        else { return }
+        
+        viewModel?.process(from: primaryUser,
+                           blockhash: blockHash,
+                           completion: completion)
+    }
+}
+
+extension TestViewController: TransactionHandlerDelegate {
+    func handleTransactions(result: Result<[RobinHood.DataProviderChange<TransactionHistoryItem>], Error>) {
+        switch result {
+        case .success(let items):
+            print(items)
+        case .failure(let error):
+            print(error)
+        }
     }
 }

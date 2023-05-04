@@ -24,6 +24,7 @@ final class PersistExtrinsicFactory: PersistExtrinsicFactoryProtocol {
         let feeString = details.fee.map { String($0) }
 
         let transferItem = TransactionHistoryItem(
+            source: .substrate,
             chainId: chainAssetId.chainId,
             assetId: chainAssetId.assetId,
             sender: details.sender,

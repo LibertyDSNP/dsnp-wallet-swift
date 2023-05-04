@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/ryansheh/Documents/Primary/dsnp-wallet-swift/DSNP-Wallet/Source/Common/EventCenter/Events/AssetBalanceChanged.swift">
+   </FileRef>
+   <FileRef
       location = "group:DSNP-Wallet.xcodeproj">
    </FileRef>
    <FileRef
