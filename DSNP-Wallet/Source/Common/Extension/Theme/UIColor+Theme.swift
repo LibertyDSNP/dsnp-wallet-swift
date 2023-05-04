@@ -15,6 +15,12 @@ extension UIColor {
         static var accentBlue: UIColor { return UIColor(red: 82/255, green: 225/255, blue: 197/255, alpha: 1) }
         static var accentOrange: UIColor { return UIColor(red: 255/255, green: 99/255, blue: 61/255, alpha: 1) }
         static var disabledGray: UIColor { return UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1) }
+        
+        // New UI
+        static var primaryTeal: UIColor { return UIColor(red: 27/255, green: 158/255, blue: 163/255, alpha: 1) }
+        static var bgGray: UIColor { return UIColor(red: 228/255, green: 229/255, blue: 229/255, alpha: 1) }
+        static var bgTeal: UIColor { return UIColor(red: 5/255, green: 48/255, blue: 49/255, alpha: 1) }
+        static var linkOrange: UIColor { return UIColor(red: 218/255, green: 94/255, blue: 58/255, alpha: 1) }
     }
 }
 

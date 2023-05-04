@@ -19,11 +19,21 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>ProximaNova-Bold.ttf</string>
+		<string>Poppins-ThinItalic.ttf</string>
+		<string>Poppins-SemiBoldItalic.ttf</string>
+		<string>Poppins-MediumItalic.ttf</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>Poppins-LightItalic.ttf</string>
+		<string>Poppins-Light.ttf</string>
+		<string>Poppins-ExtraLight.ttf</string>
+		<string>Poppins-Italic.ttf</string>
+		<string>Poppins-ExtraBold.ttf</string>
+		<string>Poppins-Black.ttf</string>
 		<string>ProximaNova-Semibold.ttf</string>
-		<string>ProximaNova-Italic.ttf</string>
-		<string>ProximaNova-Thin.ttf</string>
-		<string>ProximaNova-Regular.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+		<string>Poppins-Thin.ttf</string>
+		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-BoldItalic.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
