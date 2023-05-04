@@ -64,11 +64,14 @@ class ExtrinsicManager {
               let runtimeService = chainRegistry.getRuntimeProvider(for: FrequencyChain.shared.id) else {
             throw ExtrinsicError.BadSetup
         }
-        let operationManager = OperationManager(operationQueue: .main)
+        let bgQueue = OperationQueue()
+        bgQueue.qualityOfService = .background
+        let operationManager = OperationManager(operationQueue: bgQueue)
         
         extrinsicService = ExtrinsicService(accountId: senderId,
                                             chain: chain,
                                             cryptoType: .sr25519,
+                                            walletType: .watchOnly,
                                             runtimeRegistry: runtimeService,
                                             engine: connection,
                                             operationManager: operationManager)

@@ -22,6 +22,7 @@ enum ViewControllerFactory: String, CaseIterable {
     case restoreDsnpIdViewController
     case seedPhraseViewController
     case testViewController
+    case qaViewController
     
     var className: String {
         return self.rawValue.firstUppercased
@@ -39,7 +40,8 @@ enum ViewControllerFactory: String, CaseIterable {
                 .createDsnpIdViewController,
                 .restoreDsnpIdViewController,
                 .seedPhraseViewController,
-                .testViewController:
+                .testViewController,
+                .qaViewController:
             return nil
         default:
             return self.rawValue.firstUppercased
@@ -52,7 +54,11 @@ enum ViewControllerFactory: String, CaseIterable {
             let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
             vc = storyboard.instantiateInitialViewController()
         } else {
-            vc = UIViewController.fromString(viewControllerName: self.className)
+            if self.className == "QaViewController" {
+                vc = QAViewController()
+            } else {
+                vc = UIViewController.fromString(viewControllerName: self.className)
+            }
         }
 
         if let serviceVc = vc as? ServiceViewController {

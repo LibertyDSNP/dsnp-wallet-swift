@@ -153,7 +153,6 @@
 		829964A7297A17F4009A769F /* WalletNetworkFacade+Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996456297A17F3009A769F /* WalletNetworkFacade+Price.swift */; };
 		829964A8297A17F4009A769F /* WalletContactOperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996457297A17F3009A769F /* WalletContactOperationFactory.swift */; };
 		829964A9297A17F4009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996458297A17F3009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift */; };
-		829964AB297A17F4009A769F /* WalletNetworkOperationFactory+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299645A297A17F3009A769F /* WalletNetworkOperationFactory+Protocol.swift */; };
 		829964AC297A17F4009A769F /* WalletNetworkFacade+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299645B297A17F3009A769F /* WalletNetworkFacade+Storage.swift */; };
 		829964BC297A17F4009A769F /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299646E297A17F3009A769F /* ApolloManager.swift */; };
 		829964BD297A17F4009A769F /* EthereumRpcRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996470297A17F3009A769F /* EthereumRpcRequest.swift */; };
@@ -427,6 +426,19 @@
 		82F3C97529BAAA6600E2190A /* StartupSequenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3C97429BAAA6600E2190A /* StartupSequenceViewController.swift */; };
 		82F3C97829BAAAD400E2190A /* AccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3C97729BAAAD400E2190A /* AccountCoordinator.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
+		B53BD7BE2A00408200967477 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		B53BD7C02A01571000967477 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		B5966F252A0007FF00A17F08 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		B5966F272A00080900A17F08 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		B5F51B202A041E0D00E9F5C3 /* QAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B1D2A041E0D00E9F5C3 /* QAViewModel.swift */; };
+		B5F51B212A041E0D00E9F5C3 /* QAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B1E2A041E0D00E9F5C3 /* QAView.swift */; };
+		B5F51B222A041E0D00E9F5C3 /* QAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B1F2A041E0D00E9F5C3 /* QAViewController.swift */; };
+		B5F51B2A2A041FF700E9F5C3 /* ExtrinsicServiceTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B292A041FF700E9F5C3 /* ExtrinsicServiceTypes.swift */; };
+		B5F51B2C2A04207900E9F5C3 /* ChainEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B2B2A04207900E9F5C3 /* ChainEnvironment.swift */; };
+		B5F51B2E2A04211F00E9F5C3 /* RemoteStateCallRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B2D2A04211F00E9F5C3 /* RemoteStateCallRequest.swift */; };
+		B5F51B302A0421A400E9F5C3 /* ExtrinsicSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B2F2A0421A400E9F5C3 /* ExtrinsicSplitter.swift */; };
+		B5F51B322A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B312A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift */; };
+		B5F51B342A04220500E9F5C3 /* NoSigningSupportWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B332A04220500E9F5C3 /* NoSigningSupportWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -596,7 +608,6 @@
 		82996456297A17F3009A769F /* WalletNetworkFacade+Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkFacade+Price.swift"; sourceTree = "<group>"; };
 		82996457297A17F3009A769F /* WalletContactOperationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletContactOperationFactory.swift; sourceTree = "<group>"; };
 		82996458297A17F3009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkOperationFactory+MinimalBalance.swift"; sourceTree = "<group>"; };
-		8299645A297A17F3009A769F /* WalletNetworkOperationFactory+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkOperationFactory+Protocol.swift"; sourceTree = "<group>"; };
 		8299645B297A17F3009A769F /* WalletNetworkFacade+Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkFacade+Storage.swift"; sourceTree = "<group>"; };
 		8299646E297A17F3009A769F /* ApolloManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApolloManager.swift; sourceTree = "<group>"; };
 		82996470297A17F3009A769F /* EthereumRpcRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumRpcRequest.swift; sourceTree = "<group>"; };
@@ -873,6 +884,15 @@
 		82F3C97029BA9A6100E2190A /* KeysViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysViewModel.swift; sourceTree = "<group>"; };
 		82F3C97429BAAA6600E2190A /* StartupSequenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupSequenceViewController.swift; sourceTree = "<group>"; };
 		82F3C97729BAAAD400E2190A /* AccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
+		B5F51B1D2A041E0D00E9F5C3 /* QAViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAViewModel.swift; sourceTree = "<group>"; };
+		B5F51B1E2A041E0D00E9F5C3 /* QAView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
+		B5F51B1F2A041E0D00E9F5C3 /* QAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
+		B5F51B292A041FF700E9F5C3 /* ExtrinsicServiceTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtrinsicServiceTypes.swift; sourceTree = "<group>"; };
+		B5F51B2B2A04207900E9F5C3 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChainEnvironment.swift; path = ../../../../../../Desktop/ChainEnvironment.swift; sourceTree = "<group>"; };
+		B5F51B2D2A04211F00E9F5C3 /* RemoteStateCallRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteStateCallRequest.swift; path = "../../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Network/JSONRPC/RemoteStateCallRequest.swift"; sourceTree = "<group>"; };
+		B5F51B2F2A0421A400E9F5C3 /* ExtrinsicSplitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtrinsicSplitter.swift; path = "../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Substrate/ExtrinsicSplitter.swift"; sourceTree = "<group>"; };
+		B5F51B312A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MetaAccountModelType+SignatureFormat.swift"; path = "../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Crypto/MetaAccountModelType+SignatureFormat.swift"; sourceTree = "<group>"; };
+		B5F51B332A04220500E9F5C3 /* NoSigningSupportWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoSigningSupportWrapper.swift; path = "../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Crypto/NoSigningSupportWrapper.swift"; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1055,7 +1075,6 @@
 				8299604B2978C45D009A769F /* Network */,
 				82F3C95129BA998B00E2190A /* NumPad */,
 				8299603A2978C45D009A769F /* Operation */,
-				829966A4297B2760009A769F /* Protocols */,
 				829961512978CA26009A769F /* Services */,
 				8299603D2978C45D009A769F /* Signer */,
 				829960BD2978C45F009A769F /* SharedImagePicker.swift */,
@@ -1107,6 +1126,7 @@
 		829960462978C45D009A769F /* Substrate */ = {
 			isa = PBXGroup;
 			children = (
+				B5F51B2F2A0421A400E9F5C3 /* ExtrinsicSplitter.swift */,
 				8299661E297A1B5E009A769F /* Calls */,
 				8299661A297A1B5E009A769F /* Extension */,
 				8299661C297A1B5E009A769F /* SiMappers */,
@@ -1118,6 +1138,7 @@
 		8299604B2978C45D009A769F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				829966A4297B2760009A769F /* Protocols */,
 				8299648C297A17F4009A769F /* API */,
 				82996482297A17F3009A769F /* ApolloClientProtocol.swift */,
 				8299646E297A17F3009A769F /* ApolloManager.swift */,
@@ -1309,6 +1330,7 @@
 		829960C42978C45F009A769F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B5F51B2B2A04207900E9F5C3 /* ChainEnvironment.swift */,
 				82F3C97629BAAACB00E2190A /* Account */,
 				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
 				829960C92978C45F009A769F /* HomeViewController.swift */,
@@ -1321,6 +1343,7 @@
 				829960D22978C45F009A769F /* SettingsViewController.swift */,
 				82996884297B6C30009A769F /* Wallet */,
 				82F3C97429BAAA6600E2190A /* StartupSequenceViewController.swift */,
+				B5F51B252A041E5000E9F5C3 /* QA */,
 			);
 			name = Modules;
 			path = Source/Modules;
@@ -1354,6 +1377,8 @@
 		829961692978CD74009A769F /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				B5F51B312A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift */,
+				B5F51B332A04220500E9F5C3 /* NoSigningSupportWrapper.swift */,
 				8299616A2978CD7E009A769F /* SigningWrapper.swift */,
 			);
 			path = Crypto;
@@ -1466,6 +1491,7 @@
 		82996331297A13CF009A769F /* ExtrinsicService */ = {
 			isa = PBXGroup;
 			children = (
+				B5F51B282A041F2E00E9F5C3 /* Substrate */,
 				82996332297A13CF009A769F /* MortalEraOperationFactory.swift */,
 				82996333297A13CF009A769F /* ExtrinsicService.swift */,
 				82996334297A13CF009A769F /* ExtrinsicOperationFactory.swift */,
@@ -1503,6 +1529,7 @@
 				82996441297A17F2009A769F /* ConnectionStateReporting.swift */,
 				82996442297A17F2009A769F /* PagedKeysRequest.swift */,
 				82996443297A17F2009A769F /* Block.swift */,
+				B5F51B2D2A04211F00E9F5C3 /* RemoteStateCallRequest.swift */,
 				82996444297A17F2009A769F /* ExtrinsicStatus.swift */,
 				82996445297A17F2009A769F /* RuntimeDispatchInfo.swift */,
 				82996446297A17F2009A769F /* JSONRPCError+Presentable.swift */,
@@ -1524,7 +1551,6 @@
 				82996456297A17F3009A769F /* WalletNetworkFacade+Price.swift */,
 				82996457297A17F3009A769F /* WalletContactOperationFactory.swift */,
 				82996458297A17F3009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift */,
-				8299645A297A17F3009A769F /* WalletNetworkOperationFactory+Protocol.swift */,
 				8299645B297A17F3009A769F /* WalletNetworkFacade+Storage.swift */,
 			);
 			path = Wallet;
@@ -1984,6 +2010,24 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		B5F51B252A041E5000E9F5C3 /* QA */ = {
+			isa = PBXGroup;
+			children = (
+				B5F51B1E2A041E0D00E9F5C3 /* QAView.swift */,
+				B5F51B1F2A041E0D00E9F5C3 /* QAViewController.swift */,
+				B5F51B1D2A041E0D00E9F5C3 /* QAViewModel.swift */,
+			);
+			path = QA;
+			sourceTree = "<group>";
+		};
+		B5F51B282A041F2E00E9F5C3 /* Substrate */ = {
+			isa = PBXGroup;
+			children = (
+				B5F51B292A041FF700E9F5C3 /* ExtrinsicServiceTypes.swift */,
+			);
+			path = Substrate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2079,7 +2123,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */;
+			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "dsnp-wallet" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2303,6 +2347,7 @@
 				82996370297A13CF009A769F /* SpecVersionSubscriptionFactory.swift in Sources */,
 				82F3C95A29BA998B00E2190A /* SharedNumPadStackView.swift in Sources */,
 				8299612E2978C461009A769F /* PurchaseCompleted.swift in Sources */,
+				B5F51B212A041E0D00E9F5C3 /* QAView.swift in Sources */,
 				829968F9297B721C009A769F /* StorageKeyFactory+Size.swift in Sources */,
 				8299649A297A17F4009A769F /* JSONRPCError+Presentable.swift in Sources */,
 				8299659D297A1955009A769F /* TextSharingSource.swift in Sources */,
@@ -2339,11 +2384,14 @@
 				8299693B29809C71009A769F /* AddPublicKeyToMsaCall.swift in Sources */,
 				8299690B297B721C009A769F /* TransactionHistoryItem+Wallet.swift in Sources */,
 				829964D6297A17F4009A769F /* User.swift in Sources */,
+				B5F51B2E2A04211F00E9F5C3 /* RemoteStateCallRequest.swift in Sources */,
 				829968EB297B721C009A769F /* CompoundOperationWrapper+Result.swift in Sources */,
 				82F3C96029BA99BC00E2190A /* SharedScrollableStackView.swift in Sources */,
 				829965B8297A1955009A769F /* OrmlAssetExtras.swift in Sources */,
 				829961002978C460009A769F /* SharedNavigationController.swift in Sources */,
+				B5966F272A00080900A17F08 /* (null) in Sources */,
 				82996493297A17F4009A769F /* DistributedStorageFactory.swift in Sources */,
+				B5F51B342A04220500E9F5C3 /* NoSigningSupportWrapper.swift in Sources */,
 				82996691297B141A009A769F /* Mapping.swift in Sources */,
 				82996901297B721C009A769F /* UIView+FromNib.swift in Sources */,
 				829965A3297A1955009A769F /* Chain.swift in Sources */,
@@ -2417,9 +2465,11 @@
 				829965A9297A1955009A769F /* ChainAccountModel.swift in Sources */,
 				829964BD297A17F4009A769F /* EthereumRpcRequest.swift in Sources */,
 				8299664D297A1B5E009A769F /* AssetDetails.swift in Sources */,
+				B5F51B302A0421A400E9F5C3 /* ExtrinsicSplitter.swift in Sources */,
 				82996698297B141A009A769F /* AddressConversion.swift in Sources */,
 				829968E0297B721C009A769F /* CDSingleValue+CoreDataCodable.swift in Sources */,
 				829968EE297B721C009A769F /* BaseOperation+Result.swift in Sources */,
+				B53BD7BE2A00408200967477 /* (null) in Sources */,
 				829964AC297A17F4009A769F /* WalletNetworkFacade+Storage.swift in Sources */,
 				82996494297A17F4009A769F /* JSONRPCAliases.swift in Sources */,
 				82996635297A1B5E009A769F /* Nomination.swift in Sources */,
@@ -2462,6 +2512,7 @@
 				829964D0297A17F4009A769F /* BaseFetchOperationFactory.swift in Sources */,
 				829961282978C460009A769F /* TypeRegistryPrepared.swift in Sources */,
 				8299634C297A13CF009A769F /* SubscriptionStorageKeys.swift in Sources */,
+				B5F51B202A041E0D00E9F5C3 /* QAViewModel.swift in Sources */,
 				8299690F297B721C009A769F /* UIFont+Theme.swift in Sources */,
 				829961342978C461009A769F /* SharedStackView.swift in Sources */,
 				82F3C94A29BA98E200E2190A /* UIScrollView+ScrollToBottom.swift in Sources */,
@@ -2492,6 +2543,7 @@
 				8299612C2978C461009A769F /* WalletNewTransactionInserted.swift in Sources */,
 				829964D4297A17F4009A769F /* UserAPI.swift in Sources */,
 				82D16325299D57F100536349 /* ChainModelMapper.swift in Sources */,
+				B5F51B222A041E0D00E9F5C3 /* QAViewController.swift in Sources */,
 				829961482978C461009A769F /* TestViewController.swift in Sources */,
 				82996585297A1955009A769F /* SubstrateAlias.swift in Sources */,
 				82996369297A13CF009A769F /* SpecVersionSubscription.swift in Sources */,
@@ -2500,6 +2552,7 @@
 				82996352297A13CF009A769F /* AssetsSubscriptionHandlingFactory.swift in Sources */,
 				829960DA2978C460009A769F /* AccountKeychain.swift in Sources */,
 				8299637A297A13CF009A769F /* ServiceCoordinator.swift in Sources */,
+				B5F51B322A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift in Sources */,
 				82996630297A1B5E009A769F /* CallCodingPath.swift in Sources */,
 				82996684297B141A009A769F /* AttributedStringDecorator.swift in Sources */,
 				829968E2297B721C009A769F /* SNAddressType+Codable.swift in Sources */,
@@ -2522,6 +2575,7 @@
 				829964A3297A17F4009A769F /* WalletNetworkFacade+Protocol.swift in Sources */,
 				829968F6297B721C009A769F /* Logger+FearlessUtils.swift in Sources */,
 				8299658E297A1955009A769F /* SocialMessage.swift in Sources */,
+				B53BD7C02A01571000967477 /* (null) in Sources */,
 				829965BF297A1955009A769F /* AccountCreateError.swift in Sources */,
 				829965BA297A1955009A769F /* TransactionType.swift in Sources */,
 				82996588297A1955009A769F /* AssetType.swift in Sources */,
@@ -2552,6 +2606,7 @@
 				829964D1297A17F4009A769F /* FileDownloadOperationFactory.swift in Sources */,
 				829965A8297A1955009A769F /* RemoteChainNodeModel.swift in Sources */,
 				82996595297A1955009A769F /* WalletDisplayAddress.swift in Sources */,
+				B5F51B2A2A041FF700E9F5C3 /* ExtrinsicServiceTypes.swift in Sources */,
 				829964CD297A17F4009A769F /* ApolloClientProtocol.swift in Sources */,
 				82996695297B141A009A769F /* SharedList.swift in Sources */,
 				82996378297A13CF009A769F /* CommonTypesSyncService.swift in Sources */,
@@ -2581,11 +2636,11 @@
 				82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */,
 				8299635C297A13CF009A769F /* ChildSubscriptionFactory.swift in Sources */,
 				8299639C297A13CF009A769F /* StorageKeySuffixMapper.swift in Sources */,
-				829964AB297A17F4009A769F /* WalletNetworkOperationFactory+Protocol.swift in Sources */,
 				82996932297B750B009A769F /* FeeMetadataContext.swift in Sources */,
 				829965E8297A1AF1009A769F /* ChainStorageIdFactory.swift in Sources */,
 				829965C0297A1955009A769F /* RestoreJson.swift in Sources */,
 				8299669D297B141A009A769F /* SubstrateRepositoryFactory.swift in Sources */,
+				B5966F252A0007FF00A17F08 /* (null) in Sources */,
 				8299633D297A13CF009A769F /* ApplicationService.swift in Sources */,
 				829965AF297A1955009A769F /* DisplayAddress.swift in Sources */,
 				829965B2297A1955009A769F /* StashItem.swift in Sources */,
@@ -2605,6 +2660,7 @@
 				829965C2297A1955009A769F /* StateminAssetExtras.swift in Sources */,
 				829961212978C460009A769F /* EventCenter.swift in Sources */,
 				829966B9297B28A9009A769F /* StorageKeyDecodingOperation.swift in Sources */,
+				B5F51B2C2A04207900E9F5C3 /* ChainEnvironment.swift in Sources */,
 				829968FC297B721C009A769F /* StorageUpdateData+Decoding.swift in Sources */,
 				82996906297B721C009A769F /* Logger+Wallet.swift in Sources */,
 				829961302978C461009A769F /* RuntimeSyncEvents.swift in Sources */,
@@ -2980,7 +3036,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */ = {
+		8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "dsnp-wallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8223AB7F2818917900DEF1E9 /* Debug */,
