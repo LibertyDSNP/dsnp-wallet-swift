@@ -12,10 +12,16 @@ struct PrimaryButton: View {
     let action: () -> Void
     
     var body: some View {
-        Button(title, action: action)
-            .background(Color(uiColor: UIColor.Theme.primaryTeal))
-            .foregroundColor(.white)
-            .cornerRadius(30)
+        Button {
+            action()
+        } label: {
+            Text(title)
+                .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                .padding()
+        }
+        .background(Color(uiColor: UIColor.Theme.primaryTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
     }
 }
 

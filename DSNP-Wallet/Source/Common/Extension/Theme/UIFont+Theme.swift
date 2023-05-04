@@ -28,6 +28,10 @@ public extension UIFont {
         static public func thin(ofSize size: CGFloat) -> UIFont {
             return UIFont(name: "Poppins-Thin", size: size) ?? UIFont.systemFont(ofSize: size)
         }
+        
+        static public func medium(ofSize size: CGFloat) -> UIFont {
+            return UIFont(name: "Poppins-Medium", size: size) ?? UIFont.systemFont(ofSize: size)
+        }
     }
 }
 
