@@ -425,6 +425,9 @@
 		B53BD7C02A01571000967477 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B5966F252A0007FF00A17F08 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B5966F272A00080900A17F08 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		B5ED2C5B2A042B7600C82415 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED2C5A2A042B7600C82415 /* SignInViewController.swift */; };
+		B5ED2C5D2A042B8B00C82415 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED2C5C2A042B8B00C82415 /* SignInView.swift */; };
+		B5ED2C5F2A042BC400C82415 /* AmplicaLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED2C5E2A042BC400C82415 /* AmplicaLogo.swift */; };
 		B5F51B202A041E0D00E9F5C3 /* QAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B1D2A041E0D00E9F5C3 /* QAViewModel.swift */; };
 		B5F51B212A041E0D00E9F5C3 /* QAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B1E2A041E0D00E9F5C3 /* QAView.swift */; };
 		B5F51B222A041E0D00E9F5C3 /* QAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B1F2A041E0D00E9F5C3 /* QAViewController.swift */; };
@@ -891,6 +894,9 @@
 		82F3C97029BA9A6100E2190A /* KeysViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysViewModel.swift; sourceTree = "<group>"; };
 		82F3C97429BAAA6600E2190A /* StartupSequenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupSequenceViewController.swift; sourceTree = "<group>"; };
 		82F3C97729BAAAD400E2190A /* AccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
+		B5ED2C5A2A042B7600C82415 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B5ED2C5C2A042B8B00C82415 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		B5ED2C5E2A042BC400C82415 /* AmplicaLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplicaLogo.swift; sourceTree = "<group>"; };
 		B5F51B1D2A041E0D00E9F5C3 /* QAViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAViewModel.swift; sourceTree = "<group>"; };
 		B5F51B1E2A041E0D00E9F5C3 /* QAView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
 		B5F51B1F2A041E0D00E9F5C3 /* QAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
@@ -1332,6 +1338,7 @@
 				829960B62978C45F009A769F /* SharedSpacer.swift */,
 				B5F51B372A04237C00E9F5C3 /* Button.swift */,
 				B5F51B392A04238D00E9F5C3 /* BaseRoundView.swift */,
+				B5ED2C5E2A042BC400C82415 /* AmplicaLogo.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1981,6 +1988,7 @@
 		82F3C94B29BA996900E2190A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B5ED2C592A042B5C00C82415 /* Onboarding */,
 				82F3C94C29BA996900E2190A /* SharedLoadingAlertController.swift */,
 				82F3C94D29BA996900E2190A /* SharedStackViewController.swift */,
 			);
@@ -2044,6 +2052,15 @@
 				82F3C97729BAAAD400E2190A /* AccountCoordinator.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		B5ED2C592A042B5C00C82415 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B5ED2C5A2A042B7600C82415 /* SignInViewController.swift */,
+				B5ED2C5C2A042B8B00C82415 /* SignInView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B5F51B252A041E5000E9F5C3 /* QA */ = {
@@ -2431,6 +2448,7 @@
 				8299690B297B721C009A769F /* TransactionHistoryItem+Wallet.swift in Sources */,
 				829964D6297A17F4009A769F /* User.swift in Sources */,
 				B5F51B382A04237C00E9F5C3 /* Button.swift in Sources */,
+				B5ED2C5B2A042B7600C82415 /* SignInViewController.swift in Sources */,
 				B5F51B2E2A04211F00E9F5C3 /* RemoteStateCallRequest.swift in Sources */,
 				829968EB297B721C009A769F /* CompoundOperationWrapper+Result.swift in Sources */,
 				82F3C96029BA99BC00E2190A /* SharedScrollableStackView.swift in Sources */,
@@ -2701,6 +2719,7 @@
 				82996498297A17F4009A769F /* ExtrinsicStatus.swift in Sources */,
 				829965A2297A1955009A769F /* RuntimeMetadataItem.swift in Sources */,
 				82996596297A1955009A769F /* ChainStorageDecodedItem.swift in Sources */,
+				B5ED2C5D2A042B8B00C82415 /* SignInView.swift in Sources */,
 				82996375297A13CF009A769F /* RuntimeSyncService.swift in Sources */,
 				829965AD297A1955009A769F /* SubstrateConstansts.swift in Sources */,
 				829965B0297A1955009A769F /* LegalData.swift in Sources */,
@@ -2729,6 +2748,7 @@
 				82996497297A17F4009A769F /* Block.swift in Sources */,
 				82996909297B721C009A769F /* TransactionType+Wallet.swift in Sources */,
 				82996631297A1B5E009A769F /* AssetAccount.swift in Sources */,
+				B5ED2C5F2A042BC400C82415 /* AmplicaLogo.swift in Sources */,
 				8299668D297B141A009A769F /* FilesRepository.swift in Sources */,
 				82996374297A13CF009A769F /* RuntimeSnapshotOperationFactory.swift in Sources */,
 				82996650297A1B5E009A769F /* ExtrinsicExtension.swift in Sources */,

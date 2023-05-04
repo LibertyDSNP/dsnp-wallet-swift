@@ -17,8 +17,10 @@ struct PrimaryButton: View {
         } label: {
             Text(title)
                 .font(Font(UIFont.Theme.medium(ofSize: 14)))
-                .padding()
+                .padding(.vertical, 14)
+                .padding(.horizontal, 12)
         }
+        .frame(maxWidth: .infinity)
         .background(Color(uiColor: UIColor.Theme.primaryTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
