@@ -424,6 +424,7 @@
 		B5014BF82A0541BC0008A72B /* ClaimHandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014BF72A0541BC0008A72B /* ClaimHandleViewController.swift */; };
 		B5014BFA2A0541C70008A72B /* ClaimHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014BF92A0541C70008A72B /* ClaimHandleView.swift */; };
 		B5014BFD2A054D5D0008A72B /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014BFC2A054D5D0008A72B /* SignInViewModel.swift */; };
+		B5014BFF2A058F350008A72B /* ClaimHandleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014BFE2A058F350008A72B /* ClaimHandleViewModel.swift */; };
 		B53BD7BE2A00408200967477 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B53BD7C02A01571000967477 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B5966F252A0007FF00A17F08 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -900,6 +901,7 @@
 		B5014BF72A0541BC0008A72B /* ClaimHandleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimHandleViewController.swift; sourceTree = "<group>"; };
 		B5014BF92A0541C70008A72B /* ClaimHandleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimHandleView.swift; sourceTree = "<group>"; };
 		B5014BFC2A054D5D0008A72B /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		B5014BFE2A058F350008A72B /* ClaimHandleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimHandleViewModel.swift; sourceTree = "<group>"; };
 		B5ED2C5A2A042B7600C82415 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B5ED2C5C2A042B8B00C82415 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		B5ED2C5E2A042BC400C82415 /* AmplicaLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplicaLogo.swift; sourceTree = "<group>"; };
@@ -2068,6 +2070,7 @@
 				B5014BFC2A054D5D0008A72B /* SignInViewModel.swift */,
 				B5014BF72A0541BC0008A72B /* ClaimHandleViewController.swift */,
 				B5014BF92A0541C70008A72B /* ClaimHandleView.swift */,
+				B5014BFE2A058F350008A72B /* ClaimHandleViewModel.swift */,
 			);
 			path = "SignIn Screen";
 			sourceTree = "<group>";
@@ -2514,6 +2517,7 @@
 				82DD910429661E1200A508B9 /* RestoreDsnpIdViewController.swift in Sources */,
 				82996591297A1955009A769F /* SecretSource.swift in Sources */,
 				829965B6297A1955009A769F /* AssetStorageInfo.swift in Sources */,
+				B5014BFF2A058F350008A72B /* ClaimHandleViewModel.swift in Sources */,
 				82F3C94E29BA996900E2190A /* SharedLoadingAlertController.swift in Sources */,
 				82996647297A1B5E009A769F /* EventRecord.swift in Sources */,
 				829968E8297B721C009A769F /* WalletAssetId+Chain.swift in Sources */,
