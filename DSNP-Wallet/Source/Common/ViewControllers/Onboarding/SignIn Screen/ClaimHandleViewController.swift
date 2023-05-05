@@ -11,7 +11,7 @@ import SwiftUI
 class ClaimHandleViewController: UIHostingController<ClaimHandleView> {
 
     init() {
-        super.init(rootView: ClaimHandleView())
+        super.init(rootView: ClaimHandleView(viewModel: ClaimHandleViewModel()))
     }
     
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {
