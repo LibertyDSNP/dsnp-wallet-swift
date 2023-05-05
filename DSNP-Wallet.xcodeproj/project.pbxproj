@@ -2066,6 +2066,8 @@
 				B5ED2C5A2A042B7600C82415 /* SignInViewController.swift */,
 				B5ED2C5C2A042B8B00C82415 /* SignInView.swift */,
 				B5014BFC2A054D5D0008A72B /* SignInViewModel.swift */,
+				B5014BF72A0541BC0008A72B /* ClaimHandleViewController.swift */,
+				B5014BF92A0541C70008A72B /* ClaimHandleView.swift */,
 			);
 			path = "SignIn Screen";
 			sourceTree = "<group>";
@@ -2074,8 +2076,6 @@
 			isa = PBXGroup;
 			children = (
 				B5014BFB2A054D1E0008A72B /* SignIn Screen */,
-				B5014BF72A0541BC0008A72B /* ClaimHandleViewController.swift */,
-				B5014BF92A0541C70008A72B /* ClaimHandleView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";

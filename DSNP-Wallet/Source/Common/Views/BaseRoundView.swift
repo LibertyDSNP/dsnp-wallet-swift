@@ -7,14 +7,30 @@
 
 import SwiftUI
 
-struct BaseRoundView: View {
+struct BaseRoundView<Content: View>: View {
+    var content: () -> Content
+    
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(.vertical) {
+            VStack(content: content).padding()
+        }
+        .background(Color(uiColor: UIColor.Theme.bgGray))
+        .cornerRadius(30)
+        .frame(
+            minWidth: .infinity,
+            maxHeight: .infinity
+        )
     }
 }
 
 struct BaseRoundView_Previews: PreviewProvider {
     static var previews: some View {
-        BaseRoundView()
+        BaseRoundView {
+            Text("Hello")
+        }
     }
 }

@@ -59,7 +59,7 @@ enum ViewControllerFactory: String, CaseIterable {
             if self.className == "QaViewController" {
                 vc = QAViewController()
             } else if self.className == "SignInViewController" {
-                vc = SignInViewController()
+                vc = UINavigationController(rootViewController: SignInViewController())
             } else {
                 vc = UIViewController.fromString(viewControllerName: self.className)
             }
