@@ -14,12 +14,12 @@ struct ClaimHandleView: View {
         VStack {
             AmplicaLogo()
             BaseRoundView {
-                Text("Here")
-                Text("Here")
-                Text("Here")
-                Text("Here")
-                Text("Here")
-                Text("Here")
+                stepCount
+                subtitle
+                description
+                textfield
+                handleDescription
+                buttonStack
             }
         }
         .frame(
@@ -54,6 +54,33 @@ struct ClaimHandleView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 12)))
                 .foregroundColor(.black)
             TextField("", text: $viewModel.claimHandleText)
+        }
+    }
+    
+    private var handleDescription: some View {
+        Text("Handle must be between 4-16 characters & can only\nconsist of letters, numbers, and underscores.")
+            .font(Font(UIFont.Theme.regular(ofSize: 12)))
+            .foregroundColor(.black)
+    }
+
+    private var buttonStack: some View {
+        VStack {
+            nextButton
+            skipButton
+        }
+    }
+    
+    private var nextButton: some View {
+        PrimaryButton(title: "Next") {
+            // TODO: NEXT
+        }
+    }
+    
+    private var skipButton: some View {
+        Button {
+            // TODO SKIP
+        } label: {
+            Text("Skip for now (not recommended)")
         }
     }
 }
