@@ -17,7 +17,7 @@ struct PrimaryButton: View {
         } label: {
             Text(title)
                 .font(Font(UIFont.Theme.medium(ofSize: 14)))
-                .padding(.vertical, 14)
+                .padding(.vertical, 16)
                 .padding(.horizontal, 12)
         }
         .frame(maxWidth: .infinity)
