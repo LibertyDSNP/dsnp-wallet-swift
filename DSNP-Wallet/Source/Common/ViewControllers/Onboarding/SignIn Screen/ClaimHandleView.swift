@@ -17,19 +17,25 @@ struct ClaimHandleView: View {
                 stepCount
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
                 subtitle
                     .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 description
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
                 textfield
                     .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
                 handleDescription
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
                 buttonStack
                     .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
             }
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
@@ -64,14 +70,14 @@ struct ClaimHandleView: View {
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .foregroundColor(.black)
-                .padding()
+                .padding(.vertical, 4)
                 .background(RoundedRectangle(cornerRadius: 30).fill(Color.white))
         }
     }
     
     private var handleDescription: some View {
         Text("Handle must be between 4-16 characters & can only\nconsist of letters, numbers, and underscores.")
-            .font(Font(UIFont.Theme.thin(ofSize: 12)))
+            .font(Font(UIFont.Theme.regular(ofSize: 12)))
             .foregroundColor(.black)
     }
 

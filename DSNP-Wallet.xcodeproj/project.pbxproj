@@ -425,6 +425,7 @@
 		B5014BFA2A0541C70008A72B /* ClaimHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014BF92A0541C70008A72B /* ClaimHandleView.swift */; };
 		B5014BFD2A054D5D0008A72B /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014BFC2A054D5D0008A72B /* SignInViewModel.swift */; };
 		B5014BFF2A058F350008A72B /* ClaimHandleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014BFE2A058F350008A72B /* ClaimHandleViewModel.swift */; };
+		B5014C012A0942760008A72B /* NoSigningSupportWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014C002A0942760008A72B /* NoSigningSupportWrapper.swift */; };
 		B53BD7BE2A00408200967477 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B53BD7C02A01571000967477 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B5966F252A0007FF00A17F08 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -902,6 +903,7 @@
 		B5014BF92A0541C70008A72B /* ClaimHandleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimHandleView.swift; sourceTree = "<group>"; };
 		B5014BFC2A054D5D0008A72B /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		B5014BFE2A058F350008A72B /* ClaimHandleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimHandleViewModel.swift; sourceTree = "<group>"; };
+		B5014C002A0942760008A72B /* NoSigningSupportWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoSigningSupportWrapper.swift; path = "../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Crypto/NoSigningSupportWrapper.swift"; sourceTree = "<group>"; };
 		B5ED2C5A2A042B7600C82415 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B5ED2C5C2A042B8B00C82415 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		B5ED2C5E2A042BC400C82415 /* AmplicaLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplicaLogo.swift; sourceTree = "<group>"; };
@@ -1430,6 +1432,7 @@
 			children = (
 				B5F51B312A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift */,
 				B5F51B332A04220500E9F5C3 /* NoSigningSupportWrapper.swift */,
+				B5014C002A0942760008A72B /* NoSigningSupportWrapper.swift */,
 				8299616A2978CD7E009A769F /* SigningWrapper.swift */,
 			);
 			path = Crypto;
@@ -2384,6 +2387,7 @@
 				8299659B297A1955009A769F /* WalletAssetId.swift in Sources */,
 				82996363297A13CF009A769F /* EventEmittingStorageSubscription.swift in Sources */,
 				82ADCAB229C3C47100E8F8A2 /* RestoreDsnpIdViewModel.swift in Sources */,
+				B5014C012A0942760008A72B /* NoSigningSupportWrapper.swift in Sources */,
 				8299663B297A1B5E009A769F /* UniquesInstanceMetadata.swift in Sources */,
 				82996356297A13CF009A769F /* OrmlAccountSubscription.swift in Sources */,
 				82996927297B7285009A769F /* NSPredicate+Validation.swift in Sources */,
