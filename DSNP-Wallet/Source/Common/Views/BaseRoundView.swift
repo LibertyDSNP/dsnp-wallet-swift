@@ -17,13 +17,10 @@ struct BaseRoundView<Content: View>: View {
     var body: some View {
         ScrollView(.vertical) {
             VStack(content: content).padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .background(Color(uiColor: UIColor.Theme.bgGray))
         .cornerRadius(30)
-        .frame(
-            minWidth: .infinity,
-            maxHeight: .infinity
-        )
     }
 }
 

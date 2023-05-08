@@ -15,19 +15,25 @@ struct ClaimHandleView: View {
             AmplicaLogo()
             BaseRoundView {
                 stepCount
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 10)
                 subtitle
+                    .padding(.horizontal, 10)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 description
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 10)
                 textfield
+                    .padding(.horizontal, 10)
                 handleDescription
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 10)
                 buttonStack
+                    .padding(.horizontal, 10)
             }
         }
-        .frame(
-            maxWidth: .infinity,
-            maxHeight: .infinity,
-            alignment: .top
-        )
         .background(Color(uiColor: UIColor.Theme.bgTeal))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     private var stepCount: some View {
@@ -38,7 +44,7 @@ struct ClaimHandleView: View {
     
     private var subtitle: some View {
         Text("Create your Digital Identity")
-            .font(Font(UIFont.Theme.regular(ofSize: 12)))
+            .font(Font(UIFont.Theme.semibold(ofSize: 12)))
             .foregroundColor(.black)
     }
     
@@ -53,13 +59,19 @@ struct ClaimHandleView: View {
             Text("Claim your handle")
                 .font(Font(UIFont.Theme.regular(ofSize: 12)))
                 .foregroundColor(.black)
+                .frame(maxWidth: .infinity, alignment: .leading)
             TextField("", text: $viewModel.claimHandleText)
+                .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
+                .foregroundColor(.black)
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 30).fill(Color.white))
         }
     }
     
     private var handleDescription: some View {
         Text("Handle must be between 4-16 characters & can only\nconsist of letters, numbers, and underscores.")
-            .font(Font(UIFont.Theme.regular(ofSize: 12)))
+            .font(Font(UIFont.Theme.thin(ofSize: 12)))
             .foregroundColor(.black)
     }
 
