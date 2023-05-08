@@ -23,7 +23,7 @@ struct FrequencyChain {
     let chainName = "Frequency"
     let prefixValue: UInt16 = 42
     let polkadotSettingsUrl = "https://raw.githubusercontent.com/nova-wallet/nova-utils/master/chains/v2/types/polkadot.json"
-    let nodeUrl = "ws://127.0.0.1:9944"
+    let nodeUrl = ChainEnvironment.getNodeURL()
     let cryptoType: MultiassetCryptoType = .sr25519
     
     func getChainModel() -> ChainModel {

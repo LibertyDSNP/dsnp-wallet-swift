@@ -42,7 +42,9 @@ extension ExtrinsicManager {
                                              expiration: 5,
                                              newPublicKey: secondaryAccountId)
         
-        guard let keyPayloadData = try? JSONEncoder().encode(addKeyPayload) else { return }
+        guard let keyPayloadData = try? JSONEncoder().encode(addKeyPayload) else {
+            throw ExtrinsicError.BadSetup
+        }
         let newOwnerRawSignature = try secondarySigner.sign(keyPayloadData).rawData()
         let msaOwnerRawSignature = try primarySigner.sign(keyPayloadData).rawData()
         

@@ -11,16 +11,13 @@ protocol ServiceCoordinatorProtocol: ApplicationServiceProtocol {
 final class ServiceCoordinator {
     let walletSettings: SelectedWalletSettings?
     let accountInfoService: AccountInfoUpdatingServiceProtocol
-    let assetsService: AssetsUpdatingServiceProtocol
 
     init(
         walletSettings: SelectedWalletSettings?,
-        accountInfoService: AccountInfoUpdatingServiceProtocol,
-        assetsService: AssetsUpdatingServiceProtocol
+        accountInfoService: AccountInfoUpdatingServiceProtocol
     ) {
         self.walletSettings = walletSettings
         self.accountInfoService = accountInfoService
-        self.assetsService = assetsService
     }
 
     private func setup(chainRegistry: ChainRegistryProtocol) {
@@ -30,10 +27,7 @@ final class ServiceCoordinator {
 
 extension ServiceCoordinator: ServiceCoordinatorProtocol {
     func updateOnAccountChange() {
-//        if let seletedMetaAccount = walletSettings.value {
-//            accountInfoService.update(selectedMetaAccount: seletedMetaAccount)
-//            assetsService.update(selectedMetaAccount: seletedMetaAccount)
-//        }
+
     }
 
     func setup() {
@@ -41,12 +35,10 @@ extension ServiceCoordinator: ServiceCoordinatorProtocol {
         setup(chainRegistry: chainRegistry)
 
         accountInfoService.setup()
-//        assetsService.setup()
     }
 
     func throttle() {
         accountInfoService.throttle()
-//        assetsService.throttle()
     }
 }
 
@@ -85,21 +77,9 @@ extension ServiceCoordinator {
             logger: logger
         )
 
-        let assetsService = AssetsUpdatingService(
-            selectedAccount: nil,
-            chainRegistry: chainRegistry,
-            remoteSubscriptionService: walletRemoteSubscription,
-            storageFacade: substrateStorageFacade,
-            storageRequestFactory: storageRequestFactory,
-            eventCenter: EventCenter.shared,
-            operationQueue: assetsOperationQueue,
-            logger: logger
-        )
-
         return ServiceCoordinator(
             walletSettings: walletSettings,
-            accountInfoService: accountInfoService,
-            assetsService: assetsService
+            accountInfoService: accountInfoService
         )
     }
 }

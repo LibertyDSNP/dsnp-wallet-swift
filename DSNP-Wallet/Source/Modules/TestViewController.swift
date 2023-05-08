@@ -83,8 +83,9 @@ extension TestViewController {
             guard let item = items.first else { return }
             
             let processingResult = item.processingResult
+            let resultTitle = item.processingResult.isSuccess ? "Extrinsic Succeeded" : "Extrinsic Failed"
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Extrinsic Result", message: "\(processingResult)", preferredStyle: .alert)
+                let alert = UIAlertController(title: resultTitle, message: "\(processingResult)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                 self.present(alert, animated: true)
             }

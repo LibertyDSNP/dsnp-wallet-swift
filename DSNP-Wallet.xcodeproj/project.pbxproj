@@ -167,7 +167,6 @@
 		829964A7297A17F4009A769F /* WalletNetworkFacade+Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996456297A17F3009A769F /* WalletNetworkFacade+Price.swift */; };
 		829964A8297A17F4009A769F /* WalletContactOperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996457297A17F3009A769F /* WalletContactOperationFactory.swift */; };
 		829964A9297A17F4009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996458297A17F3009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift */; };
-		829964AB297A17F4009A769F /* WalletNetworkOperationFactory+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299645A297A17F3009A769F /* WalletNetworkOperationFactory+Protocol.swift */; };
 		829964AC297A17F4009A769F /* WalletNetworkFacade+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299645B297A17F3009A769F /* WalletNetworkFacade+Storage.swift */; };
 		829964BC297A17F4009A769F /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299646E297A17F3009A769F /* ApolloManager.swift */; };
 		829964BD297A17F4009A769F /* EthereumRpcRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996470297A17F3009A769F /* EthereumRpcRequest.swift */; };
@@ -422,6 +421,10 @@
 		82E4AED129B020B00071758A /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AED029B020AF0071758A /* ServiceViewController.swift */; };
 		82E4AED329B020B60071758A /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AED229B020B60071758A /* ServiceViewModel.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
+		B53BD7BE2A00408200967477 /* QAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BD2A00408200967477 /* QAViewModel.swift */; };
+		B53BD7C02A01571000967477 /* ChainEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BF2A01571000967477 /* ChainEnvironment.swift */; };
+		B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F242A0007FF00A17F08 /* QAViewController.swift */; };
+		B5966F272A00080900A17F08 /* QAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F262A00080900A17F08 /* QAView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -614,7 +617,6 @@
 		82996456297A17F3009A769F /* WalletNetworkFacade+Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkFacade+Price.swift"; sourceTree = "<group>"; };
 		82996457297A17F3009A769F /* WalletContactOperationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletContactOperationFactory.swift; sourceTree = "<group>"; };
 		82996458297A17F3009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkOperationFactory+MinimalBalance.swift"; sourceTree = "<group>"; };
-		8299645A297A17F3009A769F /* WalletNetworkOperationFactory+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkOperationFactory+Protocol.swift"; sourceTree = "<group>"; };
 		8299645B297A17F3009A769F /* WalletNetworkFacade+Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WalletNetworkFacade+Storage.swift"; sourceTree = "<group>"; };
 		8299646E297A17F3009A769F /* ApolloManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApolloManager.swift; sourceTree = "<group>"; };
 		82996470297A17F3009A769F /* EthereumRpcRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumRpcRequest.swift; sourceTree = "<group>"; };
@@ -872,6 +874,10 @@
 		82E4AECD29A6E2E40071758A /* FrequencyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyChain.swift; sourceTree = "<group>"; };
 		82E4AED029B020AF0071758A /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		82E4AED229B020B60071758A /* ServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
+		B53BD7BD2A00408200967477 /* QAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewModel.swift; sourceTree = "<group>"; };
+		B53BD7BF2A01571000967477 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainEnvironment.swift; sourceTree = "<group>"; };
+		B5966F242A0007FF00A17F08 /* QAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
+		B5966F262A00080900A17F08 /* QAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1347,6 +1353,7 @@
 		829960C42978C45F009A769F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B53BD7BF2A01571000967477 /* ChainEnvironment.swift */,
 				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
 				829960CA2978C45F009A769F /* GenerateKeysViewController.swift */,
 				829960C92978C45F009A769F /* HomeViewController.swift */,
@@ -1358,6 +1365,7 @@
 				82E4AECF29B0209A0071758A /* Service */,
 				829960D22978C45F009A769F /* SettingsViewController.swift */,
 				82996884297B6C30009A769F /* Wallet */,
+				B5966F232A0007EA00A17F08 /* QA */,
 			);
 			name = Modules;
 			path = Source/Modules;
@@ -1574,7 +1582,6 @@
 				82996456297A17F3009A769F /* WalletNetworkFacade+Price.swift */,
 				82996457297A17F3009A769F /* WalletContactOperationFactory.swift */,
 				82996458297A17F3009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift */,
-				8299645A297A17F3009A769F /* WalletNetworkOperationFactory+Protocol.swift */,
 				8299645B297A17F3009A769F /* WalletNetworkFacade+Storage.swift */,
 			);
 			path = Wallet;
@@ -1962,6 +1969,16 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		B5966F232A0007EA00A17F08 /* QA */ = {
+			isa = PBXGroup;
+			children = (
+				B5966F242A0007FF00A17F08 /* QAViewController.swift */,
+				B5966F262A00080900A17F08 /* QAView.swift */,
+				B53BD7BD2A00408200967477 /* QAViewModel.swift */,
+			);
+			path = QA;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2310,6 +2327,7 @@
 				829968EB297B721C009A769F /* CompoundOperationWrapper+Result.swift in Sources */,
 				829965B8297A1955009A769F /* OrmlAssetExtras.swift in Sources */,
 				829961002978C460009A769F /* SharedNavigationController.swift in Sources */,
+				B5966F272A00080900A17F08 /* QAView.swift in Sources */,
 				82996493297A17F4009A769F /* DistributedStorageFactory.swift in Sources */,
 				82996691297B141A009A769F /* Mapping.swift in Sources */,
 				82996901297B721C009A769F /* UIView+FromNib.swift in Sources */,
@@ -2386,6 +2404,7 @@
 				82996698297B141A009A769F /* AddressConversion.swift in Sources */,
 				829968E0297B721C009A769F /* CDSingleValue+CoreDataCodable.swift in Sources */,
 				829968EE297B721C009A769F /* BaseOperation+Result.swift in Sources */,
+				B53BD7BE2A00408200967477 /* QAViewModel.swift in Sources */,
 				829964AC297A17F4009A769F /* WalletNetworkFacade+Storage.swift in Sources */,
 				82996494297A17F4009A769F /* JSONRPCAliases.swift in Sources */,
 				82996635297A1B5E009A769F /* Nomination.swift in Sources */,
@@ -2488,6 +2507,7 @@
 				829964A3297A17F4009A769F /* WalletNetworkFacade+Protocol.swift in Sources */,
 				829968F6297B721C009A769F /* Logger+FearlessUtils.swift in Sources */,
 				8299658E297A1955009A769F /* SocialMessage.swift in Sources */,
+				B53BD7C02A01571000967477 /* ChainEnvironment.swift in Sources */,
 				829965BF297A1955009A769F /* AccountCreateError.swift in Sources */,
 				829965BA297A1955009A769F /* TransactionType.swift in Sources */,
 				82996588297A1955009A769F /* AssetType.swift in Sources */,
@@ -2548,11 +2568,11 @@
 				82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */,
 				8299635C297A13CF009A769F /* ChildSubscriptionFactory.swift in Sources */,
 				8299639C297A13CF009A769F /* StorageKeySuffixMapper.swift in Sources */,
-				829964AB297A17F4009A769F /* WalletNetworkOperationFactory+Protocol.swift in Sources */,
 				82996932297B750B009A769F /* FeeMetadataContext.swift in Sources */,
 				829965E8297A1AF1009A769F /* ChainStorageIdFactory.swift in Sources */,
 				829965C0297A1955009A769F /* RestoreJson.swift in Sources */,
 				8299669D297B141A009A769F /* SubstrateRepositoryFactory.swift in Sources */,
+				B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */,
 				8299633D297A13CF009A769F /* ApplicationService.swift in Sources */,
 				829965AF297A1955009A769F /* DisplayAddress.swift in Sources */,
 				823BDB972A01708000F81F9C /* EventVisitor.swift in Sources */,
