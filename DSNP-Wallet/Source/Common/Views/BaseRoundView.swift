@@ -21,6 +21,7 @@ struct BaseRoundView<Content: View>: View {
         }
         .background(Color(uiColor: UIColor.Theme.bgGray))
         .cornerRadius(30)
+        .ignoresSafeArea()
     }
 }
 

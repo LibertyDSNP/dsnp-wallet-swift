@@ -15,23 +15,11 @@ struct ClaimHandleView: View {
             AmplicaLogo()
             BaseRoundView {
                 stepCount
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 2)
                 subtitle
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 2)
-                    .frame(maxWidth: .infinity, alignment: .leading)
                 description
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
                 textfield
                     .padding(.horizontal, 10)
                 handleDescription
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
                 buttonStack
                     .padding(.horizontal, 10)
                     .padding(.vertical, 4)
@@ -45,18 +33,27 @@ struct ClaimHandleView: View {
         Text("1 of 3")
             .font(Font(UIFont.Theme.regular(ofSize: 12)))
             .foregroundColor(.black)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 2)
     }
     
     private var subtitle: some View {
         Text("Create your Digital Identity")
             .font(Font(UIFont.Theme.semibold(ofSize: 12)))
             .foregroundColor(.black)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 2)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     private var description: some View {
         Text("Your unique handle is how others will find you across\nthe social web and will be universal across apps.")
             .font(Font(UIFont.Theme.regular(ofSize: 12)))
             .foregroundColor(.black)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 4)
     }
     
     private var textfield: some View {
@@ -70,7 +67,10 @@ struct ClaimHandleView: View {
                 .disableAutocorrection(true)
                 .foregroundColor(.black)
                 .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 0))
+                .padding(8)
                 .background(RoundedRectangle(cornerRadius: 30).fill(Color.white))
+                .font(Font(UIFont.Theme.regular(ofSize: 16)))
+                .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
         }
     }
     
@@ -78,6 +78,9 @@ struct ClaimHandleView: View {
         Text("Handle must be between 4-16 characters & can only\nconsist of letters, numbers, and underscores.")
             .font(Font(UIFont.Theme.regular(ofSize: 12)))
             .foregroundColor(.black)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 4)
     }
 
     private var buttonStack: some View {
@@ -89,7 +92,7 @@ struct ClaimHandleView: View {
     
     private var nextButton: some View {
         PrimaryButton(title: "Next") {
-            // TODO: NEXT
+            viewModel.nextAction.send()
         }
     }
     
@@ -97,7 +100,10 @@ struct ClaimHandleView: View {
         Button {
             // TODO SKIP
         } label: {
-            Text("Skip for now (not recommended)")
+            Text("Skip for now (Not Recommended)")
+                .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
+                .font(Font(UIFont.Theme.regular(ofSize: 10)))
+                .underline()
         }
     }
 }

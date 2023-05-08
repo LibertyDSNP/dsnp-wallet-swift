@@ -431,6 +431,13 @@
 		B53BD7C02A01571000967477 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B5966F252A0007FF00A17F08 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B5966F272A00080900A17F08 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		B5E79B2A2A09725700040E9E /* ConfirmHandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E79B292A09725700040E9E /* ConfirmHandleViewController.swift */; };
+		B5E79B2C2A09726100040E9E /* ConfirmHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E79B2B2A09726100040E9E /* ConfirmHandleView.swift */; };
+		B5E79B2E2A09727E00040E9E /* ConfirmHandleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E79B2D2A09727E00040E9E /* ConfirmHandleViewModel.swift */; };
+		B5E79B302A097C1600040E9E /* BulletListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E79B2F2A097C1600040E9E /* BulletListView.swift */; };
+		B5E79B322A097DCA00040E9E /* AgreeToTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E79B312A097DCA00040E9E /* AgreeToTermsView.swift */; };
+		B5E79B342A097DD800040E9E /* AgreeToTermsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E79B332A097DD800040E9E /* AgreeToTermsViewModel.swift */; };
+		B5E79B362A097DEA00040E9E /* AgreeToTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E79B352A097DEA00040E9E /* AgreeToTermsViewController.swift */; };
 		B5ED2C5B2A042B7600C82415 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED2C5A2A042B7600C82415 /* SignInViewController.swift */; };
 		B5ED2C5D2A042B8B00C82415 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED2C5C2A042B8B00C82415 /* SignInView.swift */; };
 		B5ED2C5F2A042BC400C82415 /* AmplicaLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED2C5E2A042BC400C82415 /* AmplicaLogo.swift */; };
@@ -905,6 +912,13 @@
 		B5014BFE2A058F350008A72B /* ClaimHandleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimHandleViewModel.swift; sourceTree = "<group>"; };
 		B5014C002A0942760008A72B /* NoSigningSupportWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoSigningSupportWrapper.swift; path = "../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Crypto/NoSigningSupportWrapper.swift"; sourceTree = "<group>"; };
 		B5014C042A0944D10008A72B /* MetaAccountModelType+SignatureFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MetaAccountModelType+SignatureFormat.swift"; path = "../../../../../../../.Trash/MetaAccountModelType+SignatureFormat.swift"; sourceTree = "<group>"; };
+		B5E79B292A09725700040E9E /* ConfirmHandleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmHandleViewController.swift; sourceTree = "<group>"; };
+		B5E79B2B2A09726100040E9E /* ConfirmHandleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmHandleView.swift; sourceTree = "<group>"; };
+		B5E79B2D2A09727E00040E9E /* ConfirmHandleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmHandleViewModel.swift; sourceTree = "<group>"; };
+		B5E79B2F2A097C1600040E9E /* BulletListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletListView.swift; sourceTree = "<group>"; };
+		B5E79B312A097DCA00040E9E /* AgreeToTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeToTermsView.swift; sourceTree = "<group>"; };
+		B5E79B332A097DD800040E9E /* AgreeToTermsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeToTermsViewModel.swift; sourceTree = "<group>"; };
+		B5E79B352A097DEA00040E9E /* AgreeToTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeToTermsViewController.swift; sourceTree = "<group>"; };
 		B5ED2C5A2A042B7600C82415 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B5ED2C5C2A042B8B00C82415 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		B5ED2C5E2A042BC400C82415 /* AmplicaLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplicaLogo.swift; sourceTree = "<group>"; };
@@ -1349,6 +1363,7 @@
 				B5F51B372A04237C00E9F5C3 /* Button.swift */,
 				B5F51B392A04238D00E9F5C3 /* BaseRoundView.swift */,
 				B5ED2C5E2A042BC400C82415 /* AmplicaLogo.swift */,
+				B5E79B2F2A097C1600040E9E /* BulletListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2074,6 +2089,12 @@
 				B5014BF72A0541BC0008A72B /* ClaimHandleViewController.swift */,
 				B5014BF92A0541C70008A72B /* ClaimHandleView.swift */,
 				B5014BFE2A058F350008A72B /* ClaimHandleViewModel.swift */,
+				B5E79B292A09725700040E9E /* ConfirmHandleViewController.swift */,
+				B5E79B2B2A09726100040E9E /* ConfirmHandleView.swift */,
+				B5E79B2D2A09727E00040E9E /* ConfirmHandleViewModel.swift */,
+				B5E79B312A097DCA00040E9E /* AgreeToTermsView.swift */,
+				B5E79B332A097DD800040E9E /* AgreeToTermsViewModel.swift */,
+				B5E79B352A097DEA00040E9E /* AgreeToTermsViewController.swift */,
 			);
 			path = "SignIn Screen";
 			sourceTree = "<group>";
@@ -2403,6 +2424,7 @@
 				82996366297A13CF009A769F /* ChainRegistryFactory.swift in Sources */,
 				82F3C97829BAAAD400E2190A /* AccountCoordinator.swift in Sources */,
 				829961312978C461009A769F /* SharedDivider.swift in Sources */,
+				B5E79B362A097DEA00040E9E /* AgreeToTermsViewController.swift in Sources */,
 				8299669E297B141A009A769F /* DataChangesDiffCalculator.swift in Sources */,
 				82996354297A13CF009A769F /* WebSocketProtocols.swift in Sources */,
 				82996346297A13CF009A769F /* WalletRemoteSubscriptionService.swift in Sources */,
@@ -2533,6 +2555,7 @@
 				82996492297A17F4009A769F /* DistributedUrlParser.swift in Sources */,
 				829966B8297B28A9009A769F /* LocalStorageRequestFactory.swift in Sources */,
 				829965E6297A1AF1009A769F /* PersistentValueSettings.swift in Sources */,
+				B5E79B302A097C1600040E9E /* BulletListView.swift in Sources */,
 				8299663C297A1B5E009A769F /* ValidatorPrefs.swift in Sources */,
 				829964C1297A17F4009A769F /* EthereumTransaction.swift in Sources */,
 				829961322978C461009A769F /* SharedButton.swift in Sources */,
@@ -2570,6 +2593,7 @@
 				82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */,
 				8299636C297A13CF009A769F /* ConnectionFactory.swift in Sources */,
 				8299635E297A13CF009A769F /* AssetsBalanceUpdater.swift in Sources */,
+				B5E79B2A2A09725700040E9E /* ConfirmHandleViewController.swift in Sources */,
 				82996634297A1B5E009A769F /* EraRewardPoints.swift in Sources */,
 				82996399297A13CF009A769F /* ExtrinsicEraOperationFactory.swift in Sources */,
 				829968E4297B721C009A769F /* NSDictionary+Map.swift in Sources */,
@@ -2630,6 +2654,7 @@
 				8299663F297A1B5E009A769F /* OrmlAccount.swift in Sources */,
 				82996599297A1955009A769F /* SupportData.swift in Sources */,
 				829961352978C461009A769F /* SharedAvatarImageView.swift in Sources */,
+				B5E79B2C2A09726100040E9E /* ConfirmHandleView.swift in Sources */,
 				82996396297A13CF009A769F /* ExtrinsicService.swift in Sources */,
 				829968DF297B721C009A769F /* DataProviderChange+Result.swift in Sources */,
 				8299612C2978C461009A769F /* WalletNewTransactionInserted.swift in Sources */,
@@ -2710,8 +2735,10 @@
 				829964BC297A17F4009A769F /* ApolloManager.swift in Sources */,
 				8299665E297A1B5E009A769F /* TransferCall.swift in Sources */,
 				829968F1297B721C009A769F /* NotificationCenter+Duplicates.swift in Sources */,
+				B5E79B342A097DD800040E9E /* AgreeToTermsViewModel.swift in Sources */,
 				8223AB5D2818917700DEF1E9 /* SceneDelegate.swift in Sources */,
 				82996692297B141A009A769F /* MainTransitionHelper.swift in Sources */,
+				B5E79B2E2A09727E00040E9E /* ConfirmHandleViewModel.swift in Sources */,
 				82996645297A1B5E009A769F /* StorageCodingPath.swift in Sources */,
 				8299635A297A13CF009A769F /* StorageSubscriptionContainer.swift in Sources */,
 				8299639E297A13CF009A769F /* IdentityMapper.swift in Sources */,
@@ -2737,6 +2764,7 @@
 				8299633D297A13CF009A769F /* ApplicationService.swift in Sources */,
 				829965AF297A1955009A769F /* DisplayAddress.swift in Sources */,
 				829965B2297A1955009A769F /* StashItem.swift in Sources */,
+				B5E79B322A097DCA00040E9E /* AgreeToTermsView.swift in Sources */,
 				82996597297A1955009A769F /* RemoteNftModel.swift in Sources */,
 				82996359297A13CF009A769F /* RuntimeVersionSubscription.swift in Sources */,
 				829968E6297B721C009A769F /* CryptoType+ViewModel.swift in Sources */,

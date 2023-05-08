@@ -1,23 +1,23 @@
 //
-//  ClaimHandleViewController.swift
+//  ConfirmHandleViewController.swift
 //  DSNP-Wallet
 //
-//  Created by Ben Gabay on 5/5/23.
+//  Created by Ben Gabay on 5/8/23.
 //
 
 import UIKit
 import SwiftUI
 import Combine
 
-class ClaimHandleViewController: UIHostingController<ClaimHandleView> {
-
-    let viewModel: ClaimHandleViewModel
+class ConfirmHandleViewController: UIHostingController<ConfirmHandleView> {
+    
+    let viewModel: ConfirmHandleViewModel
     
     private var cancellables = [AnyCancellable]()
     
-    init(viewModel: ClaimHandleViewModel = ClaimHandleViewModel()) {
-        self.viewModel = viewModel
-        super.init(rootView: ClaimHandleView(viewModel: viewModel))
+    init(chosenHandle: String) {
+        self.viewModel = ConfirmHandleViewModel(chosenHandle: chosenHandle)
+        super.init(rootView: ConfirmHandleView(viewModel: self.viewModel))
     }
     
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {
@@ -34,9 +34,8 @@ class ClaimHandleViewController: UIHostingController<ClaimHandleView> {
             .receive(on: RunLoop.main)
             .sink { [weak self] in
                 guard let self else { return }
-                self.navigationController?.pushViewController(ConfirmHandleViewController(chosenHandle: self.viewModel.claimHandleText), animated: true)
+                self.navigationController?.pushViewController(AgreeToTermsViewController(), animated: true)
             }
             .store(in: &cancellables)
     }
-    
 }
