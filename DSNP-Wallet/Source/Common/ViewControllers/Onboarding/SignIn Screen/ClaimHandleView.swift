@@ -17,10 +17,10 @@ struct ClaimHandleView: View {
                 stepCount
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
+                    .padding(.vertical, 2)
                 subtitle
                     .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
+                    .padding(.vertical, 2)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 description
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -28,7 +28,6 @@ struct ClaimHandleView: View {
                     .padding(.vertical, 4)
                 textfield
                     .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
                 handleDescription
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 10)
@@ -70,7 +69,7 @@ struct ClaimHandleView: View {
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .foregroundColor(.black)
-                .padding(.vertical, 4)
+                .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 0))
                 .background(RoundedRectangle(cornerRadius: 30).fill(Color.white))
         }
     }

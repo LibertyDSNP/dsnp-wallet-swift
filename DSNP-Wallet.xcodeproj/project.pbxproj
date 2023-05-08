@@ -426,6 +426,7 @@
 		B5014BFD2A054D5D0008A72B /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014BFC2A054D5D0008A72B /* SignInViewModel.swift */; };
 		B5014BFF2A058F350008A72B /* ClaimHandleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014BFE2A058F350008A72B /* ClaimHandleViewModel.swift */; };
 		B5014C012A0942760008A72B /* NoSigningSupportWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014C002A0942760008A72B /* NoSigningSupportWrapper.swift */; };
+		B5014C052A0944D10008A72B /* MetaAccountModelType+SignatureFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5014C042A0944D10008A72B /* MetaAccountModelType+SignatureFormat.swift */; };
 		B53BD7BE2A00408200967477 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B53BD7C02A01571000967477 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B5966F252A0007FF00A17F08 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -440,7 +441,6 @@
 		B5F51B2C2A04207900E9F5C3 /* ChainEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B2B2A04207900E9F5C3 /* ChainEnvironment.swift */; };
 		B5F51B2E2A04211F00E9F5C3 /* RemoteStateCallRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B2D2A04211F00E9F5C3 /* RemoteStateCallRequest.swift */; };
 		B5F51B302A0421A400E9F5C3 /* ExtrinsicSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B2F2A0421A400E9F5C3 /* ExtrinsicSplitter.swift */; };
-		B5F51B322A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B312A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift */; };
 		B5F51B342A04220500E9F5C3 /* NoSigningSupportWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B332A04220500E9F5C3 /* NoSigningSupportWrapper.swift */; };
 		B5F51B382A04237C00E9F5C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B372A04237C00E9F5C3 /* Button.swift */; };
 		B5F51B3A2A04238D00E9F5C3 /* BaseRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51B392A04238D00E9F5C3 /* BaseRoundView.swift */; };
@@ -904,6 +904,7 @@
 		B5014BFC2A054D5D0008A72B /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		B5014BFE2A058F350008A72B /* ClaimHandleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimHandleViewModel.swift; sourceTree = "<group>"; };
 		B5014C002A0942760008A72B /* NoSigningSupportWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoSigningSupportWrapper.swift; path = "../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Crypto/NoSigningSupportWrapper.swift"; sourceTree = "<group>"; };
+		B5014C042A0944D10008A72B /* MetaAccountModelType+SignatureFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MetaAccountModelType+SignatureFormat.swift"; path = "../../../../../../../.Trash/MetaAccountModelType+SignatureFormat.swift"; sourceTree = "<group>"; };
 		B5ED2C5A2A042B7600C82415 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B5ED2C5C2A042B8B00C82415 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		B5ED2C5E2A042BC400C82415 /* AmplicaLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplicaLogo.swift; sourceTree = "<group>"; };
@@ -914,7 +915,6 @@
 		B5F51B2B2A04207900E9F5C3 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChainEnvironment.swift; path = ../../../../../../Desktop/ChainEnvironment.swift; sourceTree = "<group>"; };
 		B5F51B2D2A04211F00E9F5C3 /* RemoteStateCallRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteStateCallRequest.swift; path = "../../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Network/JSONRPC/RemoteStateCallRequest.swift"; sourceTree = "<group>"; };
 		B5F51B2F2A0421A400E9F5C3 /* ExtrinsicSplitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtrinsicSplitter.swift; path = "../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Substrate/ExtrinsicSplitter.swift"; sourceTree = "<group>"; };
-		B5F51B312A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MetaAccountModelType+SignatureFormat.swift"; path = "../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Crypto/MetaAccountModelType+SignatureFormat.swift"; sourceTree = "<group>"; };
 		B5F51B332A04220500E9F5C3 /* NoSigningSupportWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoSigningSupportWrapper.swift; path = "../../../../../untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/Crypto/NoSigningSupportWrapper.swift"; sourceTree = "<group>"; };
 		B5F51B372A04237C00E9F5C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		B5F51B392A04238D00E9F5C3 /* BaseRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRoundView.swift; sourceTree = "<group>"; };
@@ -1430,7 +1430,7 @@
 		829961692978CD74009A769F /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				B5F51B312A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift */,
+				B5014C042A0944D10008A72B /* MetaAccountModelType+SignatureFormat.swift */,
 				B5F51B332A04220500E9F5C3 /* NoSigningSupportWrapper.swift */,
 				B5014C002A0942760008A72B /* NoSigningSupportWrapper.swift */,
 				8299616A2978CD7E009A769F /* SigningWrapper.swift */,
@@ -2469,6 +2469,7 @@
 				8299658F297A1955009A769F /* BlockWeights.swift in Sources */,
 				829965F2297A1AF1009A769F /* MetaAccountMapper.swift in Sources */,
 				8299693B29809C71009A769F /* AddPublicKeyToMsaCall.swift in Sources */,
+				B5014C052A0944D10008A72B /* MetaAccountModelType+SignatureFormat.swift in Sources */,
 				8299690B297B721C009A769F /* TransactionHistoryItem+Wallet.swift in Sources */,
 				829964D6297A17F4009A769F /* User.swift in Sources */,
 				B5F51B382A04237C00E9F5C3 /* Button.swift in Sources */,
@@ -2643,7 +2644,6 @@
 				82996352297A13CF009A769F /* AssetsSubscriptionHandlingFactory.swift in Sources */,
 				829960DA2978C460009A769F /* AccountKeychain.swift in Sources */,
 				8299637A297A13CF009A769F /* ServiceCoordinator.swift in Sources */,
-				B5F51B322A0421FD00E9F5C3 /* MetaAccountModelType+SignatureFormat.swift in Sources */,
 				82996630297A1B5E009A769F /* CallCodingPath.swift in Sources */,
 				82996684297B141A009A769F /* AttributedStringDecorator.swift in Sources */,
 				829968E2297B721C009A769F /* SNAddressType+Codable.swift in Sources */,
