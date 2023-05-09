@@ -26,8 +26,7 @@ class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupObservables()
     }
     
     private func setupObservables() {
