@@ -27,5 +27,15 @@ class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
 
         // Do any additional setup after loading the view.
     }
+    
+    private func setupObservables() {
+        viewModel.agreeAction
+            .receive(on: RunLoop.main)
+            .sink { [weak self] in
+                guard let self else { return }
+                self.navigationController?.pushViewController(CongratsViewController(), animated: true)
+                
+            }
+    }
 
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CongratsModal: View {
 
+    let viewModel: CongratsViewModel
+    
     var body: some View {
         VStack {
             congratsText
@@ -38,13 +40,13 @@ struct CongratsModal: View {
     
     private var finishButton: some View {
         PrimaryButton(title: "Finish Digital Identitys") {
-            // TODO: NEXT
+            viewModel.finishAction.send()
         }
     }
     
     private var skipButton: some View {
         Button {
-            // TODO SKIP
+            viewModel.skipAction.send()
         } label: {
             Text("Skip for now (Not Recommended)")
                 .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
@@ -56,6 +58,6 @@ struct CongratsModal: View {
 
 struct CongratsModal_Previews: PreviewProvider {
     static var previews: some View {
-        CongratsModal()
+        CongratsModal(viewModel: CongratsViewModel())
     }
 }
