@@ -29,6 +29,20 @@ struct PrimaryButton: View {
     }
 }
 
+struct CloseButton: View {
+    
+    let action: () -> Void
+    
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            Image("close")
+        }
+        .frame(width: 30, height: 30)
+    }
+}
+
 
 struct PrimaryButton_Previews: PreviewProvider {
     static var previews: some View {
