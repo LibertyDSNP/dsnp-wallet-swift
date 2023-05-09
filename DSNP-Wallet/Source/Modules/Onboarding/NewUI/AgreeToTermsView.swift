@@ -76,11 +76,12 @@ struct AgreeToTermsView: View {
     private var agreementExplanationText: some View {
         VStack {
             BulletListView(listItems: ["Update your handle and profile information", "Update your contacts & groups"])
+                .padding(.vertical, 10)
+                .padding(.horizontal, 10)
             Text("You may update permissions at any time.")
                 .font(Font(UIFont.Theme.regular(ofSize: 12)))
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
         }
     }
     
@@ -96,6 +97,7 @@ struct AgreeToTermsView: View {
             .foregroundColor(.black)
             .lineSpacing(3)
             .padding(.bottom, 16)
+            .frame(alignment: .bottom)
     }
 
 }
