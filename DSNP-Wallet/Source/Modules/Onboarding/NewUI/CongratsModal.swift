@@ -18,11 +18,12 @@ struct CongratsModal: View {
                 Spacer()
                 congratsText
                     .padding(.top, 20)
+                    .padding(.leading, 16)
                 Spacer()
                 CloseButton(action: {
                     // Close
                 })
-                .padding(16)
+                .padding(.trailing, 12)
             }
             description
             buttonStack
