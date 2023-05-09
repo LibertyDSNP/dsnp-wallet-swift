@@ -25,6 +25,10 @@ public extension UIFont {
             return UIFont(name: "Poppins-Semibold", size: size) ?? UIFont.systemFont(ofSize: size)
         }
         
+        static public func extraBold(ofSize size: CGFloat) -> UIFont {
+            return UIFont(name: "Poppins-ExtraBold", size: size) ?? UIFont.systemFont(ofSize: size)
+        }
+        
         static public func thin(ofSize size: CGFloat) -> UIFont {
             return UIFont(name: "Poppins-Thin", size: size) ?? UIFont.systemFont(ofSize: size)
         }

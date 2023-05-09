@@ -33,7 +33,7 @@ struct CongratsModal: View {
     
     private var congratsText: some View {
         Text("Congratulations!")
-            .font(Font(UIFont.Theme.semibold(ofSize: 22)))
+            .font(Font(UIFont.Theme.extraBold(ofSize: 22)))
             .foregroundColor(Color(uiColor: UIColor.Theme.congratsColor))
     }
     
