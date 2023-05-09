@@ -48,7 +48,7 @@ struct CongratsModal: View {
     
     private var description: some View {
         Text("For better recommendations and\nto connect with people relevant to you filling\nout your profile is a good first step.")
-            .font(Font(UIFont.Theme.thin(ofSize: 12)))
+            .font(Font(UIFont.Theme.regular(ofSize: 12)))
             .foregroundColor(.black)
             .lineSpacing(4)
             .padding(.vertical, 14)
