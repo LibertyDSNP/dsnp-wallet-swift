@@ -87,7 +87,7 @@ struct AgreeToTermsView: View {
     
     private var agreeButton: some View {
         PrimaryButton(title: "Agree") {
-            // TODO: Go to congrats
+            viewModel.agreeAction.send()
         }
     }
     
