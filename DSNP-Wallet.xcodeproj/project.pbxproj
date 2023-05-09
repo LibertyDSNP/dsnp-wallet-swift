@@ -21,11 +21,6 @@
 		8223AB622818917700DEF1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB602818917700DEF1E9 /* Main.storyboard */; };
 		8223AB642818917800DEF1E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB632818917800DEF1E9 /* Assets.xcassets */; };
 		8223AB672818917800DEF1E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8223AB652818917800DEF1E9 /* LaunchScreen.storyboard */; };
-		8223ABF42821A1C800DEF1E9 /* ProximaNova-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABEF2821A1C800DEF1E9 /* ProximaNova-Bold.ttf */; };
-		8223ABF52821A1C800DEF1E9 /* ProximaNova-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF02821A1C800DEF1E9 /* ProximaNova-Italic.ttf */; };
-		8223ABF62821A1C800DEF1E9 /* ProximaNova-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF12821A1C800DEF1E9 /* ProximaNova-Semibold.ttf */; };
-		8223ABF72821A1C900DEF1E9 /* ProximaNova-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */; };
-		8223ABF82821A1C900DEF1E9 /* ProximaNova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */; };
 		8223AC10282C2AEB00DEF1E9 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC0F282C2AEB00DEF1E9 /* SDWebImage */; };
 		8223AC13282C2AFB00DEF1E9 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC12282C2AFB00DEF1E9 /* KeychainSwift */; };
 		8223AC16282C2B3E00DEF1E9 /* DSNPWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 8223AC15282C2B3E00DEF1E9 /* DSNPWallet */; };
@@ -459,11 +454,6 @@
 		8223AB682818917800DEF1E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8223AB6D2818917800DEF1E9 /* DSNP-WalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DSNP-WalletTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223AB772818917900DEF1E9 /* DSNP-WalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DSNP-WalletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8223ABEF2821A1C800DEF1E9 /* ProximaNova-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.ttf"; sourceTree = "<group>"; };
-		8223ABF02821A1C800DEF1E9 /* ProximaNova-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Italic.ttf"; sourceTree = "<group>"; };
-		8223ABF12821A1C800DEF1E9 /* ProximaNova-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.ttf"; sourceTree = "<group>"; };
-		8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Thin.ttf"; sourceTree = "<group>"; };
-		8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.ttf"; sourceTree = "<group>"; };
 		8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_DSNP_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8299603E2978C45D009A769F /* SigningWrapperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigningWrapperProtocol.swift; sourceTree = "<group>"; };
 		8299603F2978C45D009A769F /* DummySigner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySigner.swift; sourceTree = "<group>"; };
@@ -859,6 +849,25 @@
 		B53BD7BF2A01571000967477 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainEnvironment.swift; sourceTree = "<group>"; };
 		B5966F242A0007FF00A17F08 /* QAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
 		B5966F262A00080900A17F08 /* QAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
+		B5A62BE62A0A8F2900A31178 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		B5A62BE72A0A8F2900A31178 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		B5A62BE82A0A8F2900A31178 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		B5A62BE92A0A8F2A00A31178 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		B5A62BEA2A0A8F2A00A31178 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		B5A62BEB2A0A8F2A00A31178 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		B5A62BEC2A0A8F2A00A31178 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		B5A62BED2A0A8F2A00A31178 /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
+		B5A62BEE2A0A8F2A00A31178 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		B5A62BEF2A0A8F2A00A31178 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		B5A62BF02A0A8F2A00A31178 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		B5A62BF12A0A8F2A00A31178 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
+		B5A62BF22A0A8F2A00A31178 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		B5A62BF32A0A8F2B00A31178 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
+		B5A62BF42A0A8F2B00A31178 /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B5A62BF52A0A8F2B00A31178 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		B5A62BF62A0A8F2B00A31178 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		B5A62BF72A0A8F2B00A31178 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		B5A62BF82A0A8F2B00A31178 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1015,11 +1024,25 @@
 		8223ABCE2820808B00DEF1E9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				8223ABEF2821A1C800DEF1E9 /* ProximaNova-Bold.ttf */,
-				8223ABF02821A1C800DEF1E9 /* ProximaNova-Italic.ttf */,
-				8223ABF32821A1C800DEF1E9 /* ProximaNova-Regular.ttf */,
-				8223ABF12821A1C800DEF1E9 /* ProximaNova-Semibold.ttf */,
-				8223ABF22821A1C800DEF1E9 /* ProximaNova-Thin.ttf */,
+				B5A62BEA2A0A8F2A00A31178 /* OFL.txt */,
+				B5A62BED2A0A8F2A00A31178 /* Poppins-Black.ttf */,
+				B5A62BF32A0A8F2B00A31178 /* Poppins-BlackItalic.ttf */,
+				B5A62BF02A0A8F2A00A31178 /* Poppins-Bold.ttf */,
+				B5A62BF42A0A8F2B00A31178 /* Poppins-BoldItalic.ttf */,
+				B5A62BE62A0A8F2900A31178 /* Poppins-ExtraBold.ttf */,
+				B5A62BEC2A0A8F2A00A31178 /* Poppins-ExtraBoldItalic.ttf */,
+				B5A62BF62A0A8F2B00A31178 /* Poppins-ExtraLight.ttf */,
+				B5A62BE92A0A8F2A00A31178 /* Poppins-ExtraLightItalic.ttf */,
+				B5A62BEF2A0A8F2A00A31178 /* Poppins-Italic.ttf */,
+				B5A62BF22A0A8F2A00A31178 /* Poppins-Light.ttf */,
+				B5A62BE72A0A8F2900A31178 /* Poppins-LightItalic.ttf */,
+				B5A62BE82A0A8F2900A31178 /* Poppins-Medium.ttf */,
+				B5A62BF82A0A8F2B00A31178 /* Poppins-MediumItalic.ttf */,
+				B5A62BEB2A0A8F2A00A31178 /* Poppins-Regular.ttf */,
+				B5A62BF72A0A8F2B00A31178 /* Poppins-SemiBold.ttf */,
+				B5A62BEE2A0A8F2A00A31178 /* Poppins-SemiBoldItalic.ttf */,
+				B5A62BF52A0A8F2B00A31178 /* Poppins-Thin.ttf */,
+				B5A62BF12A0A8F2A00A31178 /* Poppins-ThinItalic.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -2054,11 +2077,6 @@
 				8223AB642818917800DEF1E9 /* Assets.xcassets in Resources */,
 				829961032978C460009A769F /* TabBarViewController.storyboard in Resources */,
 				8223AB622818917700DEF1E9 /* Main.storyboard in Resources */,
-				8223ABF62821A1C800DEF1E9 /* ProximaNova-Semibold.ttf in Resources */,
-				8223ABF52821A1C800DEF1E9 /* ProximaNova-Italic.ttf in Resources */,
-				8223ABF82821A1C900DEF1E9 /* ProximaNova-Regular.ttf in Resources */,
-				8223ABF72821A1C900DEF1E9 /* ProximaNova-Thin.ttf in Resources */,
-				8223ABF42821A1C800DEF1E9 /* ProximaNova-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
