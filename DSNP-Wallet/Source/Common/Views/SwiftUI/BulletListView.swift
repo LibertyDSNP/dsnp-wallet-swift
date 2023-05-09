@@ -18,7 +18,7 @@ struct BulletListView: View {
         VStack(alignment: .leading,
                spacing: listItemSpacing) {
             ForEach(listItems, id: \.self) { data in
-                HStack(alignment: .top) {
+                HStack(alignment: .center) {
                     Text(bullet)
                         .frame(width: bulletWidth,
                                alignment: bulletAlignment)
@@ -26,6 +26,7 @@ struct BulletListView: View {
                         .font(Font(UIFont.Theme.regular(ofSize: 12)))
                         .foregroundColor(.black)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 2)
                 }
             }
         }
