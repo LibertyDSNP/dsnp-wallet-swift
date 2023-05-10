@@ -58,10 +58,9 @@ extension GenerateKeysViewController {
     }
     
     private func presentPinVC(with keys: DSNPKeys?) {
-        guard let pinVC = ViewControllerFactory.pinViewController.instance() as? PinViewController else { return }
-        
-        pinVC.set(keys)
-        pinVC.modalPresentationStyle = .fullScreen
-        self.present(pinVC, animated: true)
+        guard let keys else { return }
+        let pinViewController = EnterPinViewController(keys: keys)
+        pinViewController.modalPresentationStyle = .fullScreen
+        self.present(pinViewController, animated: true)
     }
 }

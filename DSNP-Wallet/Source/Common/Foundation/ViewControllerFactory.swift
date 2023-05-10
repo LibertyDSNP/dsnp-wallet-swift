@@ -10,8 +10,8 @@ import UIKit
 
 enum ViewControllerFactory: String, CaseIterable {
     
+    case enterPinViewController
     case generateKeysViewController
-    case pinViewController
     case tabBarViewController
     case homeViewController
     case profileViewController
@@ -33,10 +33,10 @@ enum ViewControllerFactory: String, CaseIterable {
     var storyboardName: String? {
         switch self {
         case .homeViewController,
+                .enterPinViewController,
                 .profileViewController,
                 .keysViewController,
                 .generateKeysViewController,
-                .pinViewController,
                 .settingsViewController,
                 .welcomeViewController,
                 .lookUpDsnpIdViewController,

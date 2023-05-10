@@ -49,7 +49,7 @@ class AuthManager {
     func logout() throws {
         do {
             let _ = try DSNPWallet().deleteKeys()
-            akcManager.clearAuthorization()
+            try akcManager.clearAuthorization()
         } catch {
             throw KeysError.delete
         }
