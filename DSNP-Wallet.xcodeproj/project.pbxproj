@@ -399,10 +399,6 @@
 		82DD910029661D8300A508B9 /* LookUpDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */; };
 		82DD910229661DBB00A508B9 /* CreateDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */; };
 		82DD910429661E1200A508B9 /* RestoreDsnpWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */; };
-		82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD91052967755200A508B9 /* SeedPhraseViewController.swift */; };
-		82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */; };
-		82DD910B296CBC7100A508B9 /* SeedPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */; };
-		82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */; };
 		82E4AEC729A587B50071758A /* ExtrinsicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AEC629A587B50071758A /* ExtrinsicManager.swift */; };
 		82E4AECA29A6E22B0071758A /* ExtrinsicManager+Msa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */; };
 		82E4AECC29A6E2330071758A /* ExtrinsicManager+Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */; };
@@ -465,6 +461,12 @@
 		B5A62C772A0C22B100A31178 /* SharedScrollableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C752A0C22B100A31178 /* SharedScrollableStackView.swift */; };
 		B5A62C782A0C22B100A31178 /* SharedScrollableStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A62C762A0C22B100A31178 /* SharedScrollableStackView.xib */; };
 		B5A62C7A2A0C231200A31178 /* UIScrollView+ScrollToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C792A0C231200A31178 /* UIScrollView+ScrollToBottom.swift */; };
+		B5A62C822A0D47E300A31178 /* AccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C812A0D47E200A31178 /* AccountCoordinator.swift */; };
+		B5A62C882A0D483500A31178 /* SeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C832A0D483400A31178 /* SeedManager.swift */; };
+		B5A62C892A0D483500A31178 /* SeedPhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C842A0D483400A31178 /* SeedPhraseCollectionViewCell.swift */; };
+		B5A62C8A2A0D483500A31178 /* SeedPhraseColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C852A0D483400A31178 /* SeedPhraseColumnFlowLayout.swift */; };
+		B5A62C8B2A0D483500A31178 /* SeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C862A0D483400A31178 /* SeedPhraseViewController.swift */; };
+		B5A62C8C2A0D483500A31178 /* SeedPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C872A0D483400A31178 /* SeedPhraseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -884,10 +886,6 @@
 		82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpDsnpIdViewController.swift; sourceTree = "<group>"; };
 		82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDsnpIdViewController.swift; sourceTree = "<group>"; };
 		82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreDsnpWalletViewController.swift; sourceTree = "<group>"; };
-		82DD91052967755200A508B9 /* SeedPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewController.swift; sourceTree = "<group>"; };
-		82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseColumnFlowLayout.swift; sourceTree = "<group>"; };
-		82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewModel.swift; sourceTree = "<group>"; };
-		82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseCollectionViewCell.swift; sourceTree = "<group>"; };
 		82E4AEC629A587B50071758A /* ExtrinsicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrinsicManager.swift; sourceTree = "<group>"; };
 		82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtrinsicManager+Msa.swift"; sourceTree = "<group>"; };
 		82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtrinsicManager+Balance.swift"; sourceTree = "<group>"; };
@@ -950,6 +948,12 @@
 		B5A62C752A0C22B100A31178 /* SharedScrollableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedScrollableStackView.swift; sourceTree = "<group>"; };
 		B5A62C762A0C22B100A31178 /* SharedScrollableStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharedScrollableStackView.xib; sourceTree = "<group>"; };
 		B5A62C792A0C231200A31178 /* UIScrollView+ScrollToBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ScrollToBottom.swift"; sourceTree = "<group>"; };
+		B5A62C812A0D47E200A31178 /* AccountCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
+		B5A62C832A0D483400A31178 /* SeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedManager.swift; sourceTree = "<group>"; };
+		B5A62C842A0D483400A31178 /* SeedPhraseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedPhraseCollectionViewCell.swift; sourceTree = "<group>"; };
+		B5A62C852A0D483400A31178 /* SeedPhraseColumnFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedPhraseColumnFlowLayout.swift; sourceTree = "<group>"; };
+		B5A62C862A0D483400A31178 /* SeedPhraseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewController.swift; sourceTree = "<group>"; };
+		B5A62C872A0D483400A31178 /* SeedPhraseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewModel.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1404,6 +1408,7 @@
 		829960C42978C45F009A769F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B5A62C812A0D47E200A31178 /* AccountCoordinator.swift */,
 				B53BD7BF2A01571000967477 /* ChainEnvironment.swift */,
 				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
 				829960CA2978C45F009A769F /* GenerateKeysViewController.swift */,
@@ -1996,10 +2001,11 @@
 		82DD9107296CBB4E00A508B9 /* SeedPhrase */ = {
 			isa = PBXGroup;
 			children = (
-				82DD91052967755200A508B9 /* SeedPhraseViewController.swift */,
-				82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */,
-				82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */,
-				82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */,
+				B5A62C832A0D483400A31178 /* SeedManager.swift */,
+				B5A62C842A0D483400A31178 /* SeedPhraseCollectionViewCell.swift */,
+				B5A62C852A0D483400A31178 /* SeedPhraseColumnFlowLayout.swift */,
+				B5A62C862A0D483400A31178 /* SeedPhraseViewController.swift */,
+				B5A62C872A0D483400A31178 /* SeedPhraseViewModel.swift */,
 			);
 			path = SeedPhrase;
 			sourceTree = "<group>";
@@ -2402,6 +2408,7 @@
 				8299663B297A1B5E009A769F /* UniquesInstanceMetadata.swift in Sources */,
 				82996356297A13CF009A769F /* OrmlAccountSubscription.swift in Sources */,
 				82996927297B7285009A769F /* NSPredicate+Validation.swift in Sources */,
+				B5A62C882A0D483500A31178 /* SeedManager.swift in Sources */,
 				829965C3297A1955009A769F /* BalanceLocks+Sort.swift in Sources */,
 				82996928297B7285009A769F /* TimeInterval+Time.swift in Sources */,
 				829968FA297B721C009A769F /* StorageKeyFactory+Implicit.swift in Sources */,
@@ -2417,7 +2424,6 @@
 				82996346297A13CF009A769F /* WalletRemoteSubscriptionService.swift in Sources */,
 				82996594297A1955009A769F /* ChainModel.swift in Sources */,
 				82996693297B141A009A769F /* DispatchQueueHelper.swift in Sources */,
-				82DD910B296CBC7100A508B9 /* SeedPhraseViewModel.swift in Sources */,
 				B5A62C732A0C1A9A00A31178 /* PinViewController.swift in Sources */,
 				829964CF297A17F4009A769F /* DataOperationFactory.swift in Sources */,
 				82996689297B141A009A769F /* AssetBalanceDisplayInfo.swift in Sources */,
@@ -2500,9 +2506,9 @@
 				82996934297F3510009A769F /* OrmlTokenTransfer.swift in Sources */,
 				829965AC297A1955009A769F /* ChainHistoryRange.swift in Sources */,
 				8299639B297A13CF009A769F /* ImmortalEraOperationFactory.swift in Sources */,
-				82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */,
 				82996687297B141A009A769F /* ByteLengthProcessor.swift in Sources */,
 				82996660297A1B5E009A769F /* SubstrateCallFactory.swift in Sources */,
+				B5A62C8A2A0D483500A31178 /* SeedPhraseColumnFlowLayout.swift in Sources */,
 				82E4AECA29A6E22B0071758A /* ExtrinsicManager+Msa.swift in Sources */,
 				82996379297A13CF009A769F /* RuntimeCodingService.swift in Sources */,
 				8299649B297A17F4009A769F /* StorageQuery.swift in Sources */,
@@ -2577,7 +2583,6 @@
 				82996635297A1B5E009A769F /* Nomination.swift in Sources */,
 				829966C1297B28A9009A769F /* AsyncClosureOperation.swift in Sources */,
 				82996910297B721C009A769F /* KeystoreExtensions.swift in Sources */,
-				82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */,
 				8299636C297A13CF009A769F /* ConnectionFactory.swift in Sources */,
 				8299635E297A13CF009A769F /* AssetsBalanceUpdater.swift in Sources */,
 				82996634297A1B5E009A769F /* EraRewardPoints.swift in Sources */,
@@ -2615,6 +2620,7 @@
 				82996640297A1B5E009A769F /* EventCodingPath.swift in Sources */,
 				829964D0297A17F4009A769F /* BaseFetchOperationFactory.swift in Sources */,
 				829961282978C460009A769F /* TypeRegistryPrepared.swift in Sources */,
+				B5A62C8C2A0D483500A31178 /* SeedPhraseViewModel.swift in Sources */,
 				8299634C297A13CF009A769F /* SubscriptionStorageKeys.swift in Sources */,
 				8299690F297B721C009A769F /* UIFont+Theme.swift in Sources */,
 				829961342978C461009A769F /* SharedStackView.swift in Sources */,
@@ -2648,6 +2654,7 @@
 				8299612C2978C461009A769F /* WalletNewTransactionInserted.swift in Sources */,
 				829964D4297A17F4009A769F /* UserAPI.swift in Sources */,
 				82D16325299D57F100536349 /* ChainModelMapper.swift in Sources */,
+				B5A62C822A0D47E300A31178 /* AccountCoordinator.swift in Sources */,
 				829961482978C461009A769F /* TestViewController.swift in Sources */,
 				82996585297A1955009A769F /* SubstrateAlias.swift in Sources */,
 				82996369297A13CF009A769F /* SpecVersionSubscription.swift in Sources */,
@@ -2738,7 +2745,6 @@
 				82E4AECE29A6E2E40071758A /* FrequencyChain.swift in Sources */,
 				B5A62C132A0A900600A31178 /* AgreeToTermsView.swift in Sources */,
 				82996351297A13CF009A769F /* OrmlAccountSubcriptionHandlingFactory.swift in Sources */,
-				82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */,
 				8299635C297A13CF009A769F /* ChildSubscriptionFactory.swift in Sources */,
 				8299639C297A13CF009A769F /* StorageKeySuffixMapper.swift in Sources */,
 				82996932297B750B009A769F /* FeeMetadataContext.swift in Sources */,
@@ -2749,6 +2755,7 @@
 				B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */,
 				8299633D297A13CF009A769F /* ApplicationService.swift in Sources */,
 				829965AF297A1955009A769F /* DisplayAddress.swift in Sources */,
+				B5A62C8B2A0D483500A31178 /* SeedPhraseViewController.swift in Sources */,
 				829965B2297A1955009A769F /* StashItem.swift in Sources */,
 				82996597297A1955009A769F /* RemoteNftModel.swift in Sources */,
 				82996359297A13CF009A769F /* RuntimeVersionSubscription.swift in Sources */,
@@ -2797,6 +2804,7 @@
 				82996650297A1B5E009A769F /* ExtrinsicExtension.swift in Sources */,
 				8299614C2978C461009A769F /* SettingsViewController.swift in Sources */,
 				829966B7297B28A9009A769F /* LongrunOperation.swift in Sources */,
+				B5A62C892A0D483500A31178 /* SeedPhraseCollectionViewCell.swift in Sources */,
 				829965E4297A1AF1009A769F /* PersistentStoreCoordinator+Extensions.swift in Sources */,
 				829961442978C461009A769F /* KeysViewController.swift in Sources */,
 				829961432978C461009A769F /* KeysViewController+Backup.swift in Sources */,

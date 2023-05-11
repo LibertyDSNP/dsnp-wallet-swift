@@ -21,6 +21,10 @@ class WelcomeViewController: UIViewController {
     private var restoreBtn: SharedButton?
     private var linksTextView: UITextView?
     
+    public var navToLookupDsnpId:(() -> Void)?
+    public var navToCreateDsnpId:(() -> Void)?
+    public var navToRestoreDsnpId:(() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,30 +101,15 @@ class WelcomeViewController: UIViewController {
     @objc func didTapBtn(selector: UIButton?) {
         switch selector?.titleLabel?.text {
         case WelcomeOptions.existing.rawValue:
-            presentVC(with: .existing)
+            navToLookupDsnpId?()
         case WelcomeOptions.create.rawValue:
-            presentVC(with: .create)
+            navToCreateDsnpId?()
         case WelcomeOptions.restore.rawValue:
-            presentVC(with: .restore)
+            navToRestoreDsnpId?()
         default:
             return
         }
-    }
-    
-    private func presentVC(with welcomeOption: WelcomeOptions) {
-        let vc: UIViewController?
         
-        switch welcomeOption {
-        case .existing:
-            vc = ViewControllerFactory.lookUpDsnpIdViewController.instance()
-        case .create:
-            vc = ViewControllerFactory.createDsnpIdViewController.instance()
-        case .restore:
-            vc = ViewControllerFactory.restoreDsnpIdViewController.instance()
-        }
-
-        guard let vc = vc else { return }
-//        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        return
     }
 }

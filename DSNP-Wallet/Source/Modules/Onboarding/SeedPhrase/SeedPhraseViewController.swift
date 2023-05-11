@@ -10,6 +10,8 @@ import UIKit
 
 class SeedPhraseViewController: UIViewController {
     
+    public var didSucceed:((User) -> Void)?
+    
     private enum SeedPhraseCreationState {
         case viewSeedPhrase
         case confirmSeedPhrase
@@ -43,7 +45,7 @@ class SeedPhraseViewController: UIViewController {
     private var state: SeedPhraseCreationState = .viewSeedPhrase {
         didSet {
             selectedWords = []
-            remainingWords = viewModel?.seedPhraseWords.shuffled() ?? []
+            remainingWords = viewModel?.seedPhrase?.components(separatedBy: " ").shuffled() ?? []
             
             setLabels()
             setBtns()
@@ -56,7 +58,7 @@ class SeedPhraseViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel = SeedPhraseViewModel()
-        remainingWords = viewModel?.seedPhraseWords.shuffled() ?? []
+        remainingWords = viewModel?.seedPhrase?.components(separatedBy: " ").shuffled() ?? []
         
         view.backgroundColor = .white
         setLabels()
@@ -65,8 +67,10 @@ class SeedPhraseViewController: UIViewController {
         setStackView()
         setAccessibilityIds()
     }
-    
-    //MARK: UI
+}
+
+//MARK: UI
+extension SeedPhraseViewController {
     func setStackView() {
         stackView = UIStackView()
         
@@ -153,7 +157,7 @@ class SeedPhraseViewController: UIViewController {
                 minimumLineSpacing: collectionViewSpacing,
                 sectionInset: UIEdgeInsets(top: collectionViewSpacing, left: collectionViewSpacing, bottom: collectionViewSpacing, right: collectionViewSpacing))
             
-            let topCollectionViewNumCol = (viewModel?.seedPhraseWords.count ?? 0)/topCollectionViewLayout.cellsPerRow
+            let topCollectionViewNumCol = (viewModel?.seedPhrase?.components(separatedBy: " ").count ?? 0)/topCollectionViewLayout.cellsPerRow
             let topCollectionViewHeight = (topCollectionViewNumCol * collectionViewCellHeight) + ((topCollectionViewNumCol + 1) * Int(collectionViewSpacing))
             cv.heightAnchor.constraint(equalToConstant: CGFloat(topCollectionViewHeight)).isActive = true
             
@@ -170,7 +174,7 @@ class SeedPhraseViewController: UIViewController {
             cv.contentInsetAdjustmentBehavior = .always
             cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: SeedPhraseCollectionViewCell.cellId)
             
-            let bottomCollectionViewNumCol = (viewModel?.seedPhraseWords.count ?? 0)/bottomCollectionViewLayout.cellsPerRow
+            let bottomCollectionViewNumCol = (viewModel?.seedPhrase?.components(separatedBy: " ").count ?? 0)/bottomCollectionViewLayout.cellsPerRow
             let bottomCollectionViewHeight = (bottomCollectionViewNumCol * collectionViewCellHeight) + ((bottomCollectionViewNumCol + 1) * Int(collectionViewSpacing))
             cv.heightAnchor.constraint(equalToConstant: CGFloat(bottomCollectionViewHeight)).isActive = true
             
@@ -197,16 +201,23 @@ class SeedPhraseViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Check Again", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         } else {
-            let isValidSeedPhrase = viewModel?.seedPhraseWords == selectedWords
+            let isValidSeedPhrase = viewModel?.seedPhrase?.components(separatedBy: " ") == selectedWords
             
             let alert = UIAlertController(title: isValidSeedPhrase ? "Valid" : "Invalid",
                                           message: nil,
                                           preferredStyle: .alert)
             
             if isValidSeedPhrase {
-                alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { _ in
-                    self.dismiss(animated: true)
-                }))
+                let alertAction = UIAlertAction(title: "Done", style: .default, handler: { _ in
+                    self.dismiss(animated: true) {
+                        guard let mnemonic = self.viewModel?.seedPhrase else { return }
+                        let user = User(mnemonic: mnemonic)
+                        self.viewModel?.save(mnemonic: mnemonic)
+                        self.didSucceed?(user)
+                    }
+                })
+                
+                alert.addAction(alertAction)
             } else {
                 alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: { _ in
                     self.state = .viewSeedPhrase
@@ -216,25 +227,15 @@ class SeedPhraseViewController: UIViewController {
             self.present(alert, animated: true)
         }
     }
-    
-    private func presentVC() {
-        let vc: UIViewController?
-        
-        vc = ViewControllerFactory.restoreDsnpIdViewController.instance()
-        
-        guard let vc = vc else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
-    }
 }
 
 extension SeedPhraseViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.seedPhraseWords.count ?? 0
+        return viewModel?.seedPhrase?.components(separatedBy: " ").count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let vertIndex = convertToVerticalIndex(from: indexPath.row, totalCount: viewModel?.seedPhraseWords.count ?? 0) else { return UICollectionViewCell() }
+        guard let vertIndex = convertToVerticalIndex(from: indexPath.row, totalCount: viewModel?.seedPhrase?.components(separatedBy: " ").count ?? 0) else { return UICollectionViewCell() }
         let index = indexPath.row
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeedPhraseCollectionViewCell.cellId, for: indexPath) as? SeedPhraseCollectionViewCell
@@ -243,7 +244,7 @@ extension SeedPhraseViewController: UICollectionViewDelegate, UICollectionViewDa
             cell?.number = vertIndex
             cell?.accessibilityIdentifier = "resultCell"
             if state == .viewSeedPhrase {
-                cell?.word = viewModel?.seedPhraseWords[vertIndex]
+                cell?.word = viewModel?.seedPhrase?.components(separatedBy: " ")[vertIndex]
             } else if state == .confirmSeedPhrase {
                 let validIndex = selectedWords.indices.contains(vertIndex)
                 cell?.word = validIndex ? selectedWords[vertIndex] : nil
@@ -260,7 +261,7 @@ extension SeedPhraseViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let vertIndex = convertToVerticalIndex(from: indexPath.row, totalCount: viewModel?.seedPhraseWords.count ?? 0) else { return }
+        guard let vertIndex = convertToVerticalIndex(from: indexPath.row, totalCount: viewModel?.seedPhrase?.components(separatedBy: " ").count ?? 0) else { return }
         let index = indexPath.row
         
         let _ = collectionView.dequeueReusableCell(withReuseIdentifier: SeedPhraseCollectionViewCell.cellId, for: indexPath) as? SeedPhraseCollectionViewCell

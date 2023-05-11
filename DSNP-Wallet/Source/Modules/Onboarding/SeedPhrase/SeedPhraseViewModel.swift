@@ -6,7 +6,18 @@
 //
 
 import Foundation
+import SoraKeystore
 
 class SeedPhraseViewModel {
-    var seedPhraseWords = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]
+    var seedPhrase: String?
+    var keychainManager = KeychainManager.shared
+    
+    init() {
+        guard let mnemonic = SeedManager.shared.generateMnemonic() else { return }
+        seedPhrase = mnemonic
+    }
+    
+    func save(mnemonic: String) {
+        try? AccountKeychain.shared.save(mnemonic: mnemonic)
+    }
 }

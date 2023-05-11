@@ -7,30 +7,67 @@
 
 import Foundation
 import UIKit
+import DSNPWallet
 
-class RestoreDsnpIdViewController: UIViewController {
+class RestoreDsnpIdViewController: UIViewController, UITextFieldDelegate {
+    
+    public var didSucceed:((User) -> Void)?
+    
+    public var viewModel: RestoreDsnpIdViewModel?
+    
+    private lazy var mnemonicTextField = getTextField(placeholder: "Input mnemomic")
+
     override func viewDidLoad() {
-        super.viewDidLoad()
+        setViews()
+    }
+}
+
+//MARK: UI
+extension RestoreDsnpIdViewController {
+    private func setViews() {
+        view.backgroundColor = .lightGray
         
-        view.backgroundColor = .white
-        setupStackView()
+        let stackview = UIStackView()
+        stackview.axis = .vertical
+        stackview.distribution = .equalSpacing
+        stackview.addArrangedSubview(SharedSpacer(height: 25))
+        stackview.addArrangedSubview(mnemonicTextField)
+        
+        let btn = UIButton(type: .system)
+        btn.setTitle("Submit", for: .normal)
+        btn.addTarget(self, action: #selector(tappedBtn(selector:)), for: .touchUpInside)
+        btn.titleLabel?.textColor = .black
+        btn.contentHorizontalAlignment = .center
+        
+        stackview.addArrangedSubview(SharedSpacer(height: 4))
+        stackview.addArrangedSubview(btn)
+        
+        stackview.addArrangedSubview(SharedSpacer(height: 25))
+        
+        view.addSubview(stackview)
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        stackview.layoutAttachAll(to: view)
+    }
+
+    private func getTextField(placeholder: String) -> SharedTextField {
+        let textField = SharedTextField(with: placeholder)
+        textField.delegate = self
+        textField.textAlignment = .center
+        textField.autocapitalizationType = .none
+        
+        return textField
     }
     
-    //MARK: UI
-    func setupStackView() {
-        let stackView = UIStackView()
-        stackView.distribution = .fillEqually
-        stackView.axis = .vertical
-        
-        let titleLabel = UILabel()
-        titleLabel.text = "Restore DSNP Id"
-        stackView.addArrangedSubview(titleLabel)
-        
-        view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        stackView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        stackView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+    @objc func tappedBtn(selector: UIButton?) {
+        //TODO: Decide how we want to include keys/user through this submit and pass through didSucceed completion block up to TabBarVC?
+        if let mnemonic = mnemonicTextField.text,
+           (try? viewModel?.submit(mnemonic: mnemonic)) != nil {
+            let user = User(mnemonic: mnemonic)
+            didSucceed?(user)
+        } else {
+            let alert = UIAlertController(title: "Bad mnemonic", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            present(alert, animated: true, completion: nil)
+        }
     }
 }
