@@ -31,7 +31,12 @@ class SeedPhraseViewController: UIViewController {
     
     private var stackView: UIStackView?
     private let sharedSpacer = SharedSpacer(height: 4.0)
-    private var titleLabel = UILabel()
+    private var titleLabel = {
+        let label = UILabel()
+        label.font = UIFont.Theme.semibold(ofSize: 22)
+        label.textColor = .white
+        return label
+    }()
     private var descriptionLabel = UILabel()
     private var nextBtn = SharedButton()
     
@@ -58,7 +63,7 @@ class SeedPhraseViewController: UIViewController {
         viewModel = SeedPhraseViewModel()
         remainingWords = viewModel?.seedPhraseWords.shuffled() ?? []
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.Theme.bgTeal
         setLabels()
         setBtns()
         setCollectionViews()
