@@ -14,12 +14,14 @@ class SeedPhraseCollectionViewCell: UICollectionViewCell {
     private var stackView = UIStackView()
     private var numberLabel = {
         let label = UILabel()
+        label.textColor = .white
         label.font = UIFont.Theme.spaceRegular(ofSize: 12)
         return label
     }()
     
     private var wordLabel = {
         let label = UILabel()
+        label.textColor = .white
         label.font = UIFont.Theme.spaceRegular(ofSize: 12)
         return label
     }()
@@ -82,5 +84,6 @@ class SeedPhraseCollectionViewCell: UICollectionViewCell {
     
         contentView.addSubview(stackView)
         stackView.layoutAttachAll(to: contentView)
+        layer.cornerRadius = 40
     }
 }
