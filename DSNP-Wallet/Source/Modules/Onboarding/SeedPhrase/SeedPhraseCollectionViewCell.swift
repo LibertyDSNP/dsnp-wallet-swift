@@ -12,10 +12,19 @@ class SeedPhraseCollectionViewCell: UICollectionViewCell {
     static let cellId = "SeedPhraseCollectionViewCell"
 
     private var stackView = UIStackView()
-    private var numberLabel = UILabel()
-    private var wordLabel = UILabel()
+    private var numberLabel = {
+        let label = UILabel()
+        label.font = UIFont.Theme.spaceRegular(ofSize: 12)
+        return label
+    }()
     
-    private let bgColor: UIColor = .orange
+    private var wordLabel = {
+        let label = UILabel()
+        label.font = UIFont.Theme.spaceRegular(ofSize: 12)
+        return label
+    }()
+    
+    private let bgColor: UIColor = UIColor.Theme.buttonOrange
     var isDeselected: Bool = false {
         didSet {
             contentView.backgroundColor = isDeselected ? .clear : bgColor
