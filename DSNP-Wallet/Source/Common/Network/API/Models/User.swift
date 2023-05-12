@@ -21,66 +21,30 @@ protocol UserFacadeProtocol: AnyObject  {
     func getAddress() -> String?
 }
 
-class User: UserFacadeProtocol, Equatable {
-    private let keystore = Keychain() //TODO: This class needs to be global
-    private(set) var keypair: IRCryptoKeypairProtocol?
-    
-    //MARK: User Protocol
-    //    private(set) var keys: DSNPKeys? //TODO: Need to implement keys from DSNPWallet Library
+class User: UserFacadeProtocol {
     private(set) var publicKey: IRPublicKeyProtocol?
     
     private(set) var name: String?
     private(set) var signer: SigningWrapper?
     
     init(mnemonic: String) {
-        self.keypair = getKeypair(mnemonic: mnemonic)
-        self.publicKey = keypair?.publicKey()
-
-        try? saveSecretKey(privateKeyData: self.keypair?.privateKey().rawData())
+        guard let keyPair = SeedManager.shared.getKeypair(mnemonic: mnemonic) else { return }
+  
+        try? AccountKeychain.shared.save(secretKey: keyPair.privateKey().rawData())
+        self.publicKey = keyPair.publicKey()
         try? setSigner(publicKeyData: self.publicKey?.rawData())
     }
     
     func set(_ name: String) {
         self.name = name
     }
-    
-    static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.name == rhs.name
-    }
-    
+
     func getAddress() -> String? {
         return try? publicKey?.rawData().toAddress(using: .substrate(FrequencyChain.shared.prefixValue))
     }
     
     func getAccountId() -> Data? {
         return try? publicKey?.rawData().publicKeyToAccountId()
-    }
-    
-    private func getKeypair(mnemonic: String) -> IRCryptoKeypairProtocol? {
-        let seedFactory = SeedFactory(mnemonicLanguage: .english)
-
-        guard let seedResult = try? seedFactory.deriveSeed(from: mnemonic, password: "") else {
-            return nil
-        }
-
-        let keypair = try? SR25519KeypairFactory().createKeypairFromSeed(
-            seedResult.seed.miniSeed,
-            chaincodeList: []
-        )
-
-        return keypair
-    }
-    
-    private func saveSecretKey(privateKeyData: Data?) throws {
-        guard let privateKeyData = privateKeyData,
-            let address = getAddress(),
-            let accountId = getAccountId() else {
-            throw ExtrinsicError.BadSetup
-        }
-        
-        let tag = KeystoreTagV2.substrateSecretKeyTagForMetaId(address, accountId: accountId)
-
-        try keystore.saveKey(privateKeyData, with: tag)
     }
 
     private func setSigner(publicKeyData: Data?) throws {
@@ -99,8 +63,14 @@ class User: UserFacadeProtocol, Equatable {
                                                    isEthereumBased: false,
                                                    isChainAccount: true)
         
-        signer = SigningWrapper(keystore: keystore,
+        signer = SigningWrapper(keystore: AccountKeychain.shared.keystore,
                                 metaId: address,
                                 accountResponse: accountResponse)
+    }
+}
+
+extension User: Equatable {
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.name == rhs.name
     }
 }

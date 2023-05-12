@@ -27,8 +27,6 @@
 		829960D52978C460009A769F /* SigningWrapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299603E2978C45D009A769F /* SigningWrapperProtocol.swift */; };
 		829960D62978C460009A769F /* DummySigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299603F2978C45D009A769F /* DummySigner.swift */; };
 		829960D72978C460009A769F /* ApplicationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960402978C45D009A769F /* ApplicationConfig.swift */; };
-		829960D82978C460009A769F /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960422978C45D009A769F /* Keychain.swift */; };
-		829960D92978C460009A769F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960432978C45D009A769F /* AuthManager.swift */; };
 		829960DA2978C460009A769F /* AccountKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960442978C45D009A769F /* AccountKeychain.swift */; };
 		829960DB2978C460009A769F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960452978C45D009A769F /* Logger.swift */; };
 		829960FD2978C460009A769F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960702978C45D009A769F /* BaseViewController.swift */; };
@@ -510,8 +508,6 @@
 		8299603E2978C45D009A769F /* SigningWrapperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigningWrapperProtocol.swift; sourceTree = "<group>"; };
 		8299603F2978C45D009A769F /* DummySigner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySigner.swift; sourceTree = "<group>"; };
 		829960402978C45D009A769F /* ApplicationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationConfig.swift; sourceTree = "<group>"; };
-		829960422978C45D009A769F /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		829960432978C45D009A769F /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		829960442978C45D009A769F /* AccountKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountKeychain.swift; sourceTree = "<group>"; };
 		829960452978C45D009A769F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		829960702978C45D009A769F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -1193,8 +1189,6 @@
 		829960412978C45D009A769F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				829960422978C45D009A769F /* Keychain.swift */,
-				829960432978C45D009A769F /* AuthManager.swift */,
 				829960442978C45D009A769F /* AccountKeychain.swift */,
 			);
 			path = Auth;
@@ -2645,7 +2639,6 @@
 				8299616B2978CD7E009A769F /* SigningWrapper.swift in Sources */,
 				8299663F297A1B5E009A769F /* OrmlAccount.swift in Sources */,
 				82996599297A1955009A769F /* SupportData.swift in Sources */,
-				829960D82978C460009A769F /* Keychain.swift in Sources */,
 				B5A62C7A2A0C231200A31178 /* UIScrollView+ScrollToBottom.swift in Sources */,
 				B5A62C0D2A0A900600A31178 /* CongratsModal.swift in Sources */,
 				829961352978C461009A769F /* SharedAvatarImageView.swift in Sources */,
@@ -2765,7 +2758,6 @@
 				82996685297B141A009A769F /* WeakWrapper.swift in Sources */,
 				82996498297A17F4009A769F /* ExtrinsicStatus.swift in Sources */,
 				829965A2297A1955009A769F /* RuntimeMetadataItem.swift in Sources */,
-				829960D92978C460009A769F /* AuthManager.swift in Sources */,
 				829961472978C461009A769F /* GenerateKeysViewController.swift in Sources */,
 				82996596297A1955009A769F /* ChainStorageDecodedItem.swift in Sources */,
 				82996375297A13CF009A769F /* RuntimeSyncService.swift in Sources */,

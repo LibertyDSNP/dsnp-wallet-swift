@@ -18,7 +18,7 @@ class AccountKeychain {
     let identifier = ""
     
     private let kAccessPin = "access_pin"
-    private(set) var isAuthorized: Bool = false {
+    private var isAuthorized: Bool = false {
         didSet {
             guard isAuthorized else { return }
             NotificationCenter.default.post(name: Notification.Name(NotificationType.retrievedKeys.rawValue),

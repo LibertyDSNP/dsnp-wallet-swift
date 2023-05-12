@@ -58,7 +58,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to undo the changes made on entering the background.
         
         //Accounts for when user has already entered pin, and has keys, then notify of retrieved keys.
-        if let _ = AuthManager.shared.loadKeys(authRequired: true) {
+        if let _ = try? AccountKeychain.shared.fetchKey() {
             dlManager.viewController = window?.rootViewController
             NotificationCenter.default.post(name: Notification.Name(NotificationType.retrievedKeys.rawValue),
                                             object: nil)

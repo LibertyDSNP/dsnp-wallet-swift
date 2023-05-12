@@ -10,7 +10,7 @@ import UIKit
 import DSNPWallet
 
 class TabBarViewController: UITabBarController {
-    var viewModel = TabBarViewModel()
+    var viewModel = TabBarViewModel(user: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -46,8 +46,7 @@ extension AccountCoordinator {
                 if let navigationController = window.rootViewController as? SharedNavigationController,
                    !(navigationController.viewControllers.first is BaseViewController) {
                     guard let vc = ViewControllerFactory.tabBarViewController.instance() as? TabBarViewController else { return }
-                    vc.viewModel = TabBarViewModel()
-                    vc.viewModel.user = user
+                    vc.viewModel = TabBarViewModel(user: user)
                     
                     window.rootViewController = vc
                     window.makeKeyAndVisible()
