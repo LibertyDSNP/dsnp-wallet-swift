@@ -9,11 +9,7 @@ import UIKit
 
 struct PuzzleElement {
     let word: String
-    let index: Int
-    
-    func == (lhs: PuzzleElement, rhs: PuzzleElement) -> Bool {
-        return lhs.index == rhs.index && lhs.word == rhs.word
-    }
+    let index: Int    
 }
 
 class SeedPuzzleViewModel: ObservableObject {
@@ -25,10 +21,14 @@ class SeedPuzzleViewModel: ObservableObject {
     var isComplete: Bool {
         for i in 0..<correctPuzzleElements.count {
             let element = correctPuzzleElements[i]
-            if !attemptedPuzzleElements.contains(element) {
+            
+            if let idx = attemptedPuzzleElements.firstIndex(where: { $0.index == element.index && $0.word == element.word }) {
+                // we're good
+            } else {
                 return false
             }
         }
+        
         return true
     }
     

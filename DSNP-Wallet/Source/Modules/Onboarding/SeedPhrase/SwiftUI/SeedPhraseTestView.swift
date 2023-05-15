@@ -44,7 +44,7 @@ struct SeedPhraseTestView: View {
 struct SeedPhrasePuzzle: View {
     var body: some View {
         VStack {
-            SeedEmptyPhraseColumnView(viewModel: SeedPuzzleViewModel(puzzleElements: [PuzzleElement(word: "hello", index: 0)]))
+            SeedEmptyPhraseColumnView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: [PuzzleElement(word: "hello", index: 0)]))
         }
     }
     
