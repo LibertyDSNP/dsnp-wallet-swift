@@ -6,7 +6,15 @@
 //
 
 import Foundation
+import Combine
 
 class SeedPhraseViewModel {
-    var seedPhraseWords = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]
+    
+    let testAction = PassthroughSubject<Void, Never>()
+    
+    let seedPhraseWords: [String]
+    
+    init(seedPhraseWords: [String]) {
+        self.seedPhraseWords = seedPhraseWords
+    }
 }

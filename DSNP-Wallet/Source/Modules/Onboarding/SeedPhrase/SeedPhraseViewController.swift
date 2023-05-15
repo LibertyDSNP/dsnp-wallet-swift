@@ -59,8 +59,8 @@ class SeedPhraseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel = SeedPhraseViewModel()
+        let words = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]
+        viewModel = SeedPhraseViewModel(seedPhraseWords: words)
         remainingWords = viewModel?.seedPhraseWords.shuffled() ?? []
         
         view.backgroundColor = UIColor.Theme.bgTeal

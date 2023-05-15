@@ -456,6 +456,8 @@
 		B5A62C932A0EA74400A31178 /* SpaceMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62C8F2A0EA74400A31178 /* SpaceMono-Italic.ttf */; };
 		B5A62C942A0EA74400A31178 /* SpaceMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62C902A0EA74400A31178 /* SpaceMono-Regular.ttf */; };
 		B5A62C972A0ED92800A31178 /* SeedPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C962A0ED92800A31178 /* SeedPhraseView.swift */; };
+		B5A62C992A12844000A31178 /* SeedPhraseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C982A12844000A31178 /* SeedPhraseTestView.swift */; };
+		B5A62C9B2A1285A800A31178 /* SeedPuzzleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -932,6 +934,8 @@
 		B5A62C8F2A0EA74400A31178 /* SpaceMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceMono-Italic.ttf"; sourceTree = "<group>"; };
 		B5A62C902A0EA74400A31178 /* SpaceMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceMono-Regular.ttf"; sourceTree = "<group>"; };
 		B5A62C962A0ED92800A31178 /* SeedPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseView.swift; sourceTree = "<group>"; };
+		B5A62C982A12844000A31178 /* SeedPhraseTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseTestView.swift; sourceTree = "<group>"; };
+		B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPuzzleViewModel.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -2053,6 +2057,8 @@
 			isa = PBXGroup;
 			children = (
 				B5A62C962A0ED92800A31178 /* SeedPhraseView.swift */,
+				B5A62C982A12844000A31178 /* SeedPhraseTestView.swift */,
+				B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -2397,6 +2403,7 @@
 				82996648297A1B5E009A769F /* UniquesClassDetails.swift in Sources */,
 				8299636A297A13CF009A769F /* ChainRegistryFacade.swift in Sources */,
 				829964CE297A17F4009A769F /* SubstrateOperationFactory.swift in Sources */,
+				B5A62C9B2A1285A800A31178 /* SeedPuzzleViewModel.swift in Sources */,
 				82996364297A13CF009A769F /* ExtrinsicProcessing.swift in Sources */,
 				8299649E297A17F4009A769F /* EmptyStreamableSource.swift in Sources */,
 				8299633F297A13CF009A769F /* PersistExtrinsicFactory.swift in Sources */,
@@ -2422,6 +2429,7 @@
 				B5A62C122A0A900600A31178 /* AgreeToTermsViewController.swift in Sources */,
 				8299693B29809C71009A769F /* AddPublicKeyToMsaCall.swift in Sources */,
 				8299690B297B721C009A769F /* TransactionHistoryItem+Wallet.swift in Sources */,
+				B5A62C992A12844000A31178 /* SeedPhraseTestView.swift in Sources */,
 				829964D6297A17F4009A769F /* User.swift in Sources */,
 				829968EB297B721C009A769F /* CompoundOperationWrapper+Result.swift in Sources */,
 				829965B8297A1955009A769F /* OrmlAssetExtras.swift in Sources */,

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SeedPhraseView: View {
+    
+    let viewModel: SeedPhraseViewModel
+    
     var body: some View {
         VStack {
             headline
@@ -155,6 +158,6 @@ struct SeedPhraseHelper {
 
 struct SeedPhraseView_Previews: PreviewProvider {
     static var previews: some View {
-        SeedPhraseView()
+        SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: ["Hello"]))
     }
 }
