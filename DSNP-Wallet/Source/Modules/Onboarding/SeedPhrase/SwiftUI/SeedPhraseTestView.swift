@@ -25,15 +25,15 @@ let dummyElements: [PuzzleElement] = [
 
 struct SeedPhraseTestView: View {
     
-    let viewModel: SeedPhraseViewModel
-    
+    @ObservedObject var viewModel: SeedPuzzleViewModel
+
     var body: some View {
         VStack {
             headline
             headlineSubtitle
             SeedPhrasePuzzle()
                 .padding(.vertical, 14)
-            SeedPhraseWordBank(words: dummyElements)
+            SeedPhraseWordBank(viewModel: viewModel)
             Spacer()
         }
         .padding(.top, 80)
@@ -96,15 +96,15 @@ struct SeedPhraseButton: View {
 
 struct SeedPhraseWordBank: View {
     
-    let words: [PuzzleElement]
+    @ObservedObject var viewModel: SeedPuzzleViewModel
     
     let layout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
-        LazyVGrid(columns: layout, spacing: 2) {
-            ForEach(words, id: \.self) { element in
+        LazyVGrid(columns: layout, spacing: 5) {
+            ForEach(viewModel.correctPuzzleElements, id: \.self) { element in
                 Button {
-                    // Action - deselect
+                    viewModel.selectWordAction.send(element)
                 } label: {
                     Text(element.word)
                         .foregroundColor(.white)
@@ -138,6 +138,6 @@ struct SeedEmptyPhraseColumnView: View {
 
 struct SeedPhraseTestView_Previews: PreviewProvider {
     static var previews: some View {
-        SeedPhraseTestView(viewModel: SeedPhraseViewModel(seedPhraseWords: ["Here", "are", "some", "words", "Here", "are", "some", "words", "Here", "are", "some", "words"]))
+        SeedPhraseTestView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: dummyElements))
     }
 }

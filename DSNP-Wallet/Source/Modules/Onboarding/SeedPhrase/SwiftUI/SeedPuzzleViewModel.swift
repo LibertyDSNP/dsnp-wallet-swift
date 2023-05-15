@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 struct PuzzleElement: Hashable {
     let word: String
@@ -16,29 +17,33 @@ struct PuzzleElement: Hashable {
     }
 }
 
-extension Array {
-    func split() -> [[Element]] {
-        let ct = self.count
-        let half = ct / 2
-        let leftSplit = self[0 ..< half]
-        let rightSplit = self[half ..< ct]
-        return [Array(leftSplit), Array(rightSplit)]
-    }
-}
-
 class SeedPuzzleViewModel: ObservableObject {
     
-    let correctPuzzleElements: [PuzzleElement]
+    // Actions
+    let selectWordAction = PassthroughSubject<PuzzleElement, Never>()
     
+    let correctPuzzleElements: [PuzzleElement]
+    var attemptedPuzzleElements = [PuzzleElement]()
+
     var columnOneElements: [PuzzleElement] {
-        return correctPuzzleElements.split().first ?? []
+        if attemptedPuzzleElements.count < 7 {
+            return attemptedPuzzleElements
+        } else {
+            return Array(attemptedPuzzleElements.prefix(6))
+        }
     }
     
     var columnTwoElements: [PuzzleElement] {
-        return correctPuzzleElements.split().last ?? []
+        if attemptedPuzzleElements.count < 7 {
+            return []
+        } else {
+            let numElements = attemptedPuzzleElements.count - 6
+            return Array(attemptedPuzzleElements.suffix(numElements))
+        }
     }
     
-    var attemptedPuzzleElements = [PuzzleElement]()
+    
+    var cancellables = [AnyCancellable]()
     
     var isComplete: Bool {
         for i in 0..<correctPuzzleElements.count {
@@ -58,9 +63,23 @@ class SeedPuzzleViewModel: ObservableObject {
         self.correctPuzzleElements = correctPuzzleElements
     }
     
-    func fillElement(index: Int, word: String) {
-        let element = PuzzleElement(word: word, index: index)
-        attemptedPuzzleElements.append(element)
+    private func setupObservables() {
+        selectWordAction
+            .receive(on: RunLoop.main)
+            .sink { [weak self] element in
+                guard let self else { return }
+                self.attemptedPuzzleElements.append(element)
+            }
+            .store(in: &cancellables)
     }
-    
+}
+
+extension Array {
+    func split() -> [[Element]] {
+        let ct = self.count
+        let half = ct / 2
+        let leftSplit = self[0 ..< half]
+        let rightSplit = self[half ..< ct]
+        return [Array(leftSplit), Array(rightSplit)]
+    }
 }
