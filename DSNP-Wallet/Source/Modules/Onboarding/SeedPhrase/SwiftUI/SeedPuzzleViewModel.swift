@@ -7,9 +7,13 @@
 
 import UIKit
 
-struct PuzzleElement {
+struct PuzzleElement: Hashable {
     let word: String
-    let index: Int    
+    let index: Int
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(word)
+    }
 }
 
 class SeedPuzzleViewModel: ObservableObject {

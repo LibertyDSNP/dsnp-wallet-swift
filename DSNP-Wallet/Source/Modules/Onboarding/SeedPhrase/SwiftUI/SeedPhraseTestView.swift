@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+let dummyElements: [PuzzleElement] = [
+    PuzzleElement(word: "hello", index: 0),
+    PuzzleElement(word: "hello", index: 1),
+    PuzzleElement(word: "hello", index: 2),
+    PuzzleElement(word: "hello", index: 3),
+    PuzzleElement(word: "hello", index: 4),
+    PuzzleElement(word: "hello", index: 5),
+    PuzzleElement(word: "hello", index: 6),
+    PuzzleElement(word: "hello", index: 7),
+    PuzzleElement(word: "hello", index: 8),
+    PuzzleElement(word: "hello", index: 9),
+    PuzzleElement(word: "hello", index: 10),
+    PuzzleElement(word: "hello", index: 11)
+]
+
+
 struct SeedPhraseTestView: View {
     
     let viewModel: SeedPhraseViewModel
@@ -16,6 +32,7 @@ struct SeedPhraseTestView: View {
             headline
             headlineSubtitle
             SeedPhrasePuzzle()
+                .padding(.vertical, 14)
             Spacer()
         }
         .padding(.top, 80)
@@ -43,11 +60,42 @@ struct SeedPhraseTestView: View {
 
 struct SeedPhrasePuzzle: View {
     var body: some View {
-        VStack {
-            SeedEmptyPhraseColumnView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: [PuzzleElement(word: "hello", index: 0)]))
+        HStack {
+            SeedEmptyPhraseColumnView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: dummyElements))
+            SeedEmptyPhraseColumnView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: dummyElements))
         }
     }
+}
+
+struct SeedPhraseButton: View {
     
+    let index: Int
+    var filled: Bool = false
+    
+    var body: some View {
+        Button {
+            // Action - deselect
+        } label: {
+            Text("\(index)")
+                .foregroundColor(.white)
+                .font(Font(UIFont.Theme.spaceBold(ofSize: 15)))
+                .frame(minWidth: 100, alignment: .leading)
+                .padding(.leading, 8)
+        }
+        .frame(minWidth: 100)
+        .overlay(
+            RoundedRectangle(cornerRadius: 40)
+                .stroke(Color(uiColor: UIColor.Theme.buttonOrange))
+        )
+    }
+}
+
+struct SeedPhraseWordBank: View {
+    var body: some View {
+        VStack {
+            
+        }
+    }
 }
 
 struct SeedEmptyPhraseColumnView: View {
@@ -56,13 +104,11 @@ struct SeedEmptyPhraseColumnView: View {
     
     var body: some View {
         VStack {
-            Button {
-                // Action
-            } label: {
-                
+            ForEach(Array(viewModel.correctPuzzleElements.enumerated()), id: \.element) { index, element in
+                SeedPhraseButton(index: index)
+                    .padding(.vertical, 1)
+                    .padding(.horizontal, 10)
             }
-            .cornerRadius(40)
-            .border(Color(uiColor: UIColor.Theme.buttonOrange), width: 1.5)
         }
     }
 }
@@ -70,6 +116,6 @@ struct SeedEmptyPhraseColumnView: View {
 
 struct SeedPhraseTestView_Previews: PreviewProvider {
     static var previews: some View {
-        SeedPhraseTestView(viewModel: SeedPhraseViewModel(seedPhraseWords: ["Here", "are", "some", "words"]))
+        SeedPhraseTestView(viewModel: SeedPhraseViewModel(seedPhraseWords: ["Here", "are", "some", "words", "Here", "are", "some", "words", "Here", "are", "some", "words"]))
     }
 }
