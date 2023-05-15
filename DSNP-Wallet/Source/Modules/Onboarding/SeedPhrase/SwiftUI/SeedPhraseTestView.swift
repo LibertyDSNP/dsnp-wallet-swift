@@ -9,17 +9,17 @@ import SwiftUI
 
 let dummyElements: [PuzzleElement] = [
     PuzzleElement(word: "hello", index: 0),
-    PuzzleElement(word: "hello", index: 1),
-    PuzzleElement(word: "hello", index: 2),
-    PuzzleElement(word: "hello", index: 3),
-    PuzzleElement(word: "hello", index: 4),
-    PuzzleElement(word: "hello", index: 5),
-    PuzzleElement(word: "hello", index: 6),
-    PuzzleElement(word: "hello", index: 7),
-    PuzzleElement(word: "hello", index: 8),
-    PuzzleElement(word: "hello", index: 9),
-    PuzzleElement(word: "hello", index: 10),
-    PuzzleElement(word: "hello", index: 11)
+    PuzzleElement(word: "there", index: 1),
+    PuzzleElement(word: "here", index: 2),
+    PuzzleElement(word: "is", index: 3),
+    PuzzleElement(word: "a", index: 4),
+    PuzzleElement(word: "seed", index: 5),
+    PuzzleElement(word: "phrase", index: 6),
+    PuzzleElement(word: "Ben", index: 7),
+    PuzzleElement(word: "is", index: 8),
+    PuzzleElement(word: "Cool", index: 9),
+    PuzzleElement(word: "Sandwich", index: 10),
+    PuzzleElement(word: "Pizza", index: 11)
 ]
 
 
@@ -33,6 +33,7 @@ struct SeedPhraseTestView: View {
             headlineSubtitle
             SeedPhrasePuzzle()
                 .padding(.vertical, 14)
+            SeedPhraseWordBank(words: dummyElements)
             Spacer()
         }
         .padding(.top, 80)
@@ -59,10 +60,13 @@ struct SeedPhraseTestView: View {
 }
 
 struct SeedPhrasePuzzle: View {
+    
+    let viewModel = SeedPuzzleViewModel(correctPuzzleElements: dummyElements)
+    
     var body: some View {
         HStack {
-            SeedEmptyPhraseColumnView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: dummyElements))
-            SeedEmptyPhraseColumnView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: dummyElements))
+            SeedEmptyPhraseColumnView(elements: viewModel.columnOneElements)
+            SeedEmptyPhraseColumnView(elements: viewModel.columnTwoElements)
         }
     }
 }
@@ -91,21 +95,39 @@ struct SeedPhraseButton: View {
 }
 
 struct SeedPhraseWordBank: View {
+    
+    let words: [PuzzleElement]
+    
+    let layout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
-        VStack {
-            
+        LazyVGrid(columns: layout, spacing: 2) {
+            ForEach(words, id: \.self) { element in
+                Button {
+                    // Action - deselect
+                } label: {
+                    Text(element.word)
+                        .foregroundColor(.white)
+                        .font(Font(UIFont.Theme.spaceRegular(ofSize: 15)))
+                        .frame(minWidth: 100, alignment: .center)
+                        .padding(.leading, 8)
+                }
+                .background(Color(uiColor: UIColor.Theme.buttonOrange))
+                .cornerRadius(40)
+                .frame(minWidth: 100)
+            }
         }
     }
 }
 
 struct SeedEmptyPhraseColumnView: View {
     
-    let viewModel: SeedPuzzleViewModel
+    let elements: [PuzzleElement]
     
     var body: some View {
         VStack {
-            ForEach(Array(viewModel.correctPuzzleElements.enumerated()), id: \.element) { index, element in
-                SeedPhraseButton(index: index)
+            ForEach(Array(elements.enumerated()), id: \.element) { index, element in
+                SeedPhraseButton(index: element.index)
                     .padding(.vertical, 1)
                     .padding(.horizontal, 10)
             }

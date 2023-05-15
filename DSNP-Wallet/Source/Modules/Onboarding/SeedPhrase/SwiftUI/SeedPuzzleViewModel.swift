@@ -16,9 +16,27 @@ struct PuzzleElement: Hashable {
     }
 }
 
+extension Array {
+    func split() -> [[Element]] {
+        let ct = self.count
+        let half = ct / 2
+        let leftSplit = self[0 ..< half]
+        let rightSplit = self[half ..< ct]
+        return [Array(leftSplit), Array(rightSplit)]
+    }
+}
+
 class SeedPuzzleViewModel: ObservableObject {
     
     let correctPuzzleElements: [PuzzleElement]
+    
+    var columnOneElements: [PuzzleElement] {
+        return correctPuzzleElements.split().first ?? []
+    }
+    
+    var columnTwoElements: [PuzzleElement] {
+        return correctPuzzleElements.split().last ?? []
+    }
     
     var attemptedPuzzleElements = [PuzzleElement]()
     
@@ -26,7 +44,7 @@ class SeedPuzzleViewModel: ObservableObject {
         for i in 0..<correctPuzzleElements.count {
             let element = correctPuzzleElements[i]
             
-            if let idx = attemptedPuzzleElements.firstIndex(where: { $0.index == element.index && $0.word == element.word }) {
+            if attemptedPuzzleElements.firstIndex(where: { $0.index == element.index && $0.word == element.word }) != nil {
                 // we're good
             } else {
                 return false
