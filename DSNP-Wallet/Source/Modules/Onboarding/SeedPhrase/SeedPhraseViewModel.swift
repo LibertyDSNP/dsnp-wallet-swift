@@ -14,6 +14,15 @@ class SeedPhraseViewModel {
     
     let seedPhraseWords: [String]
     
+    var colOneWords: [String] {
+        return seedPhraseWords.split().first ?? []
+    }
+    
+    var colTwoWords: [String] {
+        return seedPhraseWords.split().last ?? []
+    }
+    
+    
     init(seedPhraseWords: [String]) {
         self.seedPhraseWords = seedPhraseWords
     }

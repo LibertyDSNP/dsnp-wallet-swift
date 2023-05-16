@@ -105,6 +105,13 @@ class SeedPuzzleViewModel: ObservableObject {
     func shouldWordBankElementBeFilled(element: PuzzleElement) -> Bool {
         return inWordBankPuzzleElements.contains(element)
     }
+    
+    func columnElement(for index: Int) -> PuzzleElement? {
+        if attemptedPuzzleElements.indices.contains(index) {
+            return attemptedPuzzleElements[index]
+        }
+        return nil
+    }
 }
 
 extension Array {

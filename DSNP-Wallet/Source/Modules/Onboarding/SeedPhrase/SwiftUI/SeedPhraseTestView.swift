@@ -137,8 +137,8 @@ struct SeedEmptyPhraseColumnView: View {
     var body: some View {
         VStack {
             ForEach(isColOne ? 0...5 : 6...11, id: \.self) { index in
-                SeedPhraseButton(index: index, element: viewModel.attemptedPuzzleElements[index] ) {
-                    if viewModel.attemptedPuzzleElements.contains(viewModel.correctPuzzleElements[index]) {
+                SeedPhraseButton(index: index + 1, element: viewModel.columnElement(for: index)) {
+                    if viewModel.attemptedPuzzleElements.indices.contains(index) {
                         viewModel.deselectWordAction.send(viewModel.attemptedPuzzleElements[index])
                     }
                 }
