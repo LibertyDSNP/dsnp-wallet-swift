@@ -24,7 +24,8 @@ enum ViewControllerFactory: String, CaseIterable {
     case seedPhraseViewController
     case testViewController
     case qaViewController
-    
+    case signInViewController
+
     var className: String {
         return self.rawValue.firstUppercased
     }
@@ -43,6 +44,7 @@ enum ViewControllerFactory: String, CaseIterable {
                 .restoreDsnpIdViewController,
                 .seedPhraseViewController,
                 .testViewController,
+                .signInViewController,
                 .qaViewController:
             return nil
         default:
@@ -58,6 +60,8 @@ enum ViewControllerFactory: String, CaseIterable {
         } else {
             if self.className == "QaViewController" {
                 vc = QAViewController()
+            } else if self.className == "SignInViewController" {
+                vc = UINavigationController(rootViewController: SignInViewController())
             } else {
                 vc = UIViewController.fromString(viewControllerName: self.className)
             }
