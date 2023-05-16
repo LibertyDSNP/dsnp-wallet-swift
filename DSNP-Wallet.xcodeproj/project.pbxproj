@@ -458,6 +458,8 @@
 		B5A62C972A0ED92800A31178 /* SeedPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C962A0ED92800A31178 /* SeedPhraseView.swift */; };
 		B5A62C992A12844000A31178 /* SeedPhraseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C982A12844000A31178 /* SeedPhraseTestView.swift */; };
 		B5A62C9B2A1285A800A31178 /* SeedPuzzleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */; };
+		B5A62C9D2A13DD5400A31178 /* LBYSeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */; };
+		B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -936,6 +938,8 @@
 		B5A62C962A0ED92800A31178 /* SeedPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseView.swift; sourceTree = "<group>"; };
 		B5A62C982A12844000A31178 /* SeedPhraseTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseTestView.swift; sourceTree = "<group>"; };
 		B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPuzzleViewModel.swift; sourceTree = "<group>"; };
+		B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBYSeedPhraseViewController.swift; sourceTree = "<group>"; };
+		B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseTestViewController.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -2059,6 +2063,8 @@
 				B5A62C962A0ED92800A31178 /* SeedPhraseView.swift */,
 				B5A62C982A12844000A31178 /* SeedPhraseTestView.swift */,
 				B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */,
+				B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */,
+				B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -2638,6 +2644,7 @@
 				8299634F297A13CF009A769F /* RemoteSubscriptionService.swift in Sources */,
 				829966C0297B28A9009A769F /* StorageDecodingOperation.swift in Sources */,
 				829968D7297B721C009A769F /* CDChainStorageItem+CoreDataDecodable.swift in Sources */,
+				B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */,
 				82E4AECC29A6E2330071758A /* ExtrinsicManager+Balance.swift in Sources */,
 				82996361297A13CF009A769F /* EmptyHandlingStorageSubscription.swift in Sources */,
 				829961492978C461009A769F /* ProfileHeaderView.swift in Sources */,
@@ -2738,6 +2745,7 @@
 				8299614C2978C461009A769F /* SettingsViewController.swift in Sources */,
 				829966B7297B28A9009A769F /* LongrunOperation.swift in Sources */,
 				829965E4297A1AF1009A769F /* PersistentStoreCoordinator+Extensions.swift in Sources */,
+				B5A62C9D2A13DD5400A31178 /* LBYSeedPhraseViewController.swift in Sources */,
 				829961442978C461009A769F /* KeysViewController.swift in Sources */,
 				829961432978C461009A769F /* KeysViewController+Backup.swift in Sources */,
 				829965EE297A1AF1009A769F /* SubstrateDataModel.xcdatamodeld in Sources */,

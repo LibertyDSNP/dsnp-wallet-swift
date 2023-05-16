@@ -21,26 +21,35 @@ class SeedPuzzleViewModel: ObservableObject {
     
     // Actions
     let selectWordAction = PassthroughSubject<PuzzleElement, Never>()
-    
-    let correctPuzzleElements: [PuzzleElement]
-    var attemptedPuzzleElements = [PuzzleElement]()
+    let deselectWordAction = PassthroughSubject<PuzzleElement, Never>()
 
-    var columnOneElements: [PuzzleElement] {
-        if attemptedPuzzleElements.count < 7 {
-            return attemptedPuzzleElements
-        } else {
-            return Array(attemptedPuzzleElements.prefix(6))
-        }
-    }
+    let correctPuzzleElements: [PuzzleElement]
+    var inColumnPuzzleElements = [PuzzleElement]()
+    var inWordBankPuzzleElements: [PuzzleElement]
+
+    private var gameState = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
     
-    var columnTwoElements: [PuzzleElement] {
-        if attemptedPuzzleElements.count < 7 {
-            return []
-        } else {
-            let numElements = attemptedPuzzleElements.count - 6
-            return Array(attemptedPuzzleElements.suffix(numElements))
-        }
-    }
+    @Published var attemptedPuzzleElements = [PuzzleElement]()
+
+    @Published var columnOneElements = [PuzzleElement]()
+    @Published var columnTwoElements = [PuzzleElement]()
+
+//    var columnOneElements: [PuzzleElement] {
+//        if attemptedPuzzleElements.count < 7 {
+//            return attemptedPuzzleElements
+//        } else {
+//            return Array(attemptedPuzzleElements.prefix(6))
+//        }
+//    }
+//
+//    var columnTwoElements: [PuzzleElement] {
+//        if attemptedPuzzleElements.count < 7 {
+//            return []
+//        } else {
+//            let numElements = attemptedPuzzleElements.count - 6
+//            return Array(attemptedPuzzleElements.suffix(numElements))
+//        }
+//    }
     
     
     var cancellables = [AnyCancellable]()
@@ -61,6 +70,8 @@ class SeedPuzzleViewModel: ObservableObject {
     
     init(correctPuzzleElements: [PuzzleElement]) {
         self.correctPuzzleElements = correctPuzzleElements
+        self.inWordBankPuzzleElements = correctPuzzleElements
+        setupObservables()
     }
     
     private func setupObservables() {
@@ -68,9 +79,31 @@ class SeedPuzzleViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .sink { [weak self] element in
                 guard let self else { return }
+                
+                // update game state
                 self.attemptedPuzzleElements.append(element)
+                self.inWordBankPuzzleElements = self.inWordBankPuzzleElements.filter { $0 != element }
             }
             .store(in: &cancellables)
+        deselectWordAction
+            .receive(on: RunLoop.main)
+            .sink { [weak self] element in
+                guard let self else { return }
+                
+                // update game state
+                self.attemptedPuzzleElements = self.attemptedPuzzleElements.filter { $0 != element }
+                self.inWordBankPuzzleElements.append(element)
+                
+            }
+            .store(in: &cancellables)
+    }
+    
+    func shouldElementBeFilled(element: PuzzleElement) -> Bool {
+        return attemptedPuzzleElements.contains(element)
+    }
+    
+    func shouldWordBankElementBeFilled(element: PuzzleElement) -> Bool {
+        return inWordBankPuzzleElements.contains(element)
     }
 }
 

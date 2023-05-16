@@ -25,13 +25,13 @@ let dummyElements: [PuzzleElement] = [
 
 struct SeedPhraseTestView: View {
     
-    @ObservedObject var viewModel: SeedPuzzleViewModel
-
+    let viewModel: SeedPuzzleViewModel
+    
     var body: some View {
         VStack {
             headline
             headlineSubtitle
-            SeedPhrasePuzzle()
+            SeedPhrasePuzzle(viewModel: viewModel)
                 .padding(.vertical, 14)
             SeedPhraseWordBank(viewModel: viewModel)
             Spacer()
@@ -61,12 +61,12 @@ struct SeedPhraseTestView: View {
 
 struct SeedPhrasePuzzle: View {
     
-    let viewModel = SeedPuzzleViewModel(correctPuzzleElements: dummyElements)
+    let viewModel: SeedPuzzleViewModel
     
     var body: some View {
         HStack {
-            SeedEmptyPhraseColumnView(elements: viewModel.columnOneElements)
-            SeedEmptyPhraseColumnView(elements: viewModel.columnTwoElements)
+            SeedEmptyPhraseColumnView(viewModel: viewModel, isColOne: true)
+            SeedEmptyPhraseColumnView(viewModel: viewModel, isColOne: false)
         }
     }
 }
@@ -74,23 +74,26 @@ struct SeedPhrasePuzzle: View {
 struct SeedPhraseButton: View {
     
     let index: Int
-    var filled: Bool = false
-    
+    let element: PuzzleElement?
+    let action: () -> Void
+
     var body: some View {
         Button {
-            // Action - deselect
+            action()
         } label: {
-            Text("\(index)")
+            Text(element != nil ? "\(index) \(element?.word ?? "")" : "\(index)")
                 .foregroundColor(.white)
                 .font(Font(UIFont.Theme.spaceBold(ofSize: 15)))
                 .frame(minWidth: 100, alignment: .leading)
                 .padding(.leading, 8)
         }
+        .background(element != nil ? Color(uiColor: UIColor.Theme.buttonOrange) : .clear)
         .frame(minWidth: 100)
         .overlay(
             RoundedRectangle(cornerRadius: 40)
                 .stroke(Color(uiColor: UIColor.Theme.buttonOrange))
         )
+        .cornerRadius(40)
     }
 }
 
@@ -104,15 +107,21 @@ struct SeedPhraseWordBank: View {
         LazyVGrid(columns: layout, spacing: 5) {
             ForEach(viewModel.correctPuzzleElements, id: \.self) { element in
                 Button {
-                    viewModel.selectWordAction.send(element)
+                    if viewModel.shouldWordBankElementBeFilled(element: element) {
+                        viewModel.selectWordAction.send(element)
+                    }
                 } label: {
-                    Text(element.word)
+                    Text(viewModel.shouldWordBankElementBeFilled(element: element) ? element.word : "")
                         .foregroundColor(.white)
                         .font(Font(UIFont.Theme.spaceRegular(ofSize: 15)))
                         .frame(minWidth: 100, alignment: .center)
                         .padding(.leading, 8)
                 }
-                .background(Color(uiColor: UIColor.Theme.buttonOrange))
+                .background(viewModel.shouldWordBankElementBeFilled(element: element) ? Color(uiColor: UIColor.Theme.buttonOrange) : .clear)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 40)
+                        .stroke(Color(uiColor: UIColor.Theme.buttonOrange))
+                )
                 .cornerRadius(40)
                 .frame(minWidth: 100)
             }
@@ -122,14 +131,19 @@ struct SeedPhraseWordBank: View {
 
 struct SeedEmptyPhraseColumnView: View {
     
-    let elements: [PuzzleElement]
+    let viewModel: SeedPuzzleViewModel
+    let isColOne: Bool
     
     var body: some View {
         VStack {
-            ForEach(Array(elements.enumerated()), id: \.element) { index, element in
-                SeedPhraseButton(index: element.index)
-                    .padding(.vertical, 1)
-                    .padding(.horizontal, 10)
+            ForEach(isColOne ? 0...5 : 6...11, id: \.self) { index in
+                SeedPhraseButton(index: index, element: viewModel.attemptedPuzzleElements[index] ) {
+                    if viewModel.attemptedPuzzleElements.contains(viewModel.correctPuzzleElements[index]) {
+                        viewModel.deselectWordAction.send(viewModel.attemptedPuzzleElements[index])
+                    }
+                }
+                .padding(.vertical, 1)
+                .padding(.horizontal, 10)
             }
         }
     }

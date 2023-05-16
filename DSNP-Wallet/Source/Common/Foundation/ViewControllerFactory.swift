@@ -24,6 +24,7 @@ enum ViewControllerFactory: String, CaseIterable {
     case seedPhraseViewController
     case testViewController
     case qaViewController
+    case lBYSeedPhraseViewController
     case signInViewController
 
     var className: String {
@@ -45,6 +46,7 @@ enum ViewControllerFactory: String, CaseIterable {
                 .seedPhraseViewController,
                 .testViewController,
                 .signInViewController,
+                .lBYSeedPhraseViewController,
                 .qaViewController:
             return nil
         default:
@@ -60,6 +62,8 @@ enum ViewControllerFactory: String, CaseIterable {
         } else {
             if self.className == "QaViewController" {
                 vc = QAViewController()
+            } else if self.className == "LBYSeedPhraseViewController" {
+                vc = UINavigationController(rootViewController: LBYSeedPhraseViewController())
             } else if self.className == "SignInViewController" {
                 vc = UINavigationController(rootViewController: SignInViewController())
             } else {

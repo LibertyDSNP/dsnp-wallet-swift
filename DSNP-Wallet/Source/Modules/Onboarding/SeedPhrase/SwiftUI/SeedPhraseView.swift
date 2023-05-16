@@ -18,7 +18,7 @@ struct SeedPhraseView: View {
             testHeadline
             testDescription
             confirmText
-            SeedView()
+            SeedView(viewModel: viewModel)
             writtenDownButton
             Spacer()
         }
@@ -85,7 +85,7 @@ struct SeedPhraseView: View {
     
     private var writtenDownButton: some View {
         PrimaryButton(title: "I've written it down") {
-            // ACTION
+            viewModel.testAction.send()
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 30)
@@ -95,12 +95,12 @@ struct SeedPhraseView: View {
 
 struct SeedView: View {
     
-    let words: [String] = ["Cat","Dog","Rat","Hamster","Iguana","Newt"]
+    let viewModel: SeedPhraseViewModel
     
     var body: some View {
         HStack {
-            SeedPhraseColumnView()
-            SeedPhraseColumnView()
+            SeedPhraseColumnView(words: viewModel.colOneWords)
+            SeedPhraseColumnView(words: viewModel.colTwoWords)
         }
         .padding(.leading, 30)
         .frame(maxWidth: .infinity, alignment: .center)
@@ -108,7 +108,8 @@ struct SeedView: View {
 }
 
 struct SeedPhraseColumnView: View {
-    let words: [String] = ["Cat","Dog","Rat","Hamster","Iguana","Newt"]
+    
+    let words: [String]
     
     var body: some View {
         VStack {
@@ -116,7 +117,7 @@ struct SeedPhraseColumnView: View {
                 Text("\(SeedPhraseHelper.textForIndex(index: index)) \(element)")
                     .foregroundColor(.white)
                     .font(Font(UIFont.Theme.spaceRegular(ofSize: 15)))
-                    .frame(minWidth: 0, maxWidth: 100, minHeight: 0, maxHeight: 20, alignment: .leading)
+                    .frame(minWidth: 0, maxWidth: 120, minHeight: 0, maxHeight: 20, alignment: .leading)
 
             }
         }
@@ -158,6 +159,6 @@ struct SeedPhraseHelper {
 
 struct SeedPhraseView_Previews: PreviewProvider {
     static var previews: some View {
-        SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: ["Hello"]))
+        SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: ["Hello", "Foo", "bar", "beavis", "butthead","Hello", "Foo", "bar", "beavis", "butthead"]))
     }
 }
