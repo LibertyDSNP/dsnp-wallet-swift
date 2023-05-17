@@ -25,7 +25,7 @@ let dummyElements: [PuzzleElement] = [
 
 struct SeedPhraseTestView: View {
     
-    let viewModel: SeedPuzzleViewModel
+    @ObservedObject var viewModel: SeedPuzzleViewModel
     
     var body: some View {
         VStack {
@@ -34,6 +34,7 @@ struct SeedPhraseTestView: View {
             SeedPhrasePuzzle(viewModel: viewModel)
                 .padding(.vertical, 14)
             SeedPhraseWordBank(viewModel: viewModel)
+            continueButton
             Spacer()
         }
         .padding(.top, 80)
@@ -56,6 +57,15 @@ struct SeedPhraseTestView: View {
             .foregroundColor(.white)
             .font(Font(UIFont.Theme.regular(ofSize: 12)))
             .padding(.horizontal, 16)
+    }
+    
+    private var continueButton: some View {
+        SecondaryButton(title: "Continue", enabled: viewModel.continueEnabled) {
+            viewModel.continueAction.send()
+            print("continue enabled: ", viewModel.continueEnabled)
+        }
+        .padding(.horizontal, 30)
+        .padding(.vertical, 18)
     }
 }
 

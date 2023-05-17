@@ -26,6 +26,8 @@ extension UIColor {
         static var defaultTextColor: UIColor { return UIColor(red: 35/255, green: 35/255, blue: 48/255, alpha: 1)}
         static var congratsColor: UIColor { return UIColor(red: 5/255, green: 48/255, blue: 49/255, alpha: 1)}
         static var buttonOrange: UIColor { return UIColor(red: 218/255, green: 94/255, blue: 58/255, alpha: 1)}
+        static var buttonGray: UIColor { return UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)}
+
     }
 }
 
