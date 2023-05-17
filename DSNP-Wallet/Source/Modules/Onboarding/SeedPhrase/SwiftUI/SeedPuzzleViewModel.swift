@@ -62,9 +62,9 @@ class SeedPuzzleViewModel: ObservableObject {
                 guard let self else { return }
                 
                 // update game state
-                print("item selected: ", element)
 
-                self.puzzleItems[self.attemptedPuzzleElements.count] = element
+                // Get first empty index, place element there
+                self.puzzleItems[self.firstAvailableIndex()] = element
                 
                 self.attemptedPuzzleElements.append(element)
                 
@@ -81,9 +81,6 @@ class SeedPuzzleViewModel: ObservableObject {
 
                 // update game state
                 self.puzzleItems = self.puzzleItems.filter({ $0.value != element })
-                print("item deselected: ", element)
-                print("puzzle items: ", self.puzzleItems)
-
                 
                 self.continueEnabled = false
                 self.attemptedPuzzleElements = self.attemptedPuzzleElements.filter { $0 != element }
@@ -126,6 +123,15 @@ class SeedPuzzleViewModel: ObservableObject {
     
     func isPuzzleComplete() -> Bool {
         return puzzleItems.count == correctPuzzleElements.count
+    }
+    
+    private func firstAvailableIndex() -> Int {
+        for i in 0...12 {
+            if puzzleItems[i] == nil {
+                return i
+            }
+        }
+        return 0
     }
 }
 
