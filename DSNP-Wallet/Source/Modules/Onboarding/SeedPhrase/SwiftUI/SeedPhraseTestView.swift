@@ -131,7 +131,7 @@ struct SeedPhraseWordBank: View {
 
 struct SeedEmptyPhraseColumnView: View {
     
-    let viewModel: SeedPuzzleViewModel
+    @ObservedObject var viewModel: SeedPuzzleViewModel
     let isColOne: Bool
     
     var body: some View {
