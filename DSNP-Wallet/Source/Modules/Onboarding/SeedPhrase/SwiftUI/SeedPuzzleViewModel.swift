@@ -21,13 +21,15 @@ class SeedPuzzleViewModel: ObservableObject {
     
     // Actions
     let selectWordAction = PassthroughSubject<PuzzleElement, Never>()
-    let deselectWordAction = PassthroughSubject<PuzzleElement, Never>()
+    let deselectWordAction = PassthroughSubject<Int, Never>()
 
     let correctPuzzleElements: [PuzzleElement]
     var inColumnPuzzleElements = [PuzzleElement]()
     var inWordBankPuzzleElements: [PuzzleElement]
 
     private var gameState = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
+    
+    private var puzzleItems = [Int: PuzzleElement]()
     
     @Published var attemptedPuzzleElements = [PuzzleElement]()
 
@@ -81,16 +83,27 @@ class SeedPuzzleViewModel: ObservableObject {
                 guard let self else { return }
                 
                 // update game state
+                
+                self.puzzleItems[self.attemptedPuzzleElements.count] = element
+                
                 self.attemptedPuzzleElements.append(element)
+                
+                
                 self.inWordBankPuzzleElements = self.inWordBankPuzzleElements.filter { $0 != element }
             }
             .store(in: &cancellables)
         deselectWordAction
             .receive(on: RunLoop.main)
-            .sink { [weak self] element in
+            .sink { [weak self] index in
                 guard let self else { return }
                 
+                guard let element = self.puzzleItems[index] else { return }
+                
                 // update game state
+                print("puzzle before", self.puzzleItems)
+                self.puzzleItems = self.puzzleItems.filter({ $0.value != element })
+                print("puzzle after", self.puzzleItems)
+
                 self.attemptedPuzzleElements = self.attemptedPuzzleElements.filter { $0 != element }
                 self.inWordBankPuzzleElements.append(element)
                 
@@ -98,19 +111,16 @@ class SeedPuzzleViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func shouldElementBeFilled(element: PuzzleElement) -> Bool {
-        return attemptedPuzzleElements.contains(element)
+    func shouldElementBeFilled(for index: Int) -> Bool {
+        return puzzleItems[index] != nil
     }
     
     func shouldWordBankElementBeFilled(element: PuzzleElement) -> Bool {
-        return inWordBankPuzzleElements.contains(element)
+        return !puzzleItems.values.contains(element)
     }
     
     func columnElement(for index: Int) -> PuzzleElement? {
-        if attemptedPuzzleElements.indices.contains(index) {
-            return attemptedPuzzleElements[index]
-        }
-        return nil
+        return puzzleItems[index]
     }
 }
 
