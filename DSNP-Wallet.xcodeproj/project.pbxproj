@@ -398,8 +398,6 @@
 		82ADCB0C29F04DC200E8F8A2 /* RemoteStateCallRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADCB0B29F04DC200E8F8A2 /* RemoteStateCallRequest.swift */; };
 		82ADCB0E29F0564A00E8F8A2 /* ExtrinsicSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADCB0D29F0564A00E8F8A2 /* ExtrinsicSplitter.swift */; };
 		82C4DDEF283D459400A95E2A /* UserAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDEE283D459400A95E2A /* UserAPITests.swift */; };
-		82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */; };
-		82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */; };
 		82D16325299D57F100536349 /* ChainModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D16324299D57F100536349 /* ChainModelMapper.swift */; };
 		82DD90FB2966007F00A508B9 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FA2966007F00A508B9 /* WelcomeViewController.swift */; };
 		82DD910029661D8300A508B9 /* LookUpDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */; };
@@ -883,8 +881,6 @@
 		82ADCB0B29F04DC200E8F8A2 /* RemoteStateCallRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteStateCallRequest.swift; sourceTree = "<group>"; };
 		82ADCB0D29F0564A00E8F8A2 /* ExtrinsicSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrinsicSplitter.swift; sourceTree = "<group>"; };
 		82C4DDEE283D459400A95E2A /* UserAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPITests.swift; sourceTree = "<group>"; };
-		82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITestsLaunchTests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITestsLaunchTests.swift"; sourceTree = "<group>"; };
-		82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DSNP-WalletUITests.swift"; path = "../../DSNP-Wallet/DSNP-WalletUITests/DSNP-WalletUITests.swift"; sourceTree = "<group>"; };
 		82D16324299D57F100536349 /* ChainModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainModelMapper.swift; sourceTree = "<group>"; };
 		82DD90FA2966007F00A508B9 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpDsnpIdViewController.swift; sourceTree = "<group>"; };
@@ -1080,8 +1076,6 @@
 		8223AB7A2818917900DEF1E9 /* DSNP-WalletUITests */ = {
 			isa = PBXGroup;
 			children = (
-				82C4DDF2283D45A800A95E2A /* DSNP-WalletUITests.swift */,
-				82C4DDF1283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift */,
 			);
 			path = "DSNP-WalletUITests";
 			sourceTree = "<group>";
@@ -2795,8 +2789,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82C4DDF3283D45A800A95E2A /* DSNP-WalletUITestsLaunchTests.swift in Sources */,
-				82C4DDF4283D45A800A95E2A /* DSNP-WalletUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

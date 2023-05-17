@@ -45,7 +45,7 @@ class MsaSubscription {
     }
 }
 
-class GetMsaFromPublicKeyOperationFactory {
+private class GetMsaFromPublicKeyOperationFactory {
     let connection: JSONRPCEngine
     let runtimeService: RuntimeCodingServiceProtocol
     let storageRequestFactory: StorageRequestFactoryProtocol

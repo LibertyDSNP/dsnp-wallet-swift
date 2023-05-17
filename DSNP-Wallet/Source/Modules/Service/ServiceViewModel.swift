@@ -9,9 +9,6 @@ import RobinHood
 import SubstrateSdk
 
 protocol ServiceViewModelProtocol {
-    var extrinsicSubscriptionId: UInt16? { get set }
-    var txHandlerDelegate: TransactionHandlerDelegate? { get set }
-    
     func execute(extrinsic: ExtrinsicCalls,
                  from user: User,
                  subscriptionIdClosure: @escaping ExtrinsicSubscriptionIdClosure,
@@ -19,8 +16,6 @@ protocol ServiceViewModelProtocol {
     func getMsa(from user: User, completion: @escaping (UInt32)->())
     
     func process(from user: User, blockhash: Data, completion: @escaping TransactionSubscriptionCompletion)
-    func subscribeToTransaction(with txHashString: String)
-    func cancelExtrinsicSubscriptionIfNeeded()
 }
 
 class ServiceViewModel: ServiceViewModelProtocol {
@@ -34,7 +29,6 @@ class ServiceViewModel: ServiceViewModelProtocol {
     //Extrinsic Event Subscription
     var extrinsicSubscriptionId: UInt16?
     var txSubscriptionManager: TransactionSubscriptionManagerProtocol?
-    var txHandlerDelegate: TransactionHandlerDelegate?
     
     init() {
         //TODO: Overlapping logic between service coordinator and exMan and msaSubscription
@@ -76,18 +70,6 @@ class ServiceViewModel: ServiceViewModelProtocol {
         
         txSubscriptionManager?.process(blockHash: blockhash, completion: completion)
     }
-    
-    func subscribeToTransaction(with txHashString: String) {
-        txSubscriptionManager?.subscribeToTransaction(with: txHashString)
-    }
-    
-    func cancelExtrinsicSubscriptionIfNeeded() {
-        if let extrinsicSubscriptionId = extrinsicSubscriptionId,
-           let extrinsicService = extrinsicManager.extrinsicService {
-            extrinsicService.cancelExtrinsicWatch(for: extrinsicSubscriptionId)
-            self.extrinsicSubscriptionId = nil
-        }
-    }
 }
 
 //MARK: Setup
@@ -97,17 +79,12 @@ extension ServiceViewModel {
         
         let chainModel = FrequencyChain.shared.getChainModel()
         
-        let txLocalSubscriptionFactory = TransactionLocalSubscriptionFactory(
-            storageFacade: SubstrateDataStorageFacade.shared,
-            operationQueue: OperationManagerFacade.sharedDefaultQueue)
-        
-        self.txSubscriptionManager = TransactionSubscriptionManager(transactionLocalSubscriptionFactory: txLocalSubscriptionFactory,
-                                                                    chainRegistry: chainRegistry,
+        self.txSubscriptionManager = TransactionSubscriptionManager(chainRegistry: chainRegistry,
                                                                     repositoryFactory: repositoryFactory,
                                                                     accountId: accountId,
                                                                     chainModel: chainModel,
                                                                     storageRequestFactory: storageRequestFactory,
-                                                                    eventCenter: EventCenter.shared, handlerDelegate: txHandlerDelegate,
+                                                                    eventCenter: EventCenter.shared,
                                                                     logger: Logger.shared)
     }
 }

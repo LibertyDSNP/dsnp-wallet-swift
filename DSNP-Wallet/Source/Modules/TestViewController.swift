@@ -22,13 +22,7 @@ class TestViewController: ServiceViewController, UITextFieldDelegate {
     private lazy var secondaryTextField = getTextField(placeholder: "Secondary Mnemomic")
     
     override func viewDidLoad() {
-        viewModel?.txHandlerDelegate = self
-        
         setViews()
-    }
-    
-    deinit {
-        viewModel?.cancelExtrinsicSubscriptionIfNeeded()
     }
 }
 
@@ -78,7 +72,9 @@ extension TestViewController {
         let secondaryUser = User(mnemonic: secondaryMnemonicInput)
         
         //Closures
-        let subscriptionIdClosure = getSubscriptionIdClosure()
+        let subscriptionIdClosure: ExtrinsicSubscriptionIdClosure = { _ in
+            return true
+        }
         let notificationClosure = getSubscriptionNotificationClosure(completion: { items in
             guard let item = items.first else { return }
             
@@ -165,16 +161,6 @@ extension TestViewController {
 
 //MARK: Extrinsic Closure
 extension TestViewController {
-    func getSubscriptionIdClosure() -> ExtrinsicSubscriptionIdClosure {
-        let subscriptionIdClosure: ExtrinsicSubscriptionIdClosure = { [weak self] subscriptionId in
-            self?.viewModel?.extrinsicSubscriptionId = subscriptionId
-            
-            return self != nil
-        }
-        
-        return subscriptionIdClosure
-    }
-    
     func getSubscriptionNotificationClosure(completion: @escaping TransactionSubscriptionCompletion) -> ExtrinsicSubscriptionStatusClosure {
         let notificationClosure: ExtrinsicSubscriptionStatusClosure = { [weak self] result in
             var text = ""
@@ -193,8 +179,6 @@ extension TestViewController {
                 case .other:
                     text = "other status"
                 }
-                
-                self?.viewModel?.cancelExtrinsicSubscriptionIfNeeded()
 
             case .failure(let error):
                 text = "\(error)"
@@ -218,16 +202,5 @@ extension TestViewController {
         viewModel?.process(from: primaryUser,
                            blockhash: blockHash,
                            completion: completion)
-    }
-}
-
-extension TestViewController: TransactionHandlerDelegate {
-    func handleTransactions(result: Result<[RobinHood.DataProviderChange<TransactionHistoryItem>], Error>) {
-        switch result {
-        case .success(let items):
-            print(items)
-        case .failure(let error):
-            print(error)
-        }
     }
 }
