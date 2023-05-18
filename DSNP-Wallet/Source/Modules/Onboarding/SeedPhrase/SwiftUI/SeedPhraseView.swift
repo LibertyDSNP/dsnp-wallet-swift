@@ -98,6 +98,7 @@ struct SeedPhraseView: View {
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 30)
+        .accessibilityIdentifier(AccessibilityIdentifier.SeedPhraseIdentifier.seedPhraseListWrittenButton)
     }
     
 }
@@ -129,6 +130,7 @@ struct SeedPhraseColumnView: View {
                     .frame(minWidth: 0, maxWidth: 120, minHeight: 0, maxHeight: 20, alignment: .leading)
             }
         }
+        .accessibilityIdentifier(isColOne ? AccessibilityIdentifier.SeedPhraseIdentifier.seedPhraseListIdentifierA : AccessibilityIdentifier.SeedPhraseIdentifier.seedPhraseListIdentifierB)
     }
 }
 

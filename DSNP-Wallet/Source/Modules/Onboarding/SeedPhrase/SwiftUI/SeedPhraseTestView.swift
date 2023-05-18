@@ -22,7 +22,6 @@ let dummyElements: [PuzzleElement] = [
     PuzzleElement(word: "Pizza", index: 11)
 ]
 
-
 struct SeedPhraseTestView: View {
     
     @ObservedObject var viewModel: SeedPuzzleViewModel
@@ -76,6 +75,7 @@ struct SeedPhraseTestView: View {
         }
         .padding(.horizontal, 30)
         .padding(.vertical, 18)
+        .accessibilityIdentifier(AccessibilityIdentifier.SeedPhraseTestIdentifier.seedPhraseTestContinueButton)
     }
     
     private var title: some View {
@@ -153,6 +153,7 @@ struct SeedPhraseWordBank: View {
                 .cornerRadius(40)
             }
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.SeedPhraseTestIdentifier.seedPhraseTestWordBank)
     }
 }
 
@@ -173,6 +174,7 @@ struct SeedEmptyPhraseColumnView: View {
                 .padding(.horizontal, 10)
             }
         }
+        .accessibilityIdentifier(isColOne ? AccessibilityIdentifier.SeedPhraseTestIdentifier.seedPhraseTestListIdentifierA : AccessibilityIdentifier.SeedPhraseTestIdentifier.seedPhraseTestListIdentifierB)
     }
 }
 
