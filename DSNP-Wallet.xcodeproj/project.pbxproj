@@ -31,7 +31,6 @@
 		823BDB9E2A017A0A00F81F9C /* AssetBalanceChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823BDB9D2A017A0A00F81F9C /* AssetBalanceChanged.swift */; };
 		823BDBA02A03010500F81F9C /* TransactionLocalSubscriptionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823BDB9F2A03010500F81F9C /* TransactionLocalSubscriptionFactory.swift */; };
 		823BDBA22A03012900F81F9C /* TransactionLocalStorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823BDBA12A03012900F81F9C /* TransactionLocalStorageHandler.swift */; };
-		823BDBAE2A031C3100F81F9C /* SubstrateDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 823BDBA32A031C3100F81F9C /* SubstrateDataModel.xcdatamodeld */; };
 		826B5F8C29F0A01C0028253D /* MSASubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B5F8B29F0A01C0028253D /* MSASubscription.swift */; };
 		826B5F8E29F0A0530028253D /* SubscriptionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B5F8D29F0A0530028253D /* SubscriptionError.swift */; };
 		826B5F9029F0A0900028253D /* TransactionSubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B5F8F29F0A0900028253D /* TransactionSubscriptionManager.swift */; };
@@ -454,6 +453,7 @@
 		B5A62C522A0AA27E00A31178 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62BF32A0A8F2B00A31178 /* Poppins-BlackItalic.ttf */; };
 		B5A62C532A0AA27E00A31178 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62BF12A0A8F2A00A31178 /* Poppins-ThinItalic.ttf */; };
 		B5A62C542A0AA27E00A31178 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62BE82A0A8F2900A31178 /* Poppins-Medium.ttf */; };
+		B5D38F212A16A04D00A24304 /* SubstrateDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5D38F162A16A04C00A24304 /* SubstrateDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -497,19 +497,9 @@
 		823BDB962A01708000F81F9C /* EventVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVisitor.swift; sourceTree = "<group>"; };
 		823BDB982A0171C200F81F9C /* WalletTransactionListUpdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransactionListUpdated.swift; sourceTree = "<group>"; };
 		823BDB9B2A01792C00F81F9C /* TokenSubscriptionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenSubscriptionFactory.swift; sourceTree = "<group>"; };
-		823BDB9D2A017A0A00F81F9C /* AssetBalanceChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AssetBalanceChanged.swift; path = "/Users/ryansheh/Documents/Primary/dsnp-wallet-swift/DSNP-Wallet/Source/Common/EventCenter/Events/AssetBalanceChanged.swift"; sourceTree = "<absolute>"; };
+		823BDB9D2A017A0A00F81F9C /* AssetBalanceChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AssetBalanceChanged.swift; path = "/Users/ben/Documents/Unfinished/untitled folder/dsnp-wallet-swift/DSNP-Wallet/Source/Common/EventCenter/Events/AssetBalanceChanged.swift"; sourceTree = "<absolute>"; };
 		823BDB9F2A03010500F81F9C /* TransactionLocalSubscriptionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLocalSubscriptionFactory.swift; sourceTree = "<group>"; };
 		823BDBA12A03012900F81F9C /* TransactionLocalStorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLocalStorageHandler.swift; sourceTree = "<group>"; };
-		823BDBA42A031C3100F81F9C /* SubstrateDataModel9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel9.xcdatamodel; sourceTree = "<group>"; };
-		823BDBA52A031C3100F81F9C /* SubstrateDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel.xcdatamodel; sourceTree = "<group>"; };
-		823BDBA62A031C3100F81F9C /* SubstrateDataModel10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel10.xcdatamodel; sourceTree = "<group>"; };
-		823BDBA72A031C3100F81F9C /* SubstrateDataModel5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel5.xcdatamodel; sourceTree = "<group>"; };
-		823BDBA82A031C3100F81F9C /* SubstrateDataModel6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel6.xcdatamodel; sourceTree = "<group>"; };
-		823BDBA92A031C3100F81F9C /* SubstrateDataModel3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel3.xcdatamodel; sourceTree = "<group>"; };
-		823BDBAA2A031C3100F81F9C /* SubstrateDataModel4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel4.xcdatamodel; sourceTree = "<group>"; };
-		823BDBAB2A031C3100F81F9C /* SubstrateDataModel8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel8.xcdatamodel; sourceTree = "<group>"; };
-		823BDBAC2A031C3100F81F9C /* SubstrateDataModel2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel2.xcdatamodel; sourceTree = "<group>"; };
-		823BDBAD2A031C3100F81F9C /* SubstrateDataModel7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel7.xcdatamodel; sourceTree = "<group>"; };
 		8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_DSNP_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		826B5F8B29F0A01C0028253D /* MSASubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSASubscription.swift; sourceTree = "<group>"; };
 		826B5F8D29F0A0530028253D /* SubscriptionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionError.swift; sourceTree = "<group>"; };
@@ -937,6 +927,16 @@
 		B5A62C292A0A90D100A31178 /* BaseRoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRoundView.swift; sourceTree = "<group>"; };
 		B5A62C2A2A0A90D100A31178 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		B5A62C2F2A0A9BB400A31178 /* CongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewController.swift; sourceTree = "<group>"; };
+		B5D38F172A16A04C00A24304 /* SubstrateDataModel9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel9.xcdatamodel; sourceTree = "<group>"; };
+		B5D38F182A16A04C00A24304 /* SubstrateDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel.xcdatamodel; sourceTree = "<group>"; };
+		B5D38F192A16A04C00A24304 /* SubstrateDataModel10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel10.xcdatamodel; sourceTree = "<group>"; };
+		B5D38F1A2A16A04C00A24304 /* SubstrateDataModel5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel5.xcdatamodel; sourceTree = "<group>"; };
+		B5D38F1B2A16A04C00A24304 /* SubstrateDataModel6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel6.xcdatamodel; sourceTree = "<group>"; };
+		B5D38F1C2A16A04C00A24304 /* SubstrateDataModel3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel3.xcdatamodel; sourceTree = "<group>"; };
+		B5D38F1D2A16A04C00A24304 /* SubstrateDataModel4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel4.xcdatamodel; sourceTree = "<group>"; };
+		B5D38F1E2A16A04C00A24304 /* SubstrateDataModel8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel8.xcdatamodel; sourceTree = "<group>"; };
+		B5D38F1F2A16A04C00A24304 /* SubstrateDataModel2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel2.xcdatamodel; sourceTree = "<group>"; };
+		B5D38F202A16A04C00A24304 /* SubstrateDataModel7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel7.xcdatamodel; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1337,12 +1337,12 @@
 		829960822978C45E009A769F /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				B5D38F162A16A04C00A24304 /* SubstrateDataModel.xcdatamodeld */,
 				829965CA297A1AF0009A769F /* ChainStorageIdFactory.swift */,
 				829965DC297A1AF0009A769F /* EntityToModel */,
 				829965CB297A1AF0009A769F /* LocalStorageKeyFactory.swift */,
 				829965DA297A1AF0009A769F /* MigrationMappings */,
 				829965D8297A1AF0009A769F /* Model.xcdatamodeld */,
-				823BDBA32A031C3100F81F9C /* SubstrateDataModel.xcdatamodeld */,
 				829965C6297A1AF0009A769F /* PersistentStoreCoordinator+Extensions.swift */,
 				829965C8297A1AF0009A769F /* PersistentValueSettings.swift */,
 				829965C7297A1AF0009A769F /* SelectedWalletSettings.swift */,
@@ -2576,6 +2576,7 @@
 				8299634C297A13CF009A769F /* SubscriptionStorageKeys.swift in Sources */,
 				8299690F297B721C009A769F /* UIFont+Theme.swift in Sources */,
 				829961342978C461009A769F /* SharedStackView.swift in Sources */,
+				B5D38F212A16A04D00A24304 /* SubstrateDataModel.xcdatamodeld in Sources */,
 				829964A6297A17F4009A769F /* WalletNetworkFacade+BalanceLocks.swift in Sources */,
 				82996633297A1B5E009A769F /* BalanceLock.swift in Sources */,
 				826B5F9029F0A0900028253D /* TransactionSubscriptionManager.swift in Sources */,
@@ -2769,7 +2770,6 @@
 				829968D9297B721C009A769F /* CDTransactionHistoryItem+CoreDataDecodable.swift in Sources */,
 				82996341297A13CF009A769F /* BaseSyncService.swift in Sources */,
 				82996923297B7285009A769F /* NumberFormatter.swift in Sources */,
-				823BDBAE2A031C3100F81F9C /* SubstrateDataModel.xcdatamodeld in Sources */,
 				8299636B297A13CF009A769F /* WebSocketEngine+Connection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3222,26 +3222,6 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		823BDBA32A031C3100F81F9C /* SubstrateDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				823BDBA42A031C3100F81F9C /* SubstrateDataModel9.xcdatamodel */,
-				823BDBA52A031C3100F81F9C /* SubstrateDataModel.xcdatamodel */,
-				823BDBA62A031C3100F81F9C /* SubstrateDataModel10.xcdatamodel */,
-				823BDBA72A031C3100F81F9C /* SubstrateDataModel5.xcdatamodel */,
-				823BDBA82A031C3100F81F9C /* SubstrateDataModel6.xcdatamodel */,
-				823BDBA92A031C3100F81F9C /* SubstrateDataModel3.xcdatamodel */,
-				823BDBAA2A031C3100F81F9C /* SubstrateDataModel4.xcdatamodel */,
-				823BDBAB2A031C3100F81F9C /* SubstrateDataModel8.xcdatamodel */,
-				823BDBAC2A031C3100F81F9C /* SubstrateDataModel2.xcdatamodel */,
-				823BDBAD2A031C3100F81F9C /* SubstrateDataModel7.xcdatamodel */,
-			);
-			currentVersion = 823BDBA62A031C3100F81F9C /* SubstrateDataModel10.xcdatamodel */;
-			name = SubstrateDataModel.xcdatamodeld;
-			path = "../../../../../nova-ios-app/novawallet/Common/Storage/SubstrateDataModel.xcdatamodeld";
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		829965CC297A1AF0009A769F /* UserDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
@@ -3263,6 +3243,26 @@
 			);
 			currentVersion = 829965D9297A1AF0009A769F /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		B5D38F162A16A04C00A24304 /* SubstrateDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B5D38F172A16A04C00A24304 /* SubstrateDataModel9.xcdatamodel */,
+				B5D38F182A16A04C00A24304 /* SubstrateDataModel.xcdatamodel */,
+				B5D38F192A16A04C00A24304 /* SubstrateDataModel10.xcdatamodel */,
+				B5D38F1A2A16A04C00A24304 /* SubstrateDataModel5.xcdatamodel */,
+				B5D38F1B2A16A04C00A24304 /* SubstrateDataModel6.xcdatamodel */,
+				B5D38F1C2A16A04C00A24304 /* SubstrateDataModel3.xcdatamodel */,
+				B5D38F1D2A16A04C00A24304 /* SubstrateDataModel4.xcdatamodel */,
+				B5D38F1E2A16A04C00A24304 /* SubstrateDataModel8.xcdatamodel */,
+				B5D38F1F2A16A04C00A24304 /* SubstrateDataModel2.xcdatamodel */,
+				B5D38F202A16A04C00A24304 /* SubstrateDataModel7.xcdatamodel */,
+			);
+			currentVersion = B5D38F192A16A04C00A24304 /* SubstrateDataModel10.xcdatamodel */;
+			name = SubstrateDataModel.xcdatamodeld;
+			path = "../../../../../../../untitled folder/SubstrateDataModel.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
