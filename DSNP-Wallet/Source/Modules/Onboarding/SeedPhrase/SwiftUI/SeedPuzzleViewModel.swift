@@ -126,7 +126,7 @@ class SeedPuzzleViewModel: ObservableObject {
     }
     
     private func firstAvailableIndex() -> Int {
-        for i in 0...12 {
+        for i in 0...correctPuzzleElements.count {
             if puzzleItems[i] == nil {
                 return i
             }

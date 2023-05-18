@@ -91,7 +91,7 @@ struct SeedPhraseButton: View {
         Button {
             action()
         } label: {
-            Text(element != nil ? "\(index) \(element?.word ?? "")" : "\(index)")
+            Text(element != nil ? "\(SeedPhraseHelper.textForIndex(index: index)) \(element?.word ?? "")" : "\(SeedPhraseHelper.textForIndex(index: index))")
                 .foregroundColor(.white)
                 .font(Font(UIFont.Theme.spaceBold(ofSize: 15)))
                 .frame(minWidth: 100, alignment: .leading)
@@ -147,7 +147,7 @@ struct SeedEmptyPhraseColumnView: View {
     var body: some View {
         VStack {
             ForEach(isColOne ? 0...5 : 6...11, id: \.self) { index in
-                SeedPhraseButton(index: index + 1, element: viewModel.columnElement(for: index)) {
+                SeedPhraseButton(index: index, element: viewModel.columnElement(for: index)) {
                     if viewModel.shouldElementBeFilled(for: index) {
                         viewModel.deselectWordAction.send(index)
                     }
