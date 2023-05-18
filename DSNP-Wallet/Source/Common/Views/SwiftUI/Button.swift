@@ -31,9 +31,8 @@ struct PrimaryButton: View {
 
 struct SecondaryButton: View {
     let title: String
-    @State var enabled = true
+    let enabled: Bool
     let action: () -> Void
-
     
     var body: some View {
         Button {
@@ -74,7 +73,7 @@ struct PrimaryButton_Previews: PreviewProvider {
                 print("button press!")
             }
             .padding(30)
-            SecondaryButton(title: "Secondary Button") {
+            SecondaryButton(title: "Secondary Button", enabled: true) {
                 print("button press secondary")
             }
             .padding(30)
