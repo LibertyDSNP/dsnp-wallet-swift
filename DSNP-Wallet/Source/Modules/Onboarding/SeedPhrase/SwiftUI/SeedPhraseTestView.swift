@@ -29,14 +29,19 @@ struct SeedPhraseTestView: View {
     @State private var showingAlert = false
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             title
                 .padding(.top, 20)
+                .frame(maxWidth: .infinity, alignment: .center)
             headline
                 .padding(.top, 80)
+                .padding(.horizontal, 20)
             headlineSubtitle
+                .padding(.horizontal, 20)
             SeedPhrasePuzzle(viewModel: viewModel)
                 .padding(.vertical, 14)
+                .padding(.horizontal, 20)
+                .frame(maxWidth: .infinity, alignment: .center)
             SeedPhraseWordBank(viewModel: viewModel)
                 .padding(.horizontal, 14)
             continueButton

@@ -400,10 +400,7 @@
 		82DD910029661D8300A508B9 /* LookUpDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */; };
 		82DD910229661DBB00A508B9 /* CreateDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */; };
 		82DD910429661E1200A508B9 /* RestoreDsnpWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */; };
-		82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD91052967755200A508B9 /* SeedPhraseViewController.swift */; };
-		82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */; };
 		82DD910B296CBC7100A508B9 /* SeedPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */; };
-		82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */; };
 		82E4AEC729A587B50071758A /* ExtrinsicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AEC629A587B50071758A /* ExtrinsicManager.swift */; };
 		82E4AECA29A6E22B0071758A /* ExtrinsicManager+Msa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */; };
 		82E4AECC29A6E2330071758A /* ExtrinsicManager+Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */; };
@@ -881,10 +878,7 @@
 		82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpDsnpIdViewController.swift; sourceTree = "<group>"; };
 		82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDsnpIdViewController.swift; sourceTree = "<group>"; };
 		82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreDsnpWalletViewController.swift; sourceTree = "<group>"; };
-		82DD91052967755200A508B9 /* SeedPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewController.swift; sourceTree = "<group>"; };
-		82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseColumnFlowLayout.swift; sourceTree = "<group>"; };
 		82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewModel.swift; sourceTree = "<group>"; };
-		82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseCollectionViewCell.swift; sourceTree = "<group>"; };
 		82E4AEC629A587B50071758A /* ExtrinsicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrinsicManager.swift; sourceTree = "<group>"; };
 		82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtrinsicManager+Msa.swift"; sourceTree = "<group>"; };
 		82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtrinsicManager+Balance.swift"; sourceTree = "<group>"; };
@@ -1990,10 +1984,7 @@
 			isa = PBXGroup;
 			children = (
 				B5A62C952A0ED91400A31178 /* SwiftUI */,
-				82DD91052967755200A508B9 /* SeedPhraseViewController.swift */,
-				82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */,
 				82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */,
-				82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */,
 			);
 			path = SeedPhrase;
 			sourceTree = "<group>";
@@ -2458,7 +2449,6 @@
 				82996934297F3510009A769F /* OrmlTokenTransfer.swift in Sources */,
 				829965AC297A1955009A769F /* ChainHistoryRange.swift in Sources */,
 				8299639B297A13CF009A769F /* ImmortalEraOperationFactory.swift in Sources */,
-				82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */,
 				82996687297B141A009A769F /* ByteLengthProcessor.swift in Sources */,
 				82996660297A1B5E009A769F /* SubstrateCallFactory.swift in Sources */,
 				82E4AECA29A6E22B0071758A /* ExtrinsicManager+Msa.swift in Sources */,
@@ -2530,7 +2520,6 @@
 				82996635297A1B5E009A769F /* Nomination.swift in Sources */,
 				829966C1297B28A9009A769F /* AsyncClosureOperation.swift in Sources */,
 				82996910297B721C009A769F /* KeystoreExtensions.swift in Sources */,
-				82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */,
 				8299636C297A13CF009A769F /* ConnectionFactory.swift in Sources */,
 				8299635E297A13CF009A769F /* AssetsBalanceUpdater.swift in Sources */,
 				82996634297A1B5E009A769F /* EraRewardPoints.swift in Sources */,
@@ -2689,7 +2678,6 @@
 				82E4AECE29A6E2E40071758A /* FrequencyChain.swift in Sources */,
 				B5A62C132A0A900600A31178 /* AgreeToTermsView.swift in Sources */,
 				82996351297A13CF009A769F /* OrmlAccountSubcriptionHandlingFactory.swift in Sources */,
-				82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */,
 				8299635C297A13CF009A769F /* ChildSubscriptionFactory.swift in Sources */,
 				8299639C297A13CF009A769F /* StorageKeySuffixMapper.swift in Sources */,
 				82996932297B750B009A769F /* FeeMetadataContext.swift in Sources */,

@@ -12,15 +12,21 @@ struct SeedPhraseView: View {
     let viewModel: SeedPhraseViewModel
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             title
                 .padding(.top, 20)
+                .frame(maxWidth: .infinity, alignment: .center)
             headline
                 .padding(.top, 80)
+                .padding(.horizontal, 20)
             headlineSubtitle
+                .padding(.horizontal, 20)
             testHeadline
+                .padding(.horizontal, 20)
             testDescription
+                .padding(.horizontal, 20)
             confirmText
+                .padding(.horizontal, 16)
             SeedView(viewModel: viewModel)
             writtenDownButton
             Spacer()
@@ -43,7 +49,6 @@ struct SeedPhraseView: View {
             .font(Font(UIFont.Theme.bold(ofSize: 22)))
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
-            .frame(alignment: .leading)
     }
     
     private var headlineSubtitle: some View {
@@ -59,8 +64,6 @@ struct SeedPhraseView: View {
             .font(Font(UIFont.Theme.regular(ofSize: 12)))
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
-            .frame(alignment: .leading)
-
     }
     
     private var testHeadline: some View {
@@ -69,7 +72,6 @@ struct SeedPhraseView: View {
             .font(Font(UIFont.Theme.bold(ofSize: 22)))
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
-            .frame(alignment: .leading)
     }
     
     private var confirmText: some View {
@@ -87,9 +89,8 @@ struct SeedPhraseView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 12)))
                 .padding(.horizontal, -8)
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 30)
         .padding(.vertical, 8)
-
     }
     
     private var writtenDownButton: some View {

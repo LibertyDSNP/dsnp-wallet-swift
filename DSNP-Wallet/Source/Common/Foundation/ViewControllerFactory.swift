@@ -21,7 +21,6 @@ enum ViewControllerFactory: String, CaseIterable {
     case lookUpDsnpIdViewController
     case createDsnpIdViewController
     case restoreDsnpIdViewController
-    case seedPhraseViewController
     case testViewController
     case qaViewController
     case lBYSeedPhraseViewController
@@ -43,7 +42,6 @@ enum ViewControllerFactory: String, CaseIterable {
                 .lookUpDsnpIdViewController,
                 .createDsnpIdViewController,
                 .restoreDsnpIdViewController,
-                .seedPhraseViewController,
                 .testViewController,
                 .signInViewController,
                 .lBYSeedPhraseViewController,
