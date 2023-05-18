@@ -24,34 +24,23 @@ class SeedPuzzleViewModel: ObservableObject {
     let deselectWordAction = PassthroughSubject<Int, Never>()
     let continueAction = PassthroughSubject<Void, Never>()
 
+    // Game State
     let correctPuzzleElements: [PuzzleElement]
     var inWordBankPuzzleElements: [PuzzleElement]
-    
+    var shuffledWordBankElements: [PuzzleElement]
+
     private var puzzleItems = [Int: PuzzleElement]()
     
-    
+    // Observed vars
     @Published var continueEnabled: Bool = false
     @Published var attemptedPuzzleElements = [PuzzleElement]()
 
     var cancellables = [AnyCancellable]()
     
-    var isComplete: Bool {
-        for i in 0..<correctPuzzleElements.count {
-            let element = correctPuzzleElements[i]
-            
-            if attemptedPuzzleElements.firstIndex(where: { $0.index == element.index && $0.word == element.word }) != nil {
-                // we're good
-            } else {
-                return false
-            }
-        }
-        
-        return true
-    }
-    
     init(correctPuzzleElements: [PuzzleElement]) {
         self.correctPuzzleElements = correctPuzzleElements
         self.inWordBankPuzzleElements = correctPuzzleElements
+        self.shuffledWordBankElements = correctPuzzleElements.shuffled()
         setupObservables()
     }
     
@@ -85,7 +74,6 @@ class SeedPuzzleViewModel: ObservableObject {
                 self.continueEnabled = false
                 self.attemptedPuzzleElements = self.attemptedPuzzleElements.filter { $0 != element }
                 self.inWordBankPuzzleElements.append(element)
-                
             }
             .store(in: &cancellables)
         continueAction
@@ -112,6 +100,7 @@ class SeedPuzzleViewModel: ObservableObject {
     }
     
     func isPuzzleCorrect() -> Bool {
+        guard puzzleItems.count != correctPuzzleElements.count else { return false }
         var isCorrect = true
         puzzleItems.forEach { key, value in
             if key != value.index {

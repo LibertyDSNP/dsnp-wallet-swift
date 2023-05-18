@@ -13,7 +13,10 @@ struct SeedPhraseView: View {
     
     var body: some View {
         VStack {
+            title
+                .padding(.top, 20)
             headline
+                .padding(.top, 80)
             headlineSubtitle
             testHeadline
             testDescription
@@ -22,10 +25,16 @@ struct SeedPhraseView: View {
             writtenDownButton
             Spacer()
         }
-        .padding(.top, 80)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
+    }
+    
+    private var title: some View {
+        Text("Recovery Phrase")
+            .foregroundColor(.white)
+            .font(Font(UIFont.Theme.regular(ofSize: 14)))
+            .frame(alignment: .center)
     }
     
     private var headline: some View {

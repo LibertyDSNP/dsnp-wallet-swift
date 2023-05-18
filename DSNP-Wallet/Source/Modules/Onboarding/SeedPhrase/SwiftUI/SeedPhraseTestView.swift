@@ -27,17 +27,22 @@ struct SeedPhraseTestView: View {
     
     @ObservedObject var viewModel: SeedPuzzleViewModel
     
+    @State private var showingAlert = false
+
     var body: some View {
         VStack {
+            title
+                .padding(.top, 20)
             headline
+                .padding(.top, 80)
             headlineSubtitle
             SeedPhrasePuzzle(viewModel: viewModel)
                 .padding(.vertical, 14)
             SeedPhraseWordBank(viewModel: viewModel)
+                .padding(.horizontal, 14)
             continueButton
             Spacer()
         }
-        .padding(.top, 80)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
@@ -61,11 +66,23 @@ struct SeedPhraseTestView: View {
     
     private var continueButton: some View {
         SecondaryButton(title: "Continue", enabled: viewModel.continueEnabled) {
-            viewModel.continueAction.send()
-            print("continue enabled: ", viewModel.continueEnabled)
+            if viewModel.continueEnabled {
+                viewModel.continueAction.send()
+                showingAlert = true
+            }
+        }
+        .alert("You got the test \(viewModel.isPuzzleCorrect() ? "Correct" : "Wrong")", isPresented: $showingAlert) {
+            Button("OK", role: .cancel) { }
         }
         .padding(.horizontal, 30)
         .padding(.vertical, 18)
+    }
+    
+    private var title: some View {
+        Text("Verify Recovery")
+            .foregroundColor(.white)
+            .font(Font(UIFont.Theme.regular(ofSize: 14)))
+            .frame(alignment: .center)
     }
 }
 
@@ -115,7 +132,7 @@ struct SeedPhraseWordBank: View {
     
     var body: some View {
         LazyVGrid(columns: layout, spacing: 5) {
-            ForEach(viewModel.correctPuzzleElements, id: \.self) { element in
+            ForEach(viewModel.shuffledWordBankElements, id: \.self) { element in
                 Button {
                     if viewModel.shouldWordBankElementBeFilled(element: element) {
                         viewModel.selectWordAction.send(element)
