@@ -100,7 +100,7 @@ class SeedPuzzleViewModel: ObservableObject {
     }
     
     func isPuzzleCorrect() -> Bool {
-        guard puzzleItems.count != correctPuzzleElements.count else { return false }
+        guard puzzleItems.count == correctPuzzleElements.count else { return false }
         var isCorrect = true
         puzzleItems.forEach { key, value in
             if key != value.index {
