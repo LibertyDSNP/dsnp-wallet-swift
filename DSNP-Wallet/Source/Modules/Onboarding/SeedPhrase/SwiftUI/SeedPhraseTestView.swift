@@ -113,11 +113,16 @@ struct SeedPhraseButton: View {
         Button {
             action()
         } label: {
-            Text(element != nil ? "\(SeedPhraseHelper.textForIndex(index: index)) \(element?.word ?? "")" : "\(SeedPhraseHelper.textForIndex(index: index))")
-                .foregroundColor(.white)
-                .font(Font(UIFont.Theme.spaceBold(ofSize: 15)))
-                .frame(minWidth: 110, alignment: .leading)
-                .padding(.leading, 8)
+            HStack {
+                Text("\(SeedPhraseHelper.textForIndex(index: index))")
+                    .foregroundColor(.white)
+                    .font(Font(UIFont.Theme.spaceBold(ofSize: 15)))
+                    .padding(.leading, 8)
+                Text(element != nil ? "\(element?.word ?? "")" : "")
+                    .foregroundColor(.white)
+                    .font(Font(UIFont.Theme.spaceRegular(ofSize: 15)))
+            }
+            .frame(minWidth: 110, alignment: .leading)
         }
         .frame(minWidth: 110, minHeight: 25)
         .background(element != nil ? Color(uiColor: UIColor.Theme.buttonOrange) : .clear)
