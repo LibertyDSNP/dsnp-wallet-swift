@@ -23,7 +23,12 @@ public class SiTypeRegistry: TypeRegistryProtocol {
         }
 
         let maybePathBasedName = type.pathBasedName
-
+        
+        //MARK: IMPORTANT, Maps RuntimeEvent strings to indices for ExtrinsicResults
+        if maybePathBasedName == "frequency_runtime.RuntimeEvent" {
+            return baseNodes["GenericEvent"]
+        }
+        
         if let pathBasedName = maybePathBasedName, let node = baseNodes[pathBasedName] {
             return node
         } else if let pathBasedName = maybePathBasedName, key != pathBasedName, types[pathBasedName] != nil {

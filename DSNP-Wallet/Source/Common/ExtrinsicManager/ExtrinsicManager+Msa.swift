@@ -10,7 +10,8 @@ import RobinHood
 import SubstrateSdk
 
 extension ExtrinsicManager {
-    func createMSA(completion completionClosure: @escaping ExtrinsicSubmitClosure) throws {
+    func createMSA(subscriptionIdClosure: @escaping ExtrinsicSubscriptionIdClosure,
+                   notificationClosure: @escaping ExtrinsicSubscriptionStatusClosure) throws {
         let closure: ExtrinsicBuilderClosure = { builder in
             let call = self.callFactory.createMsa()
             _ = try builder.adding(call: call)
@@ -18,14 +19,18 @@ extension ExtrinsicManager {
         }
         
         guard let signer = user?.signer else { throw ExtrinsicError.BadSetup }
-        
-        extrinsicService?.submit(closure,
-                                 signer: signer,
-                                 runningIn: .main,
-                                 completion: completionClosure)
+                
+        extrinsicService?.submitAndWatch(closure,
+                                         signer: signer,
+                                         runningIn: .main,
+                                         subscriptionIdClosure: subscriptionIdClosure,
+                                         notificationClosure: notificationClosure)
     }
     
-    func addPublicKeyToMsa(primaryUser: UserFacadeProtocol, secondaryUser: UserFacadeProtocol, completion completionClosure: @escaping ExtrinsicSubmitClosure) throws {
+    func addPublicKeyToMsa(primaryUser: UserFacadeProtocol,
+                           secondaryUser: UserFacadeProtocol,
+                           subscriptionIdClosure: @escaping ExtrinsicSubscriptionIdClosure,
+                           notificationClosure: @escaping ExtrinsicSubscriptionStatusClosure) throws {
         guard let primarySigner = primaryUser.signer,
               let secondarySigner = secondaryUser.signer,
               let primaryPublicKeyData = primaryUser.publicKey?.rawData(),
@@ -55,9 +60,10 @@ extension ExtrinsicManager {
             return builder
         }
         
-        extrinsicService?.submit(closure,
-                                 signer: primarySigner,
-                                 runningIn: .main,
-                                 completion: completionClosure)
+        extrinsicService?.submitAndWatch(closure,
+                                         signer: primarySigner,
+                                         runningIn: .main,
+                                         subscriptionIdClosure: subscriptionIdClosure,
+                                         notificationClosure: notificationClosure)
     }
 }

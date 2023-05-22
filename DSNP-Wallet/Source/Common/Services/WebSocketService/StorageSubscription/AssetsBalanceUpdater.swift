@@ -6,126 +6,150 @@ final class AssetsBalanceUpdater {
     let accountId: AccountId
     let chainRegistry: ChainRegistryProtocol
     let assetRepository: AnyDataProviderRepository<AssetBalance>
-    let chainRepository: AnyDataProviderRepository<ChainStorageItem>
+    let transactionSubscription: TransactionSubscription?
+    let extras: StatemineAssetExtras
     let eventCenter: EventCenterProtocol
     let operationQueue: OperationQueue
+    let logger: LoggerProtocol
 
-    private var lastDetailsValue: ChainStorageItem?
+    private var lastDetailsValue: Data?
     private var receivedDetails: Bool = false
 
-    private var lastAccountValue: ChainStorageItem?
+    private var lastAccountValue: Data?
     private var receivedAccount: Bool = false
-
-    private var hasChanges: Bool = false
+    private var lastAccountValueHash: Data?
 
     private let mutex = NSLock()
 
     init(
         chainAssetId: ChainAssetId,
         accountId: AccountId,
+        extras: StatemineAssetExtras,
         chainRegistry: ChainRegistryProtocol,
         assetRepository: AnyDataProviderRepository<AssetBalance>,
-        chainRepository: AnyDataProviderRepository<ChainStorageItem>,
+        transactionSubscription: TransactionSubscription?,
         eventCenter: EventCenterProtocol,
-        operationQueue: OperationQueue
+        operationQueue: OperationQueue,
+        logger: LoggerProtocol
     ) {
         self.chainAssetId = chainAssetId
         self.accountId = accountId
+        self.extras = extras
         self.chainRegistry = chainRegistry
         self.assetRepository = assetRepository
-        self.chainRepository = chainRepository
-        self.eventCenter = eventCenter
+        self.transactionSubscription = transactionSubscription
         self.operationQueue = operationQueue
+        self.eventCenter = eventCenter
+        self.logger = logger
     }
 
-    func handleAssetDetails(value: ChainStorageItem?) {
+    func handleAssetDetails(value: Data?, blockHash _: Data?) {
         mutex.lock()
 
         defer {
             mutex.unlock()
         }
 
-        hasChanges = hasChanges || (value != nil) || (!receivedDetails)
+        // we don't want to process asset details change transactions
+        let processingBlockHash = receivedDetails ? nil : lastAccountValueHash
+
         receivedDetails = true
+        lastDetailsValue = value
 
-        if value != nil {
-            lastDetailsValue = value
-        }
-
-        checkChanges(chainAssetId: chainAssetId, accountId: accountId)
+        checkChanges(
+            chainAssetId: chainAssetId,
+            accountId: accountId,
+            blockHash: processingBlockHash,
+            logger: logger
+        )
     }
 
-    func handleAssetAccount(value: ChainStorageItem?) {
+    func handleAssetAccount(value: Data?, blockHash: Data?) {
         mutex.lock()
 
         defer {
             mutex.unlock()
         }
 
-        hasChanges = hasChanges || (value != nil) || (!receivedAccount)
         receivedAccount = true
+        lastAccountValue = value
+        lastAccountValueHash = blockHash
 
-        if value != nil {
-            lastAccountValue = value
-        }
-
-        checkChanges(chainAssetId: chainAssetId, accountId: accountId)
+        checkChanges(chainAssetId: chainAssetId, accountId: accountId, blockHash: blockHash, logger: logger)
     }
 
-    private func checkChanges(chainAssetId: ChainAssetId, accountId: AccountId) {
-        if hasChanges, receivedAccount, receivedDetails {
-            hasChanges = false
-
-            let assetAccountWrapper: CompoundOperationWrapper<AssetAccount?> =
-                createStorageDecoderWrapper(for: lastAccountValue, path: .assetsAccount)
-
-            let assetDetailsWrapper: CompoundOperationWrapper<AssetDetails?> =
-                createStorageDecoderWrapper(for: lastDetailsValue, path: .assetsDetails)
-
-            let changesWrapper = createChangesOperationWrapper(
-                dependingOn: assetDetailsWrapper,
-                accountWrapper: assetAccountWrapper,
-                chainAssetId: chainAssetId,
-                accountId: accountId
-            )
-
-            let saveOperation = assetRepository.saveOperation({
-                let change = try changesWrapper.targetOperation.extractNoCancellableResultData()
-
-                if let remoteModel = change?.item {
-                    return [remoteModel]
-                } else {
-                    return []
-                }
-            }, {
-                let change = try changesWrapper.targetOperation.extractNoCancellableResultData()
-
-                if case let .delete(identifier) = change {
-                    return [identifier]
-                } else {
-                    return []
-                }
-            })
-
-            changesWrapper.addDependency(wrapper: assetAccountWrapper)
-            changesWrapper.addDependency(wrapper: assetDetailsWrapper)
-            saveOperation.addDependency(changesWrapper.targetOperation)
-
-            saveOperation.completionBlock = { [weak self] in
-                DispatchQueue.main.async {
-                    let maybeItem = try? changesWrapper.targetOperation.extractNoCancellableResultData()
-
-                    if maybeItem != nil {
-                        self?.eventCenter.notify(with: WalletBalanceChanged())
-                    }
-                }
-            }
-
-            let operations = assetDetailsWrapper.allOperations + assetAccountWrapper.allOperations +
-                changesWrapper.allOperations + [saveOperation]
-
-            operationQueue.addOperations(operations, waitUntilFinished: false)
-        }
+    private func checkChanges(
+        chainAssetId: ChainAssetId,
+        accountId: AccountId,
+        blockHash: Data?,
+        logger: LoggerProtocol
+    ) {
+//        if receivedAccount, receivedDetails {
+//            let assetAccountPath = StorageCodingPath.assetsAccount(from: extras.palletName)
+//            let assetAccountWrapper: CompoundOperationWrapper<AssetAccount?> =
+//                createStorageDecoderWrapper(for: lastAccountValue, path: assetAccountPath)
+//
+//            let assetDetailsPath = StorageCodingPath.assetsDetails(from: extras.palletName)
+//            let assetDetailsWrapper: CompoundOperationWrapper<AssetDetails?> =
+//                createStorageDecoderWrapper(for: lastDetailsValue, path: assetDetailsPath)
+//
+//            let changesWrapper = createChangesOperationWrapper(
+//                dependingOn: assetDetailsWrapper,
+//                accountWrapper: assetAccountWrapper,
+//                chainAssetId: chainAssetId,
+//                accountId: accountId
+//            )
+//
+//            let saveOperation = assetRepository.saveOperation({
+//                let change = try changesWrapper.targetOperation.extractNoCancellableResultData()
+//
+//                logger.debug("Asset change \(chainAssetId): \(String(describing: change))")
+//
+//                if let remoteModel = change?.item {
+//                    return [remoteModel]
+//                } else {
+//                    return []
+//                }
+//            }, {
+//                let change = try changesWrapper.targetOperation.extractNoCancellableResultData()
+//
+//                if case let .delete(identifier) = change {
+//                    return [identifier]
+//                } else {
+//                    return []
+//                }
+//            })
+//
+//            changesWrapper.addDependency(wrapper: assetAccountWrapper)
+//            changesWrapper.addDependency(wrapper: assetDetailsWrapper)
+//            saveOperation.addDependency(changesWrapper.targetOperation)
+//
+//            let accountData = lastAccountValue
+//
+//            saveOperation.completionBlock = { [weak self] in
+//                DispatchQueue.global().async {
+//                    let maybeItem = try? changesWrapper.targetOperation.extractNoCancellableResultData()
+//
+//                    if maybeItem != nil {
+//                        self?.handleTransactionIfNeeded(for: blockHash)
+//
+//                        let assetBalanceChangeEvent = AssetBalanceChanged(
+//                            chainAssetId: chainAssetId,
+//                            accountId: accountId,
+//                            changes: accountData,
+//                            block: blockHash
+//                        )
+//
+//                        self?.eventCenter.notify(with: assetBalanceChangeEvent)
+//                    }
+//                }
+//            }
+//
+//            let operations = assetDetailsWrapper.allOperations + assetAccountWrapper.allOperations +
+//                changesWrapper.allOperations + [saveOperation]
+//
+//            operationQueue.addOperations(operations, waitUntilFinished: false)
+//        }
     }
 
     private func createChangesOperationWrapper(
@@ -173,10 +197,10 @@ final class AssetsBalanceUpdater {
     }
 
     private func createStorageDecoderWrapper<T: Decodable>(
-        for value: ChainStorageItem?,
+        for value: Data?,
         path: StorageCodingPath
     ) -> CompoundOperationWrapper<T?> {
-        guard let storageData = value?.data else {
+        guard let storageData = value else {
             return CompoundOperationWrapper.createWithResult(nil)
         }
 
@@ -208,5 +232,12 @@ final class AssetsBalanceUpdater {
             targetOperation: mappingOperation,
             dependencies: [codingFactoryOperation, decodingOperation]
         )
+    }
+
+    private func handleTransactionIfNeeded(for blockHash: Data?) {
+        if let blockHash = blockHash {
+            logger.debug("Handle statemine change transactions")
+            transactionSubscription?.process(blockHash: blockHash)
+        }
     }
 }

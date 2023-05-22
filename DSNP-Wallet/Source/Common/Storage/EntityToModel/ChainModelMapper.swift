@@ -169,114 +169,12 @@ final class ChainModelMapper {
             entity.explorers = nil
         }
     }
-
-    private func createExternalApi(from entity: CDChain) -> ChainModel.ExternalApiSet? {
-        let staking: ChainModel.ExternalApi?
-
-        if let type = entity.stakingApiType, let url = entity.stakingApiUrl {
-            staking = ChainModel.ExternalApi(type: type, url: url)
-        } else {
-            staking = nil
-        }
-
-        let history: ChainModel.ExternalApi?
-
-        if let type = entity.historyApiType, let url = entity.historyApiUrl {
-            history = ChainModel.ExternalApi(type: type, url: url)
-        } else {
-            history = nil
-        }
-
-        let crowdloans: ChainModel.ExternalApi?
-
-        if let type = entity.crowdloansApiType, let url = entity.crowdloansApiUrl {
-            crowdloans = ChainModel.ExternalApi(type: type, url: url)
-        } else {
-            crowdloans = nil
-        }
-
-        if staking != nil || history != nil || crowdloans != nil {
-            return ChainModel.ExternalApiSet(staking: staking, history: history, crowdloans: crowdloans)
-        } else {
-            return nil
-        }
-    }
-
-    private func updateExternalApis(in entity: CDChain, from apis: ChainModel.ExternalApiSet?) {
-        entity.stakingApiType = apis?.staking?.type
-        entity.stakingApiUrl = apis?.staking?.url
-
-        entity.historyApiType = apis?.history?.type
-        entity.historyApiUrl = apis?.history?.url
-
-        entity.crowdloansApiType = apis?.crowdloans?.type
-        entity.crowdloansApiUrl = apis?.crowdloans?.url
-    }
 }
 
 extension ChainModelMapper: CoreDataMapperProtocol {
     func transform(entity: CDChain) throws -> ChainModel {
-        let assets: [AssetModel] = try entity.assets?.compactMap { anyAsset in
-            guard let asset = anyAsset as? CDAsset else {
-                return nil
-            }
-
-            return try createAsset(from: asset)
-        } ?? []
-
-        let nodes: [ChainNodeModel] = entity.nodes?.compactMap { anyNode in
-            guard let node = anyNode as? CDChainNode else {
-                return nil
-            }
-
-            return createChainNode(from: node)
-        } ?? []
-
-        let types: ChainModel.TypesSettings?
-
-        if let url = entity.types, let overridesCommon = entity.typesOverrideCommon {
-            types = .init(url: url, overridesCommon: overridesCommon.boolValue)
-        } else {
-            types = nil
-        }
-
-        var options: [ChainOptions] = []
-
-        if entity.isEthereumBased {
-            options.append(.ethereumBased)
-        }
-
-        if entity.isTestnet {
-            options.append(.testnet)
-        }
-
-        if entity.hasCrowdloans {
-            options.append(.crowdloans)
-        }
-
-        let externalApiSet = createExternalApi(from: entity)
-        let explorers = createExplorers(from: entity)
-
-        let additional: JSON? = try entity.additional.map {
-            try jsonDecoder.decode(JSON.self, from: $0)
-        }
-
-        return ChainModel(
-            chainId: entity.chainId!,
-            parentId: entity.parentId,
-            name: entity.name!,
-            assets: Set(assets),
-            nodes: Set(nodes),
-            addressPrefix: UInt16(bitPattern: entity.addressPrefix),
-            types: types,
-            icon: entity.icon!,
-            color: entity.color,
-            options: options.isEmpty ? nil : options,
-            externalApi: externalApiSet,
-            explorers: explorers,
-            order: entity.order,
-            additional: additional
-        )
+        
+        return FrequencyChain.shared.getChainModel()
     }
 
     func populate(
@@ -304,8 +202,6 @@ extension ChainModelMapper: CoreDataMapperProtocol {
         try updateEntityAssets(for: entity, from: model, context: context)
 
         updateEntityNodes(for: entity, from: model, context: context)
-
-        updateExternalApis(in: entity, from: model.externalApi)
 
         updateExplorers(for: entity, from: model.explorers)
     }

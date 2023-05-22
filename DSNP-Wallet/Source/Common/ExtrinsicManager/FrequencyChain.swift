@@ -26,7 +26,7 @@ struct FrequencyChain {
     let nodeUrl = ChainEnvironment.getNodeURL()
     let cryptoType: MultiassetCryptoType = .sr25519
     
-    func getFreqChainChange() -> DataProviderChange<ChainModel> {
+    func getChainModel() -> ChainModel {
         let typesSettingsUrl = URL(string: polkadotSettingsUrl)!
         let typesSettings = ChainModel.TypesSettings(
             url: typesSettingsUrl,
@@ -54,7 +54,7 @@ struct FrequencyChain {
             apikey: nil,
             order: 0
         )
-        let frequencyChainModel = ChainModel(
+        return ChainModel(
             chainId: id,
             parentId: nil,
             name: chainName,
@@ -70,8 +70,10 @@ struct FrequencyChain {
             order: 0,
             additional: nil
         )
-
-        let frequencyChange = DataProviderChange<ChainModel>.insert(newItem: frequencyChainModel)
+    }
+    
+    func getFreqChainChange() -> DataProviderChange<ChainModel> {
+        let frequencyChange = DataProviderChange<ChainModel>.insert(newItem: getChainModel())
         return frequencyChange
     }
 }
