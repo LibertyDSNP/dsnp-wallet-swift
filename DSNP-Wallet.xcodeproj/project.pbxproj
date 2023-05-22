@@ -416,6 +416,9 @@
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
 		B53BD7BE2A00408200967477 /* QAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BD2A00408200967477 /* QAViewModel.swift */; };
 		B53BD7C02A01571000967477 /* ChainEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BF2A01571000967477 /* ChainEnvironment.swift */; };
+		B58889722A1C008800BB784E /* TestRevokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58889712A1C008800BB784E /* TestRevokeViewController.swift */; };
+		B58889752A1C00A600BB784E /* RevokeTestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58889742A1C00A600BB784E /* RevokeTestsView.swift */; };
+		B58889772A1C022200BB784E /* RevokeTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58889762A1C022200BB784E /* RevokeTestsViewModel.swift */; };
 		B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F242A0007FF00A17F08 /* QAViewController.swift */; };
 		B5966F272A00080900A17F08 /* QAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F262A00080900A17F08 /* QAView.swift */; };
 		B5A62C092A0A900600A31178 /* ConfirmHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62BFC2A0A900500A31178 /* ConfirmHandleView.swift */; };
@@ -898,6 +901,9 @@
 		82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetBalanceChanged.swift; sourceTree = "<group>"; };
 		B53BD7BD2A00408200967477 /* QAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewModel.swift; sourceTree = "<group>"; };
 		B53BD7BF2A01571000967477 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainEnvironment.swift; sourceTree = "<group>"; };
+		B58889712A1C008800BB784E /* TestRevokeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRevokeViewController.swift; sourceTree = "<group>"; };
+		B58889742A1C00A600BB784E /* RevokeTestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeTestsView.swift; sourceTree = "<group>"; };
+		B58889762A1C022200BB784E /* RevokeTestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeTestsViewModel.swift; sourceTree = "<group>"; };
 		B5966F242A0007FF00A17F08 /* QAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
 		B5966F262A00080900A17F08 /* QAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
 		B5A62BE62A0A8F2900A31178 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -1425,6 +1431,7 @@
 		829960C42978C45F009A769F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B58889732A1C009000BB784E /* RevokeTestsScreen */,
 				B53BD7BF2A01571000967477 /* ChainEnvironment.swift */,
 				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
 				829960CA2978C45F009A769F /* GenerateKeysViewController.swift */,
@@ -2042,6 +2049,16 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		B58889732A1C009000BB784E /* RevokeTestsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B58889712A1C008800BB784E /* TestRevokeViewController.swift */,
+				B58889742A1C00A600BB784E /* RevokeTestsView.swift */,
+				B58889762A1C022200BB784E /* RevokeTestsViewModel.swift */,
+			);
+			path = RevokeTestsScreen;
+			sourceTree = "<group>";
+		};
 		B5966F232A0007EA00A17F08 /* QA */ = {
 			isa = PBXGroup;
 			children = (
@@ -2415,7 +2432,9 @@
 				82ADCB0A29F046F600E8F8A2 /* NoSigningSupportWrapper.swift in Sources */,
 				8299612E2978C461009A769F /* PurchaseCompleted.swift in Sources */,
 				829968F9297B721C009A769F /* StorageKeyFactory+Size.swift in Sources */,
+				B58889772A1C022200BB784E /* RevokeTestsViewModel.swift in Sources */,
 				8299649A297A17F4009A769F /* JSONRPCError+Presentable.swift in Sources */,
+				B58889722A1C008800BB784E /* TestRevokeViewController.swift in Sources */,
 				8299659D297A1955009A769F /* TextSharingSource.swift in Sources */,
 				82996344297A13CF009A769F /* AssetsUpdatingService.swift in Sources */,
 				82996696297B141A009A769F /* Scheduler.swift in Sources */,
@@ -2638,6 +2657,7 @@
 				8299658E297A1955009A769F /* SocialMessage.swift in Sources */,
 				B53BD7C02A01571000967477 /* ChainEnvironment.swift in Sources */,
 				829965BF297A1955009A769F /* AccountCreateError.swift in Sources */,
+				B58889752A1C00A600BB784E /* RevokeTestsView.swift in Sources */,
 				829965BA297A1955009A769F /* TransactionType.swift in Sources */,
 				82996588297A1955009A769F /* AssetType.swift in Sources */,
 				82996360297A13CF009A769F /* ExtrinsicProcessor+Matching.swift in Sources */,
