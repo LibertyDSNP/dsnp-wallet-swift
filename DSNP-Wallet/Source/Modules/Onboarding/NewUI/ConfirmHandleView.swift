@@ -49,7 +49,7 @@ struct ConfirmHandleView: View {
             .font(Font(UIFont.Theme.medium(ofSize: 22)))
             .foregroundColor(.black)
             .padding(.horizontal, 10)
-            .padding(.vertical, 2)
+            .padding(.vertical, 10)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
     
