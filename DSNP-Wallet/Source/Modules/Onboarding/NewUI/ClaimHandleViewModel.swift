@@ -40,7 +40,7 @@ class ClaimHandleViewModel: ObservableObject {
                     })
                     
                     // Upper limit is 16, lower limit is 4
-                    self.nextButtonDisabled = self.claimHandleText.count >= 4 || self.claimHandleText.count > 16
+                    self.nextButtonDisabled = self.claimHandleText.count <= 4 || self.claimHandleText.count > 16
                     self.errorMessage = {
                         if self.claimHandleText.count < 4 {
                             self.errorMessage = ClaimHandleError.handleTooShortError.rawValue

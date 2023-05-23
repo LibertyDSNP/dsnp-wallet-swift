@@ -97,7 +97,9 @@ struct ClaimHandleView: View {
     private var nextButton: some View {
         PrimaryButton(title: "Next", action:  {
             viewModel.nextAction.send()
-        }, disabled: viewModel.nextButtonDisabled)
+        })
+        .background(viewModel.nextButtonDisabled ? Color(uiColor: UIColor.Theme.disabledTeal) : Color(uiColor: UIColor.Theme.primaryTeal))
+        
     }
     
     private var skipButton: some View {

@@ -20,13 +20,8 @@ struct RevokeTestsView: View {
     private var setupMSAButton: some View {
         PrimaryButton(title: "Set up MSA", action: {
             // view model call
-        }, disabled: false)
+        })
         .padding(.horizontal, 20)
     }
 }
 
-struct RevokeTestsView_Previews: PreviewProvider {
-    static var previews: some View {
-        RevokeTestsView(viewModel: RevokeTestsViewModel())
-    }
-}

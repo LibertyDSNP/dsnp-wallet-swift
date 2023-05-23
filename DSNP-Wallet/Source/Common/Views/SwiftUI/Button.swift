@@ -11,8 +11,6 @@ struct PrimaryButton: View {
     let title: String
     let action: () -> Void
     
-    var disabled = false
-    
     var body: some View {
         Button {
             action()
@@ -23,7 +21,7 @@ struct PrimaryButton: View {
                 .padding(.horizontal, 12)
         }
         .frame(maxWidth: .infinity)
-        .background(disabled ? Color(uiColor: UIColor.Theme.disabledTeal) : Color(uiColor: UIColor.Theme.primaryTeal))
+        .background(Color(uiColor: UIColor.Theme.primaryTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
     }
