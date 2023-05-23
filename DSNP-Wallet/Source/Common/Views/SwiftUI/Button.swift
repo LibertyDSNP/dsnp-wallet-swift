@@ -29,6 +29,28 @@ struct PrimaryButton: View {
     }
 }
 
+struct SecondaryButton: View {
+    let title: String
+    let enabled: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            Text(title)
+                .font(Font(UIFont.Theme.bold(ofSize: 15)))
+                .padding(.vertical, 16)
+                .padding(.horizontal, 12)
+                .foregroundColor(enabled ? .white : Color(uiColor: UIColor.Theme.bgTeal))
+        }
+        .frame(maxWidth: .infinity)
+        .background(!enabled ? Color(uiColor: UIColor.Theme.bgGray) : Color(uiColor: UIColor.Theme.primaryTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+    }
+}
+
 struct CloseButton: View {
     
     let action: () -> Void
@@ -46,8 +68,19 @@ struct CloseButton: View {
 
 struct PrimaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        PrimaryButton(title: "primary button") {
-            print("button press!")
+        VStack {
+            PrimaryButton(title: "primary button") {
+                print("button press!")
+            }
+            .padding(30)
+            SecondaryButton(title: "Secondary Button", enabled: true) {
+                print("button press secondary")
+            }
+            .padding(30)
+            SecondaryButton(title: "Secondary Button - Disabled", enabled: false) {
+                print("button press secondary")
+            }
+            .padding(30)
         }
     }
 }

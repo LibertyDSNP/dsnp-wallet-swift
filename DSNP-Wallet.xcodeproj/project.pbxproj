@@ -401,10 +401,7 @@
 		82DD910029661D8300A508B9 /* LookUpDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */; };
 		82DD910229661DBB00A508B9 /* CreateDsnpIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */; };
 		82DD910429661E1200A508B9 /* RestoreDsnpWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */; };
-		82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD91052967755200A508B9 /* SeedPhraseViewController.swift */; };
-		82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */; };
 		82DD910B296CBC7100A508B9 /* SeedPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */; };
-		82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */; };
 		82E4AEC729A587B50071758A /* ExtrinsicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AEC629A587B50071758A /* ExtrinsicManager.swift */; };
 		82E4AECA29A6E22B0071758A /* ExtrinsicManager+Msa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */; };
 		82E4AECC29A6E2330071758A /* ExtrinsicManager+Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */; };
@@ -454,6 +451,16 @@
 		B5A62C522A0AA27E00A31178 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62BF32A0A8F2B00A31178 /* Poppins-BlackItalic.ttf */; };
 		B5A62C532A0AA27E00A31178 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62BF12A0A8F2A00A31178 /* Poppins-ThinItalic.ttf */; };
 		B5A62C542A0AA27E00A31178 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62BE82A0A8F2900A31178 /* Poppins-Medium.ttf */; };
+		B5A62C912A0EA74400A31178 /* SpaceMono-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62C8D2A0EA74400A31178 /* SpaceMono-BoldItalic.ttf */; };
+		B5A62C922A0EA74400A31178 /* SpaceMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62C8E2A0EA74400A31178 /* SpaceMono-Bold.ttf */; };
+		B5A62C932A0EA74400A31178 /* SpaceMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62C8F2A0EA74400A31178 /* SpaceMono-Italic.ttf */; };
+		B5A62C942A0EA74400A31178 /* SpaceMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5A62C902A0EA74400A31178 /* SpaceMono-Regular.ttf */; };
+		B5A62C972A0ED92800A31178 /* SeedPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C962A0ED92800A31178 /* SeedPhraseView.swift */; };
+		B5A62C992A12844000A31178 /* SeedPhraseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C982A12844000A31178 /* SeedPhraseTestView.swift */; };
+		B5A62C9B2A1285A800A31178 /* SeedPuzzleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */; };
+		B5A62C9D2A13DD5400A31178 /* LBYSeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */; };
+		B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */; };
+		B5F74EFF2A1679440046DE15 /* AccessiblityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -875,10 +882,7 @@
 		82DD90FF29661D8300A508B9 /* LookUpDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpDsnpIdViewController.swift; sourceTree = "<group>"; };
 		82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDsnpIdViewController.swift; sourceTree = "<group>"; };
 		82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreDsnpWalletViewController.swift; sourceTree = "<group>"; };
-		82DD91052967755200A508B9 /* SeedPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewController.swift; sourceTree = "<group>"; };
-		82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseColumnFlowLayout.swift; sourceTree = "<group>"; };
 		82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseViewModel.swift; sourceTree = "<group>"; };
-		82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseCollectionViewCell.swift; sourceTree = "<group>"; };
 		82E4AEC629A587B50071758A /* ExtrinsicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrinsicManager.swift; sourceTree = "<group>"; };
 		82E4AEC929A6E22B0071758A /* ExtrinsicManager+Msa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtrinsicManager+Msa.swift"; sourceTree = "<group>"; };
 		82E4AECB29A6E2330071758A /* ExtrinsicManager+Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtrinsicManager+Balance.swift"; sourceTree = "<group>"; };
@@ -937,6 +941,16 @@
 		B5A62C292A0A90D100A31178 /* BaseRoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRoundView.swift; sourceTree = "<group>"; };
 		B5A62C2A2A0A90D100A31178 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		B5A62C2F2A0A9BB400A31178 /* CongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewController.swift; sourceTree = "<group>"; };
+		B5A62C8D2A0EA74400A31178 /* SpaceMono-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceMono-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B5A62C8E2A0EA74400A31178 /* SpaceMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceMono-Bold.ttf"; sourceTree = "<group>"; };
+		B5A62C8F2A0EA74400A31178 /* SpaceMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceMono-Italic.ttf"; sourceTree = "<group>"; };
+		B5A62C902A0EA74400A31178 /* SpaceMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceMono-Regular.ttf"; sourceTree = "<group>"; };
+		B5A62C962A0ED92800A31178 /* SeedPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseView.swift; sourceTree = "<group>"; };
+		B5A62C982A12844000A31178 /* SeedPhraseTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseTestView.swift; sourceTree = "<group>"; };
+		B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPuzzleViewModel.swift; sourceTree = "<group>"; };
+		B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBYSeedPhraseViewController.swift; sourceTree = "<group>"; };
+		B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseTestViewController.swift; sourceTree = "<group>"; };
+		B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessiblityIdentifiers.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1091,6 +1105,10 @@
 		8223ABCE2820808B00DEF1E9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B5A62C8E2A0EA74400A31178 /* SpaceMono-Bold.ttf */,
+				B5A62C8D2A0EA74400A31178 /* SpaceMono-BoldItalic.ttf */,
+				B5A62C8F2A0EA74400A31178 /* SpaceMono-Italic.ttf */,
+				B5A62C902A0EA74400A31178 /* SpaceMono-Regular.ttf */,
 				B5A62BEA2A0A8F2A00A31178 /* OFL.txt */,
 				B5A62BED2A0A8F2A00A31178 /* Poppins-Black.ttf */,
 				B5A62BF32A0A8F2B00A31178 /* Poppins-BlackItalic.ttf */,
@@ -1175,6 +1193,7 @@
 				829960462978C45D009A769F /* Substrate */,
 				829960742978C45E009A769F /* TabBar */,
 				829960AF2978C45E009A769F /* Views */,
+				B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */,
 			);
 			name = Common;
 			path = Source/Common;
@@ -2014,10 +2033,8 @@
 		82DD9107296CBB4E00A508B9 /* SeedPhrase */ = {
 			isa = PBXGroup;
 			children = (
-				82DD91052967755200A508B9 /* SeedPhraseViewController.swift */,
-				82DD9108296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift */,
+				B5A62C952A0ED91400A31178 /* SwiftUI */,
 				82DD910A296CBC7100A508B9 /* SeedPhraseViewModel.swift */,
-				82DD910C296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift */,
 			);
 			path = SeedPhrase;
 			sourceTree = "<group>";
@@ -2080,6 +2097,18 @@
 				B5A62C292A0A90D100A31178 /* BaseRoundView.swift */,
 				B5A62C272A0A90D000A31178 /* BulletListView.swift */,
 				B5A62C2A2A0A90D100A31178 /* Button.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		B5A62C952A0ED91400A31178 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				B5A62C962A0ED92800A31178 /* SeedPhraseView.swift */,
+				B5A62C982A12844000A31178 /* SeedPhraseTestView.swift */,
+				B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */,
+				B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */,
+				B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -2212,16 +2241,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5A62C4E2A0AA27E00A31178 /* Poppins-ExtraLightItalic.ttf in Resources */,
+				B5A62C922A0EA74400A31178 /* SpaceMono-Bold.ttf in Resources */,
 				8223AB672818917800DEF1E9 /* LaunchScreen.storyboard in Resources */,
 				B5A62C4D2A0AA27E00A31178 /* Poppins-Light.ttf in Resources */,
 				B5A62C472A0AA27E00A31178 /* Poppins-Bold.ttf in Resources */,
 				B5A62C512A0AA27E00A31178 /* Poppins-BoldItalic.ttf in Resources */,
+				B5A62C912A0EA74400A31178 /* SpaceMono-BoldItalic.ttf in Resources */,
 				B5A62C4F2A0AA27E00A31178 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				B5A62C4C2A0AA27E00A31178 /* Poppins-Italic.ttf in Resources */,
 				B5A62C452A0AA27E00A31178 /* Poppins-SemiBold.ttf in Resources */,
 				B5A62C442A0AA27E00A31178 /* Poppins-LightItalic.ttf in Resources */,
 				8223AB642818917800DEF1E9 /* Assets.xcassets in Resources */,
 				B5A62C4B2A0AA27E00A31178 /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				B5A62C942A0EA74400A31178 /* SpaceMono-Regular.ttf in Resources */,
 				B5A62C462A0AA27E00A31178 /* Poppins-ExtraBold.ttf in Resources */,
 				B5A62C532A0AA27E00A31178 /* Poppins-ThinItalic.ttf in Resources */,
 				B5A62C542A0AA27E00A31178 /* Poppins-Medium.ttf in Resources */,
@@ -2232,6 +2264,7 @@
 				B5A62C492A0AA27E00A31178 /* Poppins-Regular.ttf in Resources */,
 				B5A62C4A2A0AA27E00A31178 /* Poppins-Thin.ttf in Resources */,
 				B5A62C312A0AA27700A31178 /* Poppins-Black.ttf in Resources */,
+				B5A62C932A0EA74400A31178 /* SpaceMono-Italic.ttf in Resources */,
 				B5A62C482A0AA27E00A31178 /* Poppins-MediumItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2390,6 +2423,7 @@
 				829961362978C461009A769F /* SharedTextField.swift in Sources */,
 				B5A62C112A0A900600A31178 /* ClaimHandleViewController.swift in Sources */,
 				829965C1297A1955009A769F /* Language.swift in Sources */,
+				B5F74EFF2A1679440046DE15 /* AccessiblityIdentifiers.swift in Sources */,
 				829968D4297B721C009A769F /* UIColor+Theme.swift in Sources */,
 				B5A62C102A0A900600A31178 /* ClaimHandleView.swift in Sources */,
 				82ADCB0629F0407500E8F8A2 /* ExtrinsicServiceTypes.swift in Sources */,
@@ -2422,6 +2456,7 @@
 				82996648297A1B5E009A769F /* UniquesClassDetails.swift in Sources */,
 				8299636A297A13CF009A769F /* ChainRegistryFacade.swift in Sources */,
 				829964CE297A17F4009A769F /* SubstrateOperationFactory.swift in Sources */,
+				B5A62C9B2A1285A800A31178 /* SeedPuzzleViewModel.swift in Sources */,
 				82996364297A13CF009A769F /* ExtrinsicProcessing.swift in Sources */,
 				8299649E297A17F4009A769F /* EmptyStreamableSource.swift in Sources */,
 				8299633F297A13CF009A769F /* PersistExtrinsicFactory.swift in Sources */,
@@ -2445,6 +2480,7 @@
 				B5A62C122A0A900600A31178 /* AgreeToTermsViewController.swift in Sources */,
 				8299693B29809C71009A769F /* AddPublicKeyToMsaCall.swift in Sources */,
 				8299690B297B721C009A769F /* TransactionHistoryItem+Wallet.swift in Sources */,
+				B5A62C992A12844000A31178 /* SeedPhraseTestView.swift in Sources */,
 				829964D6297A17F4009A769F /* User.swift in Sources */,
 				829968EB297B721C009A769F /* CompoundOperationWrapper+Result.swift in Sources */,
 				829965B8297A1955009A769F /* OrmlAssetExtras.swift in Sources */,
@@ -2463,7 +2499,6 @@
 				82996934297F3510009A769F /* OrmlTokenTransfer.swift in Sources */,
 				829965AC297A1955009A769F /* ChainHistoryRange.swift in Sources */,
 				8299639B297A13CF009A769F /* ImmortalEraOperationFactory.swift in Sources */,
-				82DD91062967755200A508B9 /* SeedPhraseViewController.swift in Sources */,
 				82996687297B141A009A769F /* ByteLengthProcessor.swift in Sources */,
 				82996660297A1B5E009A769F /* SubstrateCallFactory.swift in Sources */,
 				82E4AECA29A6E22B0071758A /* ExtrinsicManager+Msa.swift in Sources */,
@@ -2634,6 +2669,7 @@
 				8299649D297A17F4009A769F /* ConnectionAutobalancing.swift in Sources */,
 				829968DC297B721C009A769F /* CDStashItem+CoreDataCodable.swift in Sources */,
 				829964A3297A17F4009A769F /* WalletNetworkFacade+Protocol.swift in Sources */,
+				B5A62C972A0ED92800A31178 /* SeedPhraseView.swift in Sources */,
 				829968F6297B721C009A769F /* Logger+FearlessUtils.swift in Sources */,
 				8299658E297A1955009A769F /* SocialMessage.swift in Sources */,
 				B53BD7C02A01571000967477 /* ChainEnvironment.swift in Sources */,
@@ -2656,6 +2692,7 @@
 				8299634F297A13CF009A769F /* RemoteSubscriptionService.swift in Sources */,
 				829966C0297B28A9009A769F /* StorageDecodingOperation.swift in Sources */,
 				829968D7297B721C009A769F /* CDChainStorageItem+CoreDataDecodable.swift in Sources */,
+				B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */,
 				82E4AECC29A6E2330071758A /* ExtrinsicManager+Balance.swift in Sources */,
 				82996361297A13CF009A769F /* EmptyHandlingStorageSubscription.swift in Sources */,
 				829961492978C461009A769F /* ProfileHeaderView.swift in Sources */,
@@ -2697,7 +2734,6 @@
 				82E4AECE29A6E2E40071758A /* FrequencyChain.swift in Sources */,
 				B5A62C132A0A900600A31178 /* AgreeToTermsView.swift in Sources */,
 				82996351297A13CF009A769F /* OrmlAccountSubcriptionHandlingFactory.swift in Sources */,
-				82DD9109296CBB6300A508B9 /* SeedPhraseColumnFlowLayout.swift in Sources */,
 				8299635C297A13CF009A769F /* ChildSubscriptionFactory.swift in Sources */,
 				8299639C297A13CF009A769F /* StorageKeySuffixMapper.swift in Sources */,
 				82996932297B750B009A769F /* FeeMetadataContext.swift in Sources */,
@@ -2757,6 +2793,7 @@
 				8299614C2978C461009A769F /* SettingsViewController.swift in Sources */,
 				829966B7297B28A9009A769F /* LongrunOperation.swift in Sources */,
 				829965E4297A1AF1009A769F /* PersistentStoreCoordinator+Extensions.swift in Sources */,
+				B5A62C9D2A13DD5400A31178 /* LBYSeedPhraseViewController.swift in Sources */,
 				829961442978C461009A769F /* KeysViewController.swift in Sources */,
 				829961432978C461009A769F /* KeysViewController+Backup.swift in Sources */,
 				826B5F8E29F0A0530028253D /* SubscriptionError.swift in Sources */,
