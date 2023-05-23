@@ -81,95 +81,7 @@ final class AssetsUpdatingService {
         }
     }
 
-//    private func addSubscriptionIfNeeded(for chain: ChainModel) {
-//        guard let accountId = selectedMetaAccount?.fetch(for: chain.accountRequest())?.accountId else {
-//            logger.warning("Couldn't create account for chain \(chain.chainId)")
-//            return
-//        }
-//
-//        removeSubscription(for: chain.chainId)
-
-//        let assetSubscriptions = chain.assets.reduce(
-//            into: [AssetModel.Id: SubscriptionInfo]()
-//        ) { result, asset in
-//            result[asset.assetId] = createSubscription(
-//                for: asset,
-//                accountId: accountId,
-//                chain: chain
-//            )
-//        }
-
-//        subscribedChains[chain.chainId] = assetSubscriptions
-//    }
-
-//    private func createSubscription(
-//        for asset: AssetModel,
-//        accountId: AccountId,
-//        chain: ChainModel
-//    ) -> SubscriptionInfo? {
-//        guard let typeString = asset.type, let assetType = AssetType(rawValue: typeString) else {
-//            return nil
-//        }
-//
-//        let transactionSubscription = try? createTransactionSubscription(for: accountId, chain: chain)
-//
-//        switch assetType {
-//        case .statemine:
-//            return createStatemineSubscription(
-//                for: asset,
-//                accountId: accountId,
-//                chainId: chain.chainId,
-//                transactionSubscription: transactionSubscription
-//            )
-//        case .orml:
-//            return createOrmlTokenSubscription(
-//                for: asset,
-//                accountId: accountId,
-//                chainId: chain.chainId,
-//                transactionSubscription: transactionSubscription
-//            )
-//        }
-//    }
-
-//    private func createStatemineSubscription(
-//        for asset: AssetModel,
-//        accountId: AccountId,
-//        chainId: ChainModel.Id,
-//        transactionSubscription: TransactionSubscription?
-//    ) -> SubscriptionInfo? {
-//        guard
-//            let extras = asset.typeExtras,
-//            let assetExtras = try? extras.map(to: StatemineAssetExtras.self) else {
-//            return nil
-//        }
-//
-//        let assetRepository = repositoryFactory.createAssetBalanceRepository()
-//        let chainItemRepository = repositoryFactory.createChainStorageItemRepository()
-//
-//        let assetBalanceUpdater = AssetsBalanceUpdater(
-//            chainAssetId: ChainAssetId(chainId: chainId, assetId: asset.assetId),
-//            accountId: accountId,
-//            chainRegistry: chainRegistry,
-//            assetRepository: assetRepository,
-//            chainRepository: chainItemRepository,
-//            eventCenter: eventCenter,
-//            operationQueue: operationQueue
-//        )
-//
-//        let maybeSubscriptionId = remoteSubscriptionService.attachToAsset(
-//            of: accountId,
-//            assetId: assetExtras.assetId,
-//            chainId: chainId,
-//            queue: nil,
-//            closure: nil,
-//            assetBalanceUpdater: assetBalanceUpdater,
-//            transactionSubscription: transactionSubscription
-//        )
-//
-//        return maybeSubscriptionId.map { subscriptionId in
-//            SubscriptionInfo(subscriptionId: subscriptionId, accountId: accountId, asset: asset)
-//        }
-//    }
+    private func addSubscriptionIfNeeded(for chain: ChainModel) {}
 
     private func createOrmlTokenSubscription(
         for asset: AssetModel,
@@ -177,35 +89,7 @@ final class AssetsUpdatingService {
         chainId: ChainModel.Id,
         transactionSubscription: TransactionSubscription?
     ) -> SubscriptionInfo? {
-        guard
-            let extras = asset.typeExtras,
-            let tokenExtras = try? extras.map(to: OrmlTokenExtras.self),
-            let currencyId = try? Data(hexString: tokenExtras.currencyIdScale) else {
-            return nil
-        }
-
-        let assetsRepository = repositoryFactory.createAssetBalanceRepository()
-        let subscriptionHandlingFactory = OrmlAccountSubscriptionHandlingFactory(
-            chainAssetId: ChainAssetId(chainId: chainId, assetId: asset.assetId),
-            accountId: accountId,
-            chainRegistry: chainRegistry,
-            assetRepository: assetsRepository,
-            eventCenter: eventCenter,
-            transactionSubscription: transactionSubscription
-        )
-
-        let maybeSubscriptionId = remoteSubscriptionService.attachToOrmlToken(
-            of: accountId,
-            currencyId: currencyId,
-            chainId: chainId,
-            queue: nil,
-            closure: nil,
-            subscriptionHandlingFactory: subscriptionHandlingFactory
-        )
-
-        return maybeSubscriptionId.map { subscriptionId in
-            SubscriptionInfo(subscriptionId: subscriptionId, accountId: accountId, asset: asset)
-        }
+        return nil
     }
 
     private func removeSubscription(for chainId: ChainModel.Id) {
@@ -231,14 +115,6 @@ final class AssetsUpdatingService {
                     return
                 }
 
-                remoteSubscriptionService.detachFromAsset(
-                    for: subscriptionInfo.subscriptionId,
-                    accountId: subscriptionInfo.accountId,
-                    assetId: assetExtras.assetId,
-                    chainId: chainId,
-                    queue: nil,
-                    closure: nil
-                )
             case .orml:
                 guard
                     let extras = asset.typeExtras,

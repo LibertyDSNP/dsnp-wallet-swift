@@ -31,7 +31,8 @@ extension NSPredicate {
     static func filterTransactionsBy(
         address: String,
         chainId: ChainModel.Id,
-        assetId: UInt32
+        assetId: UInt32,
+        source: TransactionHistoryItemSource?
     ) -> NSPredicate {
         let senderPredicate = filterTransactionsBySender(address: address)
         let receiverPredicate = filterTransactionsByReceiver(address: address)
@@ -39,24 +40,32 @@ extension NSPredicate {
         let assetPredicate = filterTransactionsByAssetId(assetId)
 
         let orPredicates = [senderPredicate, receiverPredicate]
-        return NSCompoundPredicate(andPredicateWithSubpredicates: [
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [
             chainPredicate,
             assetPredicate,
             NSCompoundPredicate(orPredicateWithSubpredicates: orPredicates)
         ])
+
+        if let source = source {
+            let sourcePredicate = filterTransactionsBySource(source)
+            return NSCompoundPredicate(andPredicateWithSubpredicates: [compoundPredicate, sourcePredicate])
+        } else {
+            return compoundPredicate
+        }
     }
 
     static func filterUtilityAssetTransactionsBy(
         address: String,
         chainId: ChainModel.Id,
-        utilityAssetId: UInt32
+        utilityAssetId: UInt32,
+        source: TransactionHistoryItemSource?
     ) -> NSPredicate {
         let senderPredicate = filterTransactionsBySender(address: address)
         let receiverPredicate = filterTransactionsByReceiver(address: address)
         let chainPredicate = filterTransactionsByChainId(chainId)
         let assetPredicate = filterTransactionsByAssetId(utilityAssetId)
 
-        return NSCompoundPredicate(andPredicateWithSubpredicates: [
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [
             chainPredicate,
             NSCompoundPredicate(
                 orPredicateWithSubpredicates: [
@@ -68,30 +77,41 @@ extension NSPredicate {
                 ]
             )
         ])
+
+        if let source = source {
+            let sourcePredicate = filterTransactionsBySource(source)
+            return NSCompoundPredicate(andPredicateWithSubpredicates: [compoundPredicate, sourcePredicate])
+        } else {
+            return compoundPredicate
+        }
     }
 
     static func filterTransactionsBy(transactionId: String) -> NSPredicate {
         NSPredicate(
             format: "%K == %@",
-            #keyPath(CDTransactionHistoryItem.identifier),
+            #keyPath(CDTransactionItem.identifier),
             transactionId
         )
     }
 
     static func filterTransactionsBySender(address: String) -> NSPredicate {
-        NSPredicate(format: "%K == %@", #keyPath(CDTransactionHistoryItem.sender), address)
+        NSPredicate(format: "%K == %@", #keyPath(CDTransactionItem.sender), address)
     }
 
     static func filterTransactionsByReceiver(address: String) -> NSPredicate {
-        NSPredicate(format: "%K == %@", #keyPath(CDTransactionHistoryItem.receiver), address)
+        NSPredicate(format: "%K == %@", #keyPath(CDTransactionItem.receiver), address)
     }
 
     static func filterTransactionsByChainId(_ chainId: String) -> NSPredicate {
-        NSPredicate(format: "%K == %@", #keyPath(CDTransactionHistoryItem.chainId), chainId)
+        NSPredicate(format: "%K == %@", #keyPath(CDTransactionItem.chainId), chainId)
     }
 
     static func filterTransactionsByAssetId(_ assetId: UInt32) -> NSPredicate {
-        NSPredicate(format: "%K == %d", #keyPath(CDTransactionHistoryItem.assetId), assetId)
+        NSPredicate(format: "%K == %d", #keyPath(CDTransactionItem.assetId), Int32(bitPattern: assetId))
+    }
+
+    static func filterTransactionsBySource(_ source: TransactionHistoryItemSource) -> NSPredicate {
+        NSPredicate(format: "%K == %d", #keyPath(CDTransactionItem.source), source.rawValue)
     }
 
     static func filterContactsByTarget(address: String) -> NSPredicate {
@@ -146,6 +166,10 @@ extension NSPredicate {
         ])
     }
 
+    static func metaAccountById(_ identifier: String) -> NSPredicate {
+        NSPredicate(format: "%K == %@", #keyPath(CDMetaAccount.metaId), identifier)
+    }
+
     static func selectedMetaAccount() -> NSPredicate {
         NSPredicate(format: "%K == true", #keyPath(CDMetaAccount.isSelected))
     }
@@ -160,6 +184,29 @@ extension NSPredicate {
 
     static func hasCrowloans() -> NSPredicate {
         NSPredicate(format: "%K == true", #keyPath(CDChain.hasCrowdloans))
+    }
+
+    static func assetBalance(chainId: ChainModel.Id, assetId: AssetModel.Id) -> NSPredicate {
+        let chainIdPredicate = NSPredicate(
+            format: "%K == %@",
+            #keyPath(CDAssetBalance.chainId),
+            chainId
+        )
+
+        let assetIdPredicate = NSPredicate(
+            format: "%K == %d",
+            #keyPath(CDAssetBalance.assetId),
+            assetId
+        )
+
+        return NSCompoundPredicate(andPredicateWithSubpredicates: [
+            chainIdPredicate, assetIdPredicate
+        ])
+    }
+
+    static func assetBalance(chainAssetIds: Set<ChainAssetId>) -> NSPredicate {
+        let predicates = chainAssetIds.map { assetBalance(chainId: $0.chainId, assetId: $0.assetId) }
+        return NSCompoundPredicate(orPredicateWithSubpredicates: Array(predicates))
     }
 
     static func assetBalance(
@@ -190,6 +237,24 @@ extension NSPredicate {
         ])
     }
 
+    static func assetBalance(for chainId: ChainModel.Id, accountId: AccountId) -> NSPredicate {
+        let chainPredicate = NSPredicate(
+            format: "%K == %@",
+            #keyPath(CDAssetBalance.chainId),
+            chainId
+        )
+
+        let accountPredicate = NSPredicate(
+            format: "%K == %@",
+            #keyPath(CDAssetBalance.chainAccountId),
+            accountId.toHex()
+        )
+
+        return NSCompoundPredicate(andPredicateWithSubpredicates: [
+            accountPredicate, chainPredicate
+        ])
+    }
+
     static func assetBalance(
         for accountId: AccountId
     ) -> NSPredicate {
@@ -198,6 +263,62 @@ extension NSPredicate {
             #keyPath(CDAssetBalance.chainAccountId),
             accountId.toHex()
         )
+    }
+
+    static func assetLock(chainId: ChainModel.Id, assetId: AssetModel.Id) -> NSPredicate {
+        let chainIdPredicate = NSPredicate(
+            format: "%K == %@",
+            #keyPath(CDAssetLock.chainId),
+            chainId
+        )
+
+        let assetIdPredicate = NSPredicate(
+            format: "%K == %d",
+            #keyPath(CDAssetLock.assetId),
+            assetId
+        )
+
+        return NSCompoundPredicate(andPredicateWithSubpredicates: [
+            chainIdPredicate, assetIdPredicate
+        ])
+    }
+
+    static func assetLock(chainAssetIds: Set<ChainAssetId>) -> NSPredicate {
+        let predicates = chainAssetIds.map { assetLock(chainId: $0.chainId, assetId: $0.assetId) }
+        return NSCompoundPredicate(orPredicateWithSubpredicates: Array(predicates))
+    }
+
+    static func assetLock(
+        for accountId: AccountId
+    ) -> NSPredicate {
+        NSPredicate(
+            format: "%K == %@",
+            #keyPath(CDAssetLock.chainAccountId),
+            accountId.toHex()
+        )
+    }
+
+    static func assetLock(
+        for accountId: AccountId,
+        chainAssetId: ChainAssetId
+    ) -> NSPredicate {
+        let accountPredicate = assetLock(for: accountId)
+
+        let chainIdPredicate = NSPredicate(
+            format: "%K == %@",
+            #keyPath(CDAssetLock.chainId),
+            chainAssetId.chainId
+        )
+
+        let assetIdPredicate = NSPredicate(
+            format: "%K == %d",
+            #keyPath(CDAssetLock.assetId),
+            chainAssetId.assetId
+        )
+
+        return NSCompoundPredicate(andPredicateWithSubpredicates: [
+            accountPredicate, chainIdPredicate, assetIdPredicate
+        ])
     }
 
     static func nfts(for chainId: ChainModel.Id, ownerId: AccountId) -> NSPredicate {
@@ -241,4 +362,66 @@ extension NSPredicate {
     static func filterAuthorizedDApps(by metaId: String) -> NSPredicate {
         NSPredicate(format: "%K == %@", #keyPath(CDDAppSettings.metaId), metaId)
     }
+
+    static func crowdloanContribution(chainIds: Set<ChainModel.Id>) -> NSPredicate {
+        let predicates = chainIds.map {
+            NSPredicate(format: "%K == %@", #keyPath(CDCrowdloanContribution.chainId), $0)
+        }
+        return NSCompoundPredicate(orPredicateWithSubpredicates: Array(predicates))
+    }
+
+    static func crowdloanContribution(
+        for chainId: ChainModel.Id,
+        accountId: AccountId,
+        source: String?
+    ) -> NSPredicate {
+        let accountChainPredicate = crowdloanContribution(for: chainId, accountId: accountId)
+        let sourcePredicate = source.map {
+            NSPredicate(format: "%K == %@", #keyPath(CDCrowdloanContribution.source), $0)
+        } ?? NSPredicate(format: "%K = nil", #keyPath(CDCrowdloanContribution.source))
+
+        return NSCompoundPredicate(andPredicateWithSubpredicates: [accountChainPredicate, sourcePredicate])
+    }
+
+    static func crowdloanContribution(
+        for chainId: ChainModel.Id,
+        accountId: AccountId
+    ) -> NSPredicate {
+        let chainPredicate = NSPredicate(
+            format: "%K == %@",
+            #keyPath(CDCrowdloanContribution.chainId),
+            chainId
+        )
+        let accountPredicate = NSPredicate(
+            format: "%K == %@",
+            #keyPath(CDCrowdloanContribution.chainAccountId),
+            accountId.toHex()
+        )
+
+        return NSCompoundPredicate(andPredicateWithSubpredicates: [chainPredicate, accountPredicate])
+    }
+
+    static func referendums(for chainId: ChainModel.Id) -> NSPredicate {
+        NSPredicate(
+            format: "%K == %@",
+            #keyPath(CDReferendumMetadata.chainId),
+            chainId
+        )
+    }
+
+//    static func referendums(for chainId: ChainModel.Id, referendumId: ReferendumIdLocal) -> NSPredicate {
+//        let chainPredicate = NSPredicate(
+//            format: "%K == %@",
+//            #keyPath(CDReferendumMetadata.chainId),
+//            chainId
+//        )
+//
+//        let referendumPredicate = NSPredicate(
+//            format: "%K == %d",
+//            #keyPath(CDReferendumMetadata.referendumId),
+//            referendumId
+//        )
+//
+//        return NSCompoundPredicate(andPredicateWithSubpredicates: [chainPredicate, referendumPredicate])
+//    }
 }
