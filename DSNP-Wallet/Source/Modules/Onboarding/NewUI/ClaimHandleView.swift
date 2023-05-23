@@ -10,6 +10,8 @@ import SwiftUI
 struct ClaimHandleView: View {
     @ObservedObject var viewModel: ClaimHandleViewModel
     
+    @FocusState private var textfieldFocused: Bool
+
     var body: some View {
         VStack {
             AmplicaLogo()
@@ -72,6 +74,7 @@ struct ClaimHandleView: View {
                 .background(RoundedRectangle(cornerRadius: 30).fill(Color.white))
                 .font(Font(UIFont.Theme.regular(ofSize: 16)))
                 .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
+                .focused($textfieldFocused)
         }
     }
     
@@ -94,7 +97,7 @@ struct ClaimHandleView: View {
     private var nextButton: some View {
         PrimaryButton(title: "Next", action:  {
             viewModel.nextAction.send()
-        }, disabled: true)
+        }, disabled: viewModel.nextButtonDisabled)
     }
     
     private var skipButton: some View {
