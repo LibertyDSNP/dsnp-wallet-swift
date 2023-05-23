@@ -8,15 +8,9 @@
 import UIKit
 import Combine
 
-enum ClaimHandleError: String {
-    case handleTooShortError = "Your handle must be at least 4 characters"
-    case handleTooLongError = "Your handle cannot be more than 16 characters"
-}
-
 class ClaimHandleViewModel: ObservableObject {
     @Published var claimHandleText = ""
     @Published var nextButtonDisabled = true
-    @Published var errorMessage: String = ""
     
     // Actions
     var nextAction = PassthroughSubject<Void, Never>()
@@ -34,21 +28,14 @@ class ClaimHandleViewModel: ObservableObject {
             .sink { [weak self] inputText in
                 guard let self else { return }
                 //check if the new string contains any invalid characters
-                if inputText.rangeOfCharacter(from: self.validCharSet.inverted) != nil {
+                if inputText.rangeOfCharacter(from: self.validCharSet.inverted) == nil {
                     self.claimHandleText = String(self.claimHandleText.unicodeScalars.filter {
                         self.validCharSet.contains($0)
                     })
                     
                     // Upper limit is 16, lower limit is 4
-                    self.nextButtonDisabled = self.claimHandleText.count <= 4 || self.claimHandleText.count > 16
-                    self.errorMessage = {
-                        if self.claimHandleText.count < 4 {
-                            self.errorMessage = ClaimHandleError.handleTooShortError.rawValue
-                        } else if self.claimHandleText.count > 16 {
-                            self.errorMessage = ClaimHandleError.handleTooLongError.rawValue
-                        }
-                        return ""
-                    }()
+                    self.nextButtonDisabled = self.claimHandleText.count < 4 || self.claimHandleText.count > 16
+                    print("next button disabled: \(self.nextButtonDisabled), chars \(self.claimHandleText.count)")
                 }
             }
             .store(in: &cancellables)
