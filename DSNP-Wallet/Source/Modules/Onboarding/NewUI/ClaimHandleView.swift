@@ -92,9 +92,9 @@ struct ClaimHandleView: View {
     }
     
     private var nextButton: some View {
-        PrimaryButton(title: "Next") {
+        PrimaryButton(title: "Next", action:  {
             viewModel.nextAction.send()
-        }
+        }, disabled: true)
     }
     
     private var skipButton: some View {

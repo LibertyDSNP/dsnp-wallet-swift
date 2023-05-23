@@ -11,7 +11,7 @@ struct PrimaryButton: View {
     let title: String
     let action: () -> Void
     
-    @State var disabled = false
+    var disabled = false
     
     var body: some View {
         Button {
