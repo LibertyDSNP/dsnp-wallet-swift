@@ -31,6 +31,10 @@
 		<string>Poppins-Thin.ttf</string>
 		<string>Poppins-Regular.ttf</string>
 		<string>Poppins-BoldItalic.ttf</string>
+		<string>SpaceMono-Bold.ttf</string>
+		<string>SpaceMono-BoldItalic.ttf</string>
+		<string>SpaceMono-Regular.ttf</string>
+		<string>SpaceMono-Italic.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

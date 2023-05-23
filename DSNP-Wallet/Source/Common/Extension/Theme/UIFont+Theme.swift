@@ -36,6 +36,22 @@ public extension UIFont {
         static public func medium(ofSize size: CGFloat) -> UIFont {
             return UIFont(name: "Poppins-Medium", size: size) ?? UIFont.systemFont(ofSize: size)
         }
+        
+        static public func spaceRegular(ofSize size: CGFloat) -> UIFont {
+            return UIFont(name: "SpaceMono-Regular", size: size) ?? UIFont.systemFont(ofSize: size)
+        }
+        
+        static public func spaceBold(ofSize size: CGFloat) -> UIFont {
+            return UIFont(name: "SpaceMono-Bold", size: size) ?? UIFont.systemFont(ofSize: size)
+        }
+        
+        static public func spaceItalic(ofSize size: CGFloat) -> UIFont {
+            return UIFont(name: "SpaceMono-Italic", size: size) ?? UIFont.systemFont(ofSize: size)
+        }
+        
+        static public func spaceBoldItalic(ofSize size: CGFloat) -> UIFont {
+            return UIFont(name: "SpaceMono-BoldItalic", size: size) ?? UIFont.systemFont(ofSize: size)
+        }
     }
 }
 
