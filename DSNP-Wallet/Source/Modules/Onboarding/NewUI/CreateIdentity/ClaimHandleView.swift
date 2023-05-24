@@ -96,22 +96,11 @@ struct ClaimHandleView: View {
     }
     
     private var nextButton: some View {
-        Button {
-        } label: {
-            Text("Next")
-                .font(Font(UIFont.Theme.medium(ofSize: 14)))
-                .padding(.vertical, 16)
-                .padding(.horizontal, 12)
-        }
-        .frame(maxWidth: .infinity)
-        .background($viewModel.nextButtonDisabled.wrappedValue ? Color(uiColor: UIColor.Theme.disabledTeal) : Color(uiColor: UIColor.Theme.primaryTeal))
-        .foregroundColor(.white)
-        .cornerRadius(30)
-        .disabled($viewModel.nextButtonDisabled.wrappedValue)
-        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
-        .onTapGesture {
+        PrimaryButton(title: "Next") {
             viewModel.nextAction.send()
         }
+        .disabled(viewModel.nextButtonDisabled)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
     }
     
     private var skipButton: some View {

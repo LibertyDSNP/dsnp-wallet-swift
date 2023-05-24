@@ -11,8 +11,11 @@ struct PrimaryButton: View {
     let title: String
     let action: () -> Void
     
+    @Environment(\.isEnabled) var isEnabled
+    
     var body: some View {
         Button {
+            action()
         } label: {
             Text(title)
                 .font(Font(UIFont.Theme.medium(ofSize: 14)))
@@ -20,19 +23,20 @@ struct PrimaryButton: View {
                 .padding(.horizontal, 12)
         }
         .frame(maxWidth: .infinity)
-        .background(Color(uiColor: UIColor.Theme.primaryTeal))
+        .background(!isEnabled ? Color(uiColor: UIColor.Theme.disabledTeal) : Color(uiColor: UIColor.Theme.primaryTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
         .onTapGesture {
-            action()
+           isEnabled ? action() : nil
         }
     }
 }
 
 struct SecondaryButton: View {
     let title: String
-    let enabled: Bool
     let action: () -> Void
+    
+    @Environment(\.isEnabled) var isEnabled
     
     var body: some View {
         Button {
@@ -41,14 +45,14 @@ struct SecondaryButton: View {
                 .font(Font(UIFont.Theme.bold(ofSize: 15)))
                 .padding(.vertical, 16)
                 .padding(.horizontal, 12)
-                .foregroundColor(enabled ? .white : Color(uiColor: UIColor.Theme.bgTeal))
+                .foregroundColor(isEnabled ? .white : Color(uiColor: UIColor.Theme.bgTeal))
         }
         .frame(maxWidth: .infinity)
-        .background(!enabled ? Color(uiColor: UIColor.Theme.bgGray) : Color(uiColor: UIColor.Theme.primaryTeal))
+        .background(!isEnabled ? Color(uiColor: UIColor.Theme.bgGray) : Color(uiColor: UIColor.Theme.primaryTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
         .onTapGesture {
-            action()
+            isEnabled ? action() : nil
         }
     }
 }
@@ -75,11 +79,11 @@ struct PrimaryButton_Previews: PreviewProvider {
                 print("button press!")
             }
             .padding(30)
-            SecondaryButton(title: "Secondary Button", enabled: true) {
+            SecondaryButton(title: "Secondary Button") {
                 print("button press secondary")
             }
             .padding(30)
-            SecondaryButton(title: "Secondary Button - Disabled", enabled: false) {
+            SecondaryButton(title: "Secondary Button - Disabled") {
                 print("button press secondary")
             }
             .padding(30)

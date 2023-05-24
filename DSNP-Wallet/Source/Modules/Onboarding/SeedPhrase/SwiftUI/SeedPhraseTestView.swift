@@ -69,7 +69,7 @@ struct SeedPhraseTestView: View {
     }
     
     private var continueButton: some View {
-        SecondaryButton(title: "Continue", enabled: viewModel.continueEnabled) {
+        SecondaryButton(title: "Continue") {
             if viewModel.continueEnabled {
                 viewModel.continueAction.send()
                 showingAlert = true
@@ -81,6 +81,7 @@ struct SeedPhraseTestView: View {
         .padding(.horizontal, 30)
         .padding(.vertical, 18)
         .accessibilityIdentifier(AccessibilityIdentifier.SeedPhraseTestIdentifier.seedPhraseTestContinueButton)
+        .disabled(!viewModel.continueEnabled)
     }
     
     private var title: some View {
