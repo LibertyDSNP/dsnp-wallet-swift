@@ -75,6 +75,7 @@ struct ClaimHandleView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 16)))
                 .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
                 .focused($textfieldFocused)
+                .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleTextfield)
         }
     }
     
@@ -108,6 +109,7 @@ struct ClaimHandleView: View {
         .foregroundColor(.white)
         .cornerRadius(30)
         .disabled($viewModel.nextButtonDisabled.wrappedValue)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
     }
     
     private var skipButton: some View {
@@ -119,6 +121,7 @@ struct ClaimHandleView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 10)))
                 .underline()
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
     }
 }
 

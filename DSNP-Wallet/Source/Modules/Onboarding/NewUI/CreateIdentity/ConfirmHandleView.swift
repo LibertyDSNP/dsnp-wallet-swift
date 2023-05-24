@@ -60,12 +60,14 @@ struct ConfirmHandleView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 10)
             .padding(.vertical, 4)
+            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.confirmHandleLabel)
     }
 
     private var nextButton: some View {
         PrimaryButton(title: "Next") {
             viewModel.nextAction.send()
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.confirmHandleButton)
     }
     
     private var suffixDescription: some View {

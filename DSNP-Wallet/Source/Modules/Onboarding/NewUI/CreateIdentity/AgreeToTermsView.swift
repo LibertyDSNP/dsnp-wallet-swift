@@ -63,6 +63,7 @@ struct AgreeToTermsView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 10)
             .padding(.vertical, 4)
+            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.agreeConfirmHandleLabel)
     }
     
     private var agreementText: some View {
@@ -92,6 +93,7 @@ struct AgreeToTermsView: View {
         PrimaryButton(title: "Agree") {
             viewModel.agreeAction.send()
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.agreeButton)
     }
 }
 

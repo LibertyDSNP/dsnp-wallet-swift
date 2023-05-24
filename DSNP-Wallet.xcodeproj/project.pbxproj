@@ -2074,15 +2074,7 @@
 		B5A62BFB2A0A8FEA00A31178 /* NewUI */ = {
 			isa = PBXGroup;
 			children = (
-				B5A62C062A0A900600A31178 /* AgreeToTermsView.swift */,
-				B5A62C052A0A900600A31178 /* AgreeToTermsViewController.swift */,
-				B5A62BFD2A0A900500A31178 /* AgreeToTermsViewModel.swift */,
-				B5A62C032A0A900600A31178 /* ClaimHandleView.swift */,
-				B5A62C042A0A900600A31178 /* ClaimHandleViewController.swift */,
-				B5A62C012A0A900500A31178 /* ClaimHandleViewModel.swift */,
-				B5A62BFC2A0A900500A31178 /* ConfirmHandleView.swift */,
-				B5A62BFF2A0A900500A31178 /* ConfirmHandleViewController.swift */,
-				B5A62C022A0A900500A31178 /* ConfirmHandleViewModel.swift */,
+				B5BCDD692A1E56D0003E2845 /* CreateIdentity */,
 				B5A62C002A0A900500A31178 /* CongratsModal.swift */,
 				B5A62BFE2A0A900500A31178 /* SignInView.swift */,
 				B5A62C072A0A900600A31178 /* SignInViewController.swift */,
@@ -2114,6 +2106,22 @@
 				B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		B5BCDD692A1E56D0003E2845 /* CreateIdentity */ = {
+			isa = PBXGroup;
+			children = (
+				B5A62C062A0A900600A31178 /* AgreeToTermsView.swift */,
+				B5A62C052A0A900600A31178 /* AgreeToTermsViewController.swift */,
+				B5A62BFD2A0A900500A31178 /* AgreeToTermsViewModel.swift */,
+				B5A62C032A0A900600A31178 /* ClaimHandleView.swift */,
+				B5A62C042A0A900600A31178 /* ClaimHandleViewController.swift */,
+				B5A62C012A0A900500A31178 /* ClaimHandleViewModel.swift */,
+				B5A62BFC2A0A900500A31178 /* ConfirmHandleView.swift */,
+				B5A62BFF2A0A900500A31178 /* ConfirmHandleViewController.swift */,
+				B5A62C022A0A900500A31178 /* ConfirmHandleViewModel.swift */,
+			);
+			path = CreateIdentity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
