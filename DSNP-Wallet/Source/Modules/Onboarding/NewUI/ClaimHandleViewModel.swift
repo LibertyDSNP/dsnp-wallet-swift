@@ -35,7 +35,6 @@ class ClaimHandleViewModel: ObservableObject {
                     
                     // Upper limit is 16, lower limit is 4
                     self.nextButtonDisabled = self.claimHandleText.count < 4 || self.claimHandleText.count > 16
-                    print("next button disabled: \(self.nextButtonDisabled), chars \(self.claimHandleText.count)")
                 }
             }
             .store(in: &cancellables)

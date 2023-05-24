@@ -66,7 +66,7 @@ struct AgreeToTermsView: View {
     
     private var agreementText: some View {
         Text("By agreeing, you grant Amplica access\nto your digital identity to:")
-            .font(Font(UIFont.Theme.semibold(ofSize: 12)))
+            .font(Font(UIFont.Theme.medium(ofSize: 12)))
             .foregroundColor(.black)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 10)
@@ -77,10 +77,11 @@ struct AgreeToTermsView: View {
         VStack {
             BulletListView(listItems: ["Update your handle and profile information", "Update your contacts & groups"])
                 .padding(.vertical, 10)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 14)
             Text("You may update permissions at any time.")
                 .font(Font(UIFont.Theme.regular(ofSize: 12)))
                 .foregroundColor(.black)
+                .padding(.horizontal, 10)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
@@ -96,10 +97,8 @@ struct AgreeToTermsView: View {
             .font(Font(UIFont.Theme.regular(ofSize: 12)))
             .foregroundColor(.black)
             .lineSpacing(3)
-            .padding(.bottom, 16)
-            .frame(alignment: .bottom)
     }
-
+    
 }
 
 struct AgreeToTermsView_Previews: PreviewProvider {
