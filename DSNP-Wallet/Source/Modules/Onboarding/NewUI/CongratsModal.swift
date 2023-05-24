@@ -32,7 +32,7 @@ struct CongratsModal: View {
         .background(Color(uiColor: UIColor.Theme.bgGray))
         .ignoresSafeArea()
     }
-    
+
     private var congratsText: some View {
         Text("Congratulations!")
             .font(Font(UIFont.Theme.extraBold(ofSize: 22)))

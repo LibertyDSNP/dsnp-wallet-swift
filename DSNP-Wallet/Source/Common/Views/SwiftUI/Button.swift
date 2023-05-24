@@ -13,7 +13,6 @@ struct PrimaryButton: View {
     
     var body: some View {
         Button {
-            action()
         } label: {
             Text(title)
                 .font(Font(UIFont.Theme.medium(ofSize: 14)))
@@ -24,6 +23,9 @@ struct PrimaryButton: View {
         .background(Color(uiColor: UIColor.Theme.primaryTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
+        .onTapGesture {
+            action()
+        }
     }
 }
 
@@ -34,7 +36,6 @@ struct SecondaryButton: View {
     
     var body: some View {
         Button {
-            action()
         } label: {
             Text(title)
                 .font(Font(UIFont.Theme.bold(ofSize: 15)))
@@ -46,6 +47,9 @@ struct SecondaryButton: View {
         .background(!enabled ? Color(uiColor: UIColor.Theme.bgGray) : Color(uiColor: UIColor.Theme.primaryTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
+        .onTapGesture {
+            action()
+        }
     }
 }
 

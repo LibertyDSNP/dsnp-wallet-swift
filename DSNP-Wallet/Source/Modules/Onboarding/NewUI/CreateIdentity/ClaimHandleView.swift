@@ -97,7 +97,6 @@ struct ClaimHandleView: View {
     
     private var nextButton: some View {
         Button {
-            viewModel.nextAction.send()
         } label: {
             Text("Next")
                 .font(Font(UIFont.Theme.medium(ofSize: 14)))
@@ -110,11 +109,14 @@ struct ClaimHandleView: View {
         .cornerRadius(30)
         .disabled($viewModel.nextButtonDisabled.wrappedValue)
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
+        .onTapGesture {
+            viewModel.nextAction.send()
+        }
     }
     
     private var skipButton: some View {
         Button {
-            // TODO SKIP
+            viewModel.skipAction.send()
         } label: {
             Text("Skip for now (Not Recommended)")
                 .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
