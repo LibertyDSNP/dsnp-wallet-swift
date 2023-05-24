@@ -21,9 +21,10 @@ struct AgreeToTermsView: View {
                 agreementText
                 agreementExplanationText
                 agreeButton
-                Spacer()
                 termsView
+                    .padding(.top, 120)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -82,6 +83,7 @@ struct AgreeToTermsView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 12)))
                 .foregroundColor(.black)
                 .padding(.horizontal, 10)
+                .padding(.vertical, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
@@ -93,10 +95,46 @@ struct AgreeToTermsView: View {
     }
     
     var termsView: some View {
-        Text("By signing up, you agree to our [Terms](https://google.com) and\n[Privacy Policy](https://google.com) • [Learn More](https://google.com)")
-            .font(Font(UIFont.Theme.regular(ofSize: 12)))
-            .foregroundColor(.black)
-            .lineSpacing(3)
+        VStack {
+            Text("By signing up, you agree to Amplica Access")
+                .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                .foregroundColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                .lineSpacing(3)
+                .frame(maxHeight: .infinity, alignment: .bottom)
+            if #available(iOS 16.0, *) {
+                HStack {
+                    
+                    Text("[Terms](https://google.com)")
+                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                        .underline()
+                        .padding(.horizontal, -4)
+                    Text("and")
+                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                        .foregroundColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                    Text("[Privacy Policy](https://google.com)")
+                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                        .underline()
+                        .padding(.horizontal, -4)
+                    Text("•")
+                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                        .foregroundColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                    Text("[Learn More](https://google.com)")
+                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                        .underline()
+                }
+            } else {
+                Text("By signing up, you agree to our [Terms](https://google.com) and\n[Privacy Policy](https://google.com) • [Learn More](https://google.com)")
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                    .foregroundColor(.black)
+                    .lineSpacing(3)
+            }
+        }
+        
     }
     
 }
