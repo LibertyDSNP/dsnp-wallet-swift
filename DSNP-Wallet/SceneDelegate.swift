@@ -20,13 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        
-#if DEBUG
         let rootViewController = BaseViewController()
-#else
-        let rootViewController = GenerateKeysViewController() //TODO: Update with service instantiation
-#endif
-      
+
         window.rootViewController = rootViewController
         self.window = window
         window.makeKeyAndVisible()

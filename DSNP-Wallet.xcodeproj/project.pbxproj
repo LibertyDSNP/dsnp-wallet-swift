@@ -59,7 +59,6 @@
 		829961442978C461009A769F /* KeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960C72978C45F009A769F /* KeysViewController.swift */; };
 		829961452978C461009A769F /* KeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960C82978C45F009A769F /* KeysViewModel.swift */; };
 		829961462978C461009A769F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960C92978C45F009A769F /* HomeViewController.swift */; };
-		829961472978C461009A769F /* GenerateKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960CA2978C45F009A769F /* GenerateKeysViewController.swift */; };
 		829961482978C461009A769F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960CB2978C45F009A769F /* TestViewController.swift */; };
 		829961492978C461009A769F /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960CD2978C45F009A769F /* ProfileHeaderView.swift */; };
 		8299614A2978C461009A769F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960CE2978C45F009A769F /* ProfileViewController.swift */; };
@@ -540,7 +539,6 @@
 		829960C72978C45F009A769F /* KeysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysViewController.swift; sourceTree = "<group>"; };
 		829960C82978C45F009A769F /* KeysViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysViewModel.swift; sourceTree = "<group>"; };
 		829960C92978C45F009A769F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		829960CA2978C45F009A769F /* GenerateKeysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateKeysViewController.swift; sourceTree = "<group>"; };
 		829960CB2978C45F009A769F /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		829960CD2978C45F009A769F /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		829960CE2978C45F009A769F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -1405,7 +1403,6 @@
 				B5A62C812A0D47E200A31178 /* AccountCoordinator.swift */,
 				B53BD7BF2A01571000967477 /* ChainEnvironment.swift */,
 				8223AB5A2818917700DEF1E9 /* AppDelegate.swift */,
-				829960CA2978C45F009A769F /* GenerateKeysViewController.swift */,
 				829960C92978C45F009A769F /* HomeViewController.swift */,
 				829960C52978C45F009A769F /* KeysViewController */,
 				82DD90FE29661D3900A508B9 /* Onboarding */,
@@ -2211,7 +2208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "dsnp-wallet" */;
+			buildConfigurationList = 8223AB522818917700DEF1E9 /* Build configuration list for PBXProject "DSNP-Wallet" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2758,7 +2755,6 @@
 				82996685297B141A009A769F /* WeakWrapper.swift in Sources */,
 				82996498297A17F4009A769F /* ExtrinsicStatus.swift in Sources */,
 				829965A2297A1955009A769F /* RuntimeMetadataItem.swift in Sources */,
-				829961472978C461009A769F /* GenerateKeysViewController.swift in Sources */,
 				82996596297A1955009A769F /* ChainStorageDecodedItem.swift in Sources */,
 				82996375297A13CF009A769F /* RuntimeSyncService.swift in Sources */,
 				829965AD297A1955009A769F /* SubstrateConstansts.swift in Sources */,
