@@ -51,16 +51,19 @@ struct SignInView: View {
             })
             .padding(.vertical, 12)
             .padding(.horizontal, 34)
+            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createNewUserButton)
             PrimaryButton(title: "I have an ID (MeWe)", action: {
                 viewModel.meWeIdAction.send()
             })
             .padding(.vertical, 12)
             .padding(.horizontal, 34)
+            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
             PrimaryButton(title: "Restore from backup", action: {
                 viewModel.restoreAction.send()
             })
             .padding(.vertical, 12)
             .padding(.horizontal, 34)
+            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.restoreUserButton)
         }
         .frame(maxWidth: .infinity)
     }

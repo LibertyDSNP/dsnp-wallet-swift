@@ -14,6 +14,7 @@ class ClaimHandleViewModel: ObservableObject {
     
     // Actions
     var nextAction = PassthroughSubject<Void, Never>()
+    var skipAction = PassthroughSubject<Void, Never>()
     
     private var cancellables = [AnyCancellable]()
     private var validCharSet = CharacterSet.alphanumerics
@@ -28,11 +29,13 @@ class ClaimHandleViewModel: ObservableObject {
             .sink { [weak self] inputText in
                 guard let self else { return }
                 //check if the new string contains any invalid characters
-                if inputText.rangeOfCharacter(from: self.validCharSet.inverted) != nil {
+                if inputText.rangeOfCharacter(from: self.validCharSet.inverted) == nil {
                     self.claimHandleText = String(self.claimHandleText.unicodeScalars.filter {
                         self.validCharSet.contains($0)
                     })
-                    self.nextButtonDisabled = !self.claimHandleText.isEmpty
+                    
+                    // Upper limit is 16, lower limit is 4
+                    self.nextButtonDisabled = self.claimHandleText.count < 4 || self.claimHandleText.count > 16
                 }
             }
             .store(in: &cancellables)

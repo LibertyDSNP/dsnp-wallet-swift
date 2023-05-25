@@ -46,10 +46,10 @@ struct ConfirmHandleView: View {
     
     private var subtitle: some View {
         Text("Confirm your Handle")
-            .font(Font(UIFont.Theme.semibold(ofSize: 22)))
+            .font(Font(UIFont.Theme.medium(ofSize: 22)))
             .foregroundColor(.black)
             .padding(.horizontal, 10)
-            .padding(.vertical, 2)
+            .padding(.vertical, 10)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
     
@@ -60,17 +60,19 @@ struct ConfirmHandleView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 10)
             .padding(.vertical, 4)
+            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.confirmHandleLabel)
     }
 
     private var nextButton: some View {
         PrimaryButton(title: "Next") {
             viewModel.nextAction.send()
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.confirmHandleButton)
     }
     
     private var suffixDescription: some View {
         Text("The numerical suffix is auto-assigned by Amplica Access\nto make sure every handle is unique. They will not be\nvisible in some cases.")
-            .font(Font(UIFont.Theme.regular(ofSize: 10)))
+            .font(Font(UIFont.Theme.regular(ofSize: 11)))
             .foregroundColor(.black)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 10)

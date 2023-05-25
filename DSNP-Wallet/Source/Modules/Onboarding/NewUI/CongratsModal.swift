@@ -24,6 +24,7 @@ struct CongratsModal: View {
                     // Close
                 })
                 .padding(.trailing, 12)
+                .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.congratsCloseButton)
             }
             description
             buttonStack
@@ -31,7 +32,7 @@ struct CongratsModal: View {
         .background(Color(uiColor: UIColor.Theme.bgGray))
         .ignoresSafeArea()
     }
-    
+
     private var congratsText: some View {
         Text("Congratulations!")
             .font(Font(UIFont.Theme.extraBold(ofSize: 22)))
@@ -60,6 +61,7 @@ struct CongratsModal: View {
             viewModel.finishAction.send()
         }
         .font(Font(UIFont.Theme.regular(ofSize: 14)))
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.congratsFinishButton)
     }
     
     private var skipButton: some View {
@@ -71,6 +73,7 @@ struct CongratsModal: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 10)))
                 .underline()
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.congratsSkipButton)
     }
 }
 

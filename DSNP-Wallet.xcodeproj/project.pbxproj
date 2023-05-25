@@ -460,6 +460,7 @@
 		B5A62C9B2A1285A800A31178 /* SeedPuzzleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */; };
 		B5A62C9D2A13DD5400A31178 /* LBYSeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */; };
 		B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */; };
+		B5BCDD682A1E564C003E2845 /* TermsDisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */; };
 		B5F74EFF2A1679440046DE15 /* AccessiblityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */; };
 /* End PBXBuildFile section */
 
@@ -950,6 +951,7 @@
 		B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPuzzleViewModel.swift; sourceTree = "<group>"; };
 		B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBYSeedPhraseViewController.swift; sourceTree = "<group>"; };
 		B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseTestViewController.swift; sourceTree = "<group>"; };
+		B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDisclaimerView.swift; sourceTree = "<group>"; };
 		B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessiblityIdentifiers.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2072,20 +2074,13 @@
 		B5A62BFB2A0A8FEA00A31178 /* NewUI */ = {
 			isa = PBXGroup;
 			children = (
-				B5A62C062A0A900600A31178 /* AgreeToTermsView.swift */,
-				B5A62C052A0A900600A31178 /* AgreeToTermsViewController.swift */,
-				B5A62BFD2A0A900500A31178 /* AgreeToTermsViewModel.swift */,
-				B5A62C032A0A900600A31178 /* ClaimHandleView.swift */,
-				B5A62C042A0A900600A31178 /* ClaimHandleViewController.swift */,
-				B5A62C012A0A900500A31178 /* ClaimHandleViewModel.swift */,
-				B5A62BFC2A0A900500A31178 /* ConfirmHandleView.swift */,
-				B5A62BFF2A0A900500A31178 /* ConfirmHandleViewController.swift */,
-				B5A62C022A0A900500A31178 /* ConfirmHandleViewModel.swift */,
+				B5BCDD692A1E56D0003E2845 /* CreateIdentity */,
 				B5A62C002A0A900500A31178 /* CongratsModal.swift */,
 				B5A62BFE2A0A900500A31178 /* SignInView.swift */,
 				B5A62C072A0A900600A31178 /* SignInViewController.swift */,
 				B5A62C082A0A900600A31178 /* SignInViewModel.swift */,
 				B5A62C2F2A0A9BB400A31178 /* CongratsViewController.swift */,
+				B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */,
 			);
 			path = NewUI;
 			sourceTree = "<group>";
@@ -2111,6 +2106,22 @@
 				B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		B5BCDD692A1E56D0003E2845 /* CreateIdentity */ = {
+			isa = PBXGroup;
+			children = (
+				B5A62C062A0A900600A31178 /* AgreeToTermsView.swift */,
+				B5A62C052A0A900600A31178 /* AgreeToTermsViewController.swift */,
+				B5A62BFD2A0A900500A31178 /* AgreeToTermsViewModel.swift */,
+				B5A62C032A0A900600A31178 /* ClaimHandleView.swift */,
+				B5A62C042A0A900600A31178 /* ClaimHandleViewController.swift */,
+				B5A62C012A0A900500A31178 /* ClaimHandleViewModel.swift */,
+				B5A62BFC2A0A900500A31178 /* ConfirmHandleView.swift */,
+				B5A62BFF2A0A900500A31178 /* ConfirmHandleViewController.swift */,
+				B5A62C022A0A900500A31178 /* ConfirmHandleViewModel.swift */,
+			);
+			path = CreateIdentity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2411,6 +2422,7 @@
 				8299614A2978C461009A769F /* ProfileViewController.swift in Sources */,
 				829968FB297B721C009A769F /* RuntimeMetadata+Internal.swift in Sources */,
 				82996366297A13CF009A769F /* ChainRegistryFactory.swift in Sources */,
+				B5BCDD682A1E564C003E2845 /* TermsDisclaimerView.swift in Sources */,
 				829961312978C461009A769F /* SharedDivider.swift in Sources */,
 				8299669E297B141A009A769F /* DataChangesDiffCalculator.swift in Sources */,
 				82996354297A13CF009A769F /* WebSocketProtocols.swift in Sources */,
@@ -2572,7 +2584,6 @@
 				829966C1297B28A9009A769F /* AsyncClosureOperation.swift in Sources */,
 				82996910297B721C009A769F /* KeystoreExtensions.swift in Sources */,
 				823BDBA22A03012900F81F9C /* TransactionLocalStorageHandler.swift in Sources */,
-				82DD910D296E03F400A508B9 /* SeedPhraseCollectionViewCell.swift in Sources */,
 				8299636C297A13CF009A769F /* ConnectionFactory.swift in Sources */,
 				8299635E297A13CF009A769F /* AssetsBalanceUpdater.swift in Sources */,
 				82996634297A1B5E009A769F /* EraRewardPoints.swift in Sources */,

@@ -10,6 +10,8 @@ import SwiftUI
 struct ClaimHandleView: View {
     @ObservedObject var viewModel: ClaimHandleViewModel
     
+    @FocusState private var textfieldFocused: Bool
+
     var body: some View {
         VStack {
             AmplicaLogo()
@@ -72,6 +74,13 @@ struct ClaimHandleView: View {
                 .background(RoundedRectangle(cornerRadius: 30).fill(Color.white))
                 .font(Font(UIFont.Theme.regular(ofSize: 16)))
                 .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
+                .focused($textfieldFocused)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.textfieldFocused = true
+                    }
+                }
+                .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleTextfield)
         }
     }
     
@@ -95,17 +104,20 @@ struct ClaimHandleView: View {
         PrimaryButton(title: "Next") {
             viewModel.nextAction.send()
         }
+        .disabled(viewModel.nextButtonDisabled)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
     }
     
     private var skipButton: some View {
         Button {
-            // TODO SKIP
+            viewModel.skipAction.send()
         } label: {
             Text("Skip for now (Not Recommended)")
                 .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
                 .font(Font(UIFont.Theme.regular(ofSize: 10)))
                 .underline()
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
     }
 }
 

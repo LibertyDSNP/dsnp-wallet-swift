@@ -37,6 +37,14 @@ class ClaimHandleViewController: UIHostingController<ClaimHandleView> {
                 self.navigationController?.pushViewController(ConfirmHandleViewController(chosenHandle: self.viewModel.claimHandleText), animated: true)
             }
             .store(in: &cancellables)
+        viewModel.skipAction
+            .receive(on: RunLoop.main)
+            .sink { [weak self] in
+                guard let self else { return }
+                let agreeVC = AgreeToTermsViewController(chosenHandle: "")
+                self.navigationController?.pushViewController(agreeVC, animated: true)
+            }
+            .store(in: &cancellables)
     }
     
 }
