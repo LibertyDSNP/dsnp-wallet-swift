@@ -75,6 +75,11 @@ struct ClaimHandleView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 16)))
                 .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
                 .focused($textfieldFocused)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.textfieldFocused = true
+                    }
+                }
                 .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleTextfield)
         }
     }
