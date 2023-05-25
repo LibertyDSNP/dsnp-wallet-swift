@@ -51,8 +51,46 @@ struct TermsDisclaimerView: View {
     }
 }
 
+struct SignInTermsDisclaimerView: View {
+    var body: some View {
+        VStack {
+            Text("By signing up, you agree to our")
+                .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                .foregroundColor(.white)
+                .frame(maxHeight: .infinity, alignment: .bottom)
+                .padding(.bottom, -6)
+            if #available(iOS 16.0, *) {
+                HStack {
+                    Text("[Terms](https://google.com)")
+                        .accentColor(Color(uiColor: UIColor.Theme.linkOrange))
+                        .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                        .padding(.horizontal, -4)
+                    Text("and")
+                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                        .foregroundColor(.white)
+                    Text("[Privacy Policy](https://google.com)")
+                        .accentColor(Color(uiColor: UIColor.Theme.linkOrange))
+                        .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                        .padding(.horizontal, -4)
+                }
+            } else {
+                Text("By signing up, you agree to our [Terms](https://google.com) and\n[Privacy Policy](https://google.com)")
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                    .foregroundColor(.black)
+                    .lineSpacing(3)
+            }
+        }
+        .background(Color(uiColor: UIColor.Theme.bgTeal))
+    }
+}
+
+
 struct TermsDisclaimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TermsDisclaimerView()
+        VStack {
+            TermsDisclaimerView()
+            SignInTermsDisclaimerView()
+        }
     }
 }
