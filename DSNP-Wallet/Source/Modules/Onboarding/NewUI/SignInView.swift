@@ -21,7 +21,7 @@ struct SignInView: View {
                 .padding(.vertical, 12)
             buttonContainer
             Spacer()
-            termsView
+            SignInTermsDisclaimerView()
         }
         .frame(
             maxWidth: .infinity,
@@ -52,28 +52,25 @@ struct SignInView: View {
             .padding(.vertical, 12)
             .padding(.horizontal, 34)
             .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createNewUserButton)
-            PrimaryButton(title: "I have an ID (MeWe)", action: {
+            PrimaryButton(title: "I have an ID", action: {
                 viewModel.meWeIdAction.send()
-            })
+            }, suffixImage: Image("mewelogo"))
             .padding(.vertical, 12)
             .padding(.horizontal, 34)
             .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
-            PrimaryButton(title: "Restore from backup", action: {
+            Button {
                 viewModel.restoreAction.send()
-            })
+            } label: {
+                Text("Restore from Backup")
+                    .foregroundColor(.white)
+                    .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                    .underline()
+            }
             .padding(.vertical, 12)
             .padding(.horizontal, 34)
             .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.restoreUserButton)
         }
         .frame(maxWidth: .infinity)
-    }
-    
-    var termsView: some View {
-        Text("By signing up, you agree to our [Terms](https://google.com) and\n[Privacy Policy](https://google.com)")
-            .font(Font(UIFont.Theme.regular(ofSize: 12)))
-            .foregroundColor(.white)
-            .lineSpacing(3)
-            .padding(.bottom, 16)
     }
 }
 
