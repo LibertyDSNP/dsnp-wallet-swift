@@ -28,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 #else
         if AppState.isLoggedin {
             // Go to profile
+            rootViewController = ProfileViewController()
         } else {
             rootViewController = SignInViewController()
         }
