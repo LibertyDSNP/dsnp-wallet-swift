@@ -8,6 +8,5 @@
 import Foundation
 
 struct AppState {
-    
-    static var isLoggedin = false
+    static var isLoggedin = true
 }

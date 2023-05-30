@@ -411,6 +411,7 @@
 		82F183D22A1824880092D0FF /* SubstrateDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82F183C72A1824880092D0FF /* SubstrateDataModel.xcdatamodeld */; };
 		82F183D42A1824F00092D0FF /* AssetBalanceChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
+		B534ACDA2A268A7500518B9C /* AMPHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */; };
 		B53BD7BE2A00408200967477 /* QAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BD2A00408200967477 /* QAViewModel.swift */; };
 		B53BD7C02A01571000967477 /* ChainEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BF2A01571000967477 /* ChainEnvironment.swift */; };
 		B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F242A0007FF00A17F08 /* QAViewController.swift */; };
@@ -905,6 +906,7 @@
 		82F183D02A1824880092D0FF /* SubstrateDataModel2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel2.xcdatamodel; sourceTree = "<group>"; };
 		82F183D12A1824880092D0FF /* SubstrateDataModel7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel7.xcdatamodel; sourceTree = "<group>"; };
 		82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetBalanceChanged.swift; sourceTree = "<group>"; };
+		B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPHomeViewModel.swift; sourceTree = "<group>"; };
 		B53BD7BD2A00408200967477 /* QAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewModel.swift; sourceTree = "<group>"; };
 		B53BD7BF2A01571000967477 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainEnvironment.swift; sourceTree = "<group>"; };
 		B5966F242A0007FF00A17F08 /* QAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
@@ -1298,6 +1300,7 @@
 				B5D382C02A26481C0086A05D /* HomeView.swift */,
 				B5D382C22A26483D0086A05D /* HomeViewModel.swift */,
 				B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */,
+				B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -2431,6 +2434,7 @@
 				8299659B297A1955009A769F /* WalletAssetId.swift in Sources */,
 				82996363297A13CF009A769F /* EventEmittingStorageSubscription.swift in Sources */,
 				8299663B297A1B5E009A769F /* UniquesInstanceMetadata.swift in Sources */,
+				B534ACDA2A268A7500518B9C /* AMPHomeViewModel.swift in Sources */,
 				82996356297A13CF009A769F /* OrmlAccountSubscription.swift in Sources */,
 				82996927297B7285009A769F /* NSPredicate+Validation.swift in Sources */,
 				829965C3297A1955009A769F /* BalanceLocks+Sort.swift in Sources */,

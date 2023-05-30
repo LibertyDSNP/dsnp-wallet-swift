@@ -13,9 +13,12 @@ class AMPHomeViewController: UIHostingController<HomeTabView> {
 
     let viewModel: HomeViewModel
     
-    init(viewModel: HomeViewModel = HomeViewModel()) {
+    let showCongrats: Bool
+    
+    init(viewModel: HomeViewModel = HomeViewModel(), showCongrats: Bool = false) {
         self.viewModel = viewModel
-        super.init(rootView: HomeTabView(viewModel: viewModel))
+        self.showCongrats = showCongrats
+        super.init(rootView: HomeTabView(viewModel: viewModel, showingAlert: showCongrats))
     }
     
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {

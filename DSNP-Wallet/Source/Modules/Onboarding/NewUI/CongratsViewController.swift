@@ -21,7 +21,7 @@ class CongratsViewController: UIHostingController<CongratsModal> {
     
     init(viewModel: CongratsViewModel = CongratsViewModel()) {
         self.viewModel = viewModel
-        super.init(rootView: CongratsModal(viewModel: self.viewModel))
+        super.init(rootView: CongratsModal(viewModel: self.viewModel, shown: true))
     }
     
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {

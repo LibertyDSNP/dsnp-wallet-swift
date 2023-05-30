@@ -11,6 +11,8 @@ struct CongratsModal: View {
 
     let viewModel: CongratsViewModel
     
+    @State var shown: Bool = true
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -23,7 +25,7 @@ struct CongratsModal: View {
                     .padding(.leading, 16)
                 Spacer()
                 CloseButton(action: {
-                    // Close
+                    shown.toggle()
                 })
                 .padding(.trailing, 12)
                 .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.congratsCloseButton)
@@ -63,6 +65,7 @@ struct CongratsModal: View {
     private var finishButton: some View {
         PrimaryButton(title: "Finish Digital Identity") {
             viewModel.finishAction.send()
+            shown.toggle()
         }
         .font(Font(UIFont.Theme.regular(ofSize: 14)))
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.congratsFinishButton)
@@ -71,6 +74,7 @@ struct CongratsModal: View {
     private var skipButton: some View {
         Button {
             viewModel.skipAction.send()
+            shown.toggle()
         } label: {
             Text("Skip for now (Not Recommended)")
                 .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))

@@ -34,7 +34,7 @@ class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
             .receive(on: RunLoop.main)
             .sink { [weak self] in
                 guard let self else { return }
-                let tabVC = AMPHomeViewController()
+                let tabVC = AMPHomeViewController(showCongrats: true)
                 self.navigationController?.pushViewController(tabVC, animated: true)
             }
             .store(in: &cancellables)
