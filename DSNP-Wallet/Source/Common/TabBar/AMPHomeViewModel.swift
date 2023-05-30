@@ -15,6 +15,8 @@ class AMPHomeViewModel: ObservableObject {
 
     @Published var isEditing: Bool = false
     
+    var walletAddress = "$WALLET_ADDRESS"
+    
     
     func toggleEditMode() {
         isEditing.toggle()

@@ -412,6 +412,7 @@
 		82F183D42A1824F00092D0FF /* AssetBalanceChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
 		B534ACDA2A268A7500518B9C /* AMPHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */; };
+		B534ACDC2A2690FB00518B9C /* AMPProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */; };
 		B53BD7BE2A00408200967477 /* QAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BD2A00408200967477 /* QAViewModel.swift */; };
 		B53BD7C02A01571000967477 /* ChainEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BF2A01571000967477 /* ChainEnvironment.swift */; };
 		B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F242A0007FF00A17F08 /* QAViewController.swift */; };
@@ -907,6 +908,7 @@
 		82F183D12A1824880092D0FF /* SubstrateDataModel7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel7.xcdatamodel; sourceTree = "<group>"; };
 		82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetBalanceChanged.swift; sourceTree = "<group>"; };
 		B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPHomeViewModel.swift; sourceTree = "<group>"; };
+		B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPProfileView.swift; sourceTree = "<group>"; };
 		B53BD7BD2A00408200967477 /* QAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewModel.swift; sourceTree = "<group>"; };
 		B53BD7BF2A01571000967477 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainEnvironment.swift; sourceTree = "<group>"; };
 		B5966F242A0007FF00A17F08 /* QAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
@@ -1301,6 +1303,7 @@
 				B5D382C22A26483D0086A05D /* HomeViewModel.swift */,
 				B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */,
 				B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */,
+				B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -2825,6 +2828,7 @@
 				82996497297A17F4009A769F /* Block.swift in Sources */,
 				82996909297B721C009A769F /* TransactionType+Wallet.swift in Sources */,
 				82996631297A1B5E009A769F /* AssetAccount.swift in Sources */,
+				B534ACDC2A2690FB00518B9C /* AMPProfileView.swift in Sources */,
 				B5A62C0E2A0A900600A31178 /* ClaimHandleViewModel.swift in Sources */,
 				8299668D297B141A009A769F /* FilesRepository.swift in Sources */,
 				82996374297A13CF009A769F /* RuntimeSnapshotOperationFactory.swift in Sources */,
