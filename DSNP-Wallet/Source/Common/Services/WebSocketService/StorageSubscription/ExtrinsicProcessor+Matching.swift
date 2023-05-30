@@ -26,6 +26,21 @@ private typealias BalancesParsingResult = (
 )
 
 extension ExtrinsicProcessor {
+    func getErrorEventRecord(
+        for index: UInt32,
+        eventRecords: [EventRecord],
+        metadata: RuntimeMetadataProtocol
+    ) -> EventRecord? {
+        return eventRecords.filter { record in
+            guard record.extrinsicIndex == index,
+                  let eventPath = metadata.createEventCodingPath(from: record.event) else {
+                return false
+            }
+            
+            return [.extrisicSuccess, .extrinsicFailed].contains(eventPath)
+        }.first
+    }
+    
     func matchStatus(
         for index: UInt32,
         eventRecords: [EventRecord],
@@ -211,7 +226,8 @@ extension ExtrinsicProcessor {
         extrinsic: Extrinsic,
         eventRecords: [EventRecord],
         metadata: RuntimeMetadataProtocol,
-        runtimeJsonContext: RuntimeJsonContext
+        runtimeJsonContext: RuntimeJsonContext,
+        errorHandler: TransactionErrorHandlerBlock?
     ) -> ExtrinsicProcessingResult? {
         do {
             let maybeSender: AccountId? = try extrinsic.signature?.address.map(
@@ -233,7 +249,28 @@ extension ExtrinsicProcessor {
                 ) else {
                 return nil
             }
-
+            
+            if let errorEventRecord = getErrorEventRecord(for: extrinsicIndex, eventRecords: eventRecords, metadata: metadata),
+               let errorEvent = try? errorEventRecord.event.params.map(
+                to: RuntimeDispatchError.self,
+                with: runtimeJsonContext.toRawContext()
+               ),
+               let moduleIndex = errorEvent.index,
+               let errorIndex = errorEvent.error,
+               let metadata = metadata as? RuntimeMetadataV14,
+               let pallet = metadata.pallets.first(where: { $0.index == moduleIndex }),
+               let errorMetadataIndex = pallet.errors?.type {
+                let errorTypes = metadata.types.types
+                        .first(where: { $0.identifier == errorMetadataIndex })
+                guard
+                    case .variant(let calls) = errorTypes?.type.typeDefinition,
+                    let error = calls.variants.first(where: { $0.index == errorIndex }) else {
+                    return nil
+                }
+                
+                errorHandler?("\(error)")
+            }
+            
             let fee = findFee(
                 for: extrinsicIndex,
                 sender: sender,
@@ -427,7 +464,8 @@ extension ExtrinsicProcessor {
         extrinsic: Extrinsic,
         eventRecords: [EventRecord],
         metadata: RuntimeMetadataProtocol,
-        runtimeJsonContext: RuntimeJsonContext
+        runtimeJsonContext: RuntimeJsonContext,
+        errorHandler: TransactionErrorHandlerBlock?
     ) -> ExtrinsicProcessingResult? {
         let ethereumCall = CallCodingPath.ethereumTransact
 
@@ -447,7 +485,8 @@ extension ExtrinsicProcessor {
                 extrinsic: extrinsic,
                 eventRecords: eventRecords,
                 metadata: metadata,
-                runtimeJsonContext: runtimeJsonContext
+                runtimeJsonContext: runtimeJsonContext,
+                errorHandler: errorHandler
             )
         }
     }

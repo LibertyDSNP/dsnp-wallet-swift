@@ -75,7 +75,8 @@ extension TestViewController {
         let subscriptionIdClosure: ExtrinsicSubscriptionIdClosure = { _ in
             return true
         }
-        let notificationClosure = getSubscriptionNotificationClosure(completion: { items in
+        
+        let resultCompletion: TransactionSubscriptionCompletion = { items in
             guard let item = items.first else { return }
             
             let processingResult = item.processingResult
@@ -85,11 +86,24 @@ extension TestViewController {
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                 self.present(alert, animated: true)
             }
-        })
+        }
+        
+        let errorHandler: TransactionErrorHandlerBlock = { error in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "ERROR", message: error, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+            }
+        }
+        
+        let notificationClosure = getSubscriptionNotificationClosure(completion: resultCompletion,
+                                                                     errorHandler: errorHandler)
         
         switch selector?.titleLabel?.text ?? "" {
         case TestButtons.create.rawValue:
-            createMsa(primaryUser: primaryUser, subscriptionIdClosure: subscriptionIdClosure, notificationClosure: notificationClosure)
+            createMsa(primaryUser: primaryUser,
+                      subscriptionIdClosure: subscriptionIdClosure,
+                      notificationClosure: notificationClosure)
         case TestButtons.getMsa.rawValue:
             getMsa(primaryUser: primaryUser)
         case TestButtons.addPublicKeyToMsa.rawValue:
@@ -161,7 +175,8 @@ extension TestViewController {
 
 //MARK: Extrinsic Closure
 extension TestViewController {
-    func getSubscriptionNotificationClosure(completion: @escaping TransactionSubscriptionCompletion) -> ExtrinsicSubscriptionStatusClosure {
+    func getSubscriptionNotificationClosure(completion: @escaping TransactionSubscriptionCompletion,
+                                            errorHandler: TransactionErrorHandlerBlock?) -> ExtrinsicSubscriptionStatusClosure {
         let notificationClosure: ExtrinsicSubscriptionStatusClosure = { [weak self] result in
             var text = ""
             
@@ -171,7 +186,7 @@ extension TestViewController {
                 case .finalized(let hash):
                     text = "finalized \(hash)"
                     
-                    self?.process(blockHash: hash, completion: completion)
+                    self?.process(blockHash: hash, completion: completion, errorHandler: errorHandler)
                 case .inBlock(let hash):
                     text = "inBlock \(hash)"
                 case .finalityTimeout(let hash):
@@ -191,7 +206,7 @@ extension TestViewController {
 
 //MARK: Subscription
 extension TestViewController {
-    private func process(blockHash: String, completion: @escaping TransactionSubscriptionCompletion) {
+    private func process(blockHash: String, completion: @escaping TransactionSubscriptionCompletion, errorHandler: TransactionErrorHandlerBlock?) {
         let primaryMnemonicInput = primaryTextField.text?.isEmpty ?? true ? "quote grocery buzz staff merit patch outdoor depth eight raw rubber once" : primaryTextField.text ?? ""
         let primaryUser = User(mnemonic: primaryMnemonicInput)
         
@@ -201,6 +216,7 @@ extension TestViewController {
         
         viewModel?.process(from: primaryUser,
                            blockhash: blockHash,
-                           completion: completion)
+                           completion: completion,
+                           errorHandler: errorHandler)
     }
 }
