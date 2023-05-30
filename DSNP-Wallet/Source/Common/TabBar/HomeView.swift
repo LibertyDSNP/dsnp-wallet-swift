@@ -11,6 +11,9 @@ struct HomeTabView: View {
     
     let viewModel: HomeViewModel
     
+    @State private var showingSheet = false
+
+    
     var body: some View {
         TabView {
             AMPHomeView()
@@ -31,9 +34,12 @@ struct HomeTabView: View {
                 .tabItem {
                     VStack {
                         Text("Settings")
-                        Image("Settings")
+                        Image("Keys")
                     }
                 }
+        }
+        .sheet(isPresented: $showingSheet) {
+            CongratsModal(viewModel: CongratsViewModel())
         }
         .accentColor(Color(uiColor: UIColor.Theme.primaryTeal))
         .background(Color(uiColor: UIColor.Theme.bgTeal))
@@ -46,6 +52,7 @@ struct ProfileView: View {
         VStack {
             
         }
+        .background(Color(uiColor: UIColor.Theme.bgTeal))
     }
 }
 
@@ -55,6 +62,7 @@ struct SettingsView: View {
         VStack {
             
         }
+        .background(Color(uiColor: UIColor.Theme.bgTeal))
     }
 }
 
@@ -64,14 +72,9 @@ struct AMPHomeView: View {
         VStack {
             
         }
+        .background(Color(uiColor: UIColor.Theme.bgTeal))
     }
 }
-
-// home tab
-
-// profile/graph tab
-
-// settings tab
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

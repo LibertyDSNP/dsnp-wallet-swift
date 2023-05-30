@@ -28,9 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 #else
         if AppState.isLoggedin {
             // Go to profile
-            rootViewController = TabBarViewController()
+            rootViewController = AMPHomeViewController()
         } else {
-            rootViewController = SignInViewController()
+            rootViewController = UINavigationController(rootViewController: SignInViewController())
         }
 #endif
         window.rootViewController = rootViewController

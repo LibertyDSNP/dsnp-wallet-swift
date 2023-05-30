@@ -11,6 +11,8 @@ struct CongratsModal: View {
 
     let viewModel: CongratsViewModel
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -30,7 +32,9 @@ struct CongratsModal: View {
             buttonStack
         }
         .background(Color(uiColor: UIColor.Theme.bgGray))
-        .ignoresSafeArea()
+        .frame(maxWidth: 300, maxHeight: 300, alignment: .topTrailing)
+        .cornerRadius(20)
+        .padding(16)
     }
 
     private var congratsText: some View {
