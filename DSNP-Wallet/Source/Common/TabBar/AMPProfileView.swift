@@ -16,7 +16,6 @@ struct AMPProfileView: View {
     @State var showingAlert: Bool = false
 
     @FocusState private var textfieldFocused: Bool
-
     
     var body: some View {
         ZStack {
@@ -27,6 +26,7 @@ struct AMPProfileView: View {
                 profileImage
                 handleHeadline
                 addressSubheadline
+                    .padding(.bottom, 20)
                 metaDatafields
             }
             .background(Color(uiColor: UIColor.Theme.bgTeal))
@@ -41,8 +41,8 @@ struct AMPProfileView: View {
             Image("profile_placeholder")
             editButton
         }
-        .frame(maxWidth: 120, maxHeight: 120, alignment: .center)
-        .cornerRadius(60)
+        .frame(maxWidth: 140, maxHeight: 140, alignment: .center)
+        .cornerRadius(70)
     }
     
     private var editButton: some View {
@@ -78,60 +78,79 @@ struct AMPProfileView: View {
     private var metaDatafields: some View {
         VStack {
             firstNameField
+                .padding(.horizontal, 10)
             lastNameField
+                .padding(.horizontal, 10)
             emailField
+                .padding(.horizontal, 10)
         }
     }
     
     private var firstNameField: some View {
-        TextField("First Name:", text: $viewModel.firstNameText)
-            .textInputAutocapitalization(.never)
-            .disableAutocorrection(true)
-            .foregroundColor(.black)
-            .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 0))
-            .padding(8)
-            .background(RoundedRectangle(cornerRadius: 30).fill(bgTealColor))
-            .font(Font(UIFont.Theme.regular(ofSize: 16)))
-            .foregroundColor(.white)
-            .focused($textfieldFocused)
-            .border(.white)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.textfieldFocused = true
+        VStack {
+            Text("First name:")
+                .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 2)
+            TextField("First Name:", text: $viewModel.firstNameText)
+                .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
+                .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 0))
+                .padding(8)
+                .background(RoundedRectangle(cornerRadius: 30).fill(bgTealColor))
+                .font(Font(UIFont.Theme.regular(ofSize: 16)))
+                .foregroundColor(.white)
+                .focused($textfieldFocused)
+                .border(.white)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.textfieldFocused = true
+                    }
                 }
-            }
-            .accessibilityIdentifier(AccessibilityIdentifier.TabView.ProfileViewIdentifiers.profileIdentifierFirstNameField)
-        
-        
+                .accessibilityIdentifier(AccessibilityIdentifier.TabView.ProfileViewIdentifiers.profileIdentifierFirstNameField)
+        }
     }
     
     private var lastNameField: some View {
-        TextField("Last Name:", text: $viewModel.lastNameText)
-            .textInputAutocapitalization(.never)
-            .disableAutocorrection(true)
-            .foregroundColor(.black)
-            .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 0))
-            .padding(8)
-            .background(RoundedRectangle(cornerRadius: 30).fill(bgTealColor))
-            .font(Font(UIFont.Theme.regular(ofSize: 16)))
-            .foregroundColor(.white)
-            .focused($textfieldFocused)
-            .border(.white)
-            .accessibilityIdentifier(AccessibilityIdentifier.TabView.ProfileViewIdentifiers.profileIdentifierLastNameField)
+        VStack {
+            Text("Last Name:")
+                .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 2)
+            TextField("Last Name:", text: $viewModel.lastNameText)
+                .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
+                .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 0))
+                .padding(8)
+                .background(RoundedRectangle(cornerRadius: 30).fill(bgTealColor))
+                .font(Font(UIFont.Theme.regular(ofSize: 16)))
+                .foregroundColor(.white)
+                .focused($textfieldFocused)
+                .border(.white)
+                .accessibilityIdentifier(AccessibilityIdentifier.TabView.ProfileViewIdentifiers.profileIdentifierLastNameField)
+        }
     }
     
     private var emailField: some View {
-        TextField("Email:", text: $viewModel.emailText)
-            .textInputAutocapitalization(.never)
-            .disableAutocorrection(true)
-            .foregroundColor(.black)
-            .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 0))
-            .padding(8)
-            .background(RoundedRectangle(cornerRadius: 30).fill(bgTealColor))
-            .font(Font(UIFont.Theme.regular(ofSize: 16)))
-            .foregroundColor(.white)
-            .focused($textfieldFocused)
-            .border(.white)
-            .accessibilityIdentifier(AccessibilityIdentifier.TabView.ProfileViewIdentifiers.profileIdentifierEmailField)
+        VStack {
+            Text("Email:")
+                .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 2)
+            TextField("Email:", text: $viewModel.emailText)
+                .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
+                .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 0))
+                .padding(8)
+                .background(RoundedRectangle(cornerRadius: 30).fill(bgTealColor))
+                .font(Font(UIFont.Theme.regular(ofSize: 16)))
+                .foregroundColor(.white)
+                .focused($textfieldFocused)
+                .border(.white)
+                .accessibilityIdentifier(AccessibilityIdentifier.TabView.ProfileViewIdentifiers.profileIdentifierEmailField)
+        }
     }
 }
