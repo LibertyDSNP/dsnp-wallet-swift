@@ -462,6 +462,9 @@
 		B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */; };
 		B5BCDD682A1E564C003E2845 /* TermsDisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */; };
 		B5D382BF2A2635D40086A05D /* WalletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382BE2A2635D40086A05D /* WalletState.swift */; };
+		B5D382C12A26481C0086A05D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C02A26481C0086A05D /* HomeView.swift */; };
+		B5D382C32A26483D0086A05D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C22A26483D0086A05D /* HomeViewModel.swift */; };
+		B5D382C52A26484F0086A05D /* AMPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */; };
 		B5F74EFF2A1679440046DE15 /* AccessiblityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */; };
 /* End PBXBuildFile section */
 
@@ -954,6 +957,9 @@
 		B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseTestViewController.swift; sourceTree = "<group>"; };
 		B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDisclaimerView.swift; sourceTree = "<group>"; };
 		B5D382BE2A2635D40086A05D /* WalletState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletState.swift; sourceTree = "<group>"; };
+		B5D382C02A26481C0086A05D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B5D382C22A26483D0086A05D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPHomeViewController.swift; sourceTree = "<group>"; };
 		B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessiblityIdentifiers.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1289,6 +1295,9 @@
 				829960752978C45E009A769F /* TabBarViewModel.swift */,
 				829960762978C45E009A769F /* TabBarViewController.swift */,
 				829960772978C45E009A769F /* TabBarViewController.storyboard */,
+				B5D382C02A26481C0086A05D /* HomeView.swift */,
+				B5D382C22A26483D0086A05D /* HomeViewModel.swift */,
+				B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -2651,6 +2660,7 @@
 				82996355297A13CF009A769F /* TransactionSubscription.swift in Sources */,
 				8299692B297B7285009A769F /* String+Substrate.swift in Sources */,
 				82996926297B7285009A769F /* URL+Helpers.swift in Sources */,
+				B5D382C32A26483D0086A05D /* HomeViewModel.swift in Sources */,
 				829965AE297A1955009A769F /* TotalRewardItem.swift in Sources */,
 				8299662F297A1B5E009A769F /* BalancesWithdrawEvent.swift in Sources */,
 				8299616B2978CD7E009A769F /* SigningWrapper.swift in Sources */,
@@ -2664,6 +2674,7 @@
 				829968DF297B721C009A769F /* DataProviderChange+Result.swift in Sources */,
 				829964D4297A17F4009A769F /* UserAPI.swift in Sources */,
 				82D16325299D57F100536349 /* ChainModelMapper.swift in Sources */,
+				B5D382C52A26484F0086A05D /* AMPHomeViewController.swift in Sources */,
 				829961482978C461009A769F /* TestViewController.swift in Sources */,
 				82996585297A1955009A769F /* SubstrateAlias.swift in Sources */,
 				82996369297A13CF009A769F /* SpecVersionSubscription.swift in Sources */,
@@ -2717,6 +2728,7 @@
 				829968D7297B721C009A769F /* CDChainStorageItem+CoreDataDecodable.swift in Sources */,
 				B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */,
 				82E4AECC29A6E2330071758A /* ExtrinsicManager+Balance.swift in Sources */,
+				B5D382C12A26481C0086A05D /* HomeView.swift in Sources */,
 				82996361297A13CF009A769F /* EmptyHandlingStorageSubscription.swift in Sources */,
 				829961492978C461009A769F /* ProfileHeaderView.swift in Sources */,
 				82996649297A1B5E009A769F /* MultiSigner.swift in Sources */,
