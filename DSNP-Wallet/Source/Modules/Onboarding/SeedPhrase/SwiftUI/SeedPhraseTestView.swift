@@ -126,9 +126,9 @@ struct SeedPhraseButton: View {
                     .foregroundColor(.white)
                     .font(Font(UIFont.Theme.spaceRegular(ofSize: 15)))
             }
-            .frame(minWidth: 110, alignment: .leading)
+            .frame(minWidth: 130, alignment: .leading)
         }
-        .frame(minWidth: 110, minHeight: 25)
+        .frame(minWidth: 130, minHeight: 25)
         .background(element != nil ? Color(uiColor: UIColor.Theme.buttonOrange) : .clear)
         .overlay(
             RoundedRectangle(cornerRadius: 40)
