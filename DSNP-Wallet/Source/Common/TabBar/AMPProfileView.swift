@@ -40,9 +40,10 @@ struct AMPProfileView: View {
         ZStack(alignment: .bottomTrailing) {
             Image("profile_placeholder")
             editButton
+                .padding(.trailing, 20)
         }
-        .frame(maxWidth: 140, maxHeight: 140, alignment: .center)
-        .cornerRadius(70)
+        .frame(maxWidth: 134, maxHeight: 134, alignment: .center)
+        .cornerRadius(67)
     }
     
     private var editButton: some View {
@@ -53,7 +54,7 @@ struct AMPProfileView: View {
         }
         .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
         .background(Color(uiColor: UIColor.Theme.primaryTeal))
-        .cornerRadius(8)
+        .cornerRadius(12)
     }
     
     private var handleHeadline: some View {
