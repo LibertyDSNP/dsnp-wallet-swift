@@ -30,6 +30,12 @@ class SeedPuzzleViewModel: ObservableObject {
     var shuffledWordBankElements: [PuzzleElement]
 
     private var puzzleItems = [Int: PuzzleElement]()
+
+    var seedphraseAlertString: String {
+        let seedphraseWrongString = "The recovery phrase you entered is incorrect. Please try again."
+        let seedphraseCorrectString = "You passed the test"
+        return isPuzzleCorrect() ? seedphraseCorrectString : seedphraseWrongString
+    }
     
     // Observed vars
     @Published var continueEnabled: Bool = false

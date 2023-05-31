@@ -75,7 +75,7 @@ struct SeedPhraseTestView: View {
                 showingAlert = true
             }
         }
-        .alert("You got the test \(viewModel.isPuzzleCorrect() ? "Correct" : "Wrong")", isPresented: $showingAlert) {
+        .alert(viewModel.seedphraseAlertString, isPresented: $showingAlert) {
             Button("OK", role: .cancel) { }
         }
         .padding(.horizontal, 30)
