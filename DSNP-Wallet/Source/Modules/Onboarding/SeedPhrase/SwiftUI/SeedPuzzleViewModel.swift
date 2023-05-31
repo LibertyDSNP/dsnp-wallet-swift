@@ -34,7 +34,7 @@ class SeedPuzzleViewModel: ObservableObject {
     @Published var errorMessage = ""
     
     private var seedphraseAlertString: String {
-        let seedphraseWrongString = "The recovery phrase you entered is incorrect. Please try again."
+        let seedphraseWrongString = "You got it wrong!"
         let seedphraseCorrectString = "You passed the test"
         return isPuzzleCorrect() ? seedphraseCorrectString : seedphraseWrongString
     }
@@ -67,6 +67,7 @@ class SeedPuzzleViewModel: ObservableObject {
                 
                 self.inWordBankPuzzleElements = self.inWordBankPuzzleElements.filter { $0 != element }
                 self.continueEnabled = self.isPuzzleComplete()
+                self.errorMessage = ""
             }
             .store(in: &cancellables)
         deselectWordAction

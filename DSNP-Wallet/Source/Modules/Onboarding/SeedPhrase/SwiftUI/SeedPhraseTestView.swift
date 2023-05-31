@@ -88,7 +88,7 @@ struct SeedPhraseTestView: View {
     
     private var errorMessage: some View {
         Text(viewModel.errorMessage)
-            .foregroundColor(viewModel.isPuzzleCorrect() ? .green : Color(uiColor: UIColor.Theme.errorStringColor))
+            .foregroundColor(viewModel.isPuzzleCorrect() ? Color(.green) : Color(uiColor: UIColor.Theme.errorStringColor))
             .font(Font(UIFont.Theme.bold(ofSize: 12)))
             .frame(maxWidth: .infinity, alignment: .center)
             .padding()
