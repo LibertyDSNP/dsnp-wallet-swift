@@ -26,8 +26,6 @@ struct SeedPhraseTestView: View {
     
     @ObservedObject var viewModel: SeedPuzzleViewModel
     
-    @State private var showingAlert = false
-
     var body: some View {
         VStack(alignment: .leading) {
             title
@@ -42,6 +40,7 @@ struct SeedPhraseTestView: View {
                 .padding(.vertical, 14)
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity, alignment: .center)
+            errorMessage
             SeedPhraseWordBank(viewModel: viewModel)
                 .padding(.horizontal, 14)
             continueButton
@@ -72,11 +71,7 @@ struct SeedPhraseTestView: View {
         SecondaryButton(title: "Continue") {
             if viewModel.continueEnabled {
                 viewModel.continueAction.send()
-                showingAlert = true
             }
-        }
-        .alert(viewModel.seedphraseAlertString, isPresented: $showingAlert) {
-            Button("OK", role: .cancel) { }
         }
         .padding(.horizontal, 30)
         .padding(.vertical, 18)
@@ -89,6 +84,14 @@ struct SeedPhraseTestView: View {
             .foregroundColor(.white)
             .font(Font(UIFont.Theme.regular(ofSize: 14)))
             .frame(alignment: .center)
+    }
+    
+    private var errorMessage: some View {
+        Text(viewModel.errorMessage)
+            .foregroundColor(viewModel.isPuzzleCorrect() ? .green : Color(uiColor: UIColor.Theme.errorStringColor))
+            .font(Font(UIFont.Theme.bold(ofSize: 12)))
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding()
     }
 }
 

@@ -49,6 +49,7 @@ struct SecondaryButton: View {
     
     var body: some View {
         Button {
+            action()
         } label: {
             Text(title)
                 .font(Font(UIFont.Theme.bold(ofSize: 15)))

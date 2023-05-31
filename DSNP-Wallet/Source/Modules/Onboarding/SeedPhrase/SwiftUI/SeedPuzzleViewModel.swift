@@ -26,12 +26,14 @@ class SeedPuzzleViewModel: ObservableObject {
 
     // Game State
     let correctPuzzleElements: [PuzzleElement]
-    var inWordBankPuzzleElements: [PuzzleElement]
-    var shuffledWordBankElements: [PuzzleElement]
+    private(set) var inWordBankPuzzleElements: [PuzzleElement]
+    private(set) var shuffledWordBankElements: [PuzzleElement]
 
     private var puzzleItems = [Int: PuzzleElement]()
 
-    var seedphraseAlertString: String {
+    @Published var errorMessage = ""
+    
+    private var seedphraseAlertString: String {
         let seedphraseWrongString = "The recovery phrase you entered is incorrect. Please try again."
         let seedphraseCorrectString = "You passed the test"
         return isPuzzleCorrect() ? seedphraseCorrectString : seedphraseWrongString
@@ -80,15 +82,17 @@ class SeedPuzzleViewModel: ObservableObject {
                 self.continueEnabled = false
                 self.attemptedPuzzleElements = self.attemptedPuzzleElements.filter { $0 != element }
                 self.inWordBankPuzzleElements.append(element)
+                self.errorMessage = ""
             }
             .store(in: &cancellables)
         continueAction
             .receive(on: RunLoop.main)
-            .sink { [weak self] index in
+            .sink { [weak self] in
                 guard let self else { return }
-                
-               // TODO: Check if puzzle is correct
-                
+                if self.isPuzzleComplete() {
+                    self.errorMessage = self.seedphraseAlertString
+                    self.resetPuzzle()
+                }
             }
             .store(in: &cancellables)
     }
@@ -127,6 +131,13 @@ class SeedPuzzleViewModel: ObservableObject {
             }
         }
         return 0
+    }
+    
+    private func resetPuzzle() {
+        inWordBankPuzzleElements = correctPuzzleElements
+        puzzleItems = [Int: PuzzleElement]()
+        continueEnabled = false
+        attemptedPuzzleElements = []
     }
 }
 
