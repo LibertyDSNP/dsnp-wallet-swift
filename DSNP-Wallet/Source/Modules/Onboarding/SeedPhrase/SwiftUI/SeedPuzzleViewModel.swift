@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SwiftUI
 
 struct PuzzleElement: Hashable {
     let word: String
@@ -31,8 +32,12 @@ class SeedPuzzleViewModel: ObservableObject {
 
     private var puzzleItems = [Int: PuzzleElement]()
 
-    @Published var errorMessage = ""
     
+    // Error Handling
+    
+    @Published var errorMessage = ""
+    @Published var errorMessageColor: Color = Color(uiColor: UIColor.Theme.errorStringColor)
+
     private var seedphraseAlertString: String {
         let seedphraseWrongString = "You got it wrong!"
         let seedphraseCorrectString = "You passed the test"
@@ -92,6 +97,10 @@ class SeedPuzzleViewModel: ObservableObject {
                 guard let self else { return }
                 if self.isPuzzleComplete() {
                     self.errorMessage = self.seedphraseAlertString
+                    self.errorMessageColor = {
+                        let errColor = Color(uiColor: UIColor.Theme.errorStringColor)
+                        return self.seedphraseAlertString == "You passed the test" ? .green : errColor
+                    }()
                     self.resetPuzzle()
                 }
             }
