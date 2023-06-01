@@ -9,10 +9,11 @@ import Foundation
 import SubstrateSdk
 import RobinHood
 
+typealias TransactionSubscriptionCompletion = ([TransactionSubscriptionResult])->()
 typealias TransactionErrorHandlerBlock = ((String)->())
 
 protocol TransactionSubscriptionManagerProtocol {
-    func process(blockHash: Data, errorHandler: TransactionErrorHandlerBlock?)
+    func process(blockHash: Data, completion: @escaping TransactionSubscriptionCompletion, errorHandler: TransactionErrorHandlerBlock?)
 }
 
 // To handle System->Events following an Extrinsic
@@ -49,7 +50,7 @@ class TransactionSubscriptionManager: TransactionSubscriptionManagerProtocol {
     }
     
     //Record events from this blockhash to storage, referenced by txHash below
-    func process(blockHash: Data, errorHandler: TransactionErrorHandlerBlock?) {
-        transactionSubscription?.process(blockHash: blockHash, errorHandler: errorHandler)
+    func process(blockHash: Data, completion: @escaping TransactionSubscriptionCompletion, errorHandler: TransactionErrorHandlerBlock?) {
+        transactionSubscription?.process(blockHash: blockHash, completion: completion, errorHandler: errorHandler)
     }
 }

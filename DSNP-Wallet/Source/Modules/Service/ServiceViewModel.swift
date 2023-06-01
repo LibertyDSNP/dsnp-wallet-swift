@@ -16,6 +16,7 @@ protocol ServiceViewModelProtocol {
     func getMsa(from user: User, completion: @escaping (UInt32)->())
     
     func process(from user: User, blockhash: Data,
+                 completion: @escaping TransactionSubscriptionCompletion,
                  errorHandler: TransactionErrorHandlerBlock?)
 }
 
@@ -66,11 +67,12 @@ class ServiceViewModel: ServiceViewModelProtocol {
     
     //MARK: Subscription
     func process(from user: User, blockhash: Data,
+                 completion: @escaping TransactionSubscriptionCompletion,
                  errorHandler: TransactionErrorHandlerBlock?) {
         guard let accountId = user.getAccountId() else { return }
         self.setupExtrinsicEventSubscriptionManager(accountId: accountId)
         
-        txSubscriptionManager?.process(blockHash: blockhash, errorHandler: errorHandler)
+        txSubscriptionManager?.process(blockHash: blockhash, completion: completion, errorHandler: errorHandler)
     }
 }
 
