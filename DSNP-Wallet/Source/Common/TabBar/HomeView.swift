@@ -7,37 +7,40 @@
 
 import SwiftUI
 
+let mainTeal = Color(uiColor: UIColor.Theme.primaryTeal)
+
 struct HomeTabView: View {
     
     let viewModel: HomeViewModel
     
-    @State public var tabViewSelection = 0
-    
+    @State private var tabViewSelection = 0
     @State var showingAlert = false
     
     var body: some View {
         TabView(selection: $tabViewSelection) {
             AMPProfileView(viewModel: AMPHomeViewModel(), showingAlert: showingAlert)
                 .tabItem {
-                    AmpTabItem(title: "Home", tabImageName: "home", tabSelectedImageName: "home_selected", isSelected: tabViewSelection == 0)
+                    AmpTabItem(title: "Home", tabImageName: "home")
                 }
                 .tag(0)
             ProfileView()
                 .tabItem {
-                    AmpTabItem(title: "Profile", tabImageName: "profile", tabSelectedImageName: "profile_selected", isSelected: tabViewSelection == 1)                }
+                    AmpTabItem(title: "Profile", tabImageName: "profile")
+                    
+                }
                 .tag(1)
             PermissionsView()
                 .tabItem {
-                    AmpTabItem(title: "permissions", tabImageName: "permissions", tabSelectedImageName: "permissions_selected", isSelected: tabViewSelection == 2)
+                    AmpTabItem(title: "Permissions", tabImageName: "permissions")
                 }
                 .tag(2)
             SettingsView()
                 .tabItem {
-                    AmpTabItem(title: "Settings", tabImageName: "settings", tabSelectedImageName:  "settings_selected", isSelected: tabViewSelection == 3)
+                    AmpTabItem(title: "Settings", tabImageName: "settings")
                 }
                 .tag(3)
         }
-        .accentColor(Color(uiColor: UIColor.Theme.primaryTeal))
+        .accentColor(mainTeal)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
@@ -84,18 +87,15 @@ struct AmpTabItem: View {
     
     let title: String
     let tabImageName: String
-    let tabSelectedImageName: String
-    
-    @State var isSelected: Bool = false
     
     var body: some View {
         VStack {
             Text(title)
-                .foregroundColor(isSelected ? Color(uiColor: UIColor.Theme.primaryTeal) : .white)
-            Image(isSelected ? tabSelectedImageName : tabImageName)
+            Image(tabImageName)
+                .renderingMode(.template)
+                .foregroundColor(mainTeal)
                 .frame(maxWidth: 20, maxHeight: 20, alignment: .center)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .background(Color(uiColor: UIColor.Theme.bgTeal))
     }
