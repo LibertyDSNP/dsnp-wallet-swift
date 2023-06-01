@@ -76,18 +76,6 @@ extension TestViewController {
             return true
         }
         
-        let resultCompletion: TransactionSubscriptionCompletion = { items in
-            guard let item = items.first else { return }
-            
-            let processingResult = item.processingResult
-            let resultTitle = item.processingResult.isSuccess ? "Extrinsic Succeeded" : "Extrinsic Failed"
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: resultTitle, message: "\(processingResult)", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                self.present(alert, animated: true)
-            }
-        }
-        
         let errorHandler: TransactionErrorHandlerBlock = { error in
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "ERROR", message: error, preferredStyle: .alert)
@@ -96,8 +84,7 @@ extension TestViewController {
             }
         }
         
-        let notificationClosure = getSubscriptionNotificationClosure(completion: resultCompletion,
-                                                                     errorHandler: errorHandler)
+        let notificationClosure = getSubscriptionNotificationClosure(errorHandler: errorHandler)
         
         switch selector?.titleLabel?.text ?? "" {
         case TestButtons.create.rawValue:
@@ -175,28 +162,20 @@ extension TestViewController {
 
 //MARK: Extrinsic Closure
 extension TestViewController {
-    func getSubscriptionNotificationClosure(completion: @escaping TransactionSubscriptionCompletion,
-                                            errorHandler: TransactionErrorHandlerBlock?) -> ExtrinsicSubscriptionStatusClosure {
+    func getSubscriptionNotificationClosure(errorHandler: TransactionErrorHandlerBlock?) -> ExtrinsicSubscriptionStatusClosure {
         let notificationClosure: ExtrinsicSubscriptionStatusClosure = { [weak self] result in
-            var text = ""
             
             switch result {
             case .success(let status):
                 switch status {
                 case .finalized(let hash):
-                    text = "finalized \(hash)"
-                    
-                    self?.process(blockHash: hash, completion: completion, errorHandler: errorHandler)
-                case .inBlock(let hash):
-                    text = "inBlock \(hash)"
-                case .finalityTimeout(let hash):
-                    text = "finalityTimeout \(hash)"
-                case .other:
-                    text = "other status"
+                    self?.process(blockHash: hash, errorHandler: errorHandler)
+                default:
+                    return
                 }
 
             case .failure(let error):
-                text = "\(error)"
+                print(error)
             }
         }
         
@@ -206,7 +185,7 @@ extension TestViewController {
 
 //MARK: Subscription
 extension TestViewController {
-    private func process(blockHash: String, completion: @escaping TransactionSubscriptionCompletion, errorHandler: TransactionErrorHandlerBlock?) {
+    private func process(blockHash: String, errorHandler: TransactionErrorHandlerBlock?) {
         let primaryMnemonicInput = primaryTextField.text?.isEmpty ?? true ? "quote grocery buzz staff merit patch outdoor depth eight raw rubber once" : primaryTextField.text ?? ""
         let primaryUser = User(mnemonic: primaryMnemonicInput)
         
@@ -216,7 +195,6 @@ extension TestViewController {
         
         viewModel?.process(from: primaryUser,
                            blockhash: blockHash,
-                           completion: completion,
                            errorHandler: errorHandler)
     }
 }

@@ -42,10 +42,10 @@ final class TransactionSubscription {
     }
 
     func process(blockHash: Data) {
-        self.process(blockHash: blockHash, completion: nil, errorHandler: nil)
+        self.process(blockHash: blockHash, errorHandler: nil)
     }
 
-    func process(blockHash: Data, completion: TransactionSubscriptionCompletion?, errorHandler: TransactionErrorHandlerBlock?) {
+    func process(blockHash: Data, errorHandler: TransactionErrorHandlerBlock?) {
         do {
             logger.debug("Did start fetching block: \(blockHash.toHex(includePrefix: true))")
 
@@ -107,9 +107,6 @@ final class TransactionSubscription {
                     if !items.isEmpty {
                         DispatchQueue.main.async {
                             self.eventCenter.notify(with: WalletTransactionListUpdated())
-                            if let items = items as? [TransactionSubscriptionResult] {
-                                completion?(items)
-                            }
                         }
                     }
                 case let .failure(error):
