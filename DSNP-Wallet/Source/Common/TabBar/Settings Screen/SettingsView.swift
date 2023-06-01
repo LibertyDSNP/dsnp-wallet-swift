@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
         
+    let viewModel: HomeViewModel
+    
     var body: some View {
         VStack {
             logoutButton
@@ -20,14 +22,14 @@ struct SettingsView: View {
     
     private var logoutButton: some View {
         Button("log out") {
-            
+            // Nav to sign in view
+            viewModel.toggleLoggedInState()
         }
-        
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(viewModel: HomeViewModel())
     }
 }

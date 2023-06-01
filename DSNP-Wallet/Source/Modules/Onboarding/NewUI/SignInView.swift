@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+struct SignInViewControllerWrapper : UIViewControllerRepresentable {
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        
+    }
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let navController = UINavigationController(rootViewController: SignInViewController())
+        return navController
+    }
+    
+}
+
 struct SignInView: View {
     
     let viewModel: SignInViewModel

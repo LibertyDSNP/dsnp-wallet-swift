@@ -7,6 +7,9 @@
 
 import Foundation
 
-struct AppState {
-    static var isLoggedin = true
+class AppState: ObservableObject {
+    
+    static let shared = AppState()
+
+    @Published var isLoggedin = true
 }

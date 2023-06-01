@@ -9,4 +9,9 @@ import UIKit
 
 class HomeViewModel: ObservableObject {
 
+    @Published var appStateLoggedIn = AppState.shared.isLoggedin
+    
+    func toggleLoggedInState() {
+        appStateLoggedIn.toggle()
+    }
 }

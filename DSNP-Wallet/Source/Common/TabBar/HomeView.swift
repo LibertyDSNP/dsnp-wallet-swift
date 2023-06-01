@@ -11,7 +11,7 @@ let mainTeal = Color(uiColor: UIColor.Theme.primaryTeal)
 
 struct HomeTabView: View {
     
-    let viewModel: HomeViewModel
+    @ObservedObject var viewModel: HomeViewModel
     
     @State var showingAlert = false
     
@@ -23,10 +23,10 @@ struct HomeTabView: View {
     
     @ViewBuilder
     var mainView: some View {
-        if AppState.isLoggedin {
+        if viewModel.appStateLoggedIn {
             MainTabView(viewModel: viewModel)
         } else {
-            SignInView(viewModel: SignInViewModel())
+            SignInViewControllerWrapper()
         }
     }
 }
@@ -51,7 +51,7 @@ struct MainTabView: View {
                 .tabItem {
                     AmpTabItem(title: "Permissions", tabImageName: "permissions")
                 }
-            SettingsView()
+            SettingsView(viewModel: viewModel)
                 .tabItem {
                     AmpTabItem(title: "Settings", tabImageName: "settings")
                 }
