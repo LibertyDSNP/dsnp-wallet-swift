@@ -13,32 +13,48 @@ struct HomeTabView: View {
     
     let viewModel: HomeViewModel
     
-    @State private var tabViewSelection = 0
     @State var showingAlert = false
     
     var body: some View {
-        TabView(selection: $tabViewSelection) {
+        mainView
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
+    }
+    
+    @ViewBuilder
+    var mainView: some View {
+        if AppState.isLoggedin {
+            MainTabView(viewModel: viewModel)
+        } else {
+            SignInView(viewModel: SignInViewModel())
+        }
+    }
+}
+
+struct MainTabView: View {
+    let viewModel: HomeViewModel
+    
+    @State var showingAlert = false
+    
+    var body: some View {
+        TabView {
             AMPProfileView(viewModel: AMPHomeViewModel(), showingAlert: showingAlert)
                 .tabItem {
                     AmpTabItem(title: "Home", tabImageName: "home")
                 }
-                .tag(0)
             ProfileView()
                 .tabItem {
                     AmpTabItem(title: "Profile", tabImageName: "profile")
                     
                 }
-                .tag(1)
             PermissionsView()
                 .tabItem {
                     AmpTabItem(title: "Permissions", tabImageName: "permissions")
                 }
-                .tag(2)
             SettingsView()
                 .tabItem {
                     AmpTabItem(title: "Settings", tabImageName: "settings")
                 }
-                .tag(3)
         }
         .accentColor(mainTeal)
         .background(Color(uiColor: UIColor.Theme.bgTeal))

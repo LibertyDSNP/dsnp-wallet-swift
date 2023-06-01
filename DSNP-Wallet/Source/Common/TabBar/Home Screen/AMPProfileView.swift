@@ -38,9 +38,9 @@ struct AMPProfileView: View {
     
     private var profileImage: some View {
         ZStack(alignment: .bottomTrailing) {
-            Image("profile_placeholder")
             editButton
                 .padding(.trailing, 20)
+            Image("profile_placeholder")
         }
         .frame(maxWidth: 134, maxHeight: 134, alignment: .center)
         .cornerRadius(67)

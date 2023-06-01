@@ -7,18 +7,11 @@
 
 import SwiftUI
 
-class SettingsViewModel: ObservableObject {
-    
-}
-
-
 struct SettingsView: View {
-    
-    @ObservedObject var viewModel: SettingsViewModel = SettingsViewModel()
-    
+        
     var body: some View {
         VStack {
-            
+            logoutButton
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
