@@ -29,11 +29,18 @@ struct HomeTabView: View {
                         Image("Profile")
                     }
                 }
-            SettingsView()
+            PermissionsView()
                 .tabItem {
                     VStack {
                         Text("Settings")
                         Image("Keys")
+                    }
+                }
+            SettingsView()
+                .tabItem {
+                    VStack {
+                        Text("Settings")
+                        Image("settings")
                     }
                 }
         }
@@ -68,6 +75,17 @@ struct SettingsView: View {
     }
 }
 
+struct PermissionsView: View {
+    
+    var body: some View {
+        VStack {
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+        .background(Color(uiColor: UIColor.Theme.bgTeal))
+    }
+}
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
