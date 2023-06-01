@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SwiftUI
 
 struct PuzzleElement: Hashable {
     let word: String
@@ -26,10 +27,22 @@ class SeedPuzzleViewModel: ObservableObject {
 
     // Game State
     let correctPuzzleElements: [PuzzleElement]
-    var inWordBankPuzzleElements: [PuzzleElement]
-    var shuffledWordBankElements: [PuzzleElement]
+    private(set) var inWordBankPuzzleElements: [PuzzleElement]
+    private(set) var shuffledWordBankElements: [PuzzleElement]
 
     private var puzzleItems = [Int: PuzzleElement]()
+
+    
+    // Error Handling
+    
+    @Published var errorMessage = ""
+    @Published var errorMessageColor: Color = Color(uiColor: UIColor.Theme.errorStringColor)
+
+    private var seedphraseAlertString: String {
+        let seedphraseWrongString = "You got it wrong!"
+        let seedphraseCorrectString = "You passed the test"
+        return isPuzzleCorrect() ? seedphraseCorrectString : seedphraseWrongString
+    }
     
     // Observed vars
     @Published var continueEnabled: Bool = false
@@ -59,6 +72,7 @@ class SeedPuzzleViewModel: ObservableObject {
                 
                 self.inWordBankPuzzleElements = self.inWordBankPuzzleElements.filter { $0 != element }
                 self.continueEnabled = self.isPuzzleComplete()
+                self.errorMessage = ""
             }
             .store(in: &cancellables)
         deselectWordAction
@@ -74,15 +88,21 @@ class SeedPuzzleViewModel: ObservableObject {
                 self.continueEnabled = false
                 self.attemptedPuzzleElements = self.attemptedPuzzleElements.filter { $0 != element }
                 self.inWordBankPuzzleElements.append(element)
+                self.errorMessage = ""
             }
             .store(in: &cancellables)
         continueAction
             .receive(on: RunLoop.main)
-            .sink { [weak self] index in
+            .sink { [weak self] in
                 guard let self else { return }
-                
-               // TODO: Check if puzzle is correct
-                
+                if self.isPuzzleComplete() {
+                    self.errorMessage = self.seedphraseAlertString
+                    self.errorMessageColor = {
+                        let errColor = Color(uiColor: UIColor.Theme.errorStringColor)
+                        return self.seedphraseAlertString == "You passed the test" ? .green : errColor
+                    }()
+                    self.resetPuzzle()
+                }
             }
             .store(in: &cancellables)
     }
@@ -121,6 +141,13 @@ class SeedPuzzleViewModel: ObservableObject {
             }
         }
         return 0
+    }
+    
+    private func resetPuzzle() {
+        inWordBankPuzzleElements = correctPuzzleElements
+        puzzleItems = [Int: PuzzleElement]()
+        continueEnabled = false
+        attemptedPuzzleElements = []
     }
 }
 

@@ -28,7 +28,7 @@ extension UIColor {
         static var buttonOrange: UIColor { return UIColor(red: 218/255, green: 94/255, blue: 58/255, alpha: 1)}
         static var buttonGray: UIColor { return UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)}
         static var termsTextColor: UIColor { return UIColor(red: 47/255, green: 52/255, blue: 55/255, alpha: 1)}
-
+        static var errorStringColor: UIColor { return UIColor(red: 251/255, green: 11/255, blue: 11/255, alpha: 1)}
 
     }
 }
