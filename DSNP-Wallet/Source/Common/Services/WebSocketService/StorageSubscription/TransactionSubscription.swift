@@ -107,9 +107,7 @@ final class TransactionSubscription {
                     if !items.isEmpty {
                         DispatchQueue.main.async {
                             self.eventCenter.notify(with: WalletTransactionListUpdated())
-                            if let items = items as? [TransactionSubscriptionResult] {
-                                completion?(items)
-                            }
+                            completion?(items)
                         }
                     }
                 case let .failure(error):
