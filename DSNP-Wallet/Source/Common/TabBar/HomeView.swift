@@ -47,60 +47,6 @@ struct HomeTabView: View {
     }
 }
 
-struct ProfileView: View {
-    
-    var body: some View {
-        VStack {
-            
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
-    }
-}
-
-struct SettingsView: View {
-    
-    var body: some View {
-        VStack {
-            
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
-    }
-}
-
-struct PermissionsView: View {
-    
-    var body: some View {
-        VStack {
-            
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
-    }
-}
-
-struct AmpTabItem: View {
-    
-    let title: String
-    let tabImageName: String
-    
-    var body: some View {
-        VStack {
-            Text(title)
-            Image(tabImageName)
-                .renderingMode(.template)
-                .foregroundColor(mainTeal)
-                .frame(maxWidth: 20, maxHeight: 20, alignment: .center)
-        }
-        .ignoresSafeArea()
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
-    }
-}
-
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeTabView(viewModel: HomeViewModel())

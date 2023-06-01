@@ -27,6 +27,9 @@ class AMPHomeViewController: UIHostingController<HomeTabView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        
         self.navigationItem.hidesBackButton = true
     }
 }

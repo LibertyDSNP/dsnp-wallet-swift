@@ -413,6 +413,10 @@
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
 		B534ACDA2A268A7500518B9C /* AMPHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */; };
 		B534ACDC2A2690FB00518B9C /* AMPProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */; };
+		B534ACE22A28F9E400518B9C /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACE12A28F9E400518B9C /* PermissionsView.swift */; };
+		B534ACE42A28F9ED00518B9C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACE32A28F9ED00518B9C /* SettingsView.swift */; };
+		B534ACE62A28FA2D00518B9C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACE52A28FA2D00518B9C /* ProfileView.swift */; };
+		B534ACE82A28FA7C00518B9C /* AmpTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACE72A28FA7C00518B9C /* AmpTabItem.swift */; };
 		B53BD7BE2A00408200967477 /* QAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BD2A00408200967477 /* QAViewModel.swift */; };
 		B53BD7C02A01571000967477 /* ChainEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BF2A01571000967477 /* ChainEnvironment.swift */; };
 		B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F242A0007FF00A17F08 /* QAViewController.swift */; };
@@ -909,6 +913,10 @@
 		82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetBalanceChanged.swift; sourceTree = "<group>"; };
 		B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPHomeViewModel.swift; sourceTree = "<group>"; };
 		B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPProfileView.swift; sourceTree = "<group>"; };
+		B534ACE12A28F9E400518B9C /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
+		B534ACE32A28F9ED00518B9C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B534ACE52A28FA2D00518B9C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B534ACE72A28FA7C00518B9C /* AmpTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmpTabItem.swift; sourceTree = "<group>"; };
 		B53BD7BD2A00408200967477 /* QAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewModel.swift; sourceTree = "<group>"; };
 		B53BD7BF2A01571000967477 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainEnvironment.swift; sourceTree = "<group>"; };
 		B5966F242A0007FF00A17F08 /* QAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
@@ -1296,14 +1304,15 @@
 		829960742978C45E009A769F /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				B534ACE02A28F98100518B9C /* Home Screen */,
+				B534ACDF2A28F97800518B9C /* Permissions Screen */,
+				B534ACDE2A28F97000518B9C /* Settings Screen */,
+				B534ACDD2A28F96900518B9C /* Profile Screen */,
 				829960752978C45E009A769F /* TabBarViewModel.swift */,
 				829960762978C45E009A769F /* TabBarViewController.swift */,
 				829960772978C45E009A769F /* TabBarViewController.storyboard */,
 				B5D382C02A26481C0086A05D /* HomeView.swift */,
-				B5D382C22A26483D0086A05D /* HomeViewModel.swift */,
-				B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */,
-				B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */,
-				B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */,
+				B534ACE72A28FA7C00518B9C /* AmpTabItem.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -2078,6 +2087,41 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		B534ACDD2A28F96900518B9C /* Profile Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B534ACE52A28FA2D00518B9C /* ProfileView.swift */,
+			);
+			path = "Profile Screen";
+			sourceTree = "<group>";
+		};
+		B534ACDE2A28F97000518B9C /* Settings Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B534ACE32A28F9ED00518B9C /* SettingsView.swift */,
+			);
+			path = "Settings Screen";
+			sourceTree = "<group>";
+		};
+		B534ACDF2A28F97800518B9C /* Permissions Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B534ACE12A28F9E400518B9C /* PermissionsView.swift */,
+			);
+			path = "Permissions Screen";
+			sourceTree = "<group>";
+		};
+		B534ACE02A28F98100518B9C /* Home Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */,
+				B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */,
+				B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */,
+				B5D382C22A26483D0086A05D /* HomeViewModel.swift */,
+			);
+			path = "Home Screen";
+			sourceTree = "<group>";
+		};
 		B5966F232A0007EA00A17F08 /* QA */ = {
 			isa = PBXGroup;
 			children = (
@@ -2466,6 +2510,7 @@
 				829968D4297B721C009A769F /* UIColor+Theme.swift in Sources */,
 				B5A62C102A0A900600A31178 /* ClaimHandleView.swift in Sources */,
 				82ADCB0629F0407500E8F8A2 /* ExtrinsicServiceTypes.swift in Sources */,
+				B534ACE42A28F9ED00518B9C /* SettingsView.swift in Sources */,
 				829965F6297A1AF1009A769F /* UserDataStorageFacade.swift in Sources */,
 				829968EC297B721C009A769F /* CompoundOperationWrapper+Dependency.swift in Sources */,
 				829969392980918C009A769F /* CreateMsaCall.swift in Sources */,
@@ -2474,6 +2519,7 @@
 				829965A4297A1955009A769F /* EraValidatorInfo.swift in Sources */,
 				82996368297A13CF009A769F /* ChainRegistryError.swift in Sources */,
 				829961462978C461009A769F /* HomeViewController.swift in Sources */,
+				B534ACE22A28F9E400518B9C /* PermissionsView.swift in Sources */,
 				829965C4297A1955009A769F /* PrimitiveContextWrapper.swift in Sources */,
 				82DD90FB2966007F00A508B9 /* WelcomeViewController.swift in Sources */,
 				829968D5297B721C009A769F /* ErrorPresentable+AlertText.swift in Sources */,
@@ -2492,6 +2538,7 @@
 				8299659D297A1955009A769F /* TextSharingSource.swift in Sources */,
 				82996344297A13CF009A769F /* AssetsUpdatingService.swift in Sources */,
 				82996696297B141A009A769F /* Scheduler.swift in Sources */,
+				B534ACE82A28FA7C00518B9C /* AmpTabItem.swift in Sources */,
 				82996648297A1B5E009A769F /* UniquesClassDetails.swift in Sources */,
 				8299636A297A13CF009A769F /* ChainRegistryFacade.swift in Sources */,
 				829964CE297A17F4009A769F /* SubstrateOperationFactory.swift in Sources */,
@@ -2574,6 +2621,7 @@
 				829966B8297B28A9009A769F /* LocalStorageRequestFactory.swift in Sources */,
 				829965E6297A1AF1009A769F /* PersistentValueSettings.swift in Sources */,
 				8299663C297A1B5E009A769F /* ValidatorPrefs.swift in Sources */,
+				B534ACE62A28FA2D00518B9C /* ProfileView.swift in Sources */,
 				829964C1297A17F4009A769F /* EthereumTransaction.swift in Sources */,
 				829961322978C461009A769F /* SharedButton.swift in Sources */,
 				8299635F297A13CF009A769F /* BaseStorageChildSubscription.swift in Sources */,
