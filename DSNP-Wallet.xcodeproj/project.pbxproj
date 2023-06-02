@@ -33,6 +33,7 @@
 		826B5F8C29F0A01C0028253D /* MSASubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B5F8B29F0A01C0028253D /* MSASubscription.swift */; };
 		826B5F8E29F0A0530028253D /* SubscriptionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B5F8D29F0A0530028253D /* SubscriptionError.swift */; };
 		826B5F9029F0A0900028253D /* TransactionSubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B5F8F29F0A0900028253D /* TransactionSubscriptionManager.swift */; };
+		827EEBB82A26BFBD00AB2567 /* RuntimeDispatchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827EEBB72A26BFBD00AB2567 /* RuntimeDispatchError.swift */; };
 		829960D52978C460009A769F /* SigningWrapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299603E2978C45D009A769F /* SigningWrapperProtocol.swift */; };
 		829960D62978C460009A769F /* DummySigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299603F2978C45D009A769F /* DummySigner.swift */; };
 		829960D72978C460009A769F /* ApplicationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960402978C45D009A769F /* ApplicationConfig.swift */; };
@@ -511,6 +512,7 @@
 		826B5F8B29F0A01C0028253D /* MSASubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSASubscription.swift; sourceTree = "<group>"; };
 		826B5F8D29F0A0530028253D /* SubscriptionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionError.swift; sourceTree = "<group>"; };
 		826B5F8F29F0A0900028253D /* TransactionSubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSubscriptionManager.swift; sourceTree = "<group>"; };
+		827EEBB72A26BFBD00AB2567 /* RuntimeDispatchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeDispatchError.swift; sourceTree = "<group>"; };
 		8299603E2978C45D009A769F /* SigningWrapperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigningWrapperProtocol.swift; sourceTree = "<group>"; };
 		8299603F2978C45D009A769F /* DummySigner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySigner.swift; sourceTree = "<group>"; };
 		829960402978C45D009A769F /* ApplicationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationConfig.swift; sourceTree = "<group>"; };
@@ -1801,6 +1803,7 @@
 				82996616297A1B5E009A769F /* ChainData+Value.swift */,
 				82996617297A1B5E009A769F /* AssetDetails.swift */,
 				82996619297A1B5E009A769F /* AccountInfo.swift */,
+				827EEBB72A26BFBD00AB2567 /* RuntimeDispatchError.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -2614,6 +2617,7 @@
 				8299658A297A1955009A769F /* UniquesAccountKey.swift in Sources */,
 				829966BC297B28A9009A769F /* ScaleDecoderOperation.swift in Sources */,
 				8299658B297A1955009A769F /* NftModel.swift in Sources */,
+				827EEBB82A26BFBD00AB2567 /* RuntimeDispatchError.swift in Sources */,
 				82996638297A1B5E009A769F /* ParachainSlotLease.swift in Sources */,
 				829961372978C461009A769F /* SharedSpacer.swift in Sources */,
 				8299664A297A1B5E009A769F /* EthereumExecuted.swift in Sources */,
