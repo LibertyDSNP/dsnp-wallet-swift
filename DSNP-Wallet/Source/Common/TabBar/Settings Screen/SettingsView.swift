@@ -23,7 +23,7 @@ struct SettingsView: View {
     private var logoutButton: some View {
         Button("log out") {
             // Nav to sign in view
-            viewModel.toggleLoggedInState()
+            viewModel.logoutAction.send()
         }
     }
 }

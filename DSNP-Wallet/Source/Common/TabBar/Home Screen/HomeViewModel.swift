@@ -6,12 +6,35 @@
 //
 
 import UIKit
+import Combine
+
+enum TabActionError: Error {
+    case logoutError
+}
 
 class HomeViewModel: ObservableObject {
 
-    @Published var appStateLoggedIn = AppState.shared.isLoggedin
+    let logoutAction = PassthroughSubject<Void, Never>()
     
-    func toggleLoggedInState() {
-        appStateLoggedIn.toggle()
+    @Published var appStateLoggedIn = AppState.shared.isLoggedin
+
+    private var cancellables = [AnyCancellable]()
+    
+    private func setupObservables() {
+        logoutAction
+            .sink { [weak self] in
+                guard let self else { return }
+                self.logout()
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func logout() {
+        appStateLoggedIn = false
+        do {
+            try AuthManager.shared.logout()
+        } catch {
+            print("error clearing keys")
+        }
     }
 }

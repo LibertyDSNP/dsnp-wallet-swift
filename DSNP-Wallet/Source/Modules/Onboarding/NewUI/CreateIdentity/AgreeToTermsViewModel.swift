@@ -26,13 +26,11 @@ class AgreeToTermsViewModel: ObservableObject {
         agreeAction
             .receive(on: RunLoop.main)
             .sink {
-                // Create Keys
                 do {
-                    if let keys = try DSNPWallet().createKeys() {
-//                        self.presentPinVC(with: keys)
-                    }
+                    let _ = try DSNPWallet().createKeys()
                 } catch {
                     // TODO: Handle error creating keys
+                    print("error creating keys")
                 }
             }
             .store(in: &cancellables)

@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import Combine
+import DSNPWallet
 
 class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
 
@@ -35,9 +36,8 @@ class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
             .sink { [weak self] in
                 guard let self else { return }
                 let tabVC = AMPHomeViewController(showCongrats: true)
-                self.navigationController?.pushViewController(tabVC, animated: true)
+                self.navigationController?.setViewControllers([tabVC], animated:true)
             }
             .store(in: &cancellables)
     }
-
 }
