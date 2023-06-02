@@ -14,7 +14,7 @@ class CongratsViewController: UIHostingController<CongratsModal> {
     var cancellables = [AnyCancellable]()
     
     init() {
-        super.init(rootView: CongratsModal())
+        super.init(rootView: CongratsModal(isPresented: .constant(false)))
     }
     
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {
