@@ -13,24 +13,17 @@ struct AMPProfileView: View {
     
     @ObservedObject var viewModel: AMPHomeViewModel
     
-    @State var showingAlert: Bool = false
-
     @FocusState private var textfieldFocused: Bool
     
     var body: some View {
-        ZStack {
-            if showingAlert {
-                CongratsModal(viewModel: CongratsViewModel())
-            }
-            VStack {
-                profileImage
-                handleHeadline
-                addressSubheadline
-                    .padding(.bottom, 20)
-                metaDatafields
-            }
-            .background(Color(uiColor: UIColor.Theme.bgTeal))
+        VStack {
+            profileImage
+            handleHeadline
+            addressSubheadline
+                .padding(.bottom, 20)
+            metaDatafields
         }
+        .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .background(Color(uiColor: UIColor.Theme.bgTeal))

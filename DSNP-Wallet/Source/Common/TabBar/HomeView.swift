@@ -12,9 +12,8 @@ let mainTeal = Color(uiColor: UIColor.Theme.primaryTeal)
 struct HomeTabView: View {
     
     @ObservedObject var viewModel: HomeViewModel
-    
-    @State var showingAlert = false
-    
+    @State var presentAlert = false
+
     var body: some View {
         mainView
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -24,7 +23,17 @@ struct HomeTabView: View {
     @ViewBuilder
     var mainView: some View {
         if viewModel.appStateLoggedIn {
-            MainTabView(viewModel: viewModel)
+            ZStack {
+                MainTabView(viewModel: viewModel)
+                if presentAlert {
+                    AmplicaAlert(presentAlert: $presentAlert,
+                                 alertType: .congrats) {
+                        presentAlert.toggle()
+                    } secondaryButtonAction: {
+                        presentAlert.toggle()
+                    }
+                }
+            }
         } else {
             SignInViewControllerWrapper()
         }
@@ -32,13 +41,12 @@ struct HomeTabView: View {
 }
 
 struct MainTabView: View {
-    let viewModel: HomeViewModel
-    
-    @State var showingAlert = false
+
+    @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
         TabView {
-            AMPProfileView(viewModel: AMPHomeViewModel(), showingAlert: showingAlert)
+            AMPProfileView(viewModel: AMPHomeViewModel())
                 .tabItem {
                     AmpTabItem(title: "Home", tabImageName: "home")
                 }

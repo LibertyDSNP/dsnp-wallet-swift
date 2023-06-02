@@ -18,6 +18,8 @@ class HomeViewModel: ObservableObject {
     
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
+    var shouldShowAlert = false
+    
     private var cancellables = [AnyCancellable]()
     
     init() {
