@@ -1,5 +1,5 @@
 //
-//  CongratsModal.swift
+//  AmplicaAlert.swift
 //  DSNP-Wallet
 //
 //  Created by Ben Gabay on 5/8/23.
@@ -70,14 +70,20 @@ struct AmplicaAlert: View {
     let secondaryButtonAction: () -> ()?
 
     var body: some View {
-        VStack {
-            headline
-            messageText
-            buttonStack
+        ZStack {
+            ZStack {
+                Color.black.opacity(0.75)
+                    .edgesIgnoringSafeArea(.all)
+            }
+            VStack {
+                headline
+                messageText
+                buttonStack
+            }
+            .background(Color(uiColor: UIColor.Theme.bgGray))
+            .cornerRadius(20)
+            .padding(16)
         }
-        .background(Color(uiColor: UIColor.Theme.bgGray))
-        .cornerRadius(20)
-        .padding(16)
     }
     
     private var headline: some View {
@@ -108,8 +114,8 @@ struct AmplicaAlert: View {
             .foregroundColor(.black)
             .lineSpacing(4)
             .padding(.vertical, 14)
+            .frame(alignment: .center)
     }
-    
     
     private var buttonStack: some View {
         VStack {
@@ -117,7 +123,7 @@ struct AmplicaAlert: View {
                 .padding(.horizontal, 30)
             secondaryActionButton
         }
-        .padding(16)
+        .padding(20)
     }
     
     private var primaryActionButton: some View {
@@ -140,83 +146,5 @@ struct AmplicaAlert: View {
                 .underline()
         }
         .accessibilityIdentifier(alertType.secondaryButtonAccessibilityId())
-    }
-}
-
-struct CongratsModal: View {
-    
-    @Binding var isPresented: Bool
-    
-    var body: some View {
-        VStack {
-            HStack(alignment: .center) {
-                EmptyView()
-                Spacer()
-                congratsText
-                    .padding(.top, 20)
-                    .padding(.leading, 16)
-                Spacer()
-                CloseButton(action: {
-                    isPresented.toggle()
-                })
-                .padding(.trailing, 12)
-                .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.congratsCloseButton)
-            }
-            description
-            buttonStack
-        }
-        .background(Color(uiColor: UIColor.Theme.bgGray))
-        .frame(maxWidth: 300, maxHeight: 300, alignment: .topTrailing)
-        .cornerRadius(20)
-        .padding(16)
-    }
-
-    private var congratsText: some View {
-        Text("Congratulations!")
-            .font(Font(UIFont.Theme.extraBold(ofSize: 22)))
-            .foregroundColor(Color(uiColor: UIColor.Theme.congratsColor))
-    }
-    
-    private var buttonStack: some View {
-        VStack {
-            finishButton
-                .padding(.horizontal, 30)
-            skipButton
-        }
-        .padding(16)
-    }
-    
-    private var description: some View {
-        Text("For better recommendations and\nto connect with people relevant to you filling\nout your profile is a good first step.")
-            .font(Font(UIFont.Theme.regular(ofSize: 12)))
-            .foregroundColor(.black)
-            .lineSpacing(4)
-            .padding(.vertical, 14)
-    }
-    
-    private var finishButton: some View {
-        PrimaryButton(title: "Finish Digital Identity") {
-            isPresented.toggle()
-        }
-        .font(Font(UIFont.Theme.regular(ofSize: 14)))
-        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.congratsFinishButton)
-    }
-    
-    private var skipButton: some View {
-        Button {
-            isPresented.toggle()
-        } label: {
-            Text("Skip for now (Not Recommended)")
-                .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
-                .font(Font(UIFont.Theme.regular(ofSize: 10)))
-                .underline()
-        }
-        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.congratsSkipButton)
-    }
-}
-
-struct CongratsModal_Previews: PreviewProvider {
-    static var previews: some View {
-        CongratsModal(isPresented: .constant(false))
     }
 }

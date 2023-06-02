@@ -28,9 +28,7 @@ struct HomeTabView: View {
                 if presentAlert {
                     AmplicaAlert(presentAlert: $presentAlert,
                                  alertType: .congrats) {
-                        presentAlert.toggle()
                     } secondaryButtonAction: {
-                        presentAlert.toggle()
                     }
                 }
             }
