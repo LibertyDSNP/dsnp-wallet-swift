@@ -32,7 +32,7 @@ struct RuntimeDispatchError: Decodable {
 
         let errorIndices = errorDict?["error"]?.arrayValue as? [JSON] ?? []
         let errorArray: [String] = try errorIndices.compactMap { jsonVal in
-            guard var indexStringVal = jsonVal.stringValue else { throw DecodingDispatchError.badConversion }
+            guard let indexStringVal = jsonVal.stringValue else { throw DecodingDispatchError.badConversion }
             return indexStringVal.count == 1 ? "0" + indexStringVal : indexStringVal
         }
         let errorString = errorArray.joined(separator: "")
