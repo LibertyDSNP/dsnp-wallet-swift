@@ -17,7 +17,6 @@ struct SignInViewControllerWrapper : UIViewControllerRepresentable {
         let navController = UINavigationController(rootViewController: SignInViewController())
         return navController
     }
-    
 }
 
 struct SignInView: View {

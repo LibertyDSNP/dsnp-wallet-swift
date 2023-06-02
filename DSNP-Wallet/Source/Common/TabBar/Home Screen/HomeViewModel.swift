@@ -20,6 +20,10 @@ class HomeViewModel: ObservableObject {
 
     private var cancellables = [AnyCancellable]()
     
+    init() {
+        setupObservables()
+    }
+    
     private func setupObservables() {
         logoutAction
             .sink { [weak self] in

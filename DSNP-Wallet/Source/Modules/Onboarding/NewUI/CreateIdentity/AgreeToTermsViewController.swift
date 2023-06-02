@@ -8,7 +8,6 @@
 import UIKit
 import SwiftUI
 import Combine
-import DSNPWallet
 
 class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
 
