@@ -24,10 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var rootViewController: UIViewController?
         
 #if DEBUG
-        rootViewController = AMPHomeViewController()
+        rootViewController = BaseViewController()
 #else
-        if AppState.shared.isLoggedin {
-            // Go to profile
+        if AppState.shared.doKeysExist() {
             rootViewController = AMPHomeViewController()
         } else {
             rootViewController = UINavigationController(rootViewController: SignInViewController())
