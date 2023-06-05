@@ -44,9 +44,6 @@
 		829960FE2978C460009A769F /* SharedProfileHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960712978C45E009A769F /* SharedProfileHeaderViewController.swift */; };
 		829960FF2978C460009A769F /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960722978C45E009A769F /* ViewControllerFactory.swift */; };
 		829961002978C460009A769F /* SharedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960732978C45E009A769F /* SharedNavigationController.swift */; };
-		829961012978C460009A769F /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960752978C45E009A769F /* TabBarViewModel.swift */; };
-		829961022978C460009A769F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829960762978C45E009A769F /* TabBarViewController.swift */; };
-		829961032978C460009A769F /* TabBarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 829960772978C45E009A769F /* TabBarViewController.storyboard */; };
 		829961202978C460009A769F /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299609C2978C45E009A769F /* DeeplinkManager.swift */; };
 		829961212978C460009A769F /* EventCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299609E2978C45E009A769F /* EventCenter.swift */; };
 		829961222978C460009A769F /* EventProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299609F2978C45E009A769F /* EventProtocols.swift */; };
@@ -467,7 +464,7 @@
 		B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */; };
 		B5BCDD682A1E564C003E2845 /* TermsDisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */; };
 		B5D382BF2A2635D40086A05D /* WalletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382BE2A2635D40086A05D /* WalletState.swift */; };
-		B5D382C12A26481C0086A05D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C02A26481C0086A05D /* HomeView.swift */; };
+		B5D382C12A26481C0086A05D /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C02A26481C0086A05D /* HomeTabView.swift */; };
 		B5D382C32A26483D0086A05D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C22A26483D0086A05D /* HomeViewModel.swift */; };
 		B5D382C52A26484F0086A05D /* AMPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */; };
 		B5F74EFF2A1679440046DE15 /* AccessiblityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */; };
@@ -531,9 +528,6 @@
 		829960712978C45E009A769F /* SharedProfileHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedProfileHeaderViewController.swift; sourceTree = "<group>"; };
 		829960722978C45E009A769F /* ViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		829960732978C45E009A769F /* SharedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationController.swift; sourceTree = "<group>"; };
-		829960752978C45E009A769F /* TabBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
-		829960762978C45E009A769F /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		829960772978C45E009A769F /* TabBarViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarViewController.storyboard; sourceTree = "<group>"; };
 		8299609C2978C45E009A769F /* DeeplinkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeeplinkManager.swift; sourceTree = "<group>"; };
 		8299609E2978C45E009A769F /* EventCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCenter.swift; sourceTree = "<group>"; };
 		8299609F2978C45E009A769F /* EventProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProtocols.swift; sourceTree = "<group>"; };
@@ -967,7 +961,7 @@
 		B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseTestViewController.swift; sourceTree = "<group>"; };
 		B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDisclaimerView.swift; sourceTree = "<group>"; };
 		B5D382BE2A2635D40086A05D /* WalletState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletState.swift; sourceTree = "<group>"; };
-		B5D382C02A26481C0086A05D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B5D382C02A26481C0086A05D /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		B5D382C22A26483D0086A05D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPHomeViewController.swift; sourceTree = "<group>"; };
 		B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessiblityIdentifiers.swift; sourceTree = "<group>"; };
@@ -1306,10 +1300,7 @@
 				B534ACDF2A28F97800518B9C /* Permissions Screen */,
 				B534ACDE2A28F97000518B9C /* Settings Screen */,
 				B534ACDD2A28F96900518B9C /* Profile Screen */,
-				829960752978C45E009A769F /* TabBarViewModel.swift */,
-				829960762978C45E009A769F /* TabBarViewController.swift */,
-				829960772978C45E009A769F /* TabBarViewController.storyboard */,
-				B5D382C02A26481C0086A05D /* HomeView.swift */,
+				B5D382C02A26481C0086A05D /* HomeTabView.swift */,
 				B534ACE72A28FA7C00518B9C /* AmpTabItem.swift */,
 			);
 			path = TabBar;
@@ -2336,7 +2327,6 @@
 				B5A62C532A0AA27E00A31178 /* Poppins-ThinItalic.ttf in Resources */,
 				B5A62C542A0AA27E00A31178 /* Poppins-Medium.ttf in Resources */,
 				B5A62C522A0AA27E00A31178 /* Poppins-BlackItalic.ttf in Resources */,
-				829961032978C460009A769F /* TabBarViewController.storyboard in Resources */,
 				B5A62C502A0AA27E00A31178 /* Poppins-ExtraLight.ttf in Resources */,
 				8223AB622818917700DEF1E9 /* Main.storyboard in Resources */,
 				B5A62C492A0AA27E00A31178 /* Poppins-Regular.ttf in Resources */,
@@ -2474,7 +2464,6 @@
 			files = (
 				829968DB297B721C009A769F /* CDAccountItem+CoreDataDecodable.swift in Sources */,
 				829968DE297B721C009A769F /* ChainStorage+Decodable.swift in Sources */,
-				829961012978C460009A769F /* TabBarViewModel.swift in Sources */,
 				8299659B297A1955009A769F /* WalletAssetId.swift in Sources */,
 				82996363297A13CF009A769F /* EventEmittingStorageSubscription.swift in Sources */,
 				8299663B297A1B5E009A769F /* UniquesInstanceMetadata.swift in Sources */,
@@ -2780,7 +2769,7 @@
 				829968D7297B721C009A769F /* CDChainStorageItem+CoreDataDecodable.swift in Sources */,
 				B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */,
 				82E4AECC29A6E2330071758A /* ExtrinsicManager+Balance.swift in Sources */,
-				B5D382C12A26481C0086A05D /* HomeView.swift in Sources */,
+				B5D382C12A26481C0086A05D /* HomeTabView.swift in Sources */,
 				82996361297A13CF009A769F /* EmptyHandlingStorageSubscription.swift in Sources */,
 				829961492978C461009A769F /* ProfileHeaderView.swift in Sources */,
 				82996649297A1B5E009A769F /* MultiSigner.swift in Sources */,
@@ -2810,7 +2799,6 @@
 				8299639E297A13CF009A769F /* IdentityMapper.swift in Sources */,
 				829965F1297A1AF1009A769F /* SingleToMultiasset.xcmappingmodel in Sources */,
 				82996936297F3776009A769F /* AssetsTransfer.swift in Sources */,
-				829961022978C460009A769F /* TabBarViewController.swift in Sources */,
 				82996644297A1B5E009A769F /* ConstantCodingPath.swift in Sources */,
 				8299636E297A13CF009A769F /* ConnectionPool.swift in Sources */,
 				82996495297A17F4009A769F /* ConnectionStateReporting.swift in Sources */,

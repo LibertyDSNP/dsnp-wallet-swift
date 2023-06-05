@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import DSNPWallet
 
 enum TabActionError: Error {
     case logoutError
@@ -21,6 +22,10 @@ class HomeViewModel: ObservableObject {
     var shouldShowAlert = false
     
     private var cancellables = [AnyCancellable]()
+    
+    // TODO:
+    var user: User?
+    var updateUserBlock: ((UserFacadeProtocol)->())?
     
     init() {
         setupObservables()

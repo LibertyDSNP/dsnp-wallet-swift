@@ -51,7 +51,6 @@ struct MainTabView: View {
             ProfileView()
                 .tabItem {
                     AmpTabItem(title: "Profile", tabImageName: "profile")
-                    
                 }
             PermissionsView()
                 .tabItem {
