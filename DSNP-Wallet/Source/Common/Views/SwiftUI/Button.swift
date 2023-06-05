@@ -81,6 +81,24 @@ struct CloseButton: View {
     }
 }
 
+struct BackButton: View {
+    let action: () -> Void
+    
+    var body: some View
+    {
+        VStack {
+            Button {
+                action()
+            } label: {
+                VStack {
+                    Image("Back")
+                        .renderingMode(.template)
+                        .foregroundColor(.white)
+                }
+            }
+        }
+    }
+}
 
 struct PrimaryButton_Previews: PreviewProvider {
     static var previews: some View {

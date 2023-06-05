@@ -37,5 +37,12 @@ class ConfirmHandleViewController: UIHostingController<ConfirmHandleView> {
                 self.navigationController?.pushViewController(AgreeToTermsViewController(chosenHandle: self.viewModel.chosenHandle), animated: true)
             }
             .store(in: &cancellables)
+        viewModel.backAction
+            .receive(on: RunLoop.main)
+            .sink { [weak self] in
+                guard let self else { return }
+                self.navigationController?.popViewController(animated: true)
+            }
+            .store(in: &cancellables)
     }
 }
