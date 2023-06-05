@@ -53,4 +53,21 @@ struct AccessibilityIdentifier {
         static let seedPhraseTestWordBank = "seedphrase.seedPhraseTestWordBank"
         static let seedPhraseTestContinueButton = "seedphrase.seedPhraseTestContinueButton"
     }
+    
+    // Tab View
+    struct TabView {
+        struct ProfileViewIdentifiers {
+            // Profile Image
+            static let profileImage = "tabView.profile.profileImage"
+
+            // Fields
+            static let profileIdentifierFirstNameField = "tabView.profile.firstNameField"
+            static let profileIdentifierLastNameField = "tabView.profile.lastNameField"
+            static let profileIdentifierEmailField = "tabView.profile.emailField"
+
+            // Buttons
+            static let saveButton = "tabView.profile.saveButton"
+            static let editButton = "tabView.profile.editButton"
+        }
+    }
 }

@@ -87,9 +87,7 @@ extension PinViewController {
             if !pinSuccess {
                 return
             }
-            if let tabBarVC = ViewControllerFactory.tabBarViewController.instance() as? TabBarViewController {
-                self.present(tabBarVC, animated: true)
-            }
+            // TODO: Present Next View Controller
         }))
         present(alert, animated: true)
     }
