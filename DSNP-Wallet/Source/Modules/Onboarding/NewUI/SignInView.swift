@@ -14,7 +14,10 @@ struct SignInViewControllerWrapper : UIViewControllerRepresentable {
     }
 
     func makeUIViewController(context: Context) -> UIViewController {
-        let navController = UINavigationController(rootViewController: SignInViewController())
+        let signInViewController = SignInViewController()
+        let navController = UINavigationController()
+        navController.setViewControllers([signInViewController], animated: true)
+        navController.navigationBar.isHidden = true
         return navController
     }
 }

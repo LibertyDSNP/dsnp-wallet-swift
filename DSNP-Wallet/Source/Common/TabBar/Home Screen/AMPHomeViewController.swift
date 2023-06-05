@@ -13,6 +13,8 @@ class AMPHomeViewController: UIHostingController<HomeTabView> {
 
     let viewModel: HomeViewModel
     
+    private var cancellables = [AnyCancellable]()
+    
     init(viewModel: HomeViewModel = HomeViewModel(), showCongrats: Bool = false) {
         self.viewModel = viewModel
         super.init(rootView: HomeTabView(viewModel: viewModel, presentAlert: showCongrats))
