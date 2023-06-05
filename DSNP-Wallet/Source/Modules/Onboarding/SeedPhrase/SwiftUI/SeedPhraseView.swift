@@ -44,7 +44,7 @@ struct SeedPhraseView: View {
     }
     
     private var headline: some View {
-        Text("Headline goes here")
+        Text("Security is important")
             .foregroundColor(.white)
             .font(Font(UIFont.Theme.bold(ofSize: 22)))
             .padding(.horizontal, 16)

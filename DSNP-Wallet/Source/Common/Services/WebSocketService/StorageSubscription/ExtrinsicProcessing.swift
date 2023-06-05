@@ -19,7 +19,8 @@ protocol ExtrinsicProcessing {
         extrinsicIndex: UInt32,
         extrinsicData: Data,
         eventRecords: [EventRecord],
-        coderFactory: RuntimeCoderFactoryProtocol
+        coderFactory: RuntimeCoderFactoryProtocol,
+        errorHandler: TransactionErrorHandlerBlock?
     ) -> ExtrinsicProcessingResult?
 }
 
@@ -38,7 +39,8 @@ extension ExtrinsicProcessor: ExtrinsicProcessing {
         extrinsicIndex: UInt32,
         extrinsicData: Data,
         eventRecords: [EventRecord],
-        coderFactory: RuntimeCoderFactoryProtocol
+        coderFactory: RuntimeCoderFactoryProtocol,
+        errorHandler: TransactionErrorHandlerBlock?
     ) -> ExtrinsicProcessingResult? {
         do {
             let decoder = try coderFactory.createDecoder(from: extrinsicData)
@@ -80,7 +82,8 @@ extension ExtrinsicProcessor: ExtrinsicProcessing {
                 extrinsic: extrinsic,
                 eventRecords: eventRecords,
                 metadata: coderFactory.metadata,
-                runtimeJsonContext: runtimeJsonContext
+                runtimeJsonContext: runtimeJsonContext,
+                errorHandler: errorHandler
             )
         } catch {
             return nil

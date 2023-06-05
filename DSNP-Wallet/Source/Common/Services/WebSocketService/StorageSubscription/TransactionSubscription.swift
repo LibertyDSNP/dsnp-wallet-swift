@@ -42,10 +42,10 @@ final class TransactionSubscription {
     }
 
     func process(blockHash: Data) {
-        self.process(blockHash: blockHash, completion: nil)
+        self.process(blockHash: blockHash, completion: nil, errorHandler: nil)
     }
 
-    func process(blockHash: Data, completion: TransactionSubscriptionCompletion?) {
+    func process(blockHash: Data, completion: TransactionSubscriptionCompletion?, errorHandler: TransactionErrorHandlerBlock?) {
         do {
             logger.debug("Did start fetching block: \(blockHash.toHex(includePrefix: true))")
 
@@ -83,7 +83,8 @@ final class TransactionSubscription {
                 dependingOn: fetchBlockOperation,
                 eventsOperation: eventsWrapper.targetOperation,
                 coderOperation: coderFactoryOperation,
-                chain: chainModel
+                chain: chainModel,
+                errorHandler: errorHandler
             )
 
             parseOperation.addDependency(fetchBlockOperation)
@@ -106,9 +107,7 @@ final class TransactionSubscription {
                     if !items.isEmpty {
                         DispatchQueue.main.async {
                             self.eventCenter.notify(with: WalletTransactionListUpdated())
-                            if let items = items as? [TransactionSubscriptionResult] {
-                                completion?(items)
-                            }
+                            completion?(items)
                         }
                     }
                 case let .failure(error):
@@ -167,7 +166,8 @@ extension TransactionSubscription {
         dependingOn fetchOperation: BaseOperation<SignedBlock>,
         eventsOperation: BaseOperation<[StorageResponse<[EventRecord]>]>,
         coderOperation: BaseOperation<RuntimeCoderFactoryProtocol>,
-        chain: ChainModel
+        chain: ChainModel,
+        errorHandler: TransactionErrorHandlerBlock?
     ) -> BaseOperation<[TransactionSubscriptionResult]> {
         ClosureOperation<[TransactionSubscriptionResult]> {
             let block = try fetchOperation
@@ -193,7 +193,8 @@ extension TransactionSubscription {
                         extrinsicIndex: UInt32(index),
                         extrinsicData: data,
                         eventRecords: eventRecords,
-                        coderFactory: coderFactory
+                        coderFactory: coderFactory,
+                        errorHandler: errorHandler
                     ) else {
                         return nil
                     }
