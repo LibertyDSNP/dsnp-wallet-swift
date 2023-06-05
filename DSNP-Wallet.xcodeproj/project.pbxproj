@@ -409,6 +409,7 @@
 		82F183D22A1824880092D0FF /* SubstrateDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82F183C72A1824880092D0FF /* SubstrateDataModel.xcdatamodeld */; };
 		82F183D42A1824F00092D0FF /* AssetBalanceChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
+		B51B13DD2A2E627A000C10B9 /* AmplicaHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B13DC2A2E627A000C10B9 /* AmplicaHeadline.swift */; };
 		B534ACDA2A268A7500518B9C /* AMPHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */; };
 		B534ACDC2A2690FB00518B9C /* AMPProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */; };
 		B534ACE22A28F9E400518B9C /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACE12A28F9E400518B9C /* PermissionsView.swift */; };
@@ -906,6 +907,7 @@
 		82F183D02A1824880092D0FF /* SubstrateDataModel2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel2.xcdatamodel; sourceTree = "<group>"; };
 		82F183D12A1824880092D0FF /* SubstrateDataModel7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel7.xcdatamodel; sourceTree = "<group>"; };
 		82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetBalanceChanged.swift; sourceTree = "<group>"; };
+		B51B13DC2A2E627A000C10B9 /* AmplicaHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplicaHeadline.swift; sourceTree = "<group>"; };
 		B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPHomeViewModel.swift; sourceTree = "<group>"; };
 		B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPProfileView.swift; sourceTree = "<group>"; };
 		B534ACE12A28F9E400518B9C /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
@@ -2144,6 +2146,7 @@
 				B5A62C292A0A90D100A31178 /* BaseRoundView.swift */,
 				B5A62C272A0A90D000A31178 /* BulletListView.swift */,
 				B5A62C2A2A0A90D100A31178 /* Button.swift */,
+				B51B13DC2A2E627A000C10B9 /* AmplicaHeadline.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -2655,6 +2658,7 @@
 				829968E4297B721C009A769F /* NSDictionary+Map.swift in Sources */,
 				82996639297A1B5E009A769F /* TreasuryDepositEvent.swift in Sources */,
 				829965BE297A1955009A769F /* Price.swift in Sources */,
+				B51B13DD2A2E627A000C10B9 /* AmplicaHeadline.swift in Sources */,
 				829966A1297B141A009A769F /* ChainRepositoryFactory.swift in Sources */,
 				82996496297A17F4009A769F /* PagedKeysRequest.swift in Sources */,
 				82996373297A13CF009A769F /* RuntimeProvider.swift in Sources */,
