@@ -64,7 +64,7 @@ jobs:
           name: Upload build file for app center 
           command: |
             fastlane add_plugin appcenter
-            fastlane appcenter_upload_sim_app  build_version:"<<parameters.build_version>>" env:"qa"
+            fastlane appcenter_upload_sim_app  build_version:"<<parameters.build_version>>" env:"$CIRCLE_BRANCH"
       - run:
           name: Launch Smoke Test 
           command: |
@@ -91,4 +91,4 @@ workflows:
             branches:
               only:
                 - dev
-                - ci_fix
+                - qa
