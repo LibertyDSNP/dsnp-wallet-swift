@@ -18,7 +18,10 @@ class HomeViewModel: ObservableObject {
     // Settings Actions
     let logoutAction = PassthroughSubject<Void, Never>()
     let revealRecoveryAction = PassthroughSubject<Void, Never>()
+    let revealPhraseAction = PassthroughSubject<Void, Never>()
     
+    // App State Settings
+    @Published var faceIdEnabled: Bool = true
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
     var shouldShowAlert = false

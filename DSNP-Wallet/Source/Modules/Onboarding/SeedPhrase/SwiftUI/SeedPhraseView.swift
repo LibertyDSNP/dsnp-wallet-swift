@@ -11,10 +11,11 @@ struct SeedPhraseView: View {
     
     let viewModel: SeedPhraseViewModel
     
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         VStack(alignment: .leading) {
             title
-                .padding(.top, 20)
                 .frame(maxWidth: .infinity, alignment: .center)
             headline
                 .padding(.top, 80)
@@ -31,16 +32,27 @@ struct SeedPhraseView: View {
             writtenDownButton
             Spacer()
         }
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
+        .background(Color(uiColor: UIColor.Theme.bgTeal))
+        .navigationBarHidden(true)
     }
     
     private var title: some View {
-        Text("Recovery Phrase")
-            .foregroundColor(.white)
-            .font(Font(UIFont.Theme.regular(ofSize: 14)))
-            .frame(alignment: .center)
+        HStack {
+            BackButton {
+                dismiss()
+            }
+            .padding(.leading, 18)
+            Spacer()
+            Text("Recovery Phrase")
+                .font(Font(UIFont.Theme.regular(ofSize: 16)))
+                .foregroundColor(.white)
+                .padding(.leading, -18)
+            Spacer()
+            EmptyView()
+        }
+        .padding(.top, 70)
     }
     
     private var headline: some View {
@@ -94,14 +106,20 @@ struct SeedPhraseView: View {
     }
     
     private var writtenDownButton: some View {
-        PrimaryButton(title: "I've written it down") {
-            viewModel.testAction.send()
+        NavigationLink(destination: SeedPhrasePuzzle(viewModel: viewModel.seedPhrasePuzzleModel())) {
+            Text("I've written it down")
+                .font(Font(UIFont.Theme.bold(ofSize: 15)))
+                .padding(.vertical, 16)
+                .padding(.horizontal, 12)
+                .foregroundColor(.white)
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 30)
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor.Theme.primaryTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+        .frame(minHeight: 60)
         .accessibilityIdentifier(AccessibilityIdentifier.SeedPhraseIdentifier.seedPhraseListWrittenButton)
     }
-    
 }
 
 struct SeedView: View {

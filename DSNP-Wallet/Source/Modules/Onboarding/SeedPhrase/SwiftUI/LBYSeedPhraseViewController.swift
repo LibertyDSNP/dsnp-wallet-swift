@@ -9,6 +9,20 @@ import UIKit
 import SwiftUI
 import Combine
 
+struct LBYSeedPhraseViewControllerWrapper : UIViewControllerRepresentable {
+
+    typealias UIViewControllerType = LBYSeedPhraseViewController
+
+    func updateUIViewController(_ uiViewController: LBYSeedPhraseViewController, context: Context) {
+        
+    }
+
+    func makeUIViewController(context: Context) -> LBYSeedPhraseViewController {
+        return LBYSeedPhraseViewController()
+    }
+}
+
+
 class LBYSeedPhraseViewController: UIHostingController<SeedPhraseView> {
 
     let testWords = ["Hello", "World", "foo", "bar", "big l", "jay z", "big pun", "eminem", "fat joe", "method man", "red man", "busta"]
@@ -40,6 +54,13 @@ class LBYSeedPhraseViewController: UIHostingController<SeedPhraseView> {
                 }
                 let viewModel = SeedPuzzleViewModel(correctPuzzleElements: puzzleElements)
                 self.navigationController?.pushViewController(SeedPhraseTestViewController(viewModel: viewModel), animated: true)
+            }
+            .store(in: &cancellables)
+        viewModel.backAction
+            .receive(on: RunLoop.main)
+            .sink { [weak self] in
+                guard let self else { return }
+                self.navigationController?.popViewController(animated: true)
             }
             .store(in: &cancellables)
     }

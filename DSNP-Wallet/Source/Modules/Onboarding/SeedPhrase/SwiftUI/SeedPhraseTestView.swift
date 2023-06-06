@@ -192,9 +192,12 @@ struct SeedEmptyPhraseColumnView: View {
     }
 }
 
-
 struct SeedPhraseTestView_Previews: PreviewProvider {
+
     static var previews: some View {
-        SeedPhraseTestView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: dummyElements))
+        let puzzleElements = testWords.enumerated().map { (index, element) in
+            return PuzzleElement(word: element, index: index)
+        }
+        SeedPhraseTestView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: puzzleElements))
     }
 }

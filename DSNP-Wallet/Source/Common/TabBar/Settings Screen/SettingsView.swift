@@ -7,37 +7,39 @@
 
 import SwiftUI
 
+let testWords = ["Hello", "World", "foo", "bar", "big l", "jay z", "big pun", "eminem", "fat joe", "method man", "red man", "busta"]
+
+
 struct SettingsView: View {
         
-    let viewModel: HomeViewModel
+    @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
-        VStack {
-            headline
-                .padding(.bottom, 20)
-                .padding(.horizontal, 30)
-            recoverySection
-                .padding(.bottom, 30)
-                .padding(.horizontal, 30)
+        NavigationView {
             VStack {
+                headline
+                    .padding(.bottom, 20)
+                    .padding(.horizontal, 30)
+                recoverySection
+                    .padding(.bottom, 30)
+                    .padding(.horizontal, 30)
                 security
                 faceIdCell
                 password
                 logoutButton
                 Spacer()
             }
-           
+            .padding(.top, 70)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
+            .background(Color(uiColor: UIColor.Theme.bgTeal))
         }
-        .padding(.top, 70)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
     }
     
     private var headline: some View {
         Text("Settings")
             .font(Font(UIFont.Theme.regular(ofSize: 16)))
-            .foregroundColor(.white)
+            .foregroundColor(.white)        
     }
     
     private var recoverySection: some View {
@@ -52,13 +54,21 @@ struct SettingsView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 16)
             }
-            SecondaryButton(title: "Reveal Recovery Phrase") {
-                // TODO: Navigate to seed flow
+            NavigationLink(destination: SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: testWords))) {
+                Text("Reveal Recovery Phrase")
+                    .font(Font(UIFont.Theme.bold(ofSize: 15)))
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 12)
+                    .foregroundColor(.white)
             }
+            .frame(maxWidth: .infinity)
+            .background(Color(uiColor: UIColor.Theme.primaryTeal))
+            .foregroundColor(.white)
+            .cornerRadius(30)
             .frame(minHeight: 60)
         }
     }
-    
+
     private var security: some View {
             VStack(alignment: .leading) {
                 Text("Security")
@@ -84,7 +94,8 @@ struct SettingsView: View {
                     .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
             }
-            Toggle("", isOn: .constant(true))
+            Toggle("", isOn: $viewModel.faceIdEnabled)
+                .tint(mainTeal)
         }
         .padding(.bottom, 30)
         .padding(.horizontal, 30)
