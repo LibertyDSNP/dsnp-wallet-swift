@@ -68,10 +68,10 @@ jobs:
       - run:
           name: Launch Smoke Test 
           command: |
-            curl --location --request POST "https://circleci.com/api/v2/project/gh/Liberty30/ios-testing/pipeline" \
+            curl --location --request POST "https://circleci.com/api/v2/project/gh/AmplicaLabs/ios-testing/pipeline" \
             --header "Content-Type: application/json" \
             --header "Circle-Token: $IOS_TEST_CIRCLEKEY" \
-            --data-raw "{\"branch\": \"main\"}"
+            --data-raw "{\"branch\": \"main\", \"parameters\": { \"app_env\": \"$CIRCLE_BRANCH\"}}"
       - send_slack_message: #"If all steps has passed"
           event : "pass" 
           icon: ":large_green_circle:"
@@ -91,4 +91,4 @@ workflows:
             branches:
               only:
                 - dev
-                - qa
+                - ci_fix
