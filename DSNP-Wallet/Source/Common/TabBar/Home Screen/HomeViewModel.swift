@@ -15,7 +15,9 @@ enum TabActionError: Error {
 
 class HomeViewModel: ObservableObject {
 
+    // Settings Actions
     let logoutAction = PassthroughSubject<Void, Never>()
+    let revealRecoveryAction = PassthroughSubject<Void, Never>()
     
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
