@@ -14,12 +14,19 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             headline
+                .padding(.bottom, 20)
             recoverySection
+                .padding(.bottom, 30)
             security
+                .padding(.bottom, 30)
             faceIdCell
+                .padding(.bottom, 30)
             password
+                .padding(.bottom, 30)
             logoutButton
+            Spacer()
         }
+        .padding(.top, 70)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .background(Color(uiColor: UIColor.Theme.bgTeal))
@@ -32,58 +39,61 @@ struct SettingsView: View {
     }
     
     private var recoverySection: some View {
-        VStack {
+        VStack(alignment: .leading) {
             if !AppState.shared.hasBackedKeys {
                 Text("You Haven't backed up")
-                    .font(Font(UIFont.Theme.thin(ofSize: 12)))
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
-                Text("Back it up")
-                    .font(Font(UIFont.Theme.thin(ofSize: 12)))
+                    .padding(.bottom, 10)
+                Text("Recovery phrase is important you better write this down")
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
+                    .padding(.bottom, 16)
             }
-            PrimaryButton(title: "Reveal Recovery Phrase") {
+            SecondaryButton(title: "Reveal Recovery Phrase") {
                 // TODO: Navigate to seed flow
             }
+            .padding(.horizontal, 40)
+            .frame(minWidth: 60)
         }
     }
     
     private var security: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Security")
                 .font(Font(UIFont.Theme.bold(ofSize: 14)))
                 .foregroundColor(.white)
             Text("Adding additional security is really important")
-                .font(Font(UIFont.Theme.thin(ofSize: 12)))
+                .font(Font(UIFont.Theme.regular(ofSize: 12)))
                 .foregroundColor(.white)
         }
     }
     
     private var faceIdCell: some View {
         HStack {
-            VStack {
+            VStack(alignment: .leading) {
                 Text("Face ID")
                     .font(Font(UIFont.Theme.bold(ofSize: 14)))
                     .foregroundColor(.white)
                 Text("Increase access security with Face ID")
-                    .font(Font(UIFont.Theme.thin(ofSize: 12)))
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
             }
-            Toggle("Increase access security with Face ID", isOn: .constant(true))
+            Toggle("", isOn: .constant(true))
         }
     }
     
     private var password: some View {
         HStack {
-            VStack {
+            VStack(alignment: .leading) {
                 Text("Password")
                     .font(Font(UIFont.Theme.bold(ofSize: 14)))
                     .foregroundColor(.white)
                 Text("Password to log in to your account")
-                    .font(Font(UIFont.Theme.thin(ofSize: 12)))
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
             }
             Spacer()
-            // arrow
         }
     }
     
