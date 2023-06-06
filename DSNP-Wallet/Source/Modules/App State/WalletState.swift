@@ -13,6 +13,7 @@ class AppState: ObservableObject {
     static let shared = AppState()
 
     @Published var isLoggedin = true
+    @Published var hasBackedKeys = false
     
     func doKeysExist() -> Bool {
         do {
