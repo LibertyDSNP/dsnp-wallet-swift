@@ -98,6 +98,9 @@ struct SettingsView: View {
             }
             Toggle("", isOn: $viewModel.faceIdEnabled)
                 .tint(mainTeal)
+                .onChange(of: viewModel.faceIdEnabled) { value in
+                    viewModel.toggleFaceIdAction.send(value)
+                }
         }
         .padding(.bottom, 26)
         .padding(.horizontal, 30)

@@ -23,4 +23,18 @@ class AppState: ObservableObject {
             return false
         }
     }
+    
+    func faceIdEnabled() -> Bool {
+        if let enabled = UserDefaults.standard.object(forKey: "faceId") {
+            return enabled as? Bool ?? false
+        }
+        
+        let defaultState = false
+        UserDefaults.standard.set(defaultState, forKey: "faceId")
+        return defaultState
+    }
+    
+    func setFaceIdEnabled(enabled: Bool) {
+        UserDefaults.standard.set(enabled, forKey: "faceId")
+    }
 }
