@@ -99,8 +99,8 @@ struct SettingsView: View {
             Toggle("", isOn: $viewModel.faceIdEnabled)
                 .tint(mainTeal)
         }
-        .padding(.bottom, 30)
         .padding(.bottom, 26)
+        .padding(.horizontal, 30)
     }
     
     private var password: some View {
@@ -122,7 +122,7 @@ struct SettingsView: View {
                     .frame(width: 12, height: 18)
             }
         }
-        .padding(.bottom, 26)
+        .padding(.bottom, 30)
         .padding(.horizontal, 30)
     }
     

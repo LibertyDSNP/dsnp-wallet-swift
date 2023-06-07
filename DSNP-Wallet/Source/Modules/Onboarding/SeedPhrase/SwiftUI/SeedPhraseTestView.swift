@@ -78,7 +78,7 @@ struct SeedPhraseTestView: View {
             Text("Recovery Phrase")
                 .font(Font(UIFont.Theme.regular(ofSize: 16)))
                 .foregroundColor(.white)
-                .padding(.trailing, 18)
+                .padding(.leading, -28)
             Spacer()
             EmptyView()
         }
