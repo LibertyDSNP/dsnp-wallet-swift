@@ -18,7 +18,7 @@ struct SeedPhraseView: View {
             title
                 .frame(maxWidth: .infinity, alignment: .center)
             headline
-                .padding(.top, 80)
+                .padding(.top, 20)
                 .padding(.horizontal, 20)
             headlineSubtitle
                 .padding(.horizontal, 20)
@@ -48,7 +48,7 @@ struct SeedPhraseView: View {
             Text("Recovery Phrase")
                 .font(Font(UIFont.Theme.regular(ofSize: 16)))
                 .foregroundColor(.white)
-                .padding(.leading, -18)
+                .padding(.trailing, 18)
             Spacer()
             EmptyView()
         }
@@ -106,7 +106,7 @@ struct SeedPhraseView: View {
     }
     
     private var writtenDownButton: some View {
-        NavigationLink(destination: SeedPhrasePuzzle(viewModel: viewModel.seedPhrasePuzzleModel())) {
+        NavigationLink(destination: SeedPhraseTestView(viewModel: viewModel.seedPhrasePuzzleModel())) {
             Text("I've written it down")
                 .font(Font(UIFont.Theme.bold(ofSize: 15)))
                 .padding(.vertical, 16)
@@ -118,6 +118,8 @@ struct SeedPhraseView: View {
         .foregroundColor(.white)
         .cornerRadius(30)
         .frame(minHeight: 60)
+        .padding(.horizontal, 30)
+        .padding(.top, 12)
         .accessibilityIdentifier(AccessibilityIdentifier.SeedPhraseIdentifier.seedPhraseListWrittenButton)
     }
 }
