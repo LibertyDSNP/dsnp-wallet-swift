@@ -41,7 +41,8 @@ struct SettingsView: View {
     private var headline: some View {
         Text("Settings")
             .font(Font(UIFont.Theme.regular(ofSize: 16)))
-            .foregroundColor(.white)        
+            .foregroundColor(.white)
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.settingsHeadline)
     }
     
     private var recoverySection: some View {
@@ -63,6 +64,7 @@ struct SettingsView: View {
                     .padding(.horizontal, 12)
                     .foregroundColor(.white)
             }
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.revealPhraseButton)
             .frame(maxWidth: .infinity)
             .background(Color(uiColor: UIColor.Theme.primaryTeal))
             .foregroundColor(.white)
@@ -83,6 +85,7 @@ struct SettingsView: View {
             }
             .padding(.leading, -60)
             .padding(.bottom, 26)
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.security)
     }
     
     private var faceIdCell: some View {
@@ -96,11 +99,13 @@ struct SettingsView: View {
                     .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
             }
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.faceId)
             Toggle("", isOn: $viewModel.faceIdEnabled)
                 .tint(mainTeal)
                 .onChange(of: viewModel.faceIdEnabled) { value in
                     viewModel.toggleFaceIdAction.send(value)
                 }
+                .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.faceIdToggle)
         }
         .padding(.bottom, 26)
         .padding(.horizontal, 30)
@@ -117,6 +122,7 @@ struct SettingsView: View {
                     .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
             }
+            accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.password)
             Spacer()
             Button {
                 // Nav to Password flow
@@ -137,6 +143,7 @@ struct SettingsView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 14)))
                 .foregroundColor(mainTeal)
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton)
     }
 }
 

@@ -69,5 +69,19 @@ struct AccessibilityIdentifier {
             static let saveButton = "tabView.profile.saveButton"
             static let editButton = "tabView.profile.editButton"
         }
+        
+        struct SettingsViewIdentifiers {
+            // Headline
+            static let settingsHeadline = "tabView.settings.headline"
+
+            static let revealPhraseButton = "tabView.settings.revealPhraseButton"
+            
+            // List Items
+            static let security = "tabView.settings.security"
+            static let faceId = "tabView.settings.faceId"
+            static let faceIdToggle = "tabView.settings.faceIdToggle"
+            static let password = "tabView.settings.password"
+            static let logoutButton = "tabView.settings.logoutButton"
+        }
     }
 }
