@@ -27,6 +27,8 @@ struct SettingsView: View {
                 faceIdCell
                 password
                 logoutButton
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 30)
                 Spacer()
             }
             .padding(.top, 70)
@@ -80,14 +82,14 @@ struct SettingsView: View {
                     .foregroundColor(.white)
             }
             .padding(.leading, -60)
-            .padding(.bottom, 30)
+            .padding(.bottom, 26)
     }
     
     private var faceIdCell: some View {
         HStack {
             VStack(alignment: .leading) {
                 Text("Face ID")
-                    .font(Font(UIFont.Theme.bold(ofSize: 14)))
+                    .font(Font(UIFont.Theme.regular(ofSize: 14)))
                     .foregroundColor(.white)
                     .padding(.bottom, -2)
                 Text("Increase access security with Face ID")
@@ -98,14 +100,14 @@ struct SettingsView: View {
                 .tint(mainTeal)
         }
         .padding(.bottom, 30)
-        .padding(.horizontal, 30)
+        .padding(.bottom, 26)
     }
     
     private var password: some View {
         HStack {
             VStack(alignment: .leading) {
                 Text("Password")
-                    .font(Font(UIFont.Theme.bold(ofSize: 14)))
+                    .font(Font(UIFont.Theme.regular(ofSize: 14)))
                     .foregroundColor(.white)
                     .padding(.bottom, -2)
                 Text("Password to log in to your account")
@@ -113,15 +115,24 @@ struct SettingsView: View {
                     .foregroundColor(.white)
             }
             Spacer()
+            Button {
+                // Nav to Password flow
+            } label: {
+                Image("forwardArrow")
+                    .frame(width: 12, height: 18)
+            }
         }
-        .padding(.bottom, 30)
+        .padding(.bottom, 26)
         .padding(.horizontal, 30)
     }
     
     private var logoutButton: some View {
-        Button("log out") {
-            // Nav to sign in view
+        Button {
             viewModel.logoutAction.send()
+        } label: {
+            Text("Logout")
+                .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                .foregroundColor(mainTeal)
         }
     }
 }
