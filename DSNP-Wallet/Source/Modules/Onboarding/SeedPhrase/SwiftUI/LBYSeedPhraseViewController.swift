@@ -9,20 +9,6 @@ import UIKit
 import SwiftUI
 import Combine
 
-struct LBYSeedPhraseViewControllerWrapper : UIViewControllerRepresentable {
-
-    typealias UIViewControllerType = LBYSeedPhraseViewController
-
-    func updateUIViewController(_ uiViewController: LBYSeedPhraseViewController, context: Context) {
-        
-    }
-
-    func makeUIViewController(context: Context) -> LBYSeedPhraseViewController {
-        return LBYSeedPhraseViewController()
-    }
-}
-
-
 class LBYSeedPhraseViewController: UIHostingController<SeedPhraseView> {
 
     let testWords = ["Hello", "World", "foo", "bar", "big l", "jay z", "big pun", "eminem", "fat joe", "method man", "red man", "busta"]
