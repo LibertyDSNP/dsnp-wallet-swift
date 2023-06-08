@@ -409,6 +409,7 @@
 		82F183D22A1824880092D0FF /* SubstrateDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82F183C72A1824880092D0FF /* SubstrateDataModel.xcdatamodeld */; };
 		82F183D42A1824F00092D0FF /* AssetBalanceChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
+		B500AEB32A324DC2001EEE7E /* SocialIdentityProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B500AEB22A324DC2001EEE7E /* SocialIdentityProgressView.swift */; };
 		B51B13DD2A2E627A000C10B9 /* AmplicaHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B13DC2A2E627A000C10B9 /* AmplicaHeadline.swift */; };
 		B534ACDA2A268A7500518B9C /* AMPHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */; };
 		B534ACDC2A2690FB00518B9C /* AMPProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */; };
@@ -907,6 +908,7 @@
 		82F183D02A1824880092D0FF /* SubstrateDataModel2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel2.xcdatamodel; sourceTree = "<group>"; };
 		82F183D12A1824880092D0FF /* SubstrateDataModel7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel7.xcdatamodel; sourceTree = "<group>"; };
 		82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetBalanceChanged.swift; sourceTree = "<group>"; };
+		B500AEB22A324DC2001EEE7E /* SocialIdentityProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialIdentityProgressView.swift; sourceTree = "<group>"; };
 		B51B13DC2A2E627A000C10B9 /* AmplicaHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplicaHeadline.swift; sourceTree = "<group>"; };
 		B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPHomeViewModel.swift; sourceTree = "<group>"; };
 		B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPProfileView.swift; sourceTree = "<group>"; };
@@ -2112,6 +2114,7 @@
 				B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */,
 				B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */,
 				B5D382C22A26483D0086A05D /* HomeViewModel.swift */,
+				B500AEB22A324DC2001EEE7E /* SocialIdentityProgressView.swift */,
 			);
 			path = "Home Screen";
 			sourceTree = "<group>";
@@ -2788,6 +2791,7 @@
 				8299664F297A1B5E009A769F /* AccountInfo.swift in Sources */,
 				B5A62C2E2A0A90D100A31178 /* Button.swift in Sources */,
 				829964D1297A17F4009A769F /* FileDownloadOperationFactory.swift in Sources */,
+				B500AEB32A324DC2001EEE7E /* SocialIdentityProgressView.swift in Sources */,
 				829965A8297A1955009A769F /* RemoteChainNodeModel.swift in Sources */,
 				82996595297A1955009A769F /* WalletDisplayAddress.swift in Sources */,
 				829964CD297A17F4009A769F /* ApolloClientProtocol.swift in Sources */,

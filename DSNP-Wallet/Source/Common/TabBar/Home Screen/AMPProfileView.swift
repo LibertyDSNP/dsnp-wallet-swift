@@ -71,6 +71,7 @@ struct AMPProfileView: View {
     
     private var metaDatafields: some View {
         VStack {
+            SocialIdentityProgressView(viewModel: SocialIdentityViewModel())
             firstNameField
                 .padding(.horizontal, 10)
             lastNameField
