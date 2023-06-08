@@ -9,7 +9,6 @@ import SwiftUI
 
 let testWords = ["Hello", "World", "foo", "bar", "big l", "jay z", "big pun", "eminem", "fat joe", "method man", "red man", "busta"]
 
-
 struct SettingsView: View {
         
     @ObservedObject var viewModel: HomeViewModel
@@ -122,7 +121,7 @@ struct SettingsView: View {
                     .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
             }
-            accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.password)
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.password)
             Spacer()
             Button {
                 // Nav to Password flow
