@@ -7,24 +7,142 @@
 
 import SwiftUI
 
+let testWords = ["Hello", "World", "foo", "bar", "big l", "jay z", "big pun", "eminem", "fat joe", "method man", "red man", "busta"]
+
 struct SettingsView: View {
         
-    let viewModel: HomeViewModel
+    @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
-        VStack {
-            logoutButton
+        NavigationView {
+            VStack {
+                headline
+                    .padding(.bottom, 20)
+                    .padding(.horizontal, 30)
+                recoverySection
+                    .padding(.bottom, 30)
+                    .padding(.horizontal, 30)
+                security
+                faceIdCell
+                password
+                logoutButton
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 30)
+                Spacer()
+            }
+            .padding(.top, 70)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
+            .background(Color(uiColor: UIColor.Theme.bgTeal))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
+    }
+    
+    private var headline: some View {
+        Text("Settings")
+            .font(Font(UIFont.Theme.regular(ofSize: 16)))
+            .foregroundColor(.white)
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.settingsHeadline)
+    }
+    
+    private var recoverySection: some View {
+        VStack(alignment: .leading) {
+            if !AppState.shared.hasBackedKeys {
+                Text("You have NEVER backed up!")
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                    .foregroundColor(.white)
+                    .padding(.bottom, 8)
+                Text("Recovery phrase is very important you better write this down")
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                    .foregroundColor(.white)
+                    .padding(.bottom, 16)
+            }
+            NavigationLink(destination: SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: testWords))) {
+                Text("Reveal Recovery Phrase")
+                    .font(Font(UIFont.Theme.bold(ofSize: 15)))
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 12)
+                    .foregroundColor(.white)
+            }
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.revealPhraseButton)
+            .frame(maxWidth: .infinity)
+            .background(Color(uiColor: UIColor.Theme.primaryTeal))
+            .foregroundColor(.white)
+            .cornerRadius(30)
+            .frame(minHeight: 60)
+        }
+    }
+
+    private var security: some View {
+            VStack(alignment: .leading) {
+                Text("Security")
+                    .font(Font(UIFont.Theme.bold(ofSize: 14)))
+                    .foregroundColor(.white)
+                    .padding(.bottom, -2)
+                Text("Adding additional security is really important")
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                    .foregroundColor(.white)
+            }
+            .padding(.leading, -60)
+            .padding(.bottom, 26)
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.security)
+    }
+    
+    private var faceIdCell: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Face ID")
+                    .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                    .foregroundColor(.white)
+                    .padding(.bottom, -2)
+                Text("Increase access security with Face ID")
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                    .foregroundColor(.white)
+            }
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.faceId)
+            Toggle("", isOn: $viewModel.faceIdEnabled)
+                .tint(mainTeal)
+                .onChange(of: viewModel.faceIdEnabled) { value in
+                    viewModel.toggleFaceIdAction.send(value)
+                }
+                .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.faceIdToggle)
+        }
+        .padding(.bottom, 26)
+        .padding(.horizontal, 30)
+    }
+    
+    private var password: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Password")
+                    .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                    .foregroundColor(.white)
+                    .padding(.bottom, -2)
+                Text("Password to log in to your account")
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                    .foregroundColor(.white)
+            }
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.password)
+            Spacer()
+            Button {
+                // Nav to Password flow
+            } label: {
+                Image("forwardArrow")
+                    .frame(width: 12, height: 18)
+            }
+        }
+        .padding(.bottom, 30)
+        .padding(.horizontal, 30)
     }
     
     private var logoutButton: some View {
-        Button("log out") {
-            // Nav to sign in view
+        Button {
             viewModel.logoutAction.send()
+        } label: {
+            Text("Logout")
+                .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                .foregroundColor(mainTeal)
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton)
     }
 }
 
