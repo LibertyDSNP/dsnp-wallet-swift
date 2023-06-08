@@ -35,6 +35,8 @@ struct AmplicaHeadline: View {
 }
 struct AmplicaHeadline_Previews: PreviewProvider {
     static var previews: some View {
-        AmplicaHeadline()
+        AmplicaHeadline {
+            print("back action")
+        }
     }
 }
