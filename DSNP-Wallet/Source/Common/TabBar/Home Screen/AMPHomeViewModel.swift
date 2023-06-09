@@ -13,10 +13,7 @@ class AMPHomeViewModel: ObservableObject {
     @Published var lastNameText = ""
     @Published var emailText = ""
 
-    @Published var isEditing: Bool = false
-    
-    var walletAddress = "$WALLET_ADDRESS"
-    
+    @Published var isEditing: Bool = false    
     
     func toggleEditMode() {
         isEditing.toggle()

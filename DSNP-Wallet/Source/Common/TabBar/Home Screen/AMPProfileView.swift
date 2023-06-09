@@ -19,8 +19,6 @@ struct AMPProfileView: View {
         VStack {
             profileImage
             handleHeadline
-            addressSubheadline
-                .padding(.bottom, 20)
             metaDatafields
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
@@ -54,19 +52,6 @@ struct AMPProfileView: View {
         Text("handle goes here")
             .font(Font(UIFont.Theme.regular(ofSize: 16)))
             .foregroundColor(.white)
-    }
-    
-    private var addressSubheadline: some View {
-        HStack {
-            Text(viewModel.walletAddress)
-                .font(Font(UIFont.Theme.thin(ofSize: 14)))
-                .foregroundColor(.white)
-            Button {
-                UIPasteboard.general.string = viewModel.walletAddress
-            } label: {
-                Image("copyButton")
-            }
-        }
     }
     
     private var metaDatafields: some View {
