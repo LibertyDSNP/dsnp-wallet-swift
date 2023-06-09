@@ -8,6 +8,35 @@
 import SwiftUI
 
 
+struct ProgressAnimation: View {
+    @State private var drawingWidth = false
+    
+    let title: String
+    
+    @ObservedObject var viewModel: SocialIdentityViewModel
+
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(title)
+                .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
+                .foregroundColor(.white)
+            ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color(uiColor: UIColor.Theme.progressBarGray))
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(mainTeal)
+                    .frame(width: drawingWidth ? 250 : 0, alignment: .leading)
+                                            .animation(.easeInOut(duration: 10).repeatForever(autoreverses: false), value: drawingWidth)
+            }
+            .frame(width: 250, height: 12)
+            .onAppear {
+                drawingWidth.toggle()
+            }
+        }
+    }
+}
+
 struct AmpProgressViewStyle: ProgressViewStyle {
     let color: Color = mainTeal
     let height: Double
@@ -62,6 +91,7 @@ struct SocialIdentityProgressView: View {
                 .tint(mainTeal)
                 .foregroundColor(.white)
                 .progressViewStyle(AmpProgressViewStyle(height: 100.0))
+            ProgressAnimation(title: "% Social Identity Progress", viewModel: viewModel)
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .padding()
