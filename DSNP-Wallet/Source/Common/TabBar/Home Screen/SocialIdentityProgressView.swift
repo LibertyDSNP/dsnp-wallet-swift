@@ -9,75 +9,50 @@ import SwiftUI
 
 
 struct ProgressAnimation: View {
-    @State private var drawingWidth = false
-    
     let title: String
-    
     @ObservedObject var viewModel: SocialIdentityViewModel
 
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(title)
-                .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
-                .foregroundColor(.white)
+            HStack {
+                Text(title)
+                    .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
+                    .foregroundColor(.white)
+                Spacer()
+                Text("\(viewModel.totalStepsAchieved)/\(viewModel.totalStepsCount)")
+                    .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
+                    .foregroundColor(.white)
+            }
             ZStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(uiColor: UIColor.Theme.progressBarGray))
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(mainTeal)
-                    .frame(width: drawingWidth ? 250 : 0, alignment: .leading)
-                                            .animation(.easeInOut(duration: 10).repeatForever(autoreverses: false), value: drawingWidth)
-            }
-            .frame(width: 250, height: 12)
-            .onAppear {
-                drawingWidth.toggle()
-            }
-        }
-    }
-}
-
-struct AmpProgressViewStyle: ProgressViewStyle {
-    let color: Color = mainTeal
-    let height: Double
-    var labelFontStyle: Font = Font(UIFont.Theme.spaceBold(ofSize: 14))
-
-    func makeBody(configuration: Configuration) -> some View {
-        
-        let progress = configuration.fractionCompleted ?? 0.0
-        
-        GeometryReader { geometry in
-            
-            VStack(alignment: .leading) {
-                
-                configuration.label
-                    .font(labelFontStyle)
-                
-                RoundedRectangle(cornerRadius: 10.0)
-                    .fill(Color(uiColor: .systemGray5))
-                    .frame(height: height)
-                    .frame(width: geometry.size.width)
-                    .overlay(alignment: .leading) {
-                        RoundedRectangle(cornerRadius: 10.0)
-                            .fill(color)
-                            .frame(width: geometry.size.width * progress)
-                            .overlay {
-                                if let currentValueLabel = configuration.currentValueLabel {
-                                    currentValueLabel
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                }
+                GeometryReader { geometry in
+                    
+                    ZStack(alignment: .leading) {
+                        RoundedRectangle(cornerRadius: 15.0)
+                            .fill(Color(uiColor: UIColor.Theme.progressBarGray))
+                            .frame(height: 12)
+                            .frame(width: geometry.size.width)
+                            .overlay(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 15.0)
+                                    .fill(mainTeal)
+                                    .frame(width: geometry.size.width * viewModel.progress)
                             }
                     }
+                }
             }
+            .frame(height: 12)
         }
+        .padding()
     }
 }
-
 
 class SocialIdentityViewModel: ObservableObject {
     @Published var totalStepsCount: Int = 5
     @Published var totalStepsAchieved: Int = 1
+    
+    var progress: CGFloat {
+        return 0.2
+    }
 }
 
 struct SocialIdentityProgressView: View {
@@ -86,11 +61,6 @@ struct SocialIdentityProgressView: View {
     
     var body: some View {
         VStack {
-            ProgressView("% Social Identity Progress", value: 1, total: 5)
-                .progressViewStyle(.linear)
-                .tint(mainTeal)
-                .foregroundColor(.white)
-                .progressViewStyle(AmpProgressViewStyle(height: 100.0))
             ProgressAnimation(title: "% Social Identity Progress", viewModel: viewModel)
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
