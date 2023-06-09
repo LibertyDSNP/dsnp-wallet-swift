@@ -11,7 +11,6 @@ import SwiftUI
 struct ProgressAnimation: View {
     let title: String
     @ObservedObject var viewModel: SocialIdentityViewModel
-
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,18 +25,15 @@ struct ProgressAnimation: View {
             }
             ZStack(alignment: .leading) {
                 GeometryReader { geometry in
-                    
-                    ZStack(alignment: .leading) {
-                        RoundedRectangle(cornerRadius: 15.0)
-                            .fill(Color(uiColor: UIColor.Theme.progressBarGray))
-                            .frame(height: 12)
-                            .frame(width: geometry.size.width)
-                            .overlay(alignment: .leading) {
-                                RoundedRectangle(cornerRadius: 15.0)
-                                    .fill(mainTeal)
-                                    .frame(width: geometry.size.width * viewModel.progress)
-                            }
-                    }
+                    RoundedRectangle(cornerRadius: 15.0)
+                        .fill(Color(uiColor: UIColor.Theme.progressBarGray))
+                        .frame(height: 12)
+                        .frame(width: geometry.size.width)
+                        .overlay(alignment: .leading) {
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .fill(mainTeal)
+                                .frame(width: geometry.size.width * viewModel.progress)
+                        }
                 }
             }
             .frame(height: 12)
@@ -48,10 +44,10 @@ struct ProgressAnimation: View {
 
 class SocialIdentityViewModel: ObservableObject {
     @Published var totalStepsCount: Int = 5
-    @Published var totalStepsAchieved: Int = 1
+    @Published var totalStepsAchieved: Int = 4
     
     var progress: CGFloat {
-        return 0.2
+        return CGFloat(totalStepsAchieved) / CGFloat(totalStepsCount)
     }
 }
 

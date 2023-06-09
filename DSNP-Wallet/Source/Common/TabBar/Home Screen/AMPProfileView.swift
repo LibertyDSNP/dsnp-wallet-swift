@@ -19,7 +19,11 @@ struct AMPProfileView: View {
         VStack {
             profileImage
             handleHeadline
-            metaDatafields
+            VStack {
+                progressView
+                seeAllButton
+                    .frame(alignment: .trailing)
+            }
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -56,13 +60,27 @@ struct AMPProfileView: View {
     
     private var metaDatafields: some View {
         VStack {
-            SocialIdentityProgressView(viewModel: SocialIdentityViewModel())
             firstNameField
                 .padding(.horizontal, 10)
             lastNameField
                 .padding(.horizontal, 10)
             emailField
                 .padding(.horizontal, 10)
+        }
+    }
+
+    private var progressView: some View {
+        SocialIdentityProgressView(viewModel: SocialIdentityViewModel())
+    }
+    
+    private var seeAllButton: some View {
+        Button {
+            // See All Navigation
+        } label: {
+            Text("See All")
+                .foregroundColor(Color(uiColor: UIColor.Theme.seeAllYellow))
+                .font(Font(UIFont.Theme.regular(ofSize: 10)))
+                .underline()
         }
     }
     

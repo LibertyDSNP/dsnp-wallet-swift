@@ -30,6 +30,7 @@ extension UIColor {
         static var termsTextColor: UIColor { return UIColor(red: 47/255, green: 52/255, blue: 55/255, alpha: 1)}
         static var errorStringColor: UIColor { return UIColor(red: 251/255, green: 11/255, blue: 11/255, alpha: 1)}
         static var progressBarGray: UIColor { return UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1)}
+        static var seeAllYellow: UIColor { return UIColor(red: 215/255, green: 182/255, blue: 99/255, alpha: 1)}
 
     }
 }
