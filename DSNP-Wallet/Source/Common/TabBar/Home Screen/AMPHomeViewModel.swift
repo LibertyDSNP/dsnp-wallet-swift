@@ -15,6 +15,9 @@ class AMPHomeViewModel: ObservableObject {
 
     @Published var isEditing: Bool = false    
     
+    let rewardAmount: Int = 400
+    
+    
     func toggleEditMode() {
         isEditing.toggle()
     }

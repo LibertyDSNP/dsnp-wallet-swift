@@ -19,11 +19,12 @@ struct AMPProfileView: View {
         VStack {
             profileImage
             handleHeadline
-            VStack {
-                progressView
-                seeAllButton
-                    .frame(alignment: .trailing)
-            }
+            progressView
+            seeAllButton
+                .frame(alignment: .trailing)
+                .padding(.top, -12)
+            frequencyReward
+                .padding()
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -82,6 +83,55 @@ struct AMPProfileView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 10)))
                 .underline()
         }
+    }
+    
+    private var frequencyReward: some View {
+        VStack {
+            HStack {
+                Image("freqLogo")
+                VStack {
+                    HStack {
+                        Text("Frequency")
+                            .font(Font(UIFont.Theme.italic(ofSize: 14)))
+                            .foregroundColor(.white)
+                        Text("Reward")
+                            .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                            .foregroundColor(.white)
+                    }
+                    HStack {
+                        Text("\(viewModel.rewardAmount)")
+                            .font(Font(UIFont.Theme.bold(ofSize: 22)))
+                            .foregroundColor(.white)
+                        Text("FRQCY")
+                            .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                            .foregroundColor(.white)
+                    }
+                    .padding(.top, 6)
+                }
+                .padding(.top, 12)
+            }
+            claimNowButton
+        }
+        .cornerRadius(10)
+        .background(Color(uiColor: UIColor.Theme.freqBackground))
+    }
+    
+    private var claimNowButton: some View {
+        Button {
+            // claim now action
+        } label: {
+            Text("Claim now")
+                .font(Font(UIFont.Theme.bold(ofSize: 15)))
+                .padding(.vertical, 16)
+                .padding(.horizontal, 12)
+                .foregroundColor(.white)
+        }
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor.Theme.primaryTeal))
+        .cornerRadius(5)
+        .frame(height: 30)
+        .padding(.horizontal, 12)
+        .padding(.bottom, 12)
     }
     
     private var firstNameField: some View {
