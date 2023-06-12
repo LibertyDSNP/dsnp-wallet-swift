@@ -23,11 +23,13 @@ struct AMPProfileView: View {
                 progressView
                 seeAllButton
                     .padding(.top, -24)
+                    .padding(.trailing, 30)
             }
             .padding(.top, 30)
             if viewModel.rewardBannerShowing {
                 frequencyReward
                     .padding(.horizontal, 30)
+                    .padding(.top, 12)
             }
             Spacer()
         }
@@ -88,7 +90,6 @@ struct AMPProfileView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 10)))
                 .underline()
         }
-        .frame(alignment: .trailing)
     }
     
     private var frequencyReward: some View {
@@ -103,6 +104,7 @@ struct AMPProfileView: View {
                         Text("Frequency")
                             .font(Font(UIFont.Theme.italic(ofSize: 14)))
                             .foregroundColor(.white)
+                            .padding(.trailing, -2)
                         Text("Reward")
                             .font(Font(UIFont.Theme.regular(ofSize: 14)))
                             .foregroundColor(.white)
