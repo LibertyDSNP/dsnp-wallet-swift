@@ -32,6 +32,7 @@ extension UIColor {
         static var progressBarGray: UIColor { return UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1)}
         static var seeAllYellow: UIColor { return UIColor(red: 215/255, green: 182/255, blue: 99/255, alpha: 1)}
         static var freqBackground: UIColor { return UIColor(red: 25/255, green: 26/255, blue: 27/255, alpha: 1)}
+        static var editButtonTeal: UIColor { return UIColor(red: 1/255, green: 122/255, blue: 134/255, alpha: 1) }
 
     }
 }

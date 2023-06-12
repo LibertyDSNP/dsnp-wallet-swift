@@ -58,7 +58,7 @@ struct AMPProfileView: View {
             Image("editButton")
         }
         .frame(maxWidth: 34, maxHeight: 34, alignment: .center)
-        .background(Color(uiColor: UIColor.Theme.primaryTeal))
+        .background(Color(uiColor: UIColor.Theme.editButtonTeal))
         .cornerRadius(17)
     }
     
