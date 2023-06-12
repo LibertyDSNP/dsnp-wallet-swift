@@ -16,23 +16,25 @@ struct AMPProfileView: View {
     @FocusState private var textfieldFocused: Bool
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             profileImage
             handleHeadline
-            progressView
             VStack(alignment: .trailing) {
+                progressView
                 seeAllButton
-                    .padding(.top, -12)
+                    .padding(.top, -24)
             }
+            .padding(.top, 30)
             if viewModel.rewardBannerShowing {
                 frequencyReward
                     .padding(.horizontal, 30)
             }
+            Spacer()
         }
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
+        .padding(.top, 100)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
+        .ignoresSafeArea()
     }
     
     private var profileImage: some View {
@@ -57,7 +59,7 @@ struct AMPProfileView: View {
     }
     
     private var handleHeadline: some View {
-        Text("handle goes here")
+        Text(AppState.shared.handle)
             .font(Font(UIFont.Theme.regular(ofSize: 16)))
             .foregroundColor(.white)
     }
@@ -86,8 +88,7 @@ struct AMPProfileView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 10)))
                 .underline()
         }
-        .frame(alignment: .bottomTrailing)
-        .padding(.top, -8)
+        .frame(alignment: .trailing)
     }
     
     private var frequencyReward: some View {
@@ -117,9 +118,10 @@ struct AMPProfileView: View {
                             .frame(alignment: .bottom)
                             .padding(.top, 10)
                     }
-                    .padding(.top, -6)
+                    .padding(.top, -12)
                 }
             }
+            .padding(.bottom, 2)
             claimNowButton
         }
         .padding()
@@ -134,7 +136,7 @@ struct AMPProfileView: View {
             Text("Claim now")
                 .font(Font(UIFont.Theme.bold(ofSize: 15)))
                 .foregroundColor(.white)
-                .padding(.vertical, 12)
+                .padding(.vertical, 8)
         }
         .frame(maxWidth: .infinity)
         .background(RoundedRectangle(cornerRadius: 5).fill(Color(uiColor: UIColor.Theme.primaryTeal)))

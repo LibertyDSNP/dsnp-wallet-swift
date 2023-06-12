@@ -15,6 +15,8 @@ class AppState: ObservableObject {
     @Published var isLoggedin = true
     @Published var hasBackedKeys = false
     
+    private (set) var handle = ""
+    
     func doKeysExist() -> Bool {
         do {
             let keys = try DSNPWallet().loadKeys()
@@ -36,5 +38,9 @@ class AppState: ObservableObject {
     
     func setFaceIdEnabled(enabled: Bool) {
         UserDefaults.standard.set(enabled, forKey: "faceId")
+    }
+    
+    func setHandle(handle: String) {
+        self.handle = handle
     }
 }
