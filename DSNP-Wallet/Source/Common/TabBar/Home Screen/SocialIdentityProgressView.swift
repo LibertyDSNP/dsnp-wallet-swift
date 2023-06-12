@@ -44,7 +44,7 @@ struct ProgressAnimation: View {
 
 class SocialIdentityViewModel: ObservableObject {
     @Published var totalStepsCount: Int = 5
-    @Published var totalStepsAchieved: Int = 4
+    @Published var totalStepsAchieved: Int = 1
     
     var progress: CGFloat {
         return CGFloat(totalStepsAchieved) / CGFloat(totalStepsCount)

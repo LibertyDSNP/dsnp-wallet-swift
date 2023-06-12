@@ -47,6 +47,7 @@ struct AMPProfileView: View {
         }
         .frame(maxWidth: 134, maxHeight: 134, alignment: .center)
         .cornerRadius(67)
+        .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.profileImage)
     }
     
     private var editButton: some View {
@@ -64,6 +65,7 @@ struct AMPProfileView: View {
         Text(AppState.shared.handle)
             .font(Font(UIFont.Theme.regular(ofSize: 16)))
             .foregroundColor(.white)
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.handle)
     }
     
     private var metaDatafields: some View {
@@ -79,6 +81,7 @@ struct AMPProfileView: View {
 
     private var progressView: some View {
         SocialIdentityProgressView(viewModel: SocialIdentityViewModel())
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.progressIndicator)
     }
     
     private var seeAllButton: some View {
@@ -129,6 +132,8 @@ struct AMPProfileView: View {
         .padding()
         .background(Color(uiColor: UIColor.Theme.freqBackground))
         .cornerRadius(10)
+        .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.initialClaimBanner)
+
     }
     
     private var claimNowButton: some View {
@@ -142,7 +147,7 @@ struct AMPProfileView: View {
         }
         .frame(maxWidth: .infinity)
         .background(RoundedRectangle(cornerRadius: 5).fill(Color(uiColor: UIColor.Theme.primaryTeal)))
-
+        .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.claimNowButton)
     }
     
     private var firstNameField: some View {
