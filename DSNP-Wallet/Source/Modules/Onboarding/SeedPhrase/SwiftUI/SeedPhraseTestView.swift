@@ -7,48 +7,37 @@
 
 import SwiftUI
 
-let dummyElements: [PuzzleElement] = [
-    PuzzleElement(word: "hello", index: 0),
-    PuzzleElement(word: "there", index: 1),
-    PuzzleElement(word: "here", index: 2),
-    PuzzleElement(word: "is", index: 3),
-    PuzzleElement(word: "a", index: 4),
-    PuzzleElement(word: "seed", index: 5),
-    PuzzleElement(word: "phrase", index: 6),
-    PuzzleElement(word: "Ben", index: 7),
-    PuzzleElement(word: "is", index: 8),
-    PuzzleElement(word: "Cool", index: 9),
-    PuzzleElement(word: "Sandwich", index: 10),
-    PuzzleElement(word: "Pizza", index: 11)
-]
-
 struct SeedPhraseTestView: View {
     
     @ObservedObject var viewModel: SeedPuzzleViewModel
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            title
-                .padding(.top, 20)
-                .frame(maxWidth: .infinity, alignment: .center)
-            headline
-                .padding(.top, 80)
-                .padding(.horizontal, 20)
-            headlineSubtitle
-                .padding(.horizontal, 20)
-            SeedPhrasePuzzle(viewModel: viewModel)
-                .padding(.vertical, 14)
-                .padding(.horizontal, 20)
-                .frame(maxWidth: .infinity, alignment: .center)
-            errorMessage
-            SeedPhraseWordBank(viewModel: viewModel)
-                .padding(.horizontal, 14)
-            continueButton
-            Spacer()
+        NavigationView {
+            VStack(alignment: .leading) {
+                title
+                    .frame(maxWidth: .infinity, alignment: .center)
+                headline
+                    .padding(.top, 20)
+                    .padding(.horizontal, 20)
+                headlineSubtitle
+                    .padding(.horizontal, 20)
+                SeedPhrasePuzzle(viewModel: viewModel)
+                    .padding(.vertical, 14)
+                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                errorMessage
+                SeedPhraseWordBank(viewModel: viewModel)
+                    .padding(.horizontal, 14)
+                continueButton
+                Spacer()
+            }
+            .background(Color(uiColor: UIColor.Theme.bgTeal))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
         }
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
+        .navigationBarHidden(true)
     }
     
     private var headline: some View {
@@ -80,10 +69,20 @@ struct SeedPhraseTestView: View {
     }
     
     private var title: some View {
-        Text("Verify Recovery")
-            .foregroundColor(.white)
-            .font(Font(UIFont.Theme.regular(ofSize: 14)))
-            .frame(alignment: .center)
+        HStack {
+            BackButton {
+                dismiss()
+            }
+            .padding(.leading, 18)
+            Spacer()
+            Text("Recovery Phrase")
+                .font(Font(UIFont.Theme.regular(ofSize: 16)))
+                .foregroundColor(.white)
+                .padding(.leading, -28)
+            Spacer()
+            EmptyView()
+        }
+        .padding(.top, 70)
     }
     
     private var errorMessage: some View {
@@ -91,7 +90,7 @@ struct SeedPhraseTestView: View {
             .foregroundColor(viewModel.errorMessageColor)
             .font(Font(UIFont.Theme.bold(ofSize: 12)))
             .frame(maxWidth: .infinity, alignment: .center)
-            .padding()
+            .padding(.vertical, 14)
     }
 }
 
@@ -192,9 +191,12 @@ struct SeedEmptyPhraseColumnView: View {
     }
 }
 
-
 struct SeedPhraseTestView_Previews: PreviewProvider {
+
     static var previews: some View {
-        SeedPhraseTestView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: dummyElements))
+        let puzzleElements = testWords.enumerated().map { (index, element) in
+            return PuzzleElement(word: element, index: index)
+        }
+        SeedPhraseTestView(viewModel: SeedPuzzleViewModel(correctPuzzleElements: puzzleElements))
     }
 }
