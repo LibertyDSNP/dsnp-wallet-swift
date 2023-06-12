@@ -75,9 +75,10 @@ struct AmplicaAlert: View {
                 Color.black.opacity(0.75)
                     .edgesIgnoringSafeArea(.all)
             }
-            VStack {
+            VStack(alignment: .center) {
                 headline
                 messageText
+                    .multilineTextAlignment(.center)
                 buttonStack
             }
             .background(Color(uiColor: UIColor.Theme.bgGray))

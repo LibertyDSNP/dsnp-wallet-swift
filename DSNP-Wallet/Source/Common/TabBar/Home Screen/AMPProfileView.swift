@@ -16,27 +16,39 @@ struct AMPProfileView: View {
     @FocusState private var textfieldFocused: Bool
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             profileImage
             handleHeadline
-            addressSubheadline
-                .padding(.bottom, 20)
-            metaDatafields
+            VStack(alignment: .trailing) {
+                progressView
+                seeAllButton
+                    .padding(.top, -24)
+                    .padding(.trailing, 38)
+            }
+            .padding(.top, 30)
+            if viewModel.rewardBannerShowing {
+                frequencyReward
+                    .padding(.horizontal, 30)
+                    .padding(.top, 18)
+            }
+            Spacer()
         }
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
+        .padding(.top, 100)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
+        .ignoresSafeArea()
     }
     
     private var profileImage: some View {
         ZStack(alignment: .bottomTrailing) {
-            editButton
-                .padding(.trailing, 20)
             Image("profile_placeholder")
+                .frame(maxWidth: 134, maxHeight: 134, alignment: .center)
+                .cornerRadius(67)
+            editButton
+                .padding(.trailing, 2)
         }
-        .frame(maxWidth: 134, maxHeight: 134, alignment: .center)
-        .cornerRadius(67)
+        .frame(maxWidth: 150, maxHeight: 150, alignment: .center)
+        .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.profileImage)
     }
     
     private var editButton: some View {
@@ -45,28 +57,16 @@ struct AMPProfileView: View {
         } label: {
             Image("editButton")
         }
-        .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
-        .background(Color(uiColor: UIColor.Theme.primaryTeal))
-        .cornerRadius(12)
+        .frame(maxWidth: 34, maxHeight: 34, alignment: .center)
+        .background(Color(uiColor: UIColor.Theme.editButtonTeal))
+        .cornerRadius(17)
     }
     
     private var handleHeadline: some View {
-        Text("handle goes here")
+        Text(AppState.shared.handle)
             .font(Font(UIFont.Theme.regular(ofSize: 16)))
             .foregroundColor(.white)
-    }
-    
-    private var addressSubheadline: some View {
-        HStack {
-            Text(viewModel.walletAddress)
-                .font(Font(UIFont.Theme.thin(ofSize: 14)))
-                .foregroundColor(.white)
-            Button {
-                UIPasteboard.general.string = viewModel.walletAddress
-            } label: {
-                Image("copyButton")
-            }
-        }
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.handle)
     }
     
     private var metaDatafields: some View {
@@ -78,6 +78,77 @@ struct AMPProfileView: View {
             emailField
                 .padding(.horizontal, 10)
         }
+    }
+
+    private var progressView: some View {
+        SocialIdentityProgressView(viewModel: SocialIdentityViewModel())
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.progressIndicator)
+    }
+    
+    private var seeAllButton: some View {
+        Button {
+            // See All Navigation
+        } label: {
+            Text("See All")
+                .foregroundColor(Color(uiColor: UIColor.Theme.seeAllYellow))
+                .font(Font(UIFont.Theme.regular(ofSize: 10)))
+                .underline()
+        }
+    }
+    
+    private var frequencyReward: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Image("freqLogo")
+                    .frame(width: 40, height: 40)
+                    .padding(.leading, 12)
+                    .padding(.trailing, 16)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("Frequency")
+                            .font(Font(UIFont.Theme.italic(ofSize: 14)))
+                            .foregroundColor(.white)
+                            .padding(.trailing, -2)
+                        Text("Reward")
+                            .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                            .foregroundColor(.white)
+                    }
+                    .padding(.top, 6)
+                    HStack {
+                        Text("\(viewModel.rewardAmount)")
+                            .font(Font(UIFont.Theme.bold(ofSize: 36)))
+                            .foregroundColor(.white)
+                        Text("FRQCY")
+                            .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                            .foregroundColor(.white)
+                            .frame(alignment: .bottom)
+                            .padding(.top, 12)
+                    }
+                    .padding(.top, -12)
+                }
+            }
+            .padding(.bottom, 2)
+            claimNowButton
+        }
+        .padding()
+        .background(Color(uiColor: UIColor.Theme.freqBackground))
+        .cornerRadius(10)
+        .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.initialClaimBanner)
+
+    }
+    
+    private var claimNowButton: some View {
+        Button {
+            viewModel.claimNowAction.send()
+        } label: {
+            Text("Claim now")
+                .font(Font(UIFont.Theme.bold(ofSize: 15)))
+                .foregroundColor(.white)
+                .padding(.vertical, 7)
+        }
+        .frame(maxWidth: .infinity)
+        .background(RoundedRectangle(cornerRadius: 5).fill(Color(uiColor: UIColor.Theme.primaryTeal)))
+        .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.claimNowButton)
     }
     
     private var firstNameField: some View {

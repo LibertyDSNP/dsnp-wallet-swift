@@ -83,5 +83,19 @@ struct AccessibilityIdentifier {
             static let password = "tabView.settings.password"
             static let logoutButton = "tabView.settings.logoutButton"
         }
+        
+        struct IdentityViewIdentifiers {
+            // Headline
+            static let profileImage = "tabView.id.profile"
+            static let handle = "tabView.id.handle"
+
+            // Buttons
+            static let progressIndicator = "tabView.id.progress"
+            static let seeAllButton = "tabView.id.seeAll"
+
+            // Claim FRQCY
+            static let claimNowButton = "tabView.id.claimNowButton"
+            static let initialClaimBanner = "tabView.settings.claimNowBanner"
+        }
     }
 }

@@ -29,6 +29,7 @@ class AgreeToTermsViewModel: ObservableObject {
             .sink {
                 do {
                     let _ = try DSNPWallet().createKeys()
+                    AppState.shared.setHandle(handle: self.chosenHandle)
                 } catch {
                     // TODO: Handle error creating keys
                     print("error creating keys")
