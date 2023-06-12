@@ -23,13 +23,13 @@ struct AMPProfileView: View {
                 progressView
                 seeAllButton
                     .padding(.top, -24)
-                    .padding(.trailing, 30)
+                    .padding(.trailing, 34)
             }
             .padding(.top, 30)
             if viewModel.rewardBannerShowing {
                 frequencyReward
                     .padding(.horizontal, 30)
-                    .padding(.top, 12)
+                    .padding(.top, 18)
             }
             Spacer()
         }
@@ -115,13 +115,13 @@ struct AMPProfileView: View {
                     .padding(.top, 6)
                     HStack {
                         Text("\(viewModel.rewardAmount)")
-                            .font(Font(UIFont.Theme.bold(ofSize: 30)))
+                            .font(Font(UIFont.Theme.bold(ofSize: 34)))
                             .foregroundColor(.white)
                         Text("FRQCY")
                             .font(Font(UIFont.Theme.regular(ofSize: 12)))
                             .foregroundColor(.white)
                             .frame(alignment: .bottom)
-                            .padding(.top, 10)
+                            .padding(.top, 12)
                     }
                     .padding(.top, -12)
                 }
@@ -143,7 +143,7 @@ struct AMPProfileView: View {
             Text("Claim now")
                 .font(Font(UIFont.Theme.bold(ofSize: 15)))
                 .foregroundColor(.white)
-                .padding(.vertical, 8)
+                .padding(.vertical, 7)
         }
         .frame(maxWidth: .infinity)
         .background(RoundedRectangle(cornerRadius: 5).fill(Color(uiColor: UIColor.Theme.primaryTeal)))
