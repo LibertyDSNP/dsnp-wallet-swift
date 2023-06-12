@@ -20,11 +20,14 @@ struct AMPProfileView: View {
             profileImage
             handleHeadline
             progressView
-            seeAllButton
-                .frame(alignment: .trailing)
-                .padding(.top, -12)
-            frequencyReward
-                .padding()
+            VStack(alignment: .trailing) {
+                seeAllButton
+                    .padding(.top, -12)
+            }
+            if viewModel.rewardBannerShowing {
+                frequencyReward
+                    .padding(.horizontal, 30)
+            }
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -82,16 +85,19 @@ struct AMPProfileView: View {
                 .foregroundColor(Color(uiColor: UIColor.Theme.seeAllYellow))
                 .font(Font(UIFont.Theme.regular(ofSize: 10)))
                 .underline()
-                .frame(alignment: .bottomTrailing)
-                .padding(.top, -8)
         }
+        .frame(alignment: .bottomTrailing)
+        .padding(.top, -8)
     }
     
     private var frequencyReward: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
                 Image("freqLogo")
-                VStack {
+                    .frame(width: 40, height: 40)
+                    .padding(.leading, 12)
+                    .padding(.trailing, 16)
+                VStack(alignment: .leading) {
                     HStack {
                         Text("Frequency")
                             .font(Font(UIFont.Theme.italic(ofSize: 14)))
@@ -100,17 +106,19 @@ struct AMPProfileView: View {
                             .font(Font(UIFont.Theme.regular(ofSize: 14)))
                             .foregroundColor(.white)
                     }
+                    .padding(.top, 6)
                     HStack {
                         Text("\(viewModel.rewardAmount)")
-                            .font(Font(UIFont.Theme.bold(ofSize: 22)))
+                            .font(Font(UIFont.Theme.bold(ofSize: 30)))
                             .foregroundColor(.white)
                         Text("FRQCY")
                             .font(Font(UIFont.Theme.regular(ofSize: 12)))
                             .foregroundColor(.white)
                             .frame(alignment: .bottom)
+                            .padding(.top, 10)
                     }
+                    .padding(.top, -6)
                 }
-                .padding(.top, 4)
             }
             claimNowButton
         }
@@ -121,20 +129,16 @@ struct AMPProfileView: View {
     
     private var claimNowButton: some View {
         Button {
-            // claim now action
+            viewModel.claimNowAction.send()
         } label: {
             Text("Claim now")
                 .font(Font(UIFont.Theme.bold(ofSize: 15)))
-                .padding(.vertical, 16)
-                .padding(.horizontal, 12)
                 .foregroundColor(.white)
+                .padding(.vertical, 12)
         }
         .frame(maxWidth: .infinity)
-        .background(Color(uiColor: UIColor.Theme.primaryTeal))
-        .frame(height: 30)
-        .padding(.horizontal, 12)
-        .padding(.bottom, 12)
-        .cornerRadius(5)
+        .background(RoundedRectangle(cornerRadius: 5).fill(Color(uiColor: UIColor.Theme.primaryTeal)))
+
     }
     
     private var firstNameField: some View {
