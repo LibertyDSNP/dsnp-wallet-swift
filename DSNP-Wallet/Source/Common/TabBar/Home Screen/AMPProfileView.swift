@@ -57,9 +57,9 @@ struct AMPProfileView: View {
         } label: {
             Image("editButton")
         }
-        .frame(maxWidth: 30, maxHeight: 30, alignment: .center)
+        .frame(maxWidth: 34, maxHeight: 34, alignment: .center)
         .background(Color(uiColor: UIColor.Theme.primaryTeal))
-        .cornerRadius(15)
+        .cornerRadius(17)
     }
     
     private var handleHeadline: some View {
