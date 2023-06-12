@@ -82,6 +82,8 @@ struct AMPProfileView: View {
                 .foregroundColor(Color(uiColor: UIColor.Theme.seeAllYellow))
                 .font(Font(UIFont.Theme.regular(ofSize: 10)))
                 .underline()
+                .frame(alignment: .bottomTrailing)
+                .padding(.top, -8)
         }
     }
     
@@ -105,15 +107,16 @@ struct AMPProfileView: View {
                         Text("FRQCY")
                             .font(Font(UIFont.Theme.regular(ofSize: 12)))
                             .foregroundColor(.white)
+                            .frame(alignment: .bottom)
                     }
-                    .padding(.top, 6)
                 }
-                .padding(.top, 12)
+                .padding(.top, 4)
             }
             claimNowButton
         }
-        .cornerRadius(10)
+        .padding()
         .background(Color(uiColor: UIColor.Theme.freqBackground))
+        .cornerRadius(10)
     }
     
     private var claimNowButton: some View {
@@ -128,10 +131,10 @@ struct AMPProfileView: View {
         }
         .frame(maxWidth: .infinity)
         .background(Color(uiColor: UIColor.Theme.primaryTeal))
-        .cornerRadius(5)
         .frame(height: 30)
         .padding(.horizontal, 12)
         .padding(.bottom, 12)
+        .cornerRadius(5)
     }
     
     private var firstNameField: some View {
