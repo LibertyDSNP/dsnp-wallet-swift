@@ -15,7 +15,12 @@ class AppState: ObservableObject {
     @Published var isLoggedin = true
     @Published var hasBackedKeys = false
     
-    private (set) var handle = ""
+    private (set) var handle = {
+        if let handle = UserDefaults.standard.object(forKey: "handle") {
+            return handle as? String ?? ""
+        }
+        return ""
+    }()
     
     func doKeysExist() -> Bool {
         do {
@@ -41,6 +46,8 @@ class AppState: ObservableObject {
     }
     
     func setHandle(handle: String) {
-        self.handle = handle
+        if !handle.isEmpty {
+            UserDefaults.standard.set(handle, forKey: "handle")
+        }
     }
 }

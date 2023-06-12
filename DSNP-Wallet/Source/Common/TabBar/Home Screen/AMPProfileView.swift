@@ -23,7 +23,7 @@ struct AMPProfileView: View {
                 progressView
                 seeAllButton
                     .padding(.top, -24)
-                    .padding(.trailing, 34)
+                    .padding(.trailing, 38)
             }
             .padding(.top, 30)
             if viewModel.rewardBannerShowing {
@@ -41,12 +41,13 @@ struct AMPProfileView: View {
     
     private var profileImage: some View {
         ZStack(alignment: .bottomTrailing) {
-            editButton
-                .padding(.trailing, 20)
             Image("profile_placeholder")
+                .frame(maxWidth: 134, maxHeight: 134, alignment: .center)
+                .cornerRadius(67)
+            editButton
+                .padding(.trailing, 2)
         }
-        .frame(maxWidth: 134, maxHeight: 134, alignment: .center)
-        .cornerRadius(67)
+        .frame(maxWidth: 150, maxHeight: 150, alignment: .center)
         .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.profileImage)
     }
     
@@ -56,9 +57,9 @@ struct AMPProfileView: View {
         } label: {
             Image("editButton")
         }
-        .frame(maxWidth: 24, maxHeight: 24, alignment: .center)
+        .frame(maxWidth: 30, maxHeight: 30, alignment: .center)
         .background(Color(uiColor: UIColor.Theme.primaryTeal))
-        .cornerRadius(12)
+        .cornerRadius(15)
     }
     
     private var handleHeadline: some View {
@@ -115,7 +116,7 @@ struct AMPProfileView: View {
                     .padding(.top, 6)
                     HStack {
                         Text("\(viewModel.rewardAmount)")
-                            .font(Font(UIFont.Theme.bold(ofSize: 34)))
+                            .font(Font(UIFont.Theme.bold(ofSize: 36)))
                             .foregroundColor(.white)
                         Text("FRQCY")
                             .font(Font(UIFont.Theme.regular(ofSize: 12)))
