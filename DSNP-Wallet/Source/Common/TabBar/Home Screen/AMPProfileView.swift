@@ -16,27 +16,36 @@ struct AMPProfileView: View {
     @FocusState private var textfieldFocused: Bool
     
     var body: some View {
-        VStack(alignment: .center) {
-            profileImage
-            handleHeadline
-            VStack(alignment: .trailing) {
-                progressView
-                seeAllButton
+        NavigationView {
+            VStack(alignment: .center) {
+                profileImage
+                handleHeadline
+                VStack(alignment: .trailing) {
+                    progressView
+                    NavigationLink(destination: SocialProgressView()) {
+                        Text("See All")
+                            .foregroundColor(Color(uiColor: UIColor.Theme.seeAllYellow))
+                            .font(Font(UIFont.Theme.regular(ofSize: 10)))
+                            .underline()
+
+                    }
                     .padding(.top, -24)
                     .padding(.trailing, 38)
+                    
+                }
+                .padding(.top, 30)
+                if viewModel.rewardBannerShowing {
+                    frequencyReward
+                        .padding(.horizontal, 30)
+                        .padding(.top, 18)
+                }
+                Spacer()
             }
-            .padding(.top, 30)
-            if viewModel.rewardBannerShowing {
-                frequencyReward
-                    .padding(.horizontal, 30)
-                    .padding(.top, 18)
-            }
-            Spacer()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.top, 100)
+            .background(Color(uiColor: UIColor.Theme.bgTeal))
+            .ignoresSafeArea()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.top, 100)
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
-        .ignoresSafeArea()
     }
     
     private var profileImage: some View {
@@ -83,17 +92,6 @@ struct AMPProfileView: View {
     private var progressView: some View {
         SocialIdentityProgressView(viewModel: SocialIdentityViewModel())
             .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.progressIndicator)
-    }
-    
-    private var seeAllButton: some View {
-        Button {
-            // See All Navigation
-        } label: {
-            Text("See All")
-                .foregroundColor(Color(uiColor: UIColor.Theme.seeAllYellow))
-                .font(Font(UIFont.Theme.regular(ofSize: 10)))
-                .underline()
-        }
     }
     
     private var frequencyReward: some View {

@@ -465,6 +465,7 @@
 		B5A62C9B2A1285A800A31178 /* SeedPuzzleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */; };
 		B5A62C9D2A13DD5400A31178 /* LBYSeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */; };
 		B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */; };
+		B5B5BC7E2A38BB6C0005395F /* SocialProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5BC7D2A38BB6C0005395F /* SocialProgressView.swift */; };
 		B5BCDD682A1E564C003E2845 /* TermsDisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */; };
 		B5D382BF2A2635D40086A05D /* WalletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382BE2A2635D40086A05D /* WalletState.swift */; };
 		B5D382C12A26481C0086A05D /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C02A26481C0086A05D /* HomeTabView.swift */; };
@@ -965,6 +966,7 @@
 		B5A62C9A2A1285A800A31178 /* SeedPuzzleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPuzzleViewModel.swift; sourceTree = "<group>"; };
 		B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBYSeedPhraseViewController.swift; sourceTree = "<group>"; };
 		B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseTestViewController.swift; sourceTree = "<group>"; };
+		B5B5BC7D2A38BB6C0005395F /* SocialProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialProgressView.swift; sourceTree = "<group>"; };
 		B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDisclaimerView.swift; sourceTree = "<group>"; };
 		B5D382BE2A2635D40086A05D /* WalletState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletState.swift; sourceTree = "<group>"; };
 		B5D382C02A26481C0086A05D /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
@@ -2115,6 +2117,7 @@
 				B534ACDB2A2690FB00518B9C /* AMPProfileView.swift */,
 				B5D382C22A26483D0086A05D /* HomeViewModel.swift */,
 				B500AEB22A324DC2001EEE7E /* SocialIdentityProgressView.swift */,
+				B5B5BC7D2A38BB6C0005395F /* SocialProgressView.swift */,
 			);
 			path = "Home Screen";
 			sourceTree = "<group>";
@@ -2729,6 +2732,7 @@
 				B5D382C52A26484F0086A05D /* AMPHomeViewController.swift in Sources */,
 				829961482978C461009A769F /* TestViewController.swift in Sources */,
 				82996585297A1955009A769F /* SubstrateAlias.swift in Sources */,
+				B5B5BC7E2A38BB6C0005395F /* SocialProgressView.swift in Sources */,
 				82996369297A13CF009A769F /* SpecVersionSubscription.swift in Sources */,
 				829968E5297B721C009A769F /* Chain+Info.swift in Sources */,
 				823BDBA02A03010500F81F9C /* TransactionLocalSubscriptionFactory.swift in Sources */,
