@@ -12,17 +12,18 @@ struct SocialProgressView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack(alignment: .center) {
+        VStack {
             title
+                .padding(.top, 70)
             progressView
             description
             taskIndicatorStack
+            Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .navigationBarHidden(true)
-
     }
     
     private var title: some View {
@@ -33,13 +34,12 @@ struct SocialProgressView: View {
             .padding(.leading, 18)
             Spacer()
             Text("Social Identity")
-                .font(Font(UIFont.Theme.regular(ofSize: 16)))
+                .font(Font(UIFont.Theme.bold(ofSize: 16)))
                 .foregroundColor(.white)
                 .padding(.leading, -28)
             Spacer()
             EmptyView()
         }
-        .padding(.top, 70)
     }
     
     private var progressView: some View {
@@ -51,7 +51,9 @@ struct SocialProgressView: View {
             .foregroundColor(.white)
             .font(Font(UIFont.Theme.regular(ofSize: 12)))
             .frame(alignment: .center)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 36)
+            .padding(.bottom, 16)
+            .multilineTextAlignment(.center)
     }
     
     private var taskIndicatorStack: some View {
