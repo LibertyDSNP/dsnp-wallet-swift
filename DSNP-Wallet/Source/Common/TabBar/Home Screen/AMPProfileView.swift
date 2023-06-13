@@ -34,11 +34,6 @@ struct AMPProfileView: View {
                     
                 }
                 .padding(.top, 30)
-                if viewModel.rewardBannerShowing {
-                    frequencyReward
-                        .padding(.horizontal, 30)
-                        .padding(.top, 18)
-                }
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -113,7 +108,7 @@ struct AMPProfileView: View {
                     }
                     .padding(.top, 6)
                     HStack {
-                        Text("\(viewModel.rewardAmount)")
+                        Text("400")
                             .font(Font(UIFont.Theme.bold(ofSize: 36)))
                             .foregroundColor(.white)
                         Text("FRQCY")
@@ -137,7 +132,6 @@ struct AMPProfileView: View {
     
     private var claimNowButton: some View {
         Button {
-            viewModel.claimNowAction.send()
         } label: {
             Text("Claim now")
                 .font(Font(UIFont.Theme.bold(ofSize: 15)))
