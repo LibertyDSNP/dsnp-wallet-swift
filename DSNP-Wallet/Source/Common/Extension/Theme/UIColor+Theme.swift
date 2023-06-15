@@ -34,6 +34,10 @@ extension UIColor {
         static var freqBackground: UIColor { return UIColor(red: 25/255, green: 26/255, blue: 27/255, alpha: 1)}
         static var editButtonTeal: UIColor { return UIColor(red: 1/255, green: 122/255, blue: 134/255, alpha: 1) }
 
+        static var toDoBackground: UIColor { return UIColor(red: 251/255, green: 231/255, blue: 204/255, alpha: 1) }
+        static var toDoButtonText: UIColor { return UIColor(red: 203/255, green: 101/255, blue: 69/255, alpha: 1) }
+        static var listItemBackground: UIColor { return UIColor(red: 143/255, green: 230/255, blue: 210/255, alpha: 1) }
+        static var errorListItemForegroundColor: UIColor { return UIColor(red: 115/255, green: 131/255, blue: 133/255, alpha: 1) }
     }
 }
 
