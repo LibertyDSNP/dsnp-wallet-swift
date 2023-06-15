@@ -90,7 +90,7 @@ struct SettingsView: View {
     private var faceIdCell: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Face ID")
+                Text(viewModel.biometricTypeString)
                     .font(Font(UIFont.Theme.regular(ofSize: 14)))
                     .foregroundColor(.white)
                     .padding(.bottom, -2)
