@@ -26,6 +26,15 @@ class HomeViewModel: ObservableObject {
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
     var shouldShowAlert = false
+
+    // Settings - Biometric Device Type String
+    var biometricTypeString: String {
+        if UIDevice.current.touchIdidentifiers.contains(UIDevice.modelName)  {
+            return "Touch ID"
+        } else {
+            return "Face ID"
+        }
+    }
     
     private var cancellables = [AnyCancellable]()
     

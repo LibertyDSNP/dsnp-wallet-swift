@@ -32,7 +32,7 @@ struct PrimaryButton: View {
             }
         }
         .frame(maxWidth: .infinity)
-        .background(!isEnabled ? Color(uiColor: UIColor.Theme.disabledTeal) : Color(uiColor: UIColor.Theme.primaryTeal))
+        .background(!isEnabled ? Color(uiColor: UIColor.Theme.disabledTeal) : Color(uiColor: UIColor.Theme.buttonTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
         .onTapGesture {
@@ -58,7 +58,7 @@ struct SecondaryButton: View {
                 .foregroundColor(isEnabled ? .white : Color(uiColor: UIColor.Theme.bgTeal))
         }
         .frame(maxWidth: .infinity)
-        .background(!isEnabled ? Color(uiColor: UIColor.Theme.bgGray) : Color(uiColor: UIColor.Theme.primaryTeal))
+        .background(!isEnabled ? Color(uiColor: UIColor.Theme.bgGray) : Color(uiColor: UIColor.Theme.buttonTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
         .onTapGesture {
