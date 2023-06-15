@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         rootViewController = BaseViewController()
 #else
         if AppState.shared.doKeysExist() {
-            rootViewController = AMPHomeViewController()
+            rootViewController = AMPHomeViewController(chosenHandle: AppState.shared.handle)
         } else {
             rootViewController = UINavigationController(rootViewController: SignInViewController())
         }

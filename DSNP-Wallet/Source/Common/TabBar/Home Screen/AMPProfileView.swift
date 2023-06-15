@@ -67,7 +67,7 @@ struct AMPProfileView: View {
     }
     
     private var handleHeadline: some View {
-        Text(AppState.shared.handle)
+        Text(viewModel.chosenHandle)
             .font(Font(UIFont.Theme.regular(ofSize: 16)))
             .foregroundColor(.white)
             .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.handle)
