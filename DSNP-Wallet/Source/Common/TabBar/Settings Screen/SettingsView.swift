@@ -65,7 +65,7 @@ struct SettingsView: View {
             }
             .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.revealPhraseButton)
             .frame(maxWidth: .infinity)
-            .background(Color(uiColor: UIColor.Theme.primaryTeal))
+            .background(Color(uiColor: UIColor.Theme.buttonTeal))
             .foregroundColor(.white)
             .cornerRadius(30)
             .frame(minHeight: 60)
