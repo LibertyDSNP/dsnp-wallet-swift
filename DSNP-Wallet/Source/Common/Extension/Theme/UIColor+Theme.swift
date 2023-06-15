@@ -17,6 +17,7 @@ extension UIColor {
         static var disabledGray: UIColor { return UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1) }
         
         // New UI
+        static var buttonTeal: UIColor { return UIColor(red: 1/255, green: 122/255, blue: 134/255, alpha: 1) }
         static var primaryTeal: UIColor { return UIColor(red: 27/255, green: 158/255, blue: 163/255, alpha: 1) }
         static var disabledTeal: UIColor { return UIColor(red: 179/255, green: 211/255, blue: 220/255, alpha: 1) }
         static var bgGray: UIColor { return UIColor(red: 228/255, green: 229/255, blue: 229/255, alpha: 1) }

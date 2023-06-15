@@ -466,6 +466,7 @@
 		B5A62C9D2A13DD5400A31178 /* LBYSeedPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */; };
 		B5A62C9F2A13DF1E00A31178 /* SeedPhraseTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */; };
 		B5B5BC7E2A38BB6C0005395F /* SocialProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5BC7D2A38BB6C0005395F /* SocialProgressView.swift */; };
+		B5B5BC872A3B3E0D0005395F /* iPhoneUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5BC862A3B3E0D0005395F /* iPhoneUtil.swift */; };
 		B5BCDD682A1E564C003E2845 /* TermsDisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */; };
 		B5D382BF2A2635D40086A05D /* WalletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382BE2A2635D40086A05D /* WalletState.swift */; };
 		B5D382C12A26481C0086A05D /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C02A26481C0086A05D /* HomeTabView.swift */; };
@@ -967,6 +968,7 @@
 		B5A62C9C2A13DD5400A31178 /* LBYSeedPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBYSeedPhraseViewController.swift; sourceTree = "<group>"; };
 		B5A62C9E2A13DF1E00A31178 /* SeedPhraseTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedPhraseTestViewController.swift; sourceTree = "<group>"; };
 		B5B5BC7D2A38BB6C0005395F /* SocialProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialProgressView.swift; sourceTree = "<group>"; };
+		B5B5BC862A3B3E0D0005395F /* iPhoneUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhoneUtil.swift; sourceTree = "<group>"; };
 		B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDisclaimerView.swift; sourceTree = "<group>"; };
 		B5D382BE2A2635D40086A05D /* WalletState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletState.swift; sourceTree = "<group>"; };
 		B5D382C02A26481C0086A05D /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
@@ -1462,6 +1464,7 @@
 				82996675297B1419009A769F /* SharedList.swift */,
 				8299667D297B141A009A769F /* SubstrateRepositoryFactory.swift */,
 				82996665297B1418009A769F /* WeakWrapper.swift */,
+				B5B5BC862A3B3E0D0005395F /* iPhoneUtil.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2824,6 +2827,7 @@
 				82E4AECE29A6E2E40071758A /* FrequencyChain.swift in Sources */,
 				B5A62C132A0A900600A31178 /* AgreeToTermsView.swift in Sources */,
 				82996351297A13CF009A769F /* OrmlAccountSubcriptionHandlingFactory.swift in Sources */,
+				B5B5BC872A3B3E0D0005395F /* iPhoneUtil.swift in Sources */,
 				8299635C297A13CF009A769F /* ChildSubscriptionFactory.swift in Sources */,
 				8299639C297A13CF009A769F /* StorageKeySuffixMapper.swift in Sources */,
 				82996932297B750B009A769F /* FeeMetadataContext.swift in Sources */,

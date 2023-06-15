@@ -65,36 +65,36 @@ struct SettingsView: View {
             }
             .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.revealPhraseButton)
             .frame(maxWidth: .infinity)
-            .background(Color(uiColor: UIColor.Theme.primaryTeal))
+            .background(Color(uiColor: UIColor.Theme.buttonTeal))
             .foregroundColor(.white)
             .cornerRadius(30)
             .frame(minHeight: 60)
         }
     }
-
+    
     private var security: some View {
-            VStack(alignment: .leading) {
-                Text("Security")
-                    .font(Font(UIFont.Theme.bold(ofSize: 14)))
-                    .foregroundColor(.white)
-                    .padding(.bottom, -2)
-                Text("Adding additional security is really important")
-                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
-                    .foregroundColor(.white)
-            }
-            .padding(.leading, -60)
-            .padding(.bottom, 26)
-            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.security)
+        VStack(alignment: .leading) {
+            Text("Security")
+                .font(Font(UIFont.Theme.bold(ofSize: 14)))
+                .foregroundColor(.white)
+                .padding(.bottom, -2)
+            Text("Adding additional security is really important")
+                .font(Font(UIFont.Theme.regular(ofSize: 12)))
+                .foregroundColor(.white)
+        }
+        .padding(.leading, -48)
+        .padding(.bottom, 26)
+        .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.security)
     }
     
     private var faceIdCell: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Face ID")
+                Text(viewModel.biometricTypeString)
                     .font(Font(UIFont.Theme.regular(ofSize: 14)))
                     .foregroundColor(.white)
                     .padding(.bottom, -2)
-                Text("Increase access security with Face ID")
+                Text("Increase access security with \(viewModel.biometricTypeString)")
                     .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
             }
@@ -135,14 +135,40 @@ struct SettingsView: View {
     }
     
     private var logoutButton: some View {
-        Button {
-            viewModel.logoutAction.send()
-        } label: {
-            Text("Logout")
-                .font(Font(UIFont.Theme.regular(ofSize: 14)))
-                .foregroundColor(mainTeal)
+        VStack {
+            Divider()
+                .foregroundColor(.white)
+                .overlay(.white)
+                .padding(.trailing, 22)
+                .padding(.leading, -12)
+                .padding(.bottom, 4)
+                .opacity(0.5)
+            HStack {
+                Text("LOG OUT")
+                    .font(Font(UIFont.Theme.medium(ofSize: 16)))
+                    .foregroundColor(.white)
+                Spacer()
+                Button {
+                    viewModel.logoutAction.send()
+                } label: {
+                    ZStack {
+                        Image("logout_outer")
+                            .frame(width: 30, height: 30)
+                        Image("logout_inner")
+                            .frame(width: 30, height: 30)
+                            .padding(.leading, 10)
+                    }
+                    .padding(.trailing, 16)
+                }
+                .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton)
+            }
+            Divider()
+                .foregroundColor(.white)
+                .overlay(.white)
+                .padding(.trailing, 22)
+                .padding(.leading, -12)
+                .opacity(0.5)
         }
-        .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton)
     }
 }
 
