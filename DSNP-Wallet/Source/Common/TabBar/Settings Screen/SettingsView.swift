@@ -82,7 +82,7 @@ struct SettingsView: View {
                 .font(Font(UIFont.Theme.regular(ofSize: 12)))
                 .foregroundColor(.white)
         }
-        .padding(.leading, -60)
+        .padding(.leading, -48)
         .padding(.bottom, 26)
         .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.security)
     }
