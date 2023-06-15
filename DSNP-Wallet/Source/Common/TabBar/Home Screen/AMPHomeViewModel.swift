@@ -14,6 +14,12 @@ class AMPHomeViewModel: ObservableObject {
     @Published var emailText = ""
 
     @Published var isEditing: Bool = false
+
+    var chosenHandle: String
+    
+    init(chosenHandle: String) {
+        self.chosenHandle = chosenHandle
+    }
     
     func toggleEditMode() {
         isEditing.toggle()

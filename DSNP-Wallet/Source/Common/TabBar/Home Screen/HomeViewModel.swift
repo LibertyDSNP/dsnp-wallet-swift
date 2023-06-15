@@ -26,6 +26,7 @@ class HomeViewModel: ObservableObject {
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
     var shouldShowAlert = false
+    var chosenHandle: String?
     
     private var cancellables = [AnyCancellable]()
     
@@ -59,5 +60,10 @@ class HomeViewModel: ObservableObject {
         } catch {
             print("error clearing keys")
         }
+    }
+    
+    func chosenHandleDisplayString() -> String {
+        if let chosenHandle { return chosenHandle }
+        return AppState.shared.handle
     }
 }
