@@ -113,7 +113,40 @@ public extension UIDevice {
     }()
     
     var touchIdidentifiers: [String] {
-        return ["iPhone 4", "iPhone 5", "iPhone 5c", "iPhone 5s", "iPhone 6", "iPhone 6s", "iPhone 6 Plus", "iPhone 6s Plus", "iPhone 7", "iPhone 7 Plus", "iPhone SE", "iPhone 8", "iPhone 8 Plus", "iPod touch (5th generation)", "iPod touch (6th generation)", "iPod touch (7th generation)"]
+        return [
+            "iPhone 4",
+            "iPhone 5",
+            "iPhone 5c",
+            "iPhone 5s",
+            "iPhone 6",
+            "iPhone 6s",
+            "iPhone 6 Plus",
+            "iPhone 6s Plus",
+            "iPhone 7",
+            "iPhone 7 Plus",
+            "iPhone SE",
+            "iPhone 8",
+            "iPhone 8 Plus",
+            "iPod touch (5th generation)",
+            "iPod touch (6th generation)",
+            "iPod touch (7th generation)",
+            "Simulator iPhone 4",
+            "Simulator iPhone 5",
+            "Simulator iPhone 5c",
+            "Simulator iPhone 5s",
+            "Simulator iPhone 6",
+            "Simulator iPhone 6s",
+            "Simulator iPhone 6 Plus",
+            "Simulator iPhone 6s Plus",
+            "Simulator iPhone 7",
+            "Simulator iPhone 7 Plus",
+            "Simulator iPhone SE",
+            "Simulator iPhone 8",
+            "Simulator iPhone 8 Plus",
+            "Simulator iPod touch (5th generation)",
+            "Simulator iPod touch (6th generation)",
+            "Simulator iPod touch (7th generation)",
+        ]
     }
 }
 

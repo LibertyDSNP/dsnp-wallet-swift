@@ -94,7 +94,7 @@ struct SettingsView: View {
                     .font(Font(UIFont.Theme.regular(ofSize: 14)))
                     .foregroundColor(.white)
                     .padding(.bottom, -2)
-                Text("Increase access security with Face ID")
+                Text("Increase access security with \(viewModel.biometricTypeString)")
                     .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
             }
@@ -145,7 +145,7 @@ struct SettingsView: View {
                 .opacity(0.5)
             HStack {
                 Text("LOG OUT")
-                    .font(Font(UIFont.Theme.bold(ofSize: 16)))
+                    .font(Font(UIFont.Theme.medium(ofSize: 16)))
                     .foregroundColor(.white)
                 Spacer()
                 Button {
