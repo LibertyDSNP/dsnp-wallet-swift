@@ -17,6 +17,7 @@ extension UIColor {
         static var disabledGray: UIColor { return UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1) }
         
         // New UI
+        static var buttonTeal: UIColor { return UIColor(red: 1/255, green: 122/255, blue: 134/255, alpha: 1) }
         static var primaryTeal: UIColor { return UIColor(red: 27/255, green: 158/255, blue: 163/255, alpha: 1) }
         static var disabledTeal: UIColor { return UIColor(red: 179/255, green: 211/255, blue: 220/255, alpha: 1) }
         static var bgGray: UIColor { return UIColor(red: 228/255, green: 229/255, blue: 229/255, alpha: 1) }
@@ -29,7 +30,15 @@ extension UIColor {
         static var buttonGray: UIColor { return UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)}
         static var termsTextColor: UIColor { return UIColor(red: 47/255, green: 52/255, blue: 55/255, alpha: 1)}
         static var errorStringColor: UIColor { return UIColor(red: 251/255, green: 11/255, blue: 11/255, alpha: 1)}
+        static var progressBarGray: UIColor { return UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1)}
+        static var seeAllYellow: UIColor { return UIColor(red: 215/255, green: 182/255, blue: 99/255, alpha: 1)}
+        static var freqBackground: UIColor { return UIColor(red: 25/255, green: 26/255, blue: 27/255, alpha: 1)}
+        static var editButtonTeal: UIColor { return UIColor(red: 1/255, green: 122/255, blue: 134/255, alpha: 1) }
 
+        static var toDoBackground: UIColor { return UIColor(red: 251/255, green: 231/255, blue: 204/255, alpha: 1) }
+        static var toDoButtonText: UIColor { return UIColor(red: 203/255, green: 101/255, blue: 69/255, alpha: 1) }
+        static var listItemBackground: UIColor { return UIColor(red: 143/255, green: 230/255, blue: 210/255, alpha: 1) }
+        static var errorListItemForegroundColor: UIColor { return UIColor(red: 115/255, green: 131/255, blue: 133/255, alpha: 1) }
     }
 }
 

@@ -53,4 +53,49 @@ struct AccessibilityIdentifier {
         static let seedPhraseTestWordBank = "seedphrase.seedPhraseTestWordBank"
         static let seedPhraseTestContinueButton = "seedphrase.seedPhraseTestContinueButton"
     }
+    
+    // Tab View
+    struct TabView {
+        struct ProfileViewIdentifiers {
+            // Profile Image
+            static let profileImage = "tabView.profile.profileImage"
+
+            // Fields
+            static let profileIdentifierFirstNameField = "tabView.profile.firstNameField"
+            static let profileIdentifierLastNameField = "tabView.profile.lastNameField"
+            static let profileIdentifierEmailField = "tabView.profile.emailField"
+
+            // Buttons
+            static let saveButton = "tabView.profile.saveButton"
+            static let editButton = "tabView.profile.editButton"
+        }
+        
+        struct SettingsViewIdentifiers {
+            // Headline
+            static let settingsHeadline = "tabView.settings.headline"
+
+            static let revealPhraseButton = "tabView.settings.revealPhraseButton"
+            
+            // List Items
+            static let security = "tabView.settings.security"
+            static let faceId = "tabView.settings.faceId"
+            static let faceIdToggle = "tabView.settings.faceIdToggle"
+            static let password = "tabView.settings.password"
+            static let logoutButton = "tabView.settings.logoutButton"
+        }
+        
+        struct IdentityViewIdentifiers {
+            // Headline
+            static let profileImage = "tabView.id.profile"
+            static let handle = "tabView.id.handle"
+
+            // Buttons
+            static let progressIndicator = "tabView.id.progress"
+            static let seeAllButton = "tabView.id.seeAll"
+
+            // Claim FRQCY
+            static let claimNowButton = "tabView.id.claimNowButton"
+            static let initialClaimBanner = "tabView.settings.claimNowBanner"
+        }
+    }
 }

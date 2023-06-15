@@ -11,6 +11,7 @@ import Combine
 class SeedPhraseViewModel {
     
     let testAction = PassthroughSubject<Void, Never>()
+    let backAction = PassthroughSubject<Void, Never>()
     
     let seedPhraseWords: [String]
     
@@ -24,6 +25,13 @@ class SeedPhraseViewModel {
     
     init(seedPhraseWords: [String]) {
         self.seedPhraseWords = seedPhraseWords
+    }
+    
+    func seedPhrasePuzzleModel() -> SeedPuzzleViewModel {
+        let puzzleElements = seedPhraseWords.enumerated().map { (index, element) in
+            return PuzzleElement(word: element, index: index)
+        }
+        return SeedPuzzleViewModel(correctPuzzleElements: puzzleElements)
     }
 }
 

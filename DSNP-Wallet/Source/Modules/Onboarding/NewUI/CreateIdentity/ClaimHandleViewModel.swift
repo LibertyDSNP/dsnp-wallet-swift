@@ -15,6 +15,7 @@ class ClaimHandleViewModel: ObservableObject {
     // Actions
     var nextAction = PassthroughSubject<Void, Never>()
     var skipAction = PassthroughSubject<Void, Never>()
+    var backAction = PassthroughSubject<Void, Never>()
     
     private var cancellables = [AnyCancellable]()
     private var validCharSet = CharacterSet.alphanumerics

@@ -14,7 +14,9 @@ struct ClaimHandleView: View {
 
     var body: some View {
         VStack {
-            AmplicaLogo()
+            AmplicaHeadline(withBackButton: true) {
+                viewModel.backAction.send()
+            }
             BaseRoundView {
                 stepCount
                 subtitle

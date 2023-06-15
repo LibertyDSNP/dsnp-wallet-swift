@@ -21,12 +21,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
+        var rootViewController: UIViewController?
+        
 #if DEBUG
-        let rootViewController = BaseViewController()
+        rootViewController = BaseViewController()
 #else
-        let rootViewController = GenerateKeysViewController() //TODO: Update with service instantiation
+        if AppState.shared.doKeysExist() {
+            rootViewController = AMPHomeViewController(chosenHandle: AppState.shared.handle)
+        } else {
+            rootViewController = UINavigationController(rootViewController: SignInViewController())
+        }
 #endif
-      
         window.rootViewController = rootViewController
         self.window = window
         window.makeKeyAndVisible()
