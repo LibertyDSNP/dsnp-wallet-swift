@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SignInViewControllerWrapper : UIViewControllerRepresentable {
-
+    
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
         
     }
-
+    
     func makeUIViewController(context: Context) -> UIViewController {
         let signInViewController = SignInViewController()
         let navController = UINavigationController()
@@ -26,25 +26,27 @@ struct SignInView: View {
     let viewModel: SignInViewModel
     
     var body: some View {
-        VStack {
-            AmplicaLogo()
-                .padding(.top, 68)
-            subtitle
-                .padding(.vertical, 10)
-            description
-                .padding(.vertical, 12)
-            buttonContainer
-            Spacer()
-            SignInTermsDisclaimerView()
+        NavigationView {
+            VStack {
+                AmplicaLogo()
+                    .padding(.top, 68)
+                subtitle
+                    .padding(.vertical, 10)
+                description
+                    .padding(.vertical, 12)
+                buttonContainer
+                Spacer()
+                SignInTermsDisclaimerView()
+            }
+            .frame(
+                maxWidth: .infinity,
+                maxHeight: .infinity,
+                alignment: .top
+            )
+            .background(Color(uiColor: UIColor.Theme.bgTeal))
         }
-        .frame(
-            maxWidth: .infinity,
-            maxHeight: .infinity,
-            alignment: .top
-        )
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
     }
-
+    
     var subtitle: some View {
         Text(" It’s Your identity.\nYou should own it")
             .font(Font(UIFont.Theme.regular(ofSize: 20)))
@@ -72,10 +74,7 @@ struct SignInView: View {
             .padding(.vertical, 12)
             .padding(.horizontal, 34)
             .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
-            
-            Button {
-                viewModel.restoreAction.send()
-            } label: {
+            NavigationLink(destination: ImportSeedView(viewModel: ImportSeedViewModel())) {
                 Text("Restore from Backup")
                     .foregroundColor(.white)
                     .font(Font(UIFont.Theme.regular(ofSize: 14)))

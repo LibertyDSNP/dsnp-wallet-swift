@@ -53,11 +53,15 @@ struct ImportSeedView: View {
             .padding(.top, 70)
             headline
             seedphraseField
+            description
+                .padding(.horizontal, 30)
+                .padding(.vertical, 12)
             buttonStack
             Spacer()
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .navigationBarHidden(true)
         .ignoresSafeArea()
     }
     
@@ -70,15 +74,24 @@ struct ImportSeedView: View {
     
     var seedphraseField: some View {
         TextEditor(text: $viewModel.seedPhraseText)
+            .disableAutocorrection(true)
             .frame(height: 220)
             .border(Color(uiColor: UIColor.Theme.seedImportBorderColor), width: 5)
-            .disableAutocorrection(true)
             .overlay(
                 RoundedRectangle(cornerRadius: 15)
                     .stroke(.black)
             )
             .cornerRadius(15)
+            .foregroundColor(.white)
             .padding(.horizontal, 20)
+    }
+    
+    var description: some View {
+        Text("Enter your 12 word recovery phase to connect your account")
+            .font(Font(UIFont.Theme.regular(ofSize: 12)))
+            .foregroundColor(.white)
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity, alignment: .center)
     }
     
     var buttonStack: some View {
