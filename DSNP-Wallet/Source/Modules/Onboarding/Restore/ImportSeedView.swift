@@ -73,17 +73,31 @@ struct ImportSeedView: View {
     }
     
     var seedphraseField: some View {
-        TextEditor(text: $viewModel.seedPhraseText)
-            .disableAutocorrection(true)
-            .frame(height: 220)
-            .border(Color(uiColor: UIColor.Theme.seedImportBorderColor), width: 5)
-            .overlay(
-                RoundedRectangle(cornerRadius: 15)
-                    .stroke(.black)
-            )
-            .cornerRadius(15)
-            .foregroundColor(.white)
-            .padding(.horizontal, 20)
+        VStack {
+            if #available(iOS 16.0, *) {
+                TextEditor(text: $viewModel.seedPhraseText)
+                    .disableAutocorrection(true)
+                    .foregroundColor(.white)
+                    .frame(height: 220)
+                    .scrollContentBackground(.hidden)
+                    .cornerRadius(15)
+                    .background(RoundedRectangle(cornerRadius: 15).fill(Color(uiColor: UIColor.Theme.seedImportBgColor)))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color(uiColor: UIColor.Theme.seedImportBorderColor))
+                    )
+                    .padding(.horizontal, 24)
+            } else {
+                TextEditor(text: $viewModel.seedPhraseText)
+                    .disableAutocorrection(true)
+                    .foregroundColor(.white)
+                    .frame(height: 220)
+                    .border(Color(uiColor: UIColor.Theme.seedImportBorderColor), width: 5)
+                    .background(RoundedRectangle(cornerRadius: 15).fill(Color(uiColor: UIColor.Theme.seedImportBgColor)))
+                    .padding(.horizontal, 20)
+                
+            }
+        }
     }
     
     var description: some View {
