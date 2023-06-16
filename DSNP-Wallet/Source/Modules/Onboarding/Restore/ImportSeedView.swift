@@ -57,6 +57,8 @@ struct ImportSeedView: View {
                 .padding(.horizontal, 30)
                 .padding(.vertical, 12)
             buttonStack
+            TermsDisclaimerView(color: .white)
+                .padding(.bottom, 40)
             Spacer()
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
@@ -95,7 +97,6 @@ struct ImportSeedView: View {
                     .border(Color(uiColor: UIColor.Theme.seedImportBorderColor), width: 5)
                     .background(RoundedRectangle(cornerRadius: 15).fill(Color(uiColor: UIColor.Theme.seedImportBgColor)))
                     .padding(.horizontal, 20)
-                
             }
         }
     }

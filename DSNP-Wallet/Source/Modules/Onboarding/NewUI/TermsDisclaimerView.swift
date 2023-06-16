@@ -8,43 +8,46 @@
 import SwiftUI
 
 struct TermsDisclaimerView: View {
+
+    var color: Color = Color(uiColor: UIColor.Theme.termsTextColor)
+
     var body: some View {
         VStack {
             Text("By signing up, you agree to Amplica Access")
                 .font(Font(UIFont.Theme.regular(ofSize: 12)))
-                .foregroundColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                .foregroundColor(color)
                 .lineSpacing(3)
                 .frame(maxHeight: .infinity, alignment: .bottom)
             if #available(iOS 16.0, *) {
                 HStack {
                     
                     Text("[Terms](https://google.com)")
-                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .accentColor(color)
                         .font(Font(UIFont.Theme.regular(ofSize: 12)))
                         .underline()
                         .padding(.horizontal, -4)
                     Text("and")
-                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .accentColor(color)
                         .font(Font(UIFont.Theme.regular(ofSize: 12)))
-                        .foregroundColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .foregroundColor(color)
                     Text("[Privacy Policy](https://google.com)")
-                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .accentColor(color)
                         .font(Font(UIFont.Theme.regular(ofSize: 12)))
                         .underline()
                         .padding(.horizontal, -4)
                     Text("•")
-                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .accentColor(color)
                         .font(Font(UIFont.Theme.regular(ofSize: 12)))
-                        .foregroundColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .foregroundColor(color)
                     Text("[Learn More](https://google.com)")
-                        .accentColor(Color(uiColor: UIColor.Theme.termsTextColor))
+                        .accentColor(color)
                         .font(Font(UIFont.Theme.regular(ofSize: 12)))
                         .underline()
                 }
             } else {
                 Text("By signing up, you agree to our [Terms](https://google.com) and\n[Privacy Policy](https://google.com) • [Learn More](https://google.com)")
                     .font(Font(UIFont.Theme.regular(ofSize: 12)))
-                    .foregroundColor(.black)
+                    .foregroundColor(color)
                     .lineSpacing(3)
             }
         }
