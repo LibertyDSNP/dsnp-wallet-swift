@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // UI
         UITabBar.appearance().unselectedItemTintColor = .white
         UITabBar.appearance().tintColor = UIColor.Theme.primaryTeal
+        UITextView.appearance().backgroundColor = UIColor.Theme.seedImportBgColor
 
         return true
     }

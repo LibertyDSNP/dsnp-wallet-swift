@@ -35,6 +35,9 @@ extension UIColor {
         static var freqBackground: UIColor { return UIColor(red: 25/255, green: 26/255, blue: 27/255, alpha: 1)}
         static var editButtonTeal: UIColor { return UIColor(red: 1/255, green: 122/255, blue: 134/255, alpha: 1) }
 
+        static var seedImportBgColor: UIColor { return UIColor(red: 27/255, green: 56/255, blue: 57/255, alpha: 1) }
+        static var seedImportBorderColor: UIColor { return UIColor(red: 70/255, green: 103/255, blue: 105/255, alpha: 1) }
+
         static var toDoBackground: UIColor { return UIColor(red: 251/255, green: 231/255, blue: 204/255, alpha: 1) }
         static var toDoButtonText: UIColor { return UIColor(red: 203/255, green: 101/255, blue: 69/255, alpha: 1) }
         static var listItemBackground: UIColor { return UIColor(red: 143/255, green: 230/255, blue: 210/255, alpha: 1) }

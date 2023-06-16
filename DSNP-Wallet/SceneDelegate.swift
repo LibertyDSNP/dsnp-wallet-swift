@@ -24,7 +24,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var rootViewController: UIViewController?
         
 #if DEBUG
-        rootViewController = BaseViewController()
+        if AppState.shared.doKeysExist() {
+            rootViewController = AMPHomeViewController(chosenHandle: AppState.shared.handle)
+        } else {
+            rootViewController = UINavigationController(rootViewController: SignInViewController())
+        }
 #else
         if AppState.shared.doKeysExist() {
             rootViewController = AMPHomeViewController(chosenHandle: AppState.shared.handle)

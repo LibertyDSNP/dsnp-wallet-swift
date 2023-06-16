@@ -72,6 +72,7 @@ struct SignInView: View {
             .padding(.vertical, 12)
             .padding(.horizontal, 34)
             .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
+            
             Button {
                 viewModel.restoreAction.send()
             } label: {
