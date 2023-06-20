@@ -75,7 +75,7 @@ struct SignInView: View {
             .padding(.horizontal, 34)
             .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
             NavigationLink(destination: ImportSeedView(viewModel: ImportSeedViewModel())) {
-                Text("Restore from Backup")
+                Text("Restore Account")
                     .foregroundColor(.white)
                     .font(Font(UIFont.Theme.regular(ofSize: 14)))
                     .underline()
