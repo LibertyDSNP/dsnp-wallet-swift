@@ -18,8 +18,9 @@ class SettingsViewController: UIViewController {
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
             do {
-                let _ = try AuthManager.shared.logout()
-                self.presentGenKeysVC()
+                self.dismiss(animated: true, completion: {
+                    try? AccountKeychain.shared.clearAuthorization()
+                })
             } catch {
                 let alert = UIAlertController(title: "Problem deleting keys, log out failed.", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -55,11 +56,5 @@ extension SettingsViewController {
         logOutBtn.translatesAutoresizingMaskIntoConstraints = false
         logOutBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logOutBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    }
-    
-    private func presentGenKeysVC() {
-        let vc = ViewControllerFactory.generateKeysViewController.instance()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
     }
 }
