@@ -101,7 +101,6 @@ class SeedPuzzleViewModel: ObservableObject {
                         let errColor = Color(uiColor: UIColor.Theme.errorStringColor)
                         return self.seedphraseAlertString == "You passed the test" ? .green : errColor
                     }()
-                    self.resetPuzzle()
                     
                     // Update social ID Progress
                     if self.isPuzzleCorrect() {
@@ -109,6 +108,8 @@ class SeedPuzzleViewModel: ObservableObject {
                         state.isSeedPhraseBacked = true
                         AppState.shared.setSocialIdentityProgressState(state: state)
                     }
+                    
+                    self.resetPuzzle()
                 }
             }
             .store(in: &cancellables)
