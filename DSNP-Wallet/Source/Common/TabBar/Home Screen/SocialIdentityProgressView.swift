@@ -43,11 +43,30 @@ struct ProgressAnimation: View {
 }
 
 class SocialIdentityViewModel: ObservableObject {
-    @Published var totalStepsCount: Int = 3
-    @Published var totalStepsAchieved: Int = 1
+    @Published var totalStepsCount: Int = SocialIdentityProgressState.numberOfSteps
+    @Published var totalStepsAchieved: Int = AppState.shared.socialIdentityProgressState()?.totalStepsAchieved() ?? 0
+        
+    private var state: SocialIdentityProgressState = {
+        guard let state = AppState.shared.socialIdentityProgressState() else {
+            return SocialIdentityProgressState()
+        }
+        return state
+    }()
     
     var progress: CGFloat {
         return CGFloat(totalStepsAchieved) / CGFloat(totalStepsCount)
+    }
+    
+    func isAvatarCreated() -> Bool {
+        return state.isAvatarCreated
+    }
+    
+    func isHandleChosen() -> Bool {
+        return state.isHandleCreated
+    }
+    
+    func isSeedBackedUp() -> Bool {
+        return state.isSeedPhraseBacked
     }
 }
 

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SocialProgressView: View {
     
+    @ObservedObject var viewModel: SocialIdentityViewModel
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -58,9 +60,9 @@ struct SocialProgressView: View {
     
     private var taskIndicatorStack: some View {
         VStack {
-            IdentityProgressItem(title: "Set Avatar", isComplete: false)
-            IdentityProgressItem(title: "Backup Seed Phrase", isComplete: false)
-            IdentityProgressItem(title: "Choose a handle", isComplete: true)
+            IdentityProgressItem(title: "Set Avatar", isComplete: viewModel.isAvatarCreated())
+            IdentityProgressItem(title: "Backup Seed Phrase", isComplete: viewModel.isSeedBackedUp())
+            IdentityProgressItem(title: "Choose a handle", isComplete: viewModel.isHandleChosen())
         }
     }
 }
@@ -112,6 +114,6 @@ struct IdentityProgressItem: View {
 
 struct SocialProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        SocialProgressView()
+        SocialProgressView(viewModel: SocialIdentityViewModel())
     }
 }

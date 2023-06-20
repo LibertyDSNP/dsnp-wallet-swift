@@ -22,7 +22,7 @@ struct AMPProfileView: View {
                 handleHeadline
                 VStack(alignment: .trailing) {
                     progressView
-                    NavigationLink(destination: SocialProgressView()) {
+                    NavigationLink(destination: SocialProgressView(viewModel: SocialIdentityViewModel())) {
                         Text("See All")
                             .foregroundColor(Color(uiColor: UIColor.Theme.seeAllYellow))
                             .font(Font(UIFont.Theme.regular(ofSize: 10)))

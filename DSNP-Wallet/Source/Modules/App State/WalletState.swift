@@ -8,6 +8,32 @@
 import Foundation
 import DSNPWallet
 
+struct SocialIdentityProgressState: Codable {
+    var isHandleCreated: Bool = false
+    var isSeedPhraseBacked: Bool = false
+    var isAvatarCreated: Bool = false
+    
+    static let numberOfSteps = 3
+    
+    func totalStepsAchieved() -> Int {
+        var count = 0
+        if isHandleCreated {
+            count += 1
+        }
+        if isSeedPhraseBacked {
+            count += 1
+        }
+        if isAvatarCreated {
+            count += 1
+        }
+        return count
+    }
+    
+    func isComplete() -> Bool {
+        return isHandleCreated && isSeedPhraseBacked && isAvatarCreated
+    }
+}
+
 class AppState: ObservableObject {
     
     static let shared = AppState()
@@ -50,4 +76,24 @@ class AppState: ObservableObject {
             UserDefaults.standard.set(handle, forKey: "handle")
         }
     }
+    
+    func setSocialIdentityProgressState(state: SocialIdentityProgressState) {
+        if let encoded = try? JSONEncoder().encode(state) {
+            UserDefaults.standard.set(encoded, forKey: "onboardingState")
+        }
+    }
+    
+    func socialIdentityProgressState() -> SocialIdentityProgressState? {
+        if let data = UserDefaults.standard.object(forKey: "onboardingState") as? Data,
+            let state = try? JSONDecoder().decode(SocialIdentityProgressState.self, from: data) {
+            return state
+        }
+
+        let defaultState = SocialIdentityProgressState()
+        if let encoded = try? JSONEncoder().encode(defaultState) {
+            UserDefaults.standard.set(encoded, forKey: "onboardingState")
+        }
+        return defaultState
+    }
+    
 }
