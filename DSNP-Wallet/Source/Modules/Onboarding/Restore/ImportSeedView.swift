@@ -79,6 +79,7 @@ struct ImportSeedView: View {
             if #available(iOS 16.0, *) {
                 TextEditor(text: $viewModel.seedPhraseText)
                     .padding()
+                    .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .disableAutocorrection(true)
                     .foregroundColor(.white)
                     .frame(height: 220)
