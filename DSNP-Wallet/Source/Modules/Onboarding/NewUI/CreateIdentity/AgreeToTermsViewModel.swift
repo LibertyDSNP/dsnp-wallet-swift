@@ -30,12 +30,7 @@ class AgreeToTermsViewModel: ObservableObject {
                 guard let self else { return }
                 do {
                     let _ = try DSNPWallet().createKeys()
-                    AppState.shared.setHandle(handle: self.chosenHandle)
-                    
-                    // Update social progress state
-                    let socialProgressState = SocialIdentityProgressState(isHandleCreated: !self.chosenHandle.isEmpty)
-                    AppState.shared.setSocialIdentityProgressState(state: socialProgressState)
-                    
+                    AppState.shared.setHandle(handle: self.chosenHandle)                    
                 } catch {
                     // TODO: Handle error creating keys
                     print("error creating keys")

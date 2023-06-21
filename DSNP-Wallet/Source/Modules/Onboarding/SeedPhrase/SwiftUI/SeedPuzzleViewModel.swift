@@ -104,9 +104,7 @@ class SeedPuzzleViewModel: ObservableObject {
                     
                     // Update social ID Progress
                     if self.isPuzzleCorrect() {
-                        guard var state = AppState.shared.socialIdentityProgressState() else { return }
-                        state.isSeedPhraseBacked = true
-                        AppState.shared.setSocialIdentityProgressState(state: state)
+                        AppState.shared.setBackedUp(backedUp: true)
                     }
                     
                     self.resetPuzzle()

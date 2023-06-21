@@ -28,6 +28,11 @@ import DSNPWallet
  
  */
 
+enum AppStateKeys: String {
+    case onboardingStateKey = "onboardingState"
+    case backedUpSeedPhraseKey = "seedPhraseBackedUp"
+}
+
 struct SocialIdentityProgressState: Codable {
     var isHandleCreated: Bool = false
     var isSeedPhraseBacked: Bool = false
@@ -60,6 +65,17 @@ class AppState: ObservableObject {
 
     @Published var isLoggedin = true
     @Published var hasBackedKeys = false
+    
+    @Published var socialIdentityProgressState: SocialIdentityProgressState = {
+        var socialIdProgressState = SocialIdentityProgressState()
+        socialIdProgressState.isHandleCreated = {
+            let handle = UserDefaults.standard.string(forKey: "handle")
+            return handle != nil && !(handle?.isEmpty ?? false)
+        }()
+        
+        socialIdProgressState.isSeedPhraseBacked = UserDefaults.standard.bool(forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+        return socialIdProgressState
+    }()
     
     private (set) var handle = {
         if let handle = UserDefaults.standard.object(forKey: "handle") {
@@ -101,30 +117,27 @@ class AppState: ObservableObject {
         UserDefaults.standard.set("", forKey: "handle")
     }
     
-    func setSocialIdentityProgressState(state: SocialIdentityProgressState) {
-        if let encoded = try? JSONEncoder().encode(state) {
-            UserDefaults.standard.set(encoded, forKey: "onboardingState")
-        }
+    func didBackupSeedPhrase() -> Bool {
+        return UserDefaults.standard.bool(forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
     }
     
-    func socialIdentityProgressState() -> SocialIdentityProgressState? {
-        if let data = UserDefaults.standard.object(forKey: "onboardingState") as? Data,
-            var state = try? JSONDecoder().decode(SocialIdentityProgressState.self, from: data) {
-            state.isHandleCreated = !AppState.shared.handle.isEmpty
-            return state
-        }
-
-        let defaultState = SocialIdentityProgressState()
-        if let encoded = try? JSONEncoder().encode(defaultState) {
-            UserDefaults.standard.set(encoded, forKey: "onboardingState")
-        }
-        return defaultState
+    func setDidBackupSeedPhrase(backedUp: Bool) {
+        UserDefaults.standard.set(backedUp, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
     }
+
+    // MARK: Social Identity
     
     func resetSocialProgress() {
-        let defaultState = SocialIdentityProgressState()
-        if let encoded = try? JSONEncoder().encode(defaultState) {
-            UserDefaults.standard.set(encoded, forKey: "onboardingState")
-        }
+        clearHandle()
+        setDidBackupSeedPhrase(backedUp: false)
+    }
+    
+    func socialIdentityProgressStepsCompleted() -> Int {
+        return socialIdentityProgressState.totalStepsAchieved()
+    }
+    
+    func setBackedUp(backedUp: Bool) {
+        setDidBackupSeedPhrase(backedUp: backedUp)
+        socialIdentityProgressState.isSeedPhraseBacked = backedUp
     }
 }

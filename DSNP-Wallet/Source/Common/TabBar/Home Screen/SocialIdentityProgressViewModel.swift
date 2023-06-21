@@ -9,31 +9,32 @@ import UIKit
 import SwiftUI
 
 class SocialIdentityViewModel: ObservableObject {
-    @Published var totalStepsCount: Int = SocialIdentityProgressState.numberOfSteps
 
-    var progress: CGFloat {
-        let stepsAchieved = AppState.shared.socialIdentityProgressState()?.totalStepsAchieved() ?? 0
-        return CGFloat(stepsAchieved) / CGFloat(totalStepsCount)
-    }
+    let totalStepsCount: Int = SocialIdentityProgressState.numberOfSteps
+
+    @Published var progress: CGFloat = {
+        let stepsAchieved = AppState.shared.socialIdentityProgressState.totalStepsAchieved()
+        return CGFloat(stepsAchieved) / CGFloat(SocialIdentityProgressState.numberOfSteps)
+    }()
     
-    var stepsAchieved: Int {
-        return AppState.shared.socialIdentityProgressState()?.totalStepsAchieved() ?? 0
-    }
+    @Published var stepsAchieved: Int = {
+        return AppState.shared.socialIdentityProgressStepsCompleted()
+    }()
 
     func isAvatarCreated() -> Bool {
-        let avatarCreated = AppState.shared.socialIdentityProgressState()?.isAvatarCreated ?? false
+        let avatarCreated = AppState.shared.socialIdentityProgressState.isAvatarCreated
         print("avatar created: ", avatarCreated)
         return avatarCreated
     }
 
     func isHandleChosen() -> Bool {
-        let handleChosen = AppState.shared.socialIdentityProgressState()?.isHandleCreated ?? false
+        let handleChosen = AppState.shared.socialIdentityProgressState.isHandleCreated
         print("handle chosen: ", handleChosen)
         return handleChosen
     }
     
     func isSeedBackedUp() -> Bool {
-        let seedBacked = AppState.shared.socialIdentityProgressState()?.isSeedPhraseBacked ?? false
+        let seedBacked = AppState.shared.socialIdentityProgressState.isSeedPhraseBacked
         print("seed backed up: ", seedBacked)
         return seedBacked
     }
