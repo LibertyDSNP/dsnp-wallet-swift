@@ -8,6 +8,26 @@
 import Foundation
 import DSNPWallet
 
+/*
+ Problem statement
+ 
+ Social ID progress is not published and updated in a view thats already been drawn. We also
+ - need to clean up how we're managing this data: Handle, avatar created, backed up seed
+ - Make elements published and observed in correct places
+ - Steps achieved to be a dynamic var checking the below values
+ 
+ How
+ 
+ - Make app state published
+ - Have values be derived from current vals at run time.
+ > Avatar checked from current profile photo value
+ > Handle checked from user defaults
+ > Seed backed up from user defaults
+ 
+ - Publish changes when value is changed
+ 
+ */
+
 struct SocialIdentityProgressState: Codable {
     var isHandleCreated: Bool = false
     var isSeedPhraseBacked: Bool = false
@@ -35,7 +55,7 @@ struct SocialIdentityProgressState: Codable {
 }
 
 class AppState: ObservableObject {
-    
+
     static let shared = AppState()
 
     @Published var isLoggedin = true
@@ -77,6 +97,10 @@ class AppState: ObservableObject {
         }
     }
     
+    func clearHandle() {
+        UserDefaults.standard.set("", forKey: "handle")
+    }
+    
     func setSocialIdentityProgressState(state: SocialIdentityProgressState) {
         if let encoded = try? JSONEncoder().encode(state) {
             UserDefaults.standard.set(encoded, forKey: "onboardingState")
@@ -85,7 +109,8 @@ class AppState: ObservableObject {
     
     func socialIdentityProgressState() -> SocialIdentityProgressState? {
         if let data = UserDefaults.standard.object(forKey: "onboardingState") as? Data,
-            let state = try? JSONDecoder().decode(SocialIdentityProgressState.self, from: data) {
+            var state = try? JSONDecoder().decode(SocialIdentityProgressState.self, from: data) {
+            state.isHandleCreated = !AppState.shared.handle.isEmpty
             return state
         }
 
@@ -96,4 +121,10 @@ class AppState: ObservableObject {
         return defaultState
     }
     
+    func resetSocialProgress() {
+        let defaultState = SocialIdentityProgressState()
+        if let encoded = try? JSONEncoder().encode(defaultState) {
+            UserDefaults.standard.set(encoded, forKey: "onboardingState")
+        }
+    }
 }

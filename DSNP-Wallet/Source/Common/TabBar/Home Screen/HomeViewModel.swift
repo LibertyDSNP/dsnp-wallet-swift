@@ -64,6 +64,7 @@ class HomeViewModel: ObservableObject {
     
     private func logout() {
         appStateLoggedIn = false
+        AppState.shared.resetSocialProgress()
         do {
             try AuthManager.shared.logout()
         } catch {

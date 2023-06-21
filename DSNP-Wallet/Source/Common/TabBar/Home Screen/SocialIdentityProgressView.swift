@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-
 struct ProgressAnimation: View {
+
     let title: String
     @ObservedObject var viewModel: SocialIdentityViewModel
     
@@ -19,7 +19,7 @@ struct ProgressAnimation: View {
                     .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
                     .foregroundColor(.white)
                 Spacer()
-                Text("\(viewModel.totalStepsAchieved)/\(viewModel.totalStepsCount)")
+                Text("\(viewModel.stepsAchieved)/\(viewModel.totalStepsCount)")
                     .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
                     .foregroundColor(.white)
             }
@@ -39,34 +39,6 @@ struct ProgressAnimation: View {
             .frame(height: 12)
         }
         .padding()
-    }
-}
-
-class SocialIdentityViewModel: ObservableObject {
-    @Published var totalStepsCount: Int = SocialIdentityProgressState.numberOfSteps
-    @Published var totalStepsAchieved: Int = AppState.shared.socialIdentityProgressState()?.totalStepsAchieved() ?? 0
-        
-    private var state: SocialIdentityProgressState = {
-        guard let state = AppState.shared.socialIdentityProgressState() else {
-            return SocialIdentityProgressState()
-        }
-        return state
-    }()
-    
-    var progress: CGFloat {
-        return CGFloat(totalStepsAchieved) / CGFloat(totalStepsCount)
-    }
-    
-    func isAvatarCreated() -> Bool {
-        return state.isAvatarCreated
-    }
-    
-    func isHandleChosen() -> Bool {
-        return state.isHandleCreated
-    }
-    
-    func isSeedBackedUp() -> Bool {
-        return state.isSeedPhraseBacked
     }
 }
 
