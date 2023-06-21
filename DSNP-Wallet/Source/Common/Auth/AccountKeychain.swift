@@ -10,6 +10,10 @@ import SoraKeystore
 import Security
 import LocalAuthentication
 
+enum AccountKeychainError: Error {
+    case clearAuthorization
+}
+
 //Manages pin and wrapper for SoraKeyStore
 class AccountKeychain {
     static var shared = AccountKeychain()
@@ -46,9 +50,14 @@ class AccountKeychain {
     }
     
     public func clearAuthorization() throws {
-        try? deleteKey()
-        self.accessPin = nil
-        isAuthorized = false
+        do {
+            try deleteKey()
+            self.accessPin = nil
+            isAuthorized = false
+        } catch {
+            throw AccountKeychainError.clearAuthorization
+        }
+        
     }
 }
 
