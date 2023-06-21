@@ -65,7 +65,7 @@ class HomeViewModel: ObservableObject {
     private func logout() {
         appStateLoggedIn = false
         do {
-            try AuthManager.shared.logout()
+            try? AccountKeychain.shared.clearAuthorization()
         } catch {
             print("error clearing keys")
         }

@@ -10,8 +10,6 @@ import UIKit
 
 enum ViewControllerFactory: String, CaseIterable {
     
-    case generateKeysViewController
-    case pinViewController
     case tabBarViewController
     case homeViewController
     case profileViewController
@@ -35,8 +33,6 @@ enum ViewControllerFactory: String, CaseIterable {
         case .homeViewController,
                 .profileViewController,
                 .keysViewController,
-                .generateKeysViewController,
-                .pinViewController,
                 .settingsViewController,
                 .welcomeViewController,
                 .lookUpDsnpIdViewController,
