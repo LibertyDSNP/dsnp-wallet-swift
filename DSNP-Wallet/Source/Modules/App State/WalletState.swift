@@ -123,3 +123,23 @@ class AppState: ObservableObject {
         setDidBackupSeedPhrase(backedUp: backedUp)
     }
 }
+
+extension UserDefaults {
+    @objc var seedBackedUp: Bool {
+        get {
+            return Bool(AppStateKeys.backedUpSeedPhraseKey.rawValue) ?? false
+        }
+        set {
+            set(newValue, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+        }
+    }
+    
+    @objc var didCreateAvatar: Bool {
+        get {
+            return Bool(AppStateKeys.avatarSetKey.rawValue) ?? false
+        }
+        set {
+            set(newValue, forKey: AppStateKeys.avatarSetKey.rawValue)
+        }
+    }
+}
