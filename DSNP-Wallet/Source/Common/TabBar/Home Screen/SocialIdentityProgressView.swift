@@ -19,7 +19,7 @@ struct ProgressAnimation: View {
                     .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
                     .foregroundColor(.white)
                 Spacer()
-                Text("\(viewModel.stepsAchieved)/\(viewModel.totalStepsCount)")
+                Text("\(viewModel.stepsAchieved)/\(Int(viewModel.totalStepsCount))")
                     .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
                     .foregroundColor(.white)
             }

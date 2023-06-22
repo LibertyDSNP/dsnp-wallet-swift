@@ -27,7 +27,7 @@ class HomeViewModel: ObservableObject {
 
     var shouldShowAlert = false
     var chosenHandle: String?
-
+    
     // Settings - Biometric Device Type String
     var biometricTypeString: String {
         if UIDevice.current.touchIdidentifiers.contains(UIDevice.modelName)  {

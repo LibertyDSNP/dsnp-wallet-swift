@@ -12,10 +12,10 @@ let bgTealColor = Color(uiColor: UIColor.Theme.bgTeal)
 struct AMPProfileView: View {
     
     @ObservedObject var viewModel: AMPHomeViewModel
-    
+    @ObservedObject var socialProgressViewModel = SocialIdentityViewModel()
+
     @FocusState private var textfieldFocused: Bool
     
-    private let socialProgressViewModel = SocialIdentityViewModel()
     
     var body: some View {
         NavigationView {

@@ -40,7 +40,7 @@ class AppState: ObservableObject {
 
     @Published var isLoggedin = true
     
-    public let socialIdentityStepCount = 3
+    static let socialIdentityStepCount: CGFloat = 3.0
     
     private (set) var handle = {
         if let handle = UserDefaults.standard.object(forKey: "handle") {

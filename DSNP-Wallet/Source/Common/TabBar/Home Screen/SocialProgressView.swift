@@ -60,8 +60,8 @@ struct SocialProgressView: View {
     
     private var taskIndicatorStack: some View {
         VStack {
-            IdentityProgressItem(title: "Set Avatar", isComplete: viewModel.isAvatarCreated())
-            IdentityProgressItem(title: "Backup Seed Phrase", isComplete: viewModel.isSeedBackedUp())
+            IdentityProgressItem(title: "Set Avatar", isComplete: viewModel.didCreateAvatar)
+            IdentityProgressItem(title: "Backup Seed Phrase", isComplete: viewModel.isSeedBackedUp)
             IdentityProgressItem(title: "Choose a handle", isComplete: viewModel.isHandleChosen())
         }
     }
