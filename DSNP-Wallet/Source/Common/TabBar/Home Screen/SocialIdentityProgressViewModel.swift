@@ -10,11 +10,11 @@ import SwiftUI
 
 class SocialIdentityViewModel: ObservableObject {
 
-    let totalStepsCount: Int = SocialIdentityProgressState.numberOfSteps
+    let totalStepsCount: Int = AppState.shared.socialIdentityStepCount
 
     @Published var progress: CGFloat = {
-        let stepsAchieved = AppState.shared.socialIdentityProgressState.totalStepsAchieved()
-        return CGFloat(stepsAchieved) / CGFloat(SocialIdentityProgressState.numberOfSteps)
+        let stepsAchieved = AppState.shared.socialIdentityProgressStepsCompleted()
+        return CGFloat(stepsAchieved) / CGFloat(AppState.shared.socialIdentityStepCount)
     }()
     
     @Published var stepsAchieved: Int = {
@@ -22,19 +22,19 @@ class SocialIdentityViewModel: ObservableObject {
     }()
 
     func isAvatarCreated() -> Bool {
-        let avatarCreated = AppState.shared.socialIdentityProgressState.isAvatarCreated
+        let avatarCreated = AppState.shared.didCreateAvatar()
         print("avatar created: ", avatarCreated)
         return avatarCreated
     }
 
     func isHandleChosen() -> Bool {
-        let handleChosen = AppState.shared.socialIdentityProgressState.isHandleCreated
+        let handleChosen = !AppState.shared.handle.isEmpty
         print("handle chosen: ", handleChosen)
         return handleChosen
     }
     
     func isSeedBackedUp() -> Bool {
-        let seedBacked = AppState.shared.socialIdentityProgressState.isSeedPhraseBacked
+        let seedBacked = AppState.shared.didBackupSeedPhrase()
         print("seed backed up: ", seedBacked)
         return seedBacked
     }

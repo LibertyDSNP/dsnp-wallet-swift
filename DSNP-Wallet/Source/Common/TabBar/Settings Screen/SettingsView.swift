@@ -46,7 +46,7 @@ struct SettingsView: View {
     
     private var recoverySection: some View {
         VStack(alignment: .leading) {
-            if !AppState.shared.socialIdentityProgressState.isSeedPhraseBacked {
+            if !AppState.shared.didBackupSeedPhrase() {
                 Text("You have NEVER backed up!")
                     .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)

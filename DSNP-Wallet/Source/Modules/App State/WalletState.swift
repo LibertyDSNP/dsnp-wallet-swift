@@ -31,32 +31,7 @@ import DSNPWallet
 enum AppStateKeys: String {
     case onboardingStateKey = "onboardingState"
     case backedUpSeedPhraseKey = "seedPhraseBackedUp"
-}
-
-struct SocialIdentityProgressState: Codable {
-    var isHandleCreated: Bool = false
-    var isSeedPhraseBacked: Bool = false
-    var isAvatarCreated: Bool = false
-    
-    static let numberOfSteps = 3
-    
-    func totalStepsAchieved() -> Int {
-        var count = 0
-        if isHandleCreated {
-            count += 1
-        }
-        if isSeedPhraseBacked {
-            count += 1
-        }
-        if isAvatarCreated {
-            count += 1
-        }
-        return count
-    }
-    
-    func isComplete() -> Bool {
-        return isHandleCreated && isSeedPhraseBacked && isAvatarCreated
-    }
+    case avatarSetKey = "avatarSet"
 }
 
 class AppState: ObservableObject {
@@ -64,18 +39,8 @@ class AppState: ObservableObject {
     static let shared = AppState()
 
     @Published var isLoggedin = true
-    @Published var hasBackedKeys = false
     
-    @Published var socialIdentityProgressState: SocialIdentityProgressState = {
-        var socialIdProgressState = SocialIdentityProgressState()
-        socialIdProgressState.isHandleCreated = {
-            let handle = UserDefaults.standard.string(forKey: "handle")
-            return handle != nil && !(handle?.isEmpty ?? false)
-        }()
-        
-        socialIdProgressState.isSeedPhraseBacked = UserDefaults.standard.bool(forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
-        return socialIdProgressState
-    }()
+    public let socialIdentityStepCount = 3
     
     private (set) var handle = {
         if let handle = UserDefaults.standard.object(forKey: "handle") {
@@ -107,6 +72,8 @@ class AppState: ObservableObject {
         UserDefaults.standard.set(enabled, forKey: "faceId")
     }
     
+    // MARK: Social Progress State
+    
     func setHandle(handle: String) {
         if !handle.isEmpty {
             UserDefaults.standard.set(handle, forKey: "handle")
@@ -124,20 +91,35 @@ class AppState: ObservableObject {
     func setDidBackupSeedPhrase(backedUp: Bool) {
         UserDefaults.standard.set(backedUp, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
     }
-
-    // MARK: Social Identity
+    
+    func didCreateAvatar() -> Bool {
+        return UserDefaults.standard.bool(forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+    }
+    
+    func setCreateAvatar(created: Bool) {
+        UserDefaults.standard.set(created, forKey: AppStateKeys.avatarSetKey.rawValue)
+    }
     
     func resetSocialProgress() {
         clearHandle()
         setDidBackupSeedPhrase(backedUp: false)
     }
-    
+
     func socialIdentityProgressStepsCompleted() -> Int {
-        return socialIdentityProgressState.totalStepsAchieved()
+        var count = 0
+        if !handle.isEmpty {
+            count += 1
+        }
+        if didBackupSeedPhrase() {
+            count += 1
+        }
+        if didCreateAvatar() {
+            count += 1
+        }
+        return count
     }
     
     func setBackedUp(backedUp: Bool) {
         setDidBackupSeedPhrase(backedUp: backedUp)
-        socialIdentityProgressState.isSeedPhraseBacked = backedUp
     }
 }
