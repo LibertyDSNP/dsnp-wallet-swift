@@ -24,7 +24,8 @@ class HomeViewModel: ObservableObject {
     // App State Settings
     @Published var faceIdEnabled: Bool = AppState.shared.faceIdEnabled()
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
-
+    @Published var seedBackedUp = AppState.shared.didBackupSeedPhrase()
+    
     var shouldShowAlert = false
     var chosenHandle: String?
     
@@ -58,6 +59,13 @@ class HomeViewModel: ObservableObject {
             .sink { [weak self] enabled in
                 AppState.shared.setFaceIdEnabled(enabled: enabled)
                 self?.faceIdEnabled = enabled
+            }
+            .store(in: &cancellables)
+        UserDefaults.standard
+            .publisher(for: \.seedBackedUp)
+            .sink { [weak self] seedBackedUp in
+                guard let self else { return }
+                self.seedBackedUp = seedBackedUp
             }
             .store(in: &cancellables)
     }
