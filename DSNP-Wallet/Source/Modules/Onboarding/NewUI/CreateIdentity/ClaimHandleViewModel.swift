@@ -18,7 +18,15 @@ class ClaimHandleViewModel: ObservableObject {
     var backAction = PassthroughSubject<Void, Never>()
     
     private var cancellables = [AnyCancellable]()
-    private var validCharSet = CharacterSet.alphanumerics
+    
+    // Claim handle field
+    private var validCharSet: CharacterSet = {
+        let charSetAlphaNumerics = CharacterSet.alphanumerics
+        let underscores = CharacterSet(charactersIn: "_")
+        return charSetAlphaNumerics.union(underscores)
+    }()
+    private let minimumStringCount = 4
+    private let maxStringCount = 16
 
     init() {
         setupObservables()
@@ -35,8 +43,13 @@ class ClaimHandleViewModel: ObservableObject {
                         self.validCharSet.contains($0)
                     })
                     
+                    if self.claimHandleText.count > self.maxStringCount {
+                        let index = self.claimHandleText.index(self.claimHandleText.startIndex, offsetBy: self.maxStringCount)
+                        self.claimHandleText = String(self.claimHandleText[..<index])
+                    }
+                    
                     // Upper limit is 16, lower limit is 4
-                    self.nextButtonDisabled = self.claimHandleText.count < 4 || self.claimHandleText.count > 16
+                    self.nextButtonDisabled = self.claimHandleText.count < self.minimumStringCount || self.claimHandleText.count > self.maxStringCount
                 }
             }
             .store(in: &cancellables)
