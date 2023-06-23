@@ -15,6 +15,7 @@ enum ViewControllerFactory: String, CaseIterable {
     case profileViewController
     case keysViewController
     case settingsViewController
+    case enterPinViewController
     case welcomeViewController
     case lookUpDsnpIdViewController
     case createDsnpIdViewController
@@ -34,6 +35,7 @@ enum ViewControllerFactory: String, CaseIterable {
                 .profileViewController,
                 .keysViewController,
                 .settingsViewController,
+                .enterPinViewController,
                 .welcomeViewController,
                 .lookUpDsnpIdViewController,
                 .createDsnpIdViewController,

@@ -10,6 +10,10 @@ import SoraKeystore
 import Security
 import LocalAuthentication
 
+enum AccountKeychainError: Error {
+    case clearAuthorization
+}
+
 //Manages pin and wrapper for SoraKeyStore
 class AccountKeychain {
     static var shared = AccountKeychain()
@@ -46,9 +50,14 @@ class AccountKeychain {
     }
     
     public func clearAuthorization() throws {
-        try? deleteKey()
-        self.accessPin = nil
-        isAuthorized = false
+        do {
+            try deleteKey()
+            self.accessPin = nil
+            isAuthorized = false
+        } catch {
+            throw AccountKeychainError.clearAuthorization
+        }
+        
     }
 }
 
@@ -69,14 +78,14 @@ extension AccountKeychain {
         let objectData: Data? = string?.data(using: .utf8, allowLossyConversion: false)
         if SecItemCopyMatching(query, nil) == noErr {
             if let dictData = objectData {
-                let status = SecItemUpdate(query, NSDictionary(dictionary: [kSecValueData: dictData]))
+                let _ = SecItemUpdate(query, NSDictionary(dictionary: [kSecValueData: dictData]))
             } else {
-                let status = SecItemDelete(query)
+                let _ = SecItemDelete(query)
             }
         } else {
             if let dictData = objectData {
                 query.setValue(dictData, forKey: kSecValueData as String)
-                let status = SecItemAdd(query, nil)
+                let _ = SecItemAdd(query, nil)
             }
         }
     }
