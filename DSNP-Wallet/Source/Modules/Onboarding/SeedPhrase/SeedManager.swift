@@ -15,7 +15,7 @@ class SeedManager {
     static let shared = SeedManager()
     
     let keychainService = "com.unfinished.dsnp-wallet"
-    let keychainAccount = "1625961730"
+    let keychainAccount = "1625961730" //App ID on App Store
         
     func generateMnemonic() -> String? {
         guard let result = generateSeed() else { return nil }
