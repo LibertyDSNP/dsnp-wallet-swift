@@ -148,19 +148,18 @@ struct SettingsView: View {
                     .font(Font(UIFont.Theme.medium(ofSize: 16)))
                     .foregroundColor(.white)
                 Spacer()
-                Button {
-                    viewModel.logoutAction.send()
-                } label: {
-                    ZStack {
-                        Image("logout_outer")
-                            .frame(width: 30, height: 30)
-                        Image("logout_inner")
-                            .frame(width: 30, height: 30)
-                            .padding(.leading, 10)
-                    }
-                    .padding(.trailing, 16)
+                ZStack {
+                    Image("logout_outer")
+                        .frame(width: 30, height: 30)
+                    Image("logout_inner")
+                        .frame(width: 30, height: 30)
+                        .padding(.leading, 10)
                 }
-                .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton)
+                .padding(.trailing, 16)
+            }
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton)
+            .onTapGesture {
+                viewModel.logoutAction.send()
             }
             Divider()
                 .foregroundColor(.white)
