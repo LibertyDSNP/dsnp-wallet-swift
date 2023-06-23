@@ -20,7 +20,11 @@ class ClaimHandleViewModel: ObservableObject {
     private var cancellables = [AnyCancellable]()
     
     // Claim handle field
-    private var validCharSet = CharacterSet.alphanumerics
+    private var validCharSet: CharacterSet = {
+        let charSetAlphaNumerics = CharacterSet.alphanumerics
+        let underscores = CharacterSet(charactersIn: "_")
+        return charSetAlphaNumerics.union(underscores)
+    }()
     private let minimumStringCount = 4
     private let maxStringCount = 16
 
