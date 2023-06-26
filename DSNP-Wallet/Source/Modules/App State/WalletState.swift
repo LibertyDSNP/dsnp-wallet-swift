@@ -24,8 +24,8 @@ class AppState: ObservableObject {
     
     func doKeysExist() -> Bool {
         do {
-            let keys = try DSNPWallet().loadKeys()
-            return keys != nil
+            let keysExist = try AccountKeychain().checkKey()
+            return keysExist
         } catch {
             return false
         }

@@ -143,14 +143,14 @@ struct SettingsView: View {
                 .padding(.leading, -12)
                 .padding(.bottom, 4)
                 .opacity(0.5)
-            HStack {
-                Text("LOG OUT")
-                    .font(Font(UIFont.Theme.medium(ofSize: 16)))
-                    .foregroundColor(.white)
-                Spacer()
-                Button {
-                    viewModel.logoutAction.send()
-                } label: {
+            Button {
+                viewModel.logoutAction.send()
+            } label: {
+                HStack {
+                    Text("LOG OUT")
+                        .font(Font(UIFont.Theme.medium(ofSize: 16)))
+                        .foregroundColor(.white)
+                    Spacer()
                     ZStack {
                         Image("logout_outer")
                             .frame(width: 30, height: 30)
@@ -160,8 +160,8 @@ struct SettingsView: View {
                     }
                     .padding(.trailing, 16)
                 }
-                .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton)
             }
+            .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton)
             Divider()
                 .foregroundColor(.white)
                 .overlay(.white)
