@@ -66,6 +66,7 @@ class HomeViewModel: ObservableObject {
     
     private func logout() {
         appStateLoggedIn = false
+        SeedManager.shared.delete()
         try? AccountKeychain.shared.clearAuthorization()        
     }
     

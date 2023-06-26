@@ -109,4 +109,16 @@ extension SeedManager {
         
         return String(data: retrievedData, encoding: .utf8)
     }
+    
+    func delete() -> OSStatus {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: keychainService,
+            kSecAttrAccount as String: keychainAccount,
+            kSecMatchLimit as String: kSecMatchLimitOne,
+            kSecReturnData as String: true
+        ]
+        
+        return SecItemDelete(query as CFDictionary)
+    }
 }
