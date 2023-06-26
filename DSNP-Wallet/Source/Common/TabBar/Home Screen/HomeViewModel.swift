@@ -71,6 +71,15 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    func seed() -> [String] {
+        if let seedPhrase = SeedManager.shared.fetch() {
+            print("seed: ", seedPhrase)
+            let words = seedPhrase.components(separatedBy: " ")
+            return words
+        }
+        return []
+    }
+    
     func chosenHandleDisplayString() -> String {
         if let chosenHandle { return chosenHandle }
         return AppState.shared.handle

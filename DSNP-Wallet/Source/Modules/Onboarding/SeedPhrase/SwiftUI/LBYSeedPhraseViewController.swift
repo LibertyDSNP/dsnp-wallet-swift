@@ -11,13 +11,15 @@ import Combine
 
 class LBYSeedPhraseViewController: UIHostingController<SeedPhraseView> {
 
-    let testWords = ["Hello", "World", "foo", "bar", "big l", "jay z", "big pun", "eminem", "fat joe", "method man", "red man", "busta"]
     let viewModel: SeedPhraseViewModel
     
     private var cancellables = [AnyCancellable]()
     
     init() {
-        self.viewModel = SeedPhraseViewModel(seedPhraseWords: testWords)
+        let seed = SeedManager.shared.fetch() ?? ""
+        let words = seed.components(separatedBy: " ")
+        self.viewModel = SeedPhraseViewModel(seedPhraseWords: words)
+
         super.init(rootView: SeedPhraseView(viewModel: self.viewModel))
     }
     

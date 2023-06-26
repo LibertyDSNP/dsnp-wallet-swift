@@ -7,7 +7,6 @@
 
 import UIKit
 import Combine
-import DSNPWallet
 
 class AgreeToTermsViewModel: ObservableObject {
     
@@ -27,13 +26,10 @@ class AgreeToTermsViewModel: ObservableObject {
         agreeAction
             .receive(on: RunLoop.main)
             .sink {
-                do {
-                    let _ = try DSNPWallet().createKeys()
-                    AppState.shared.setHandle(handle: self.chosenHandle)
-                } catch {
-                    // TODO: Handle error creating keys
-                    print("error creating keys")
+                if let seed = SeedManager.shared.generateMnemonic() {
+                    SeedManager.shared.save(seed)
                 }
+                AppState.shared.setHandle(handle: self.chosenHandle)
             }
             .store(in: &cancellables)
     }

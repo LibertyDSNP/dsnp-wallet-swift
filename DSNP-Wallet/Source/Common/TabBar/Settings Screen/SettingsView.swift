@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-let testWords = ["Hello", "World", "foo", "bar", "big l", "jay z", "big pun", "eminem", "fat joe", "method man", "red man", "busta"]
-
 struct SettingsView: View {
         
     @ObservedObject var viewModel: HomeViewModel
@@ -56,7 +54,7 @@ struct SettingsView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 16)
             }
-            NavigationLink(destination: SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: testWords))) {
+            NavigationLink(destination: SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: viewModel.seed()))) {
                 Text("Reveal Recovery Phrase")
                     .font(Font(UIFont.Theme.bold(ofSize: 15)))
                     .padding(.vertical, 16)

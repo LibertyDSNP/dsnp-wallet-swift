@@ -194,6 +194,7 @@ struct SeedEmptyPhraseColumnView: View {
 struct SeedPhraseTestView_Previews: PreviewProvider {
 
     static var previews: some View {
+        let testWords = ["Hello", "World", "foo", "bar", "big l", "jay z", "big pun", "eminem", "fat joe", "method man", "red man", "busta"]
         let puzzleElements = testWords.enumerated().map { (index, element) in
             return PuzzleElement(word: element, index: index)
         }
