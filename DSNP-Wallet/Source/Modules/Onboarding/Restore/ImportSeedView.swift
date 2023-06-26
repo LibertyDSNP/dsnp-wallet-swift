@@ -61,10 +61,14 @@ class ImportSeedViewModel: ObservableObject {
             .sink { [weak self] in
                 guard let self else { return }
                 guard SeedManager.shared.getKeypair(mnemonic: self.seedPhraseText) != nil else {
+                    print("could not find that account!")
+                    self.seedPhraseText = ""
+                    self.state = .error
                     return
                     // TODO: Present Error Toast
                 }
                 // TODO: SAVE USER, PRESENT TAB VIEW Controller
+                print("Seed phrase found!")
                 self.user = User(mnemonic: self.seedPhraseText)
             }
             .store(in: &cancellables)
@@ -75,9 +79,9 @@ class ImportSeedViewModel: ObservableObject {
 struct ImportSeedView: View {
     
     @Environment(\.dismiss) var dismiss
-
+    
     @ObservedObject var viewModel: ImportSeedViewModel
-
+    
     @State var homePushed: Bool = false
     
     var body: some View {
@@ -112,7 +116,7 @@ struct ImportSeedView: View {
     }
     
     var seedphraseField: some View {
-        VStack {
+        ZStack {
             if #available(iOS 16.0, *) {
                 TextEditor(text: $viewModel.seedPhraseText)
                     .padding()
@@ -124,10 +128,17 @@ struct ImportSeedView: View {
                     .cornerRadius(15)
                     .background(RoundedRectangle(cornerRadius: 15).fill(Color(uiColor: UIColor.Theme.seedImportBgColor)))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color(uiColor: UIColor.Theme.seedImportBorderColor))
+                        viewModel.state == .error ?
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color(uiColor: UIColor.Theme.importErrorRed))
+                        :
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color(uiColor: UIColor.Theme.seedImportBorderColor))
                     )
                     .padding(.horizontal, 24)
+                if viewModel.state == .error {
+                    errorDescription
+                }
             } else {
                 TextEditor(text: $viewModel.seedPhraseText)
                     .disableAutocorrection(true)
@@ -135,6 +146,14 @@ struct ImportSeedView: View {
                     .frame(height: 220)
                     .border(Color(uiColor: UIColor.Theme.seedImportBorderColor), width: 5)
                     .background(RoundedRectangle(cornerRadius: 15).fill(Color(uiColor: UIColor.Theme.seedImportBgColor)))
+                    .overlay(
+                        viewModel.state == .error ?
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color(uiColor: UIColor.Theme.importErrorRed))
+                        :
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color(uiColor: UIColor.Theme.seedImportBorderColor))
+                    )
                     .padding(.horizontal, 20)
             }
         }
@@ -148,10 +167,21 @@ struct ImportSeedView: View {
             .frame(maxWidth: .infinity, alignment: .center)
     }
     
+    var errorDescription: some View {
+        Text("When you encounter an “Invalid menemonic phrase” Error, you need to check the following:\n\nThe words are separated by a single space.\nThe words should be in the correct order.\nThe words are spelled correctly.")
+            .font(Font(UIFont.Theme.regular(ofSize: 12)))
+            .foregroundColor(.white)
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding(12)
+            .padding(.horizontal, 20)
+    }
+    
     var buttonStack: some View {
         VStack {
             if viewModel.state == .error {
                 errorStateButtons
+                    .padding(.bottom, 14)
             } else {
                 SecondaryButton(title: "Connect") {
                     viewModel.submitAction.send()
@@ -160,7 +190,6 @@ struct ImportSeedView: View {
                 .padding(.bottom, 10)
                 .disabled(viewModel.textfieldDisabled)
             }
-          
             Button {
                 dismiss()
             } label: {
@@ -174,18 +203,28 @@ struct ImportSeedView: View {
     
     var errorStateButtons: some View {
         HStack {
-            SecondaryButton(title: "Try Again") {
+            Button {
                 viewModel.state = .editing
+            } label: {
+                Text("Try Again")
+                    .font(Font(UIFont.Theme.bold(ofSize: 12)))
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 12)
+                    .foregroundColor(.white)
+                    .frame(width: 160, height: 46)
             }
-            .padding(10)
+            .background(Color(uiColor: UIColor.Theme.buttonTeal))
+            .cornerRadius(30)
+            Spacer()
             Button {
                 // Create id
             } label: {
                 Text("Create Identity")
-                    .font(Font(UIFont.Theme.bold(ofSize: 15)))
+                    .font(Font(UIFont.Theme.bold(ofSize: 12)))
                     .padding(.vertical, 16)
                     .padding(.horizontal, 12)
                     .foregroundColor(.white)
+                    .frame(width: 160, height: 46)
                     .overlay(
                         RoundedRectangle(cornerRadius: 30)
                             .stroke(Color(uiColor: UIColor.Theme.primaryTeal))
@@ -194,10 +233,10 @@ struct ImportSeedView: View {
             .background(.clear)
             .cornerRadius(30)
         }
-        .padding(.horizontal, 16)
-        .frame(maxWidth: .infinity)
+        .padding(.horizontal, 24)
     }
 }
+
 
 struct ImportSeedView_Previews: PreviewProvider {
     static var previews: some View {

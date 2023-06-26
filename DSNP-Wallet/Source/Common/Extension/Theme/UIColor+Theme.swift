@@ -42,6 +42,8 @@ extension UIColor {
         static var toDoButtonText: UIColor { return UIColor(red: 203/255, green: 101/255, blue: 69/255, alpha: 1) }
         static var listItemBackground: UIColor { return UIColor(red: 143/255, green: 230/255, blue: 210/255, alpha: 1) }
         static var errorListItemForegroundColor: UIColor { return UIColor(red: 115/255, green: 131/255, blue: 133/255, alpha: 1) }
+        static var importErrorRed: UIColor { return UIColor(red: 239/255, green: 32/255, blue: 19/255, alpha: 1) }
+
     }
 }
 
