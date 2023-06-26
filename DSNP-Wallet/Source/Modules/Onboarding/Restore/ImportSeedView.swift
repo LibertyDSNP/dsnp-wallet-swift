@@ -96,7 +96,7 @@ struct ImportSeedView: View {
             .navigationBarHidden(true)
             .ignoresSafeArea()
         }
-        .statusBarHidden(true)
+        .navigationBarHidden(true)
     }
     
     var headline: some View {
