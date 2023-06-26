@@ -136,6 +136,7 @@ struct ImportSeedView: View {
                                 .stroke(Color(uiColor: UIColor.Theme.seedImportBorderColor))
                     )
                     .padding(.horizontal, 24)
+                    .disabled(viewModel.state == .error)
                 if viewModel.state == .error {
                     errorDescription
                 }
