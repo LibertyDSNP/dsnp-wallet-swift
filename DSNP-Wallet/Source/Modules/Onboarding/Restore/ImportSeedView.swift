@@ -8,11 +8,17 @@
 import SwiftUI
 import Combine
 
+enum ImportSeedState {
+    case error, editing
+}
+
 class ImportSeedViewModel: ObservableObject {
     @Published var seedPhraseText = ""
     
     // View reads from this, changed pending validation on the seed phrase field
     @Published var textfieldDisabled: Bool = true
+    
+    @Published var state: ImportSeedState = .editing
     
     let submitAction = PassthroughSubject<Void, Never>()
 
@@ -93,7 +99,6 @@ struct ImportSeedView: View {
             }
             .background(Color(uiColor: UIColor.Theme.bgTeal))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .navigationBarHidden(true)
             .ignoresSafeArea()
         }
         .navigationBarHidden(true)
@@ -145,12 +150,17 @@ struct ImportSeedView: View {
     
     var buttonStack: some View {
         VStack {
-            SecondaryButton(title: "Connect") {
-                viewModel.submitAction.send()
+            if viewModel.state == .error {
+                errorStateButtons
+            } else {
+                SecondaryButton(title: "Connect") {
+                    viewModel.submitAction.send()
+                }
+                .padding(.horizontal, 40)
+                .padding(.bottom, 10)
+                .disabled(viewModel.textfieldDisabled)
             }
-            .padding(.horizontal, 40)
-            .padding(.bottom, 10)
-            .disabled(viewModel.textfieldDisabled)
+          
             Button {
                 dismiss()
             } label: {
@@ -160,7 +170,32 @@ struct ImportSeedView: View {
                     .underline()
             }
         }
-       
+    }
+    
+    var errorStateButtons: some View {
+        HStack {
+            SecondaryButton(title: "Try Again") {
+                viewModel.state = .editing
+            }
+            .padding(10)
+            Button {
+                // Create id
+            } label: {
+                Text("Create Identity")
+                    .font(Font(UIFont.Theme.bold(ofSize: 15)))
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 12)
+                    .foregroundColor(.white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color(uiColor: UIColor.Theme.primaryTeal))
+                    )
+            }
+            .background(.clear)
+            .cornerRadius(30)
+        }
+        .padding(.horizontal, 16)
+        .frame(maxWidth: .infinity)
     }
 }
 
