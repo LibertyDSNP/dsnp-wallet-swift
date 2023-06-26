@@ -39,11 +39,13 @@ class HomeViewModel: ObservableObject {
     
     private var cancellables = [AnyCancellable]()
     
-    // TODO:
-    var user: User?
+    private(set) public var user: User
+    
+    // TODO
     var updateUserBlock: ((UserFacadeProtocol)->())?
     
-    init() {
+    init(user: User) {
+        self.user = user
         setupObservables()
     }
     
@@ -64,11 +66,7 @@ class HomeViewModel: ObservableObject {
     
     private func logout() {
         appStateLoggedIn = false
-        do {
-            try? AccountKeychain.shared.clearAuthorization()
-        } catch {
-            print("error clearing keys")
-        }
+        try? AccountKeychain.shared.clearAuthorization()        
     }
     
     func seed() -> [String] {

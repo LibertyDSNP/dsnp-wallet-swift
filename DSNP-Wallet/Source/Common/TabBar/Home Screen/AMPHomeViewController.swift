@@ -17,8 +17,8 @@ class AMPHomeViewController: UIHostingController<HomeTabView> {
     
     var chosenHandle: String?
     
-    init(viewModel: HomeViewModel = HomeViewModel(), showCongrats: Bool = false, chosenHandle: String?) {
-        self.viewModel = viewModel
+    init(user: User, showCongrats: Bool = false, chosenHandle: String?) {
+        self.viewModel = HomeViewModel(user: user)
         self.viewModel.chosenHandle = chosenHandle
         super.init(rootView: HomeTabView(viewModel: viewModel, presentAlert: showCongrats))
     }

@@ -172,6 +172,7 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(viewModel: HomeViewModel())
+        let testWords = "quote grocery buzz staff merit patch outdoor depth eight raw rubber once"
+        return SettingsView(viewModel: HomeViewModel(user: User(mnemonic: testWords)))
     }
 }

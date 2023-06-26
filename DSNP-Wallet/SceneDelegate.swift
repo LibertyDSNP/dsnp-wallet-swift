@@ -25,13 +25,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 #if DEBUG
         if AppState.shared.doKeysExist() {
-            rootViewController = AMPHomeViewController(chosenHandle: AppState.shared.handle)
+            // Restore user from persistent store
+            if let storedMnemonic = SeedManager.shared.fetch() {
+                let user = User(mnemonic: storedMnemonic)
+                rootViewController = AMPHomeViewController(user: user, chosenHandle: AppState.shared.handle)
+            }
+            rootViewController = UINavigationController(rootViewController: SignInViewController())
+
         } else {
             rootViewController = UINavigationController(rootViewController: SignInViewController())
         }
 #else
         if AppState.shared.doKeysExist() {
-            rootViewController = AMPHomeViewController(chosenHandle: AppState.shared.handle)
+            if let storedMnemonic = SeedManager.shared.fetch() {
+                let user = User(mnemonic: storedMnemonic)
+                rootViewController = AMPHomeViewController(user: user, chosenHandle: AppState.shared.handle)
+            }
         } else {
             rootViewController = UINavigationController(rootViewController: SignInViewController())
         }

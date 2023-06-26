@@ -17,6 +17,8 @@ class AgreeToTermsViewModel: ObservableObject {
     
     private var cancellables = [AnyCancellable]()
     
+    private(set) public var user: User?
+    
     init(chosenHandle: String) {
         self.chosenHandle = chosenHandle
         setupObservables()
@@ -25,9 +27,11 @@ class AgreeToTermsViewModel: ObservableObject {
     private func setupObservables() {
         agreeAction
             .receive(on: RunLoop.main)
-            .sink {
+            .sink { [weak self] in
+                guard let self else { return }
                 if let seed = SeedManager.shared.generateMnemonic() {
                     SeedManager.shared.save(seed)
+                    self.user = User(mnemonic: seed)
                 }
                 AppState.shared.setHandle(handle: self.chosenHandle)
             }

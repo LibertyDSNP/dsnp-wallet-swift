@@ -10,11 +10,22 @@ import Combine
 
 class ImportSeedViewModel: ObservableObject {
     @Published var seedPhraseText = ""
-
+    
+    // View reads from this, changed pending validation on the seed phrase field
+    @Published var textfieldDisabled: Bool = true
+    
     let submitAction = PassthroughSubject<Void, Never>()
 
     private var cancellables = [AnyCancellable]()
-
+    
+    private var validCharSet: CharacterSet = {
+        let charSetAlphaNumerics = CharacterSet.alphanumerics
+        let spaces = CharacterSet(charactersIn: " ")
+        return charSetAlphaNumerics.union(spaces)
+    }()
+    
+    private(set) public var user: User?
+    
     init() {
         setupObservables()
     }
@@ -24,15 +35,31 @@ class ImportSeedViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .sink { [weak self] inputText in
                 guard let self else { return }
-                //check if the new string contains any invalid characters
-                
+                //check if the text contains any invalid characters
+                if inputText.rangeOfCharacter(from: self.validCharSet.inverted) == nil {
+                    self.seedPhraseText = String(self.seedPhraseText.unicodeScalars.filter {
+                        self.validCharSet.contains($0)
+                    })
+                }
+                self.textfieldDisabled = {
+                    // check number of words
+                    if inputText.components(separatedBy: " ").count > 11 {
+                        return false
+                    }
+                    return true
+                }()
             }
             .store(in: &cancellables)
         
         submitAction
             .sink { [weak self] in
                 guard let self else { return }
-                // TODO: Submit Seedphrase
+                guard SeedManager.shared.getKeypair(mnemonic: self.seedPhraseText) != nil else {
+                    return
+                    // TODO: Present Error Toast
+                }
+                // TODO: SAVE USER, PRESENT TAB VIEW Controller
+                self.user = User(mnemonic: self.seedPhraseText)
             }
             .store(in: &cancellables)
     }
@@ -45,26 +72,31 @@ struct ImportSeedView: View {
 
     @ObservedObject var viewModel: ImportSeedViewModel
 
+    @State var homePushed: Bool = false
+    
     var body: some View {
-        VStack {
-            AmplicaHeadline(withBackButton: true) {
-                dismiss()
+        NavigationView {
+            VStack {
+                AmplicaHeadline(withBackButton: true) {
+                    dismiss()
+                }
+                .padding(.top, 70)
+                headline
+                seedphraseField
+                description
+                    .padding(.horizontal, 30)
+                    .padding(.vertical, 12)
+                buttonStack
+                TermsDisclaimerView(color: .white)
+                    .padding(.bottom, 40)
+                Spacer()
             }
-            .padding(.top, 70)
-            headline
-            seedphraseField
-            description
-                .padding(.horizontal, 30)
-                .padding(.vertical, 12)
-            buttonStack
-            TermsDisclaimerView(color: .white)
-                .padding(.bottom, 40)
-            Spacer()
+            .background(Color(uiColor: UIColor.Theme.bgTeal))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .navigationBarHidden(true)
+            .ignoresSafeArea()
         }
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .navigationBarHidden(true)
-        .ignoresSafeArea()
+        .statusBarHidden(true)
     }
     
     var headline: some View {
@@ -118,6 +150,7 @@ struct ImportSeedView: View {
             }
             .padding(.horizontal, 40)
             .padding(.bottom, 10)
+            .disabled(viewModel.textfieldDisabled)
             Button {
                 dismiss()
             } label: {
@@ -127,6 +160,7 @@ struct ImportSeedView: View {
                     .underline()
             }
         }
+       
     }
 }
 
