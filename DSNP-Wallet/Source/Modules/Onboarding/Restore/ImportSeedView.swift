@@ -21,7 +21,7 @@ class ImportSeedViewModel: ObservableObject {
     @Published var state: ImportSeedState = .editing
     
     let submitAction = PassthroughSubject<Void, Never>()
-
+    
     private var cancellables = [AnyCancellable]()
     
     private var validCharSet: CharacterSet = {

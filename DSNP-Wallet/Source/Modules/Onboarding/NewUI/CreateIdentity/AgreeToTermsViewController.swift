@@ -34,7 +34,18 @@ class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
             .receive(on: RunLoop.main)
             .sink { [weak self] in
                 guard let self else { return }
-                if let user = self.viewModel.user {
+                if let seed = SeedManager.shared.generateMnemonic() {
+//                    let deleteStatus = SeedManager.shared.delete()
+//                    print("delete status, ", deleteStatus)
+
+                    // Check if seed saves successfully
+                    if !self.saveSeed(seed: seed) {
+                        return
+                    }
+
+                    let user = User(mnemonic: seed)
+                    print("new seed phrase: ", seed)
+                    
                     let tabVC = AMPHomeViewController(user: user, showCongrats: true, chosenHandle: self.viewModel.chosenHandle)
                     self.navigationController?.setViewControllers([tabVC], animated:true)
                 }
@@ -47,5 +58,27 @@ class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
                 self.navigationController?.popViewController(animated: true)
             }
             .store(in: &cancellables)
+    }
+    
+    private func saveSeed(seed: String) -> Bool {
+        do {
+            try SeedManager.shared.save(seed)
+            return true
+        } catch let error as SeedManagerError {
+            let alert = UIAlertController(title: "Error Creating Seed Phrase", message: error.errorMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "remove old one", style: .default, handler: { action in
+                do {
+                    try SeedManager.shared.delete()
+                } catch {
+                    print("delete error: \(error)")
+                }
+            }))
+            self.present(alert, animated: true)
+            return false
+        } catch {
+            print(error)
+            return false
+        }
     }
 }
