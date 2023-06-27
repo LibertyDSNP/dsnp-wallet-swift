@@ -69,7 +69,11 @@ class ImportSeedViewModel: ObservableObject {
                 }
                 // TODO: SAVE USER, PRESENT TAB VIEW Controller
                 print("Seed phrase found!")
-                self.user = User(mnemonic: self.seedPhraseText)
+                do {
+                    self.user = try User(mnemonic: self.seedPhraseText)
+                } catch {
+                    // TODO: Error Handling
+                }
             }
             .store(in: &cancellables)
     }

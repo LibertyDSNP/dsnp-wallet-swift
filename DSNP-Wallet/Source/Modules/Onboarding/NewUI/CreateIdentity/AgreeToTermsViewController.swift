@@ -35,19 +35,21 @@ class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
             .sink { [weak self] in
                 guard let self else { return }
                 if let seed = SeedManager.shared.generateMnemonic() {
-//                    let deleteStatus = SeedManager.shared.delete()
-//                    print("delete status, ", deleteStatus)
-
                     // Check if seed saves successfully
                     if !self.saveSeed(seed: seed) {
+                        // TODO: Handle Error
                         return
                     }
 
-                    let user = User(mnemonic: seed)
-                    print("new seed phrase: ", seed)
-                    
-                    let tabVC = AMPHomeViewController(user: user, showCongrats: true, chosenHandle: self.viewModel.chosenHandle)
-                    self.navigationController?.setViewControllers([tabVC], animated:true)
+                    do {
+                        let user = try User(mnemonic: seed)
+                        print("new seed phrase: ", seed)
+                        
+                        let tabVC = AMPHomeViewController(user: user, showCongrats: true, chosenHandle: self.viewModel.chosenHandle)
+                        self.navigationController?.setViewControllers([tabVC], animated:true)
+                    } catch {
+                        // TODO: Handle Error
+                    }
                 }
             }
             .store(in: &cancellables)

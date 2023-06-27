@@ -11,6 +11,12 @@ import SoraKeystore
 import IrohaCrypto
 import SubstrateSdk
 
+enum UserError: Error {
+    case keypairDeriveError
+    case keychainSaveError
+    case setSignerError
+}
+
 protocol UserFacadeProtocol: AnyObject  {
     var publicKey: IRPublicKeyProtocol? { get }
 
@@ -26,13 +32,25 @@ class User: UserFacadeProtocol {
     
     private(set) var name: String?
     private(set) var signer: SigningWrapper?
-    
-    init(mnemonic: String) {
-        guard let keyPair = SeedManager.shared.getKeypair(mnemonic: mnemonic) else { return }
+
+    init(mnemonic: String) throws {
+        guard let keyPair = SeedManager.shared.getKeypair(mnemonic: mnemonic) else {
+            throw UserError.keypairDeriveError
+        }
   
-        try? AccountKeychain.shared.save(secretKey: keyPair.privateKey().rawData())
+        do {
+            try AccountKeychain.shared.save(secretKey: keyPair.privateKey().rawData())
+        } catch {
+            throw UserError.keychainSaveError
+        }
+        
         self.publicKey = keyPair.publicKey()
-        try? setSigner(publicKeyData: self.publicKey?.rawData())
+        
+        do {
+            try setSigner(publicKeyData: self.publicKey?.rawData())
+        } catch {
+            throw UserError.setSignerError
+        }
     }
     
     func set(_ name: String) {

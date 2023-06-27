@@ -71,6 +71,7 @@ struct MainTabView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         let testWords = "quote grocery buzz staff merit patch outdoor depth eight raw rubber once"
-        return HomeTabView(viewModel: HomeViewModel(user: User(mnemonic: testWords)))
+        let user = try! User(mnemonic: testWords)
+        return HomeTabView(viewModel: HomeViewModel(user: user))
     }
 }

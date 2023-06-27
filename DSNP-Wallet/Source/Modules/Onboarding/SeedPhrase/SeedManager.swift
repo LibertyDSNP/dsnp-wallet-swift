@@ -132,38 +132,17 @@ extension SeedManager {
     }
     
     func delete() throws {
-        
-        let accessControlError = UnsafeMutablePointer<Unmanaged<CFError>?>.allocate(capacity: 1)
-        defer {
-            accessControlError.deallocate()
-        }
-        
-        guard let accessControl = SecAccessControlCreateWithFlags(
-            kCFAllocatorDefault,
-            kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
-            .userPresence,
-            accessControlError
-        ) else {
-            if let error = accessControlError.pointee?.takeRetainedValue() {
-                throw SeedManagerError.accessControlError(message: error.localizedDescription)
-            } else {
-                throw SeedManagerError.unknownAccessControlError
-            }
-        }
-        
         let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: keychainService,
             kSecAttrAccount as String: keychainAccount,
-            kSecAttrAccessControl as String: accessControl,
-            kSecMatchLimit as String: kSecMatchLimitOne,
-            kSecReturnData as String: true
+            kSecClass as String: kSecClassGenericPassword
         ]
-        
+
         let status = SecItemDelete(query as CFDictionary)
-        
+
         guard status == errSecSuccess else {
             throw SeedManagerError.genericErrorWithStatus(status: status)
         }
     }
+
 }
