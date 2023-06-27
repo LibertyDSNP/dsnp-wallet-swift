@@ -30,7 +30,7 @@ class ImportSeedViewModel: ObservableObject {
         return charSetAlphaNumerics.union(spaces)
     }()
     
-    private(set) public var user: User?
+    @Published var user: User?
     
     init() {
         setupObservables()
