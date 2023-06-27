@@ -24,7 +24,7 @@ struct ClaimHandleView: View {
                 textfield
                     .padding(.horizontal, 10)
                 handleDescription
-                buttonStack
+                nextButton
                     .padding(.horizontal, 10)
                     .padding(.vertical, 4)
             }
@@ -95,30 +95,11 @@ struct ClaimHandleView: View {
             .padding(.vertical, 4)
     }
 
-    private var buttonStack: some View {
-        VStack {
-            nextButton
-            skipButton
-        }
-    }
-    
     private var nextButton: some View {
         PrimaryButton(title: "Next") {
             viewModel.nextAction.send()
         }
         .disabled(viewModel.nextButtonDisabled)
-        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
-    }
-    
-    private var skipButton: some View {
-        Button {
-            viewModel.skipAction.send()
-        } label: {
-            Text("Skip for now (Not Recommended)")
-                .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
-                .font(Font(UIFont.Theme.regular(ofSize: 10)))
-                .underline()
-        }
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
     }
 }

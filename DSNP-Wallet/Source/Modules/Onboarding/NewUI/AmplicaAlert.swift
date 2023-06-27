@@ -34,7 +34,7 @@ enum AlertType {
     func secondaryActionText() -> String {
         switch self {
         case .congrats:
-            return "Skip for now (Not Recommended)"
+            return ""
         }
     }
     
