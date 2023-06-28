@@ -160,9 +160,7 @@ struct ImportSeedView: View {
             .background(Color(uiColor: UIColor.Theme.buttonTeal))
             .cornerRadius(30)
             Spacer()
-            Button {
-                // Create id
-            } label: {
+            NavigationLink(destination: ClaimHandleView(viewModel: ClaimHandleViewModel())) {
                 Text("Create Identity")
                     .font(Font(UIFont.Theme.bold(ofSize: 12)))
                     .padding(.vertical, 16)

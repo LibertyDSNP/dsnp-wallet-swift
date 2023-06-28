@@ -29,6 +29,7 @@ struct ClaimHandleView: View {
                     .padding(.vertical, 4)
             }
         }
+        .navigationBarHidden(true)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
