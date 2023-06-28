@@ -45,13 +45,6 @@ class ClaimHandleViewController: UIHostingController<ClaimHandleView> {
                 self.navigationController?.pushViewController(agreeVC, animated: true)
             }
             .store(in: &cancellables)
-        viewModel.backAction
-            .receive(on: RunLoop.main)
-            .sink { [weak self] in
-                guard let self else { return }
-                self.navigationController?.popViewController(animated: true)
-            }
-            .store(in: &cancellables)
     }
     
 }

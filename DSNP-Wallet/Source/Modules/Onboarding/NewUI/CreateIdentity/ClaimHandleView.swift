@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ClaimHandleView: View {
+
     @ObservedObject var viewModel: ClaimHandleViewModel
-    
+
+    @Environment(\.dismiss) var dismiss
     @FocusState private var textfieldFocused: Bool
 
     var body: some View {
         VStack {
             AmplicaHeadline(withBackButton: true) {
-                viewModel.backAction.send()
+                dismiss()
             }
             BaseRoundView {
                 stepCount
