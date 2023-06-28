@@ -13,6 +13,7 @@ enum ImportSeedState {
 }
 
 class ImportSeedViewModel: ObservableObject {
+    /// Seed Phrase Text
     @Published var seedPhraseText = ""
     
     // View reads from this, changed pending validation on the seed phrase field
@@ -21,6 +22,10 @@ class ImportSeedViewModel: ObservableObject {
     @Published var state: ImportSeedState = .editing
     @Published var shouldPush: Int? = 0
     
+    // User created from seed phrase
+    @Published var user: User?
+    
+    // Actions
     let submitAction = PassthroughSubject<Void, Never>()
     
     private var cancellables = [AnyCancellable]()
@@ -30,8 +35,6 @@ class ImportSeedViewModel: ObservableObject {
         let spaces = CharacterSet(charactersIn: " ")
         return charSetAlphaNumerics.union(spaces)
     }()
-    
-    @Published var user: User?
     
     init() {
         setupObservables()
