@@ -32,6 +32,7 @@ struct HomeTabView: View {
                     }
                 }
             }
+            .navigationBarHidden(true)
         } else {
             SignInViewControllerWrapper()
         }

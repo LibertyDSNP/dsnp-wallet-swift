@@ -39,12 +39,12 @@ class HomeViewModel: ObservableObject {
     
     private var cancellables = [AnyCancellable]()
     
-    private(set) public var user: User
+    private(set) public var user: User?
     
     // TODO
     var updateUserBlock: ((UserFacadeProtocol)->())?
     
-    init(user: User) {
+    init(user: User?) {
         self.user = user
         setupObservables()
     }

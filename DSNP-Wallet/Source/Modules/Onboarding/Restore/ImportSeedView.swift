@@ -19,13 +19,14 @@ class ImportSeedViewModel: ObservableObject {
     @Published var textfieldDisabled: Bool = true
     
     @Published var state: ImportSeedState = .editing
+    @Published var shouldPush: Int? = 0
     
     let submitAction = PassthroughSubject<Void, Never>()
     
     private var cancellables = [AnyCancellable]()
     
     private var validCharSet: CharacterSet = {
-        let charSetAlphaNumerics = CharacterSet.alphanumerics
+        let charSetAlphaNumerics = CharacterSet.letters
         let spaces = CharacterSet(charactersIn: " ")
         return charSetAlphaNumerics.union(spaces)
     }()
@@ -56,8 +57,8 @@ class ImportSeedViewModel: ObservableObject {
                 }()
             }
             .store(in: &cancellables)
-        
         submitAction
+            .receive(on: RunLoop.main)
             .sink { [weak self] in
                 guard let self else { return }
                 guard SeedManager.shared.getKeypair(mnemonic: self.seedPhraseText) != nil else {
@@ -71,6 +72,7 @@ class ImportSeedViewModel: ObservableObject {
                 print("Seed phrase found!")
                 do {
                     self.user = try User(mnemonic: self.seedPhraseText)
+                    self.shouldPush = 1
                 } catch {
                     // TODO: Error Handling
                 }
@@ -85,8 +87,6 @@ struct ImportSeedView: View {
     @Environment(\.dismiss) var dismiss
     
     @ObservedObject var viewModel: ImportSeedViewModel
-    
-    @State var homePushed: Bool = false
     
     var body: some View {
         NavigationView {
@@ -109,6 +109,7 @@ struct ImportSeedView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .ignoresSafeArea()
         }
+        .ignoresSafeArea()
         .navigationBarHidden(true)
     }
     
@@ -133,11 +134,11 @@ struct ImportSeedView: View {
                     .background(RoundedRectangle(cornerRadius: 15).fill(Color(uiColor: UIColor.Theme.seedImportBgColor)))
                     .overlay(
                         viewModel.state == .error ?
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color(uiColor: UIColor.Theme.importErrorRed))
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color(uiColor: UIColor.Theme.importErrorRed))
                         :
                             RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color(uiColor: UIColor.Theme.seedImportBorderColor))
+                            .stroke(Color(uiColor: UIColor.Theme.seedImportBorderColor))
                     )
                     .padding(.horizontal, 24)
                     .disabled(viewModel.state == .error)
@@ -153,11 +154,11 @@ struct ImportSeedView: View {
                     .background(RoundedRectangle(cornerRadius: 15).fill(Color(uiColor: UIColor.Theme.seedImportBgColor)))
                     .overlay(
                         viewModel.state == .error ?
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color(uiColor: UIColor.Theme.importErrorRed))
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color(uiColor: UIColor.Theme.importErrorRed))
                         :
                             RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color(uiColor: UIColor.Theme.seedImportBorderColor))
+                            .stroke(Color(uiColor: UIColor.Theme.seedImportBorderColor))
                     )
                     .padding(.horizontal, 20)
             }
@@ -188,12 +189,25 @@ struct ImportSeedView: View {
                 errorStateButtons
                     .padding(.bottom, 14)
             } else {
-                SecondaryButton(title: "Connect") {
-                    viewModel.submitAction.send()
+                NavigationLink(destination: HomeTabView(viewModel: HomeViewModel(user: viewModel.user)), tag: 1, selection: $viewModel.shouldPush) {
+                    Text("Connect")
+                        .font(Font(UIFont.Theme.bold(ofSize: 15)))
+                        .padding(.vertical, 16)
+                        .padding(.horizontal, 12)
+                        .foregroundColor(!viewModel.textfieldDisabled ? .white : Color(uiColor: UIColor.Theme.bgTeal))
                 }
+                .frame(maxWidth: .infinity)
+                .background(viewModel.textfieldDisabled ? Color(uiColor: UIColor.Theme.bgGray) : Color(uiColor: UIColor.Theme.buttonTeal))
+                .foregroundColor(.white)
+                .cornerRadius(30)
                 .padding(.horizontal, 40)
                 .padding(.bottom, 10)
-                .disabled(viewModel.textfieldDisabled)
+                .disabled(viewModel.shouldPush != 1)
+                .onTapGesture {
+                    if !viewModel.textfieldDisabled {
+                        viewModel.submitAction.send()
+                    }
+                }
             }
             Button {
                 dismiss()
