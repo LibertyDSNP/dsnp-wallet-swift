@@ -471,6 +471,7 @@
 		B5D382C32A26483D0086A05D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C22A26483D0086A05D /* HomeViewModel.swift */; };
 		B5D382C52A26484F0086A05D /* AMPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */; };
 		B5E044F12A3CAB9F00126EC5 /* ImportSeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E044F02A3CAB9F00126EC5 /* ImportSeedView.swift */; };
+		B5E044F72A4C984400126EC5 /* ImportSeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E044F62A4C984400126EC5 /* ImportSeedViewModel.swift */; };
 		B5F74EFF2A1679440046DE15 /* AccessiblityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */; };
 /* End PBXBuildFile section */
 
@@ -972,6 +973,7 @@
 		B5D382C22A26483D0086A05D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B5D382C42A26484F0086A05D /* AMPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPHomeViewController.swift; sourceTree = "<group>"; };
 		B5E044F02A3CAB9F00126EC5 /* ImportSeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSeedView.swift; sourceTree = "<group>"; };
+		B5E044F62A4C984400126EC5 /* ImportSeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSeedViewModel.swift; sourceTree = "<group>"; };
 		B5F74EFE2A1679440046DE15 /* AccessiblityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessiblityIdentifiers.swift; sourceTree = "<group>"; };
 		D2F1B54EBFB7A842A4C54424 /* Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSNP-Wallet-DSNP-WalletUITests/Pods-DSNP-Wallet-DSNP-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9BC478280BF005A5C23EF4 /* Pods_DSNP_Wallet_DSNP_WalletUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSNP_Wallet_DSNP_WalletUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2198,6 +2200,7 @@
 			isa = PBXGroup;
 			children = (
 				B5E044F02A3CAB9F00126EC5 /* ImportSeedView.swift */,
+				B5E044F62A4C984400126EC5 /* ImportSeedViewModel.swift */,
 			);
 			path = Restore;
 			sourceTree = "<group>";
@@ -2735,6 +2738,7 @@
 				825E4F152A421D2400C56BEE /* SeedManager.swift in Sources */,
 				82996396297A13CF009A769F /* ExtrinsicService.swift in Sources */,
 				829968DF297B721C009A769F /* DataProviderChange+Result.swift in Sources */,
+				B5E044F72A4C984400126EC5 /* ImportSeedViewModel.swift in Sources */,
 				829964D4297A17F4009A769F /* UserAPI.swift in Sources */,
 				82D16325299D57F100536349 /* ChainModelMapper.swift in Sources */,
 				B5D382C52A26484F0086A05D /* AMPHomeViewController.swift in Sources */,
