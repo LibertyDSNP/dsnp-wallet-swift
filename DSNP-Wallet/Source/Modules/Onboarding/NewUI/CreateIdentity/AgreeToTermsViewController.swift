@@ -43,7 +43,6 @@ class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
 
                     do {
                         let user = try User(mnemonic: seed)
-                        print("new seed phrase: ", seed)
                         
                         let tabVC = AMPHomeViewController(user: user, showCongrats: true, chosenHandle: self.viewModel.chosenHandle)
                         self.navigationController?.setViewControllers([tabVC], animated:true)
@@ -77,10 +76,9 @@ class AgreeToTermsViewController: UIHostingController<AgreeToTermsView> {
                 }
             }))
             self.present(alert, animated: true)
-            return false
         } catch {
             print(error)
-            return false
         }
+        return false
     }
 }

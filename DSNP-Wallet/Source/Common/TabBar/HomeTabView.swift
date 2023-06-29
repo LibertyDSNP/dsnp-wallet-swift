@@ -43,9 +43,11 @@ struct MainTabView: View {
 
     @ObservedObject var viewModel: HomeViewModel
     
+    @AppStorage("handle") var handle = UserDefaults.getHandle()
+
     var body: some View {
         TabView {
-            AMPProfileView(viewModel: AMPHomeViewModel(chosenHandle: viewModel.chosenHandleDisplayString()))
+            AMPProfileView(viewModel: AMPHomeViewModel(chosenHandle: handle))
                 .tabItem {
                     AmpTabItem(title: "Home", tabImageName: "home")
                 }

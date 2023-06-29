@@ -69,6 +69,7 @@ class HomeViewModel: ObservableObject {
         appStateLoggedIn = false
         do {
             try SeedManager.shared.delete()
+            UserDefaults.setHandle(with: "")
         } catch {
             print("error: \(error)")
         }
@@ -77,7 +78,6 @@ class HomeViewModel: ObservableObject {
     
     func seed() -> [String] {
         if let seedPhrase = SeedManager.shared.fetch() {
-            print("seed: ", seedPhrase)
             let words = seedPhrase.components(separatedBy: " ")
             return words
         }

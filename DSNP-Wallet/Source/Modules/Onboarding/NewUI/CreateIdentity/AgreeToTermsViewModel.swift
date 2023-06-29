@@ -28,7 +28,7 @@ class AgreeToTermsViewModel: ObservableObject {
             .sink { [weak self] in
                 guard let self else { return }
                 AppState.shared.isLoggedin = true
-                AppState.shared.setHandle(handle: self.chosenHandle)
+                UserDefaults.setHandle(with: self.chosenHandle)
             }
             .store(in: &cancellables)
     }

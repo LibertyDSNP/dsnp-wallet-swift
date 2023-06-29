@@ -65,22 +65,19 @@ class ImportSeedViewModel: ObservableObject {
             .sink { [weak self] in
                 guard let self else { return }
                 guard SeedManager.shared.getKeypair(mnemonic: self.seedPhraseText) != nil else {
-                    print("could not find that account!")
                     self.seedPhraseText = ""
                     self.state = .error
                     return
                     // TODO: Present Error Toast
                 }
-                // TODO: SAVE USER, PRESENT TAB VIEW Controller
-                print("Seed phrase found!")
                 do {
                     try SeedManager.shared.save(self.seedPhraseText)
                     self.user = try User(mnemonic: self.seedPhraseText)
                     self.shouldPush = 1
                     AppState.shared.isLoggedin = true
+                    UserDefaults.setHandle(with: "")
                 } catch {
                     print("Mnemonic/User Error: ", error)
-                    // TODO: Error Handling
                 }
             }
             .store(in: &cancellables)
