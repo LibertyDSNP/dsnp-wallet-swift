@@ -77,7 +77,9 @@ class ImportSeedViewModel: ObservableObject {
                     try SeedManager.shared.save(self.seedPhraseText)
                     self.user = try User(mnemonic: self.seedPhraseText)
                     self.shouldPush = 1
+                    AppState.shared.isLoggedin = true
                 } catch {
+                    print("Mnemonic/User Error: ", error)
                     // TODO: Error Handling
                 }
             }

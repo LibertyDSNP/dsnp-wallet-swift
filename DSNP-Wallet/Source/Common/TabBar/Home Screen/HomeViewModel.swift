@@ -65,13 +65,14 @@ class HomeViewModel: ObservableObject {
     }
     
     private func logout() {
+        AppState.shared.isLoggedin = false
         appStateLoggedIn = false
         do {
             try SeedManager.shared.delete()
         } catch {
             print("error: \(error)")
         }
-        try? AccountKeychain.shared.clearAuthorization()        
+        try? AccountKeychain.shared.clearAuthorization()
     }
     
     func seed() -> [String] {

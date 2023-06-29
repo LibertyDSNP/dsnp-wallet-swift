@@ -45,6 +45,7 @@ struct SignInView: View {
             )
             .background(Color(uiColor: UIColor.Theme.bgTeal))
         }
+        .navigationBarHidden(true)
     }
     
     var subtitle: some View {
