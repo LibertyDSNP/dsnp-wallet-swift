@@ -74,6 +74,7 @@ class ImportSeedViewModel: ObservableObject {
                 // TODO: SAVE USER, PRESENT TAB VIEW Controller
                 print("Seed phrase found!")
                 do {
+                    try SeedManager.shared.save(self.seedPhraseText)
                     self.user = try User(mnemonic: self.seedPhraseText)
                     self.shouldPush = 1
                 } catch {
