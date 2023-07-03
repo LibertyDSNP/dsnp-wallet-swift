@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ConfirmHandleView: View {
     @ObservedObject var viewModel: ConfirmHandleViewModel
-    
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         VStack {
             AmplicaHeadline(withBackButton: true) {
-                viewModel.backAction.send()
+                dismiss()
             }
             BaseRoundView {
                 stepCount
@@ -25,6 +26,7 @@ struct ConfirmHandleView: View {
                 suffixDescription
             }
         }
+        .navigationBarHidden(true)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -66,9 +68,19 @@ struct ConfirmHandleView: View {
     }
 
     private var nextButton: some View {
-        PrimaryButton(title: "Next") {
-            viewModel.nextAction.send()
+        NavigationLink(destination: AgreeToTermsView(viewModel: AgreeToTermsViewModel(chosenHandle: viewModel.chosenHandle))) {
+            Text("Next")
+                .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                .padding(.vertical, 16)
+                .padding(.horizontal, 34)
+                .foregroundColor(.white)
         }
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor.Theme.buttonTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+        .padding(.vertical, 10)
+        .padding(.horizontal, 34)
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.confirmHandleButton)
     }
     

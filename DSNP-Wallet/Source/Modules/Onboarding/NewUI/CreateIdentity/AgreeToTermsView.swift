@@ -9,12 +9,14 @@ import SwiftUI
 
 struct AgreeToTermsView: View {
     
-    let viewModel: AgreeToTermsViewModel
+    @ObservedObject var viewModel: AgreeToTermsViewModel
+
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         VStack {
             AmplicaHeadline(withBackButton: true) {
-                viewModel.backAction.send()
+                dismiss()
             }
             BaseRoundView {
                 stepCount
@@ -28,6 +30,7 @@ struct AgreeToTermsView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .navigationBarHidden(true)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -92,10 +95,23 @@ struct AgreeToTermsView: View {
     }
     
     private var agreeButton: some View {
-        PrimaryButton(title: "Agree") {
-            viewModel.agreeAction.send()
+        NavigationLink(destination: HomeTabView(viewModel: HomeViewModel(user: viewModel.user)), tag: 1, selection: $viewModel.shouldPush) {
+            Text("Agree")
+                .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                .padding(.vertical, 16)
+                .padding(.horizontal, 34)
+                .foregroundColor(.white)
         }
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor.Theme.buttonTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+        .padding(.vertical, 10)
+        .padding(.horizontal, 34)
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.agreeButton)
+        .simultaneousGesture(TapGesture().onEnded {
+            viewModel.agreeAction.send()
+        })
     }
 }
 

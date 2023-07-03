@@ -99,11 +99,21 @@ struct ClaimHandleView: View {
     }
 
     private var nextButton: some View {
-        PrimaryButton(title: "Next") {
-            viewModel.nextAction.send()
+        NavigationLink(destination: ConfirmHandleView(viewModel: ConfirmHandleViewModel(chosenHandle: viewModel.claimHandleText))) {
+            Text("Next")
+                .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                .padding(.vertical, 16)
+                .padding(.horizontal, 34)
+                .foregroundColor(.white)
         }
-        .disabled(viewModel.nextButtonDisabled)
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor.Theme.buttonTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+        .padding(.vertical, 10)
+        .padding(.horizontal, 34)
+        .disabled(viewModel.nextButtonDisabled)
     }
 }
 

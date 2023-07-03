@@ -24,14 +24,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var rootViewController: UIViewController?
         
 #if DEBUG
-        rootViewController = BaseViewController()
+        if let storedMnemonic = SeedManager.shared.fetch() {
+            do {
+                let user = try User(mnemonic: storedMnemonic)
+                rootViewController = AMPHomeViewController(user: user, chosenHandle: AppState.shared.handle)
+            } catch {
+                rootViewController = SignInViewController()
+            }
+        } else {
+            rootViewController = UINavigationController(rootViewController: SignInViewController())
+        }
 #else
         if let storedMnemonic = SeedManager.shared.fetch() {
             do {
                 let user = try User(mnemonic: storedMnemonic)
                 rootViewController = AMPHomeViewController(user: user, chosenHandle: AppState.shared.handle)
             } catch {
-                rootViewController = UINavigationController(rootViewController: SignInViewController())
+                rootViewController = SignInViewController()
             }
         } else {
             rootViewController = UINavigationController(rootViewController: SignInViewController())

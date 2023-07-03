@@ -49,29 +49,50 @@ struct SignInView: View {
     
     var buttonContainer: some View {
         VStack {
-            PrimaryButton(title: "Create Identity", action: {
-                viewModel.createIdentityAction.send()
-            })
-            .padding(.vertical, 12)
-            .padding(.horizontal, 34)
-            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createNewUserButton)
-            PrimaryButton(title: "I have an ID", action: {
-                viewModel.meWeIdAction.send()
-            }, suffixImage: Image("mewelogo"))
-            .padding(.vertical, 12)
-            .padding(.horizontal, 34)
-            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
-            NavigationLink(destination: ImportSeedView(viewModel: ImportSeedViewModel())) {
-                Text("Restore Account")
-                    .foregroundColor(.white)
-                    .font(Font(UIFont.Theme.regular(ofSize: 14)))
-                    .underline()
-            }
-            .padding(.vertical, 12)
-            .padding(.horizontal, 34)
-            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.restoreUserButton)
+            createIdentityButton
+            haveAnIdButton
+            restoreButton
         }
         .frame(maxWidth: .infinity)
+    }
+    
+    var restoreButton: some View {
+        NavigationLink(destination: ImportSeedView(viewModel: ImportSeedViewModel())) {
+            Text("Restore Account")
+                .foregroundColor(.white)
+                .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                .underline()
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal, 34)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.restoreUserButton)
+
+    }
+    
+    var haveAnIdButton: some View {
+        PrimaryButton(title: "I have an ID", action: {
+            viewModel.meWeIdAction.send()
+        }, suffixImage: Image("mewelogo"))
+        .padding(.vertical, 12)
+        .padding(.horizontal, 34)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
+    }
+    
+    var createIdentityButton: some View {
+        NavigationLink(destination: ClaimHandleView(viewModel: ClaimHandleViewModel())) {
+            Text("Create Identity")
+                .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                .padding(.vertical, 16)
+                .padding(.horizontal, 34)
+                .foregroundColor(.white)
+        }
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createNewUserButton)
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor.Theme.buttonTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+        .padding(.vertical, 10)
+        .padding(.horizontal, 34)
     }
 }
 

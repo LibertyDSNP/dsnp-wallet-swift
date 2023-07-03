@@ -13,25 +13,26 @@ struct ImportSeedView: View {
     
     @ObservedObject var viewModel: ImportSeedViewModel
     
+    @FocusState private var focusedField: Bool
+    
     var body: some View {
-        NavigationView {
-            VStack {
-                AmplicaHeadline(withBackButton: true) {
-                    dismiss()
-                }
-                headline
-                seedphraseField
-                description
-                    .padding(.horizontal, 30)
-                    .padding(.vertical, 12)
-                buttonStack
-                TermsDisclaimerView(color: .white)
-                    .padding(.bottom, 40)
-                Spacer()
+        VStack {
+            AmplicaHeadline(withBackButton: true) {
+                dismiss()
             }
-            .background(Color(uiColor: UIColor.Theme.bgTeal))
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.top, 70)
+            headline
+            seedphraseField
+            description
+                .padding(.horizontal, 30)
+                .padding(.vertical, 12)
+            buttonStack
+            TermsDisclaimerView(color: .white)
+                .padding(.bottom, 40)
+            Spacer()
         }
+        .background(Color(uiColor: UIColor.Theme.bgTeal))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .navigationBarHidden(true)
     }
@@ -65,6 +66,7 @@ struct ImportSeedView: View {
                     )
                     .padding(.horizontal, 24)
                     .disabled(viewModel.state == .error)
+                    .focused($focusedField)
                 if viewModel.state == .error {
                     errorDescription
                 }
@@ -112,35 +114,44 @@ struct ImportSeedView: View {
                 errorStateButtons
                     .padding(.bottom, 14)
             } else {
-                NavigationLink(destination: HomeTabView(viewModel: HomeViewModel(user: viewModel.user)), tag: 1, selection: $viewModel.shouldPush) {
-                    Text("Connect")
-                        .font(Font(UIFont.Theme.bold(ofSize: 15)))
-                        .padding(.vertical, 16)
-                        .padding(.horizontal, 12)
-                        .foregroundColor(!viewModel.textfieldDisabled ? .white : Color(uiColor: UIColor.Theme.bgTeal))
-                }
-                .frame(maxWidth: .infinity)
-                .background(viewModel.textfieldDisabled ? Color(uiColor: UIColor.Theme.bgGray) : Color(uiColor: UIColor.Theme.buttonTeal))
-                .foregroundColor(.white)
-                .cornerRadius(30)
-                .padding(.horizontal, 40)
-                .padding(.bottom, 10)
-                .disabled(viewModel.shouldPush != 1)
-                .onTapGesture {
-                    if !viewModel.textfieldDisabled {
-                        viewModel.submitAction.send()
-                    }
-                }
+                connectButton
             }
-            Button {
-                dismiss()
-            } label: {
-                Text("Cancel")
-                    .foregroundColor(.white)
-                    .font(Font(UIFont.Theme.regular(ofSize: 14)))
-                    .underline()
-            }
+            cancelButton
         }
+    }
+    
+    var cancelButton: some View {
+        Button {
+            dismiss()
+        } label: {
+            Text("Cancel")
+                .foregroundColor(.white)
+                .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                .underline()
+        }
+    }
+    
+    var connectButton: some View {
+        NavigationLink(destination: HomeTabView(viewModel: HomeViewModel(user: viewModel.user)), tag: 1, selection: $viewModel.shouldPush) {
+            Text("Connect")
+                .font(Font(UIFont.Theme.bold(ofSize: 15)))
+                .padding(.vertical, 16)
+                .padding(.horizontal, 12)
+                .foregroundColor(!viewModel.textfieldDisabled ? .white : Color(uiColor: UIColor.Theme.bgTeal))
+        }
+        .frame(maxWidth: .infinity)
+        .background(viewModel.textfieldDisabled ? Color(uiColor: UIColor.Theme.bgGray) : Color(uiColor: UIColor.Theme.buttonTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+        .padding(.horizontal, 40)
+        .padding(.bottom, 10)
+        .disabled(viewModel.shouldPush != 1)
+        .simultaneousGesture(TapGesture().onEnded {
+            if !viewModel.textfieldDisabled {
+                viewModel.submitAction.send()
+            }
+            focusedField = false
+        })
     }
     
     var errorStateButtons: some View {

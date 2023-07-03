@@ -25,6 +25,8 @@ class HomeViewModel: ObservableObject {
     @Published var faceIdEnabled: Bool = AppState.shared.faceIdEnabled()
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
+    @Published var shouldLogout: Int? = 0
+    
     var shouldShowAlert = false
     var chosenHandle: String?
 
@@ -67,6 +69,7 @@ class HomeViewModel: ObservableObject {
     private func logout() {
         AppState.shared.isLoggedin = false
         appStateLoggedIn = false
+        shouldLogout = 1
         do {
             try SeedManager.shared.delete()
             UserDefaults.setHandle(with: "")

@@ -34,7 +34,8 @@ struct HomeTabView: View {
             }
             .navigationBarHidden(true)
         } else {
-            SignInView(viewModel: SignInViewModel())
+            NavigationLink(destination: SignInView(viewModel: SignInViewModel()), tag: 1, selection: $viewModel.shouldLogout) {
+            }
         }
     }
 }
