@@ -100,7 +100,7 @@ workflows:
   version: 2
   pr_workflow:
     jobs:
-      - swiftlint
+      - swiftlint:
           filters:
             branches:
               ignore:
