@@ -100,11 +100,7 @@ workflows:
   version: 2
   pr_workflow:
     jobs:
-      - swiftlint:
-          on:
-            pull_request:
-              branches:
-                - dev
+      swiftlint:
   build_and_deploy:
     jobs:
       - build-simulator-app-center:
