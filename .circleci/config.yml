@@ -33,6 +33,20 @@ commands: # a reusable command with parameters
           channel: ios-ci-alerts
 
 jobs:
+  swiftlint:
+    macos:
+      xxcode: 14.0.1
+    steps:
+      - checkout
+      - run:
+          name: Install SwiftLint
+          command: |
+            brew install swiftlint
+      - run:
+          name: Run SwiftLint
+          command: |
+            swiftlint lint --path DSNP-Wallet/Source/ --strict
+
   build-simulator-app-center:
     macos:
       xcode: 14.0.1 
@@ -84,6 +98,12 @@ jobs:
       
 workflows:
   version: 2
+  pr_workflow:
+    swiftlint:
+      on:
+        pull_request:
+          branches:
+            - dev
   build_and_deploy:
     jobs:
       - build-simulator-app-center:
@@ -91,4 +111,3 @@ workflows:
             branches:
               only:
                 - dev
-                - qa
