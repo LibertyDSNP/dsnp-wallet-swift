@@ -48,7 +48,7 @@ jobs:
             swiftlint lint --path DSNP-Wallet/Source/
   swiftlint-docker:
     docker:
-      - image: circleci/swift:5.4.2
+      - image: swift:5.4.2
 
     steps:
       - checkout
