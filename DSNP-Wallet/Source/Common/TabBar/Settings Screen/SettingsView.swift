@@ -146,7 +146,7 @@ struct SettingsView: View {
             } label: {
                 HStack {
                     Text("LOG OUT")
-                        .font(Font(UIFont.Theme.medium(ofSize: 16)))
+                        .font(Font(UIFont.Theme.bold(ofSize: 16)))
                         .foregroundColor(.white)
                     Spacer()
                     ZStack {

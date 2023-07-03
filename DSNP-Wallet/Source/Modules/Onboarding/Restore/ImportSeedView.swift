@@ -19,7 +19,6 @@ struct ImportSeedView: View {
                 AmplicaHeadline(withBackButton: true) {
                     dismiss()
                 }
-                .padding(.top, 70)
                 headline
                 seedphraseField
                 description
@@ -32,7 +31,6 @@ struct ImportSeedView: View {
             }
             .background(Color(uiColor: UIColor.Theme.bgTeal))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .ignoresSafeArea()
         }
         .ignoresSafeArea()
         .navigationBarHidden(true)
