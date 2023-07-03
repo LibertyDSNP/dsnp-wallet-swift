@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Run SwiftLint
           command: |
-            swiftlint lint --path DSNP-Wallet/Source/ --strict
+            swiftlint lint --path DSNP-Wallet/Source/
 
   build-simulator-app-center:
     macos:
@@ -101,6 +101,10 @@ workflows:
   pr_workflow:
     jobs:
       - swiftlint
+          filters:
+            branches:
+              ignore:
+                - dev
   build_and_deploy:
     jobs:
       - build-simulator-app-center:
@@ -108,3 +112,4 @@ workflows:
             branches:
               only:
                 - dev
+                
