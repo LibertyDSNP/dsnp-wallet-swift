@@ -48,28 +48,16 @@ jobs:
             swiftlint lint --path DSNP-Wallet/Source/
   swiftlint-docker:
     docker:
-      - image: swift:5.4.2
+      - image: swiftlint:latest
 
     steps:
       - checkout
-
-      # Install SwiftLint
-      - run:
-          name: Install SwiftLint
-          command: |
-            git clone https://github.com/realm/SwiftLint.git
-            cd SwiftLint
-            git checkout <version> # Replace <version> with the desired SwiftLint version
-            swift build -c release --disable-sandbox
-            cp -f .build/release/swiftlint /usr/local/bin/swiftlint
-            swiftlint version
-
       # Run SwiftLint
       - run:
           name: Run SwiftLint
           command: |
-
             swiftlint lint --path DSNP-Wallet/Source/
+
   build-simulator-app-center:
     macos:
       xcode: 14.0.1 
