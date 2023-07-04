@@ -48,15 +48,18 @@ jobs:
             swiftlint lint --path DSNP-Wallet/Source/
   swiftlint-docker:
     docker:
-      - image: swiftlint:latest
-
+      - image: dantoml/swiftlint:latest
     steps:
       - checkout
       # Run SwiftLint
       - run:
           name: Run SwiftLint
           command: |
-            swiftlint lint --path DSNP-Wallet/Source/
+            swiftlint lint --path DSNP-Wallet/Source/ --reporter junit | tee result.xml
+      - store_artifacts:
+          path: result.xml
+      - store_test_results:
+          path: result.xml      
 
   build-simulator-app-center:
     macos:
