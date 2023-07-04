@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Run SwiftLint
           command: |
-            swiftlint lint --path DSNP-Wallet/Source/ --reporter junit | tee result.xml
+            swiftlint lint --path DSNP-Wallet/Source/
       - store_artifacts:
           path: result.xml
       - store_test_results:
