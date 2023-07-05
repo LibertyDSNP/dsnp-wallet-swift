@@ -105,6 +105,7 @@ struct ClaimHandleView: View {
                 .padding(.vertical, 16)
                 .padding(.horizontal, 34)
                 .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
         }
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
         .frame(maxWidth: .infinity)
@@ -113,6 +114,7 @@ struct ClaimHandleView: View {
         .cornerRadius(30)
         .padding(.vertical, 10)
         .padding(.horizontal, 34)
+        .contentShape(Rectangle())
         .disabled(viewModel.nextButtonDisabled)
     }
 }

@@ -101,6 +101,7 @@ struct AgreeToTermsView: View {
                 .padding(.vertical, 16)
                 .padding(.horizontal, 34)
                 .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
         }
         .frame(maxWidth: .infinity)
         .background(Color(uiColor: UIColor.Theme.buttonTeal))
@@ -112,6 +113,7 @@ struct AgreeToTermsView: View {
         .simultaneousGesture(TapGesture().onEnded {
             viewModel.agreeAction.send()
         })
+        .contentShape(Rectangle())
     }
 }
 

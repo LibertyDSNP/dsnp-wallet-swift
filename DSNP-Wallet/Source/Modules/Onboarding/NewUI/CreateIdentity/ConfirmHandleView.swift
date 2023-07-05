@@ -74,6 +74,7 @@ struct ConfirmHandleView: View {
                 .padding(.vertical, 16)
                 .padding(.horizontal, 34)
                 .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
         }
         .frame(maxWidth: .infinity)
         .background(Color(uiColor: UIColor.Theme.buttonTeal))
@@ -81,6 +82,7 @@ struct ConfirmHandleView: View {
         .cornerRadius(30)
         .padding(.vertical, 10)
         .padding(.horizontal, 34)
+        .contentShape(Rectangle())
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.confirmHandleButton)
     }
     
