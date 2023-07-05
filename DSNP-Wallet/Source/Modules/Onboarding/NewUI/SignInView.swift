@@ -57,7 +57,7 @@ struct SignInView: View {
     }
     
     var restoreButton: some View {
-        NavigationLink(destination: ImportSeedView(viewModel: ImportSeedViewModel())) {
+        NavigationLink(destination: LazyView(ImportSeedView(viewModel: ImportSeedViewModel()))) {
             Text("Restore Account")
                 .foregroundColor(.white)
                 .font(Font(UIFont.Theme.regular(ofSize: 14)))
@@ -79,7 +79,9 @@ struct SignInView: View {
     }
     
     var createIdentityButton: some View {
-        NavigationLink(destination: ClaimHandleView(viewModel: ClaimHandleViewModel())) {
+        NavigationLink {
+           LazyView(ClaimHandleView(viewModel: ClaimHandleViewModel()))
+        } label: {
             Text("Create Identity")
                 .font(Font(UIFont.Theme.medium(ofSize: 14)))
                 .padding(.vertical, 16)
