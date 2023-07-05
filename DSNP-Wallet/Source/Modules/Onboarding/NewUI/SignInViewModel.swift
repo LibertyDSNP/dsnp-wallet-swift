@@ -13,6 +13,5 @@ class SignInViewModel: ObservableObject {
     // Actions
     var createIdentityAction = PassthroughSubject<Void, Never>()
     var meWeIdAction = PassthroughSubject<Void, Never>()
-    var restoreAction = PassthroughSubject<Void, Never>()
 
 }

@@ -7,14 +7,11 @@
 
 import UIKit
 import SwiftUI
-import Combine
 
 class SignInViewController: UIHostingController<SignInView> {
 
     let viewModel: SignInViewModel = SignInViewModel()
-    
-    private var cancellables = [AnyCancellable]()
-    
+        
     init() {
         super.init(rootView: SignInView(viewModel: viewModel))
     }
@@ -26,25 +23,6 @@ class SignInViewController: UIHostingController<SignInView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        setupObservables()
-    }
-
-    private func setupObservables() {
-        viewModel.createIdentityAction.sink { [weak self] in
-            guard let self else { return }
-            self.navigationController?.pushViewController(ClaimHandleViewController(), animated: true)
-        }
-        .store(in: &cancellables)
-//        viewModel.meWeIdAction.sink { [weak self] in
-//            guard let self else { return }
-//
-//        }
-//        .store(in: &cancellables)
-//        viewModel.restoreAction.sink { [weak self] in
-//            guard let self else { return }
-//
-//        }
-//        .store(in: &cancellables)
     }
 
 }

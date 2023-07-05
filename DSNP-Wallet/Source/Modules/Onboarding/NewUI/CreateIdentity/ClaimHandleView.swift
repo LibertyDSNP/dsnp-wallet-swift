@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ClaimHandleView: View {
+
     @ObservedObject var viewModel: ClaimHandleViewModel
-    
+
+    @Environment(\.dismiss) var dismiss
     @FocusState private var textfieldFocused: Bool
 
     var body: some View {
         VStack {
             AmplicaHeadline(withBackButton: true) {
-                viewModel.backAction.send()
+                dismiss()
             }
             BaseRoundView {
                 stepCount
@@ -24,11 +26,12 @@ struct ClaimHandleView: View {
                 textfield
                     .padding(.horizontal, 10)
                 handleDescription
-                buttonStack
+                nextButton
                     .padding(.horizontal, 10)
                     .padding(.vertical, 4)
             }
         }
+        .navigationBarHidden(true)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -95,31 +98,24 @@ struct ClaimHandleView: View {
             .padding(.vertical, 4)
     }
 
-    private var buttonStack: some View {
-        VStack {
-            nextButton
-            skipButton
-        }
-    }
-    
     private var nextButton: some View {
-        PrimaryButton(title: "Next") {
-            viewModel.nextAction.send()
+        NavigationLink(destination: ConfirmHandleView(viewModel: ConfirmHandleViewModel(chosenHandle: viewModel.claimHandleText))) {
+            Text("Next")
+                .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                .padding(.vertical, 16)
+                .padding(.horizontal, 34)
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
         }
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
+        .frame(maxWidth: .infinity)
+        .background(viewModel.nextButtonDisabled ? Color(uiColor: UIColor.Theme.disabledTeal) : Color(uiColor: UIColor.Theme.buttonTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+        .padding(.vertical, 10)
+        .padding(.horizontal, 34)
+        .contentShape(Rectangle())
         .disabled(viewModel.nextButtonDisabled)
-        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
-    }
-    
-    private var skipButton: some View {
-        Button {
-            viewModel.skipAction.send()
-        } label: {
-            Text("Skip for now (Not Recommended)")
-                .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
-                .font(Font(UIFont.Theme.regular(ofSize: 10)))
-                .underline()
-        }
-        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
     }
 }
 

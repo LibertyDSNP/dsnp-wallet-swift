@@ -7,44 +7,33 @@
 
 import SwiftUI
 
-struct SignInViewControllerWrapper : UIViewControllerRepresentable {
-
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        
-    }
-
-    func makeUIViewController(context: Context) -> UIViewController {
-        let signInViewController = SignInViewController()
-        let navController = UINavigationController()
-        navController.setViewControllers([signInViewController], animated: true)
-        return navController
-    }
-}
-
 struct SignInView: View {
     
     let viewModel: SignInViewModel
     
     var body: some View {
-        VStack {
-            AmplicaLogo()
-                .padding(.top, 68)
-            subtitle
-                .padding(.vertical, 10)
-            description
-                .padding(.vertical, 12)
-            buttonContainer
-            Spacer()
-            SignInTermsDisclaimerView()
+        NavigationView {
+            VStack {
+                AmplicaLogo()
+                    .padding(.top, 68)
+                subtitle
+                    .padding(.vertical, 10)
+                description
+                    .padding(.vertical, 12)
+                buttonContainer
+                Spacer()
+                SignInTermsDisclaimerView()
+            }
+            .frame(
+                maxWidth: .infinity,
+                maxHeight: .infinity,
+                alignment: .top
+            )
+            .background(Color(uiColor: UIColor.Theme.bgTeal))
         }
-        .frame(
-            maxWidth: .infinity,
-            maxHeight: .infinity,
-            alignment: .top
-        )
-        .background(Color(uiColor: UIColor.Theme.bgTeal))
+        .navigationBarHidden(true)
     }
-
+    
     var subtitle: some View {
         Text(" It’s Your identity.\nYou should own it")
             .font(Font(UIFont.Theme.regular(ofSize: 20)))
@@ -60,31 +49,52 @@ struct SignInView: View {
     
     var buttonContainer: some View {
         VStack {
-            PrimaryButton(title: "Create Identity", action: {
-                viewModel.createIdentityAction.send()
-            })
-            .padding(.vertical, 12)
-            .padding(.horizontal, 34)
-            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createNewUserButton)
-            PrimaryButton(title: "I have an ID", action: {
-                viewModel.meWeIdAction.send()
-            }, suffixImage: Image("mewelogo"))
-            .padding(.vertical, 12)
-            .padding(.horizontal, 34)
-            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
-            Button {
-                viewModel.restoreAction.send()
-            } label: {
-                Text("Restore from Backup")
-                    .foregroundColor(.white)
-                    .font(Font(UIFont.Theme.regular(ofSize: 14)))
-                    .underline()
-            }
-            .padding(.vertical, 12)
-            .padding(.horizontal, 34)
-            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.restoreUserButton)
+            createIdentityButton
+            haveAnIdButton
+            restoreButton
         }
         .frame(maxWidth: .infinity)
+    }
+    
+    var restoreButton: some View {
+        NavigationLink(destination: LazyView(ImportSeedView(viewModel: ImportSeedViewModel()))) {
+            Text("Restore Account")
+                .foregroundColor(.white)
+                .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                .underline()
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal, 34)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.restoreUserButton)
+
+    }
+    
+    var haveAnIdButton: some View {
+        PrimaryButton(title: "I have an ID", action: {
+            viewModel.meWeIdAction.send()
+        }, suffixImage: Image("mewelogo"))
+        .padding(.vertical, 12)
+        .padding(.horizontal, 34)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
+    }
+    
+    var createIdentityButton: some View {
+        NavigationLink {
+           LazyView(ClaimHandleView(viewModel: ClaimHandleViewModel()))
+        } label: {
+            Text("Create Identity")
+                .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                .padding(.vertical, 16)
+                .padding(.horizontal, 34)
+                .foregroundColor(.white)
+        }
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createNewUserButton)
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor.Theme.buttonTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+        .padding(.vertical, 10)
+        .padding(.horizontal, 34)
     }
 }
 

@@ -32,8 +32,9 @@ struct HomeTabView: View {
                     }
                 }
             }
+            .navigationBarHidden(true)
         } else {
-            SignInViewControllerWrapper()
+            SignInView(viewModel: SignInViewModel())
         }
     }
 }
@@ -42,9 +43,11 @@ struct MainTabView: View {
 
     @ObservedObject var viewModel: HomeViewModel
     
+    @AppStorage("handle") var handle = UserDefaults.getHandle()
+
     var body: some View {
         TabView {
-            AMPProfileView(viewModel: AMPHomeViewModel(chosenHandle: viewModel.chosenHandleDisplayString()))
+            AMPProfileView(viewModel: AMPHomeViewModel(chosenHandle: handle))
                 .tabItem {
                     AmpTabItem(title: "Home", tabImageName: "home")
                 }
@@ -70,6 +73,8 @@ struct MainTabView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTabView(viewModel: HomeViewModel())
+        let testWords = "quote grocery buzz staff merit patch outdoor depth eight raw rubber once"
+        let user = try! User(mnemonic: testWords)
+        return HomeTabView(viewModel: HomeViewModel(user: user))
     }
 }

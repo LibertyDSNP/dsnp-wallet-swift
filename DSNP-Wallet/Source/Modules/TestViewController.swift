@@ -66,10 +66,10 @@ extension TestViewController {
     
     @objc func tappedBtn(selector: UIButton?) {
         let primaryMnemonicInput = primaryTextField.text?.isEmpty ?? true ? "quote grocery buzz staff merit patch outdoor depth eight raw rubber once" : primaryTextField.text ?? ""
-        let primaryUser = User(mnemonic: primaryMnemonicInput)
+        let primaryUser = try! User(mnemonic: primaryMnemonicInput)
         
         let secondaryMnemonicInput = secondaryTextField.text?.isEmpty ?? true ? "wink settle steak second tuition whale question must honey fossil spider melt" : secondaryTextField.text ?? ""
-        let secondaryUser = User(mnemonic: secondaryMnemonicInput)
+        let secondaryUser = try! User(mnemonic: secondaryMnemonicInput)
         
         //Closures
         let subscriptionIdClosure: ExtrinsicSubscriptionIdClosure = { _ in
@@ -208,7 +208,7 @@ extension TestViewController {
 extension TestViewController {
     private func process(blockHash: String, completion: @escaping TransactionSubscriptionCompletion, errorHandler: TransactionErrorHandlerBlock?) {
         let primaryMnemonicInput = primaryTextField.text?.isEmpty ?? true ? "quote grocery buzz staff merit patch outdoor depth eight raw rubber once" : primaryTextField.text ?? ""
-        let primaryUser = User(mnemonic: primaryMnemonicInput)
+        let primaryUser = try! User(mnemonic: primaryMnemonicInput)
         
         guard
             let blockHash = try? Data(hexString: blockHash)

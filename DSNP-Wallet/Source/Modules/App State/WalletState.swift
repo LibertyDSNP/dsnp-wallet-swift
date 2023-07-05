@@ -51,3 +51,12 @@ class AppState: ObservableObject {
         }
     }
 }
+extension UserDefaults {
+   static func setHandle(with value: String) {
+     UserDefaults.standard.set(value, forKey: "handle")
+   }
+
+  static func getHandle() -> String {
+    return UserDefaults.standard.string(forKey: "handle") ?? ""
+  }
+}

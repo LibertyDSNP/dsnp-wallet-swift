@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-let testWords = ["Hello", "World", "foo", "bar", "big l", "jay z", "big pun", "eminem", "fat joe", "method man", "red man", "busta"]
-
 struct SettingsView: View {
         
     @ObservedObject var viewModel: HomeViewModel
@@ -56,7 +54,7 @@ struct SettingsView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 16)
             }
-            NavigationLink(destination: SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: testWords))) {
+            NavigationLink(destination: SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: viewModel.seed()))) {
                 Text("Reveal Recovery Phrase")
                     .font(Font(UIFont.Theme.bold(ofSize: 15)))
                     .padding(.vertical, 16)
@@ -148,7 +146,7 @@ struct SettingsView: View {
             } label: {
                 HStack {
                     Text("LOG OUT")
-                        .font(Font(UIFont.Theme.medium(ofSize: 16)))
+                        .font(Font(UIFont.Theme.bold(ofSize: 16)))
                         .foregroundColor(.white)
                     Spacer()
                     ZStack {
@@ -174,6 +172,8 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(viewModel: HomeViewModel())
+        let testWords = "quote grocery buzz staff merit patch outdoor depth eight raw rubber once"
+        let user = try! User(mnemonic: testWords)
+        return SettingsView(viewModel: HomeViewModel(user: user))
     }
 }

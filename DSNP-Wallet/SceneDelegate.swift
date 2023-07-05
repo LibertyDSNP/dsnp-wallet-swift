@@ -26,8 +26,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 #if DEBUG
         rootViewController = BaseViewController()
 #else
-        if AppState.shared.doKeysExist() {
-            rootViewController = AMPHomeViewController(chosenHandle: AppState.shared.handle)
+        if let storedMnemonic = SeedManager.shared.fetch() {
+            do {
+                let user = try User(mnemonic: storedMnemonic)
+                rootViewController = AMPHomeViewController(user: user, chosenHandle: AppState.shared.handle)
+            } catch {
+                rootViewController = SignInViewController()
+            }
         } else {
             rootViewController = UINavigationController(rootViewController: SignInViewController())
         }

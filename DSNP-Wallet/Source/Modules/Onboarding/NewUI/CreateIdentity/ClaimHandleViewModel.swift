@@ -5,17 +5,13 @@
 //  Created by Ben Gabay on 5/5/23.
 //
 
+
 import UIKit
 import Combine
 
 class ClaimHandleViewModel: ObservableObject {
-    @Published var claimHandleText = ""
+    @Published var claimHandleText: String = ""
     @Published var nextButtonDisabled = true
-    
-    // Actions
-    var nextAction = PassthroughSubject<Void, Never>()
-    var skipAction = PassthroughSubject<Void, Never>()
-    var backAction = PassthroughSubject<Void, Never>()
     
     private var cancellables = [AnyCancellable]()
     

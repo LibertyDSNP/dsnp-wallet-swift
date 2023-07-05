@@ -25,6 +25,8 @@ class HomeViewModel: ObservableObject {
     @Published var faceIdEnabled: Bool = AppState.shared.faceIdEnabled()
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
+    @Published var shouldLogout: Int? = 0
+    
     var shouldShowAlert = false
     var chosenHandle: String?
 
@@ -39,11 +41,13 @@ class HomeViewModel: ObservableObject {
     
     private var cancellables = [AnyCancellable]()
     
-    // TODO:
-    var user: User?
+    private(set) public var user: User?
+    
+    // TODO
     var updateUserBlock: ((UserFacadeProtocol)->())?
     
-    init() {
+    init(user: User?) {
+        self.user = user
         setupObservables()
     }
     
@@ -63,12 +67,24 @@ class HomeViewModel: ObservableObject {
     }
     
     private func logout() {
+        AppState.shared.isLoggedin = false
         appStateLoggedIn = false
+        shouldLogout = 1
         do {
-            try? AccountKeychain.shared.clearAuthorization()
+            try SeedManager.shared.delete()
+            UserDefaults.setHandle(with: "")
         } catch {
-            print("error clearing keys")
+            print("error: \(error)")
         }
+        try? AccountKeychain.shared.clearAuthorization()
+    }
+    
+    func seed() -> [String] {
+        if let seedPhrase = SeedManager.shared.fetch() {
+            let words = seedPhrase.components(separatedBy: " ")
+            return words
+        }
+        return []
     }
     
     func chosenHandleDisplayString() -> String {

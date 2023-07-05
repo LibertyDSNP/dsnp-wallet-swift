@@ -8,6 +8,29 @@ import SoraKeystore
 import IrohaCrypto
 import SubstrateSdk
 
+enum SeedManagerError: Error {
+    case mnemonicExists
+    case accessControlError(message: String)
+    case unknownAccessControlError
+    case conversionError
+    case genericErrorWithStatus(status: OSStatus)
+    
+    var errorMessage: String {
+        switch self {
+        case .mnemonicExists:
+            return "A Mnemonic already exists for the given key"
+        case .accessControlError(let message):
+            return "Access Control denied. \(message)"
+        case .unknownAccessControlError:
+            return "Access Control denied"
+        case .conversionError:
+            return "Error converting data types"
+        case .genericErrorWithStatus(let status):
+            return "Error with status: \(status)"
+        }
+    }
+}
+
 //This class should strictly handle:
 // i)   generation of seed phrase
 // ii)  derivation of seed phrase
@@ -47,10 +70,9 @@ class SeedManager {
 
 //MARK: Keychain/SE Handling
 extension SeedManager {
-    func save(_ mnemonic: String) {
+    func save(_ mnemonic: String) throws {
         guard let mnemonicData = mnemonic.data(using: .utf8) else {
-            print("Error converting mnemonic to data")
-            return
+            throw SeedManagerError.conversionError
         }
         
         let accessControlError = UnsafeMutablePointer<Unmanaged<CFError>?>.allocate(capacity: 1)
@@ -65,11 +87,10 @@ extension SeedManager {
             accessControlError
         ) else {
             if let error = accessControlError.pointee?.takeRetainedValue() {
-                print("Error creating access control: \(error)")
+                throw SeedManagerError.accessControlError(message: error.localizedDescription)
             } else {
-                print("Unknown error creating access control")
+                throw SeedManagerError.unknownAccessControlError
             }
-            return
         }
         
         let query: [String: Any] = [
@@ -84,9 +105,9 @@ extension SeedManager {
         if status == errSecSuccess {
             print("Mnemonic saved to keychain")
         } else if status == errSecDuplicateItem {
-            print("Mnemonic already exists in keychain")
+            throw SeedManagerError.mnemonicExists
         } else {
-            print("Error saving mnemonic to keychain: \(status)")
+            throw SeedManagerError.genericErrorWithStatus(status: status)
         }
     }
     
@@ -109,4 +130,19 @@ extension SeedManager {
         
         return String(data: retrievedData, encoding: .utf8)
     }
+    
+    func delete() throws {
+        let query: [String: Any] = [
+            kSecAttrService as String: keychainService,
+            kSecAttrAccount as String: keychainAccount,
+            kSecClass as String: kSecClassGenericPassword
+        ]
+
+        let status = SecItemDelete(query as CFDictionary)
+
+        guard status == errSecSuccess else {
+            throw SeedManagerError.genericErrorWithStatus(status: status)
+        }
+    }
+
 }
