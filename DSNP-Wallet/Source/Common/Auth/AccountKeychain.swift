@@ -6,10 +6,23 @@
 //
 
 import Foundation
+import SoraKeystore
+import Security
+import LocalAuthentication
 
+enum AccountKeychainError: Error {
+    case clearAuthorization
+}
+
+//Manages pin and wrapper for SoraKeyStore
 class AccountKeychain {
+    static var shared = AccountKeychain()
+    let keystore: KeystoreProtocol = Keychain()
+    
+    let identifier = ""
+    
     private let kAccessPin = "access_pin"
-    var isAuthorized: Bool = false {
+    private var isAuthorized: Bool = false {
         didSet {
             guard isAuthorized else { return }
             NotificationCenter.default.post(name: Notification.Name(NotificationType.retrievedKeys.rawValue),
@@ -19,10 +32,10 @@ class AccountKeychain {
 
     var accessPin: String? {
         get {
-            return DSNPKeychain.shared[kAccessPin]
+            return self[kAccessPin]
         }
         set {
-            DSNPKeychain.shared[kAccessPin] = newValue
+            self[kAccessPin] = newValue
         }
     }
     
@@ -36,8 +49,87 @@ class AccountKeychain {
         return isAuthorized
     }
     
-    public func clearAuthorization() {
-        self.accessPin = nil
-        isAuthorized = false
+    public func clearAuthorization() throws {
+        do {
+            try deleteKey()
+            self.accessPin = nil
+            isAuthorized = false
+        } catch {
+            throw AccountKeychainError.clearAuthorization
+        }
+        
+    }
+}
+
+//Access Pin Subscript/Keychain Logic
+extension AccountKeychain {
+    public subscript(key: String) -> String? {
+        get {
+            return load(withKey: key)
+        } set {
+            DispatchQueue.global().sync(flags: .barrier) {
+                self.save(newValue, forKey: key)
+            }
+        }
+    }
+
+    private func save(_ string: String?, forKey key: String) {
+        let query = keychainQuery(withKey: key)
+        let objectData: Data? = string?.data(using: .utf8, allowLossyConversion: false)
+        if SecItemCopyMatching(query, nil) == noErr {
+            if let dictData = objectData {
+                let _ = SecItemUpdate(query, NSDictionary(dictionary: [kSecValueData: dictData]))
+            } else {
+                let _ = SecItemDelete(query)
+            }
+        } else {
+            if let dictData = objectData {
+                query.setValue(dictData, forKey: kSecValueData as String)
+                let _ = SecItemAdd(query, nil)
+            }
+        }
+    }
+
+    private func load(withKey key: String) -> String? {
+        let query = keychainQuery(withKey: key)
+        query.setValue(kCFBooleanTrue, forKey: kSecReturnData as String)
+        query.setValue(kCFBooleanTrue, forKey: kSecReturnAttributes as String)
+        var result: CFTypeRef?
+        let status = SecItemCopyMatching(query, &result)
+        guard
+            let resultsDict = result as? NSDictionary,
+            let resultsData = resultsDict.value(forKey: kSecValueData as String) as? Data,
+            status == noErr
+        else {
+            return nil
+        }
+        return String(data: resultsData, encoding: .utf8)
+    }
+
+    private func keychainQuery(withKey key: String) -> NSMutableDictionary {
+        let result = NSMutableDictionary()
+        result.setValue(kSecClassGenericPassword, forKey: kSecClass as String)
+        result.setValue(key, forKey: kSecAttrService as String)
+        result.setValue(kSecAttrAccessibleWhenUnlocked, forKey: kSecAttrAccessible as String)
+        return result
+    }
+}
+
+//SoraKeystore Wrapper
+extension AccountKeychain {
+    func save(secretKey: Data) throws {
+        try keystore.saveKey(secretKey, with: identifier)
+    }
+    
+    func fetchKey() throws -> Data  {
+        return try keystore.fetchKey(for: identifier)
+    }
+    
+    func checkKey() throws -> Bool {
+        return try keystore.checkKey(for: identifier)
+    }
+    
+    func deleteKey() throws {
+        return try keystore.deleteKey(for: identifier)
     }
 }

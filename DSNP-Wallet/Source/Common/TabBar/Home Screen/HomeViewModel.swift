@@ -74,7 +74,7 @@ class HomeViewModel: ObservableObject {
         appStateLoggedIn = false
         AppState.shared.resetSocialProgress()
         do {
-            try AuthManager.shared.logout()
+            try? AccountKeychain.shared.clearAuthorization()
         } catch {
             print("error clearing keys")
         }
