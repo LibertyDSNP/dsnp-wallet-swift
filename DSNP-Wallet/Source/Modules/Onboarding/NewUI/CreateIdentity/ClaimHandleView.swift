@@ -108,7 +108,7 @@ struct ClaimHandleView: View {
         }
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.claimHandleNextButton)
         .frame(maxWidth: .infinity)
-        .background(Color(uiColor: UIColor.Theme.buttonTeal))
+        .background(viewModel.nextButtonDisabled ? Color(uiColor: UIColor.Theme.disabledTeal) : Color(uiColor: UIColor.Theme.buttonTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
         .padding(.vertical, 10)
