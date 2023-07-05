@@ -13,11 +13,6 @@ class ClaimHandleViewModel: ObservableObject {
     @Published var claimHandleText: String = ""
     @Published var nextButtonDisabled = true
     
-    
-    // Actions
-    var nextAction = PassthroughSubject<Void, Never>()
-    var backAction = PassthroughSubject<Void, Never>()
-
     private var cancellables = [AnyCancellable]()
     
     // Claim handle field

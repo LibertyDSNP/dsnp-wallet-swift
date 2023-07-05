@@ -13,7 +13,6 @@ class AgreeToTermsViewModel: ObservableObject {
     let chosenHandle: String
     
     let agreeAction = PassthroughSubject<Void, Never>()
-    let backAction = PassthroughSubject<Void, Never>()
     
     private var cancellables = [AnyCancellable]()
     

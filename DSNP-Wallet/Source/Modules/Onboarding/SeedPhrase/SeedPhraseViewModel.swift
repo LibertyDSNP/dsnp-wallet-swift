@@ -11,7 +11,6 @@ import Combine
 class SeedPhraseViewModel {
     
     let testAction = PassthroughSubject<Void, Never>()
-    let backAction = PassthroughSubject<Void, Never>()
     
     let seedPhraseWords: [String]
     
