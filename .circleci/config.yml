@@ -126,8 +126,8 @@ jobs:
       - run:
           name: Pull profiles and build app
           command: |
-          fastlane make_ios_cert
-          fastlane build_for_ios
+            fastlane make_ios_cert
+            fastlane build_for_ios
       - run:
           name: Upload the binary to app center 
           command: |
