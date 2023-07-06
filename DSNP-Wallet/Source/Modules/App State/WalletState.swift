@@ -8,6 +8,11 @@
 import Foundation
 import DSNPWallet
 
+enum AppStateKeys: String {
+    case backedUpSeedPhraseKey = "seedPhraseBackedUp"
+    case avatarSetKey = "avatarSet"
+}
+
 class AppState: ObservableObject {
     
     static let shared = AppState()
@@ -59,4 +64,24 @@ extension UserDefaults {
   static func getHandle() -> String {
     return UserDefaults.standard.string(forKey: "handle") ?? ""
   }
+}
+
+extension UserDefaults {
+    @objc var seedBackedUp: Bool {
+        get {
+            return Bool(AppStateKeys.backedUpSeedPhraseKey.rawValue) ?? false
+        }
+        set {
+            set(newValue, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+        }
+    }
+    
+    @objc var didCreateAvatar: Bool {
+        get {
+            return Bool(AppStateKeys.avatarSetKey.rawValue) ?? false
+        }
+        set {
+            set(newValue, forKey: AppStateKeys.avatarSetKey.rawValue)
+        }
+    }
 }
