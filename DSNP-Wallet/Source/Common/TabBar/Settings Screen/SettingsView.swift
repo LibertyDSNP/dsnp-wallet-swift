@@ -44,7 +44,7 @@ struct SettingsView: View {
     
     private var recoverySection: some View {
         VStack(alignment: .leading) {
-            if !AppState.shared.hasBackedKeys {
+            if !viewModel.seedBackedUp {
                 Text("You have NEVER backed up!")
                     .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)
