@@ -30,6 +30,21 @@ platform :ios do
   )
   end
 
+  desc "Build real device app"
+  lane :build_for_ios do
+    build_app(
+      export_method: "development",
+      scheme: "dsnp-wallet",
+      workspace: "./dsnp-wallet.xcworkspace",
+      derived_data_path: derived_data_path,
+      output_name: "dsnp-wallet.ipa",
+      destination: "generic/platform=iOS",
+      clean: true,
+      skip_package_ipa: false,
+      xcargs: "-allowProvisioningUpdates"
+    )
+  end
+
   desc "Archiving the binary app"
   lane :zip_simulator_bin do
     zip(
@@ -41,7 +56,7 @@ platform :ios do
   # Use fastlane appcenter_upload_sim_app env:dev to upload 'dev' version of the app to app_center 
   # Use fastlane appcenter_upload_sim_app env:stg to upload 'stg' version of the app to the app_center 
   # requires plugin -> fastlane add_plugin appcenter
-  desc "Upload the app to app center"
+  desc "Upload the simulator app to app center"
   lane :appcenter_upload_sim_app do | options | 
     appcenter_upload(
       api_token: ENV["APPCENTER_API_KEY"],
@@ -52,4 +67,37 @@ platform :ios do
     )
   end
 
+  # Use fastlane appcenter_upload_app env:dev to upload 'dev' version of the app to app_center 
+  # Use fastlane appcenter_upload_app env:stg to upload 'stg' version of the app to the app_center 
+  # requires plugin -> fastlane add_plugin appcenter
+  desc "Upload the real app to app center"
+  lane :appcenter_upload_app do | options | 
+    appcenter_upload(
+      api_token: ENV["APPCENTER_API_KEY"],
+      owner_name: "Unfinished",
+      app_name: "standalone-wallet-" + options[:"env"] + "-1",
+      version: options[:"build_version"], #TODO needs to be 
+      file: "./dsnp-wallet.ipa"
+    )
+  end
+
+
+  desc "Create ios certificate"
+  lane :make_ios_cert do
+    match(
+      git_url: "git@github.com:AmplicaLabs/certificates",
+      app_identifier: "com.unfinished.dsnp-wallet",
+      username: ENV["APPLE_ID_EMAIL"],
+      storage_mode: "git",
+      type: "development",
+      platform: "ios",
+      shallow_clone: true,
+      readonly: true
+    ) 
+  end
+
+  lane :certificates do
+    match(app_identifier: ["com.unfinished.dsnp-wallet"])
+  end
+ 
 end

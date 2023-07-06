@@ -81,7 +81,8 @@ jobs:
           name: Upload build file for app center 
           command: |
             fastlane add_plugin appcenter
-            fastlane appcenter_upload_sim_app  build_version:"<<parameters.build_version>>" env:"$CIRCLE_BRANCH"
+            fastlane appcenter_upload_sim_app  build_version:"<<parameters.build_version>>" env:"<<parameters.build_env>>"
+      
       - run:
           name: Launch Smoke Test 
           command: |
@@ -96,9 +97,53 @@ jobs:
       - send_slack_message: #"If atleast one step has failed"
           event : "fail"  
           icon: ":red_circle:"
-          message: "The Circle Ci build has failed!\\n 
-          *Ci Build URL*: $CIRCLE_BUILD_URL"
+          message: "The Circle Ci job 'build-simulator-app-center' has failed when building !\\n 
+          *Ci Build URL*: $CIRCLE_BUILD_URL"    
+  
+  build-app-center:
+    macos:
+      xcode: 14.0.1 
+    parameters: # parameters are at the job level
+      build_env:
+        type: string
+        default: "dev" 
+      build_version:
+        type: string
+        default: "1"  
+    
+    steps:
+      - send_slack_message: 
+          event: "always"
+          message: "Building an app for a real device... \\n *Git Branch*: $CIRCLE_BRANCH \\n *Launch trigger*: $CIRCLE_USERNAME"
+      - checkout
+      - run:
+          name: Install dependecies
+          command: |
+            cd DSNP-Wallet
+            pod install
       
+      - run:
+          name: Pull profiles and certificates
+          command: fastlane make_ios_cert
+      - run:
+          name: Build the app for a real device
+          command: fastlane build_for_ios
+
+      - run:
+          name: Upload the binary to app center 
+          command: |
+            fastlane add_plugin appcenter
+            fastlane appcenter_upload_app  build_version:"<<parameters.build_version>>" env:"<<parameters.build_env>>"
+      - send_slack_message: #"If all steps has passed"
+          event : "pass" 
+          icon: ":large_green_circle:"
+          message: "The app for the real device has been uploaded to App Center successfully"  
+      - send_slack_message: #"If atleast one step has failed"
+          event : "fail"  
+          icon: ":red_circle:"
+          message: "The Circle Ci job 'build-app-center' has failed when building !\\n 
+          *Ci Build URL*: $CIRCLE_BUILD_URL"
+              
 workflows:
   version: 2
   pr_workflow:
@@ -108,11 +153,29 @@ workflows:
             branches:
               ignore:
                 - dev
-  build_and_deploy:
+  
+  build_and_deploy_to_dev:
     jobs:
       - build-simulator-app-center:
+          build_env: dev
           filters:
             branches:
               only:
                 - dev
-                
+      - build-app-center:
+          build_env: dev
+          filters:
+            branches:
+              only:
+                - dev
+  
+  # build_and_deploy_to_stg:
+  #   jobs:
+  #     - build-app-center:
+  #         build_env: stg
+  #         filters:
+  #           branches:
+  #             ignore:
+  #               - dev
+  #           tags:
+  #             only: /^v\d+\.\d+\.\d+$/                  

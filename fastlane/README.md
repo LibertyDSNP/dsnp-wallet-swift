@@ -23,13 +23,21 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Build simulator app
 
+### ios build_for_ios
+
+```sh
+[bundle exec] fastlane ios build_for_ios
+```
+
+Build real device app
+
 ### ios zip_simulator_bin
 
 ```sh
 [bundle exec] fastlane ios zip_simulator_bin
 ```
 
-Zip the binary file
+Archiving the binary app
 
 ### ios appcenter_upload_sim_app
 
@@ -38,6 +46,30 @@ Zip the binary file
 ```
 
 Upload the app to app center
+
+### ios appcenter_upload_app
+
+```sh
+[bundle exec] fastlane ios appcenter_upload_app
+```
+
+Upload the real app to app center
+
+### ios make_ios_cert
+
+```sh
+[bundle exec] fastlane ios make_ios_cert
+```
+
+Create ios certificate
+
+### ios certificates
+
+```sh
+[bundle exec] fastlane ios certificates
+```
+
+
 
 ----
 
