@@ -45,7 +45,7 @@ Archiving the binary app
 [bundle exec] fastlane ios appcenter_upload_sim_app
 ```
 
-Upload the app to app center
+Upload the simulator app to app center
 
 ### ios appcenter_upload_app
 
