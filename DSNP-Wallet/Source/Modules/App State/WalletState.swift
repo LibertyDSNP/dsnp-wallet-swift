@@ -50,11 +50,42 @@ class AppState: ObservableObject {
         UserDefaults.standard.set(enabled, forKey: "faceId")
     }
     
-    func setHandle(handle: String) {
-        if !handle.isEmpty {
-            UserDefaults.standard.set(handle, forKey: "handle")
-        }
+    func clearHandle() {
+        UserDefaults.standard.set("", forKey: "handle")
     }
+    
+    func didBackupSeedPhrase() -> Bool {
+        return UserDefaults.standard.bool(forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+    }
+    
+    func setDidBackupSeedPhrase(backedUp: Bool) {
+        UserDefaults.standard.set(backedUp, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+    }
+    
+    func didCreateAvatar() -> Bool {
+        return UserDefaults.standard.bool(forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+    }
+
+    
+    func resetSocialProgress() {
+        clearHandle()
+        setDidBackupSeedPhrase(backedUp: false)
+    }
+
+    func socialIdentityProgressStepsCompleted() -> Int {
+        var count = 0
+        if !handle.isEmpty {
+            count += 1
+        }
+        if didBackupSeedPhrase() {
+            count += 1
+        }
+        if didCreateAvatar() {
+            count += 1
+        }
+        return count
+    }
+
 }
 extension UserDefaults {
    static func setHandle(with value: String) {

@@ -27,6 +27,8 @@ class HomeViewModel: ObservableObject {
 
     @Published var shouldLogout: Int? = 0
     
+    @Published var seedBackedUp = AppState.shared.didBackupSeedPhrase()
+    
     var shouldShowAlert = false
     var chosenHandle: String?
 
@@ -64,10 +66,18 @@ class HomeViewModel: ObservableObject {
                 self?.faceIdEnabled = enabled
             }
             .store(in: &cancellables)
+    UserDefaults.standard
+        .publisher(for: \.seedBackedUp)
+        .sink { [weak self] seedBackedUp in
+            guard let self else { return }
+            self.seedBackedUp = seedBackedUp
+        }
+        .store(in: &cancellables)
     }
     
     private func logout() {
         AppState.shared.isLoggedin = false
+        AppState.shared.resetSocialProgress()    
         appStateLoggedIn = false
         shouldLogout = 1
         do {
