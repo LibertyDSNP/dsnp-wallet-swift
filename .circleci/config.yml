@@ -160,22 +160,21 @@ workflows:
           filters:
             branches:
               only:
-                - dev
+                - 148-circleci
       - build-app-center:
           build_env: dev
           filters:
             branches:
               only:
                 - 148-circleci
-
   
-  # build_and_deploy_to_stg:
-  #   jobs:
-  #     - build-app-center:
-  #         build_env: stg
-  #         filters:
-  #           branches:
-  #             ignore:
-  #               - dev
-  #           tags:
-  #             only: /^v\d+\.\d+\.\d+$/                  
+  build_and_deploy_to_stg:
+    jobs:
+      - build-app-center:
+          build_env: stg
+          filters:
+            branches:
+              ignore:
+                - dev
+            tags:
+              only: /^(v)?[\w\d]+\.\d+\.\d+$/                  
