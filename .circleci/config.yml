@@ -102,8 +102,8 @@ jobs:
   
   build-app-center:
     macos:
-      xcode: "14.2.0"
-    resource_class: macos.m1.medium.gen1
+      xcode: 14.2.0
+    resource_class: macos.x86.medium.gen2
     parameters: # parameters are at the job level
       build_env:
         type: string
