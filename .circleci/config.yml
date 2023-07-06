@@ -173,8 +173,5 @@ workflows:
       - build-app-center:
           build_env: stg
           filters:
-            branches:
-              ignore:
-                - dev
             tags:
               only: /^(v)?[\w\d]+\.\d+\.\d+$/                  
