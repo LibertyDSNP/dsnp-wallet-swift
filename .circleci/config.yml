@@ -170,6 +170,14 @@ workflows:
   
   build_and_deploy_to_stg:
     jobs:
+      - build-simulator-app-center:
+          build_env: stg
+          filters:
+            tags:
+              only: /^(v)?[\w\d]+\.\d+\.\d+$/
+            branches:
+              only:
+              - /^(?!.*\/v[\w\d]+\.\d+\.\d+)/                       
       - build-app-center:
           build_env: stg
           filters:
