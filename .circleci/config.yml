@@ -124,12 +124,10 @@ jobs:
             pod install
       
       - run:
-          name: Pull profiles and certificates
-          command: fastlane make_ios_cert
-      - run:
-          name: Build the app for a real device
-          command: fastlane build_for_ios
-
+          name: Pull profiles and build app
+          command: |
+          fastlane make_ios_cert
+          fastlane build_for_ios
       - run:
           name: Upload the binary to app center 
           command: |
