@@ -18,7 +18,6 @@ class AppState: ObservableObject {
     static let shared = AppState()
 
     @Published var isLoggedin = true
-    @Published var hasBackedKeys = false
     
     private (set) var handle = {
         if let handle = UserDefaults.standard.object(forKey: "handle") {
@@ -76,7 +75,7 @@ class AppState: ObservableObject {
         if !handle.isEmpty {
             count += 1
         }
-        if UserDefaults.standard.seedBackedUp {
+        if didBackupSeedPhrase() {
             print("seed backed up +1")
             count += 1
         }

@@ -11,6 +11,12 @@ struct SocialProgressView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @ObservedObject var viewModel: SocialIdentityViewModel
+    
+    @AppStorage(AppStateKeys.backedUpSeedPhraseKey.rawValue)
+    private var backedUp: Bool = UserDefaults.standard.seedBackedUp
+
+    
     var body: some View {
         VStack {
             title
@@ -59,8 +65,8 @@ struct SocialProgressView: View {
     private var taskIndicatorStack: some View {
         VStack {
             IdentityProgressItem(title: "Set Avatar", isComplete: false)
-            IdentityProgressItem(title: "Backup Seed Phrase", isComplete: false)
-            IdentityProgressItem(title: "Choose a handle", isComplete: true)
+            IdentityProgressItem(title: "Backup Seed Phrase", isComplete: backedUp)
+            IdentityProgressItem(title: "Choose a handle", isComplete: viewModel.isHandleChosen)
         }
     }
 }
@@ -112,6 +118,6 @@ struct IdentityProgressItem: View {
 
 struct SocialProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        SocialProgressView()
+        SocialProgressView(viewModel: SocialIdentityViewModel())
     }
 }

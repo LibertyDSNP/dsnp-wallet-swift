@@ -24,6 +24,7 @@ class SocialIdentityViewModel: ObservableObject {
     @Published var stepsAchieved: Int = AppState.shared.socialIdentityProgressStepsCompleted()
 
     @Published var isSeedBackedUp = AppState.shared.didBackupSeedPhrase()
+    @Published var isHandleChosen = !AppState.shared.handle.isEmpty
     @Published var didCreateAvatar = UserDefaults.standard.didCreateAvatar
     
     init() {
@@ -53,15 +54,10 @@ class SocialIdentityViewModel: ObservableObject {
             .sink { [weak self] didCreateAvatar in
                 guard let self else { return }
                 self.didCreateAvatar = didCreateAvatar
-                print("steps increment")
                 self.stepsAchieved = AppState.shared.socialIdentityProgressStepsCompleted()
             }
             .store(in: &cancellables)
-    }
-
-    func isHandleChosen() -> Bool {
-        let handleChosen = !AppState.shared.handle.isEmpty
-        return handleChosen
+        // TODO: Listen for set handle changes. As of now there is no way to add a handle post onboarding
     }
 
 }
