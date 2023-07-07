@@ -61,11 +61,10 @@ class AppState: ObservableObject {
     func setDidBackupSeedPhrase(backedUp: Bool) {
         UserDefaults.standard.set(backedUp, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
     }
-    
-    func didCreateAvatar() -> Bool {
-        return UserDefaults.standard.bool(forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
-    }
 
+    func setBackedUp(backedUp: Bool) {
+        setDidBackupSeedPhrase(backedUp: backedUp)
+    }
     
     func resetSocialProgress() {
         clearHandle()
@@ -77,10 +76,12 @@ class AppState: ObservableObject {
         if !handle.isEmpty {
             count += 1
         }
-        if didBackupSeedPhrase() {
+        if UserDefaults.standard.seedBackedUp {
+            print("seed backed up +1")
             count += 1
         }
-        if didCreateAvatar() {
+        if UserDefaults.standard.didCreateAvatar {
+            print("create avatar +1")
             count += 1
         }
         return count
