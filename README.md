@@ -28,7 +28,7 @@ Example:
 Note: These variables are necessary for generating a signing certificate if you will create a new one. 
 3. Ensure you have the SSH private key for accessing the GitHub repository.
 4. Add the SSH private key to the SSH agent by running the following command:
-    `ssh-add /path/to/private_key`
+    `ssh-add -K /path/to/private_key`
 This will grant you access to the HTTPS repository at https://github.com/AmplicaLabs/certificates when pulling certificates.
 5. Pull the signing certificate and profiles by running `fastlane make_ios_cert`
 You will be prompted to enter a passphrase to decrypt the certificate.
