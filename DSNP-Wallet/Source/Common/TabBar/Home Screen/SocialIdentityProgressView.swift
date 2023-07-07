@@ -19,7 +19,7 @@ struct ProgressAnimation: View {
                     .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
                     .foregroundColor(.white)
                 Spacer()
-                Text("\(viewModel.totalStepsAchieved)/\(viewModel.totalStepsCount)")
+                Text("\(viewModel.stepsAchieved)/\(viewModel.totalStepsCount)")
                     .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
                     .foregroundColor(.white)
             }
@@ -39,15 +39,6 @@ struct ProgressAnimation: View {
             .frame(height: 12)
         }
         .padding()
-    }
-}
-
-class SocialIdentityViewModel: ObservableObject {
-    @Published var totalStepsCount: Int = 3
-    @Published var totalStepsAchieved: Int = 1
-    
-    var progress: CGFloat {
-        return CGFloat(totalStepsAchieved) / CGFloat(totalStepsCount)
     }
 }
 
