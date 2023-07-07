@@ -8,9 +8,33 @@
 import SwiftUI
 
 
-struct ProgressAnimation: View {
+struct SocialIdentityProgressBar: View {
     let title: String
-    @ObservedObject var viewModel: SocialIdentityViewModel
+    
+    
+    @AppStorage(AppStateKeys.backedUpSeedPhraseKey.rawValue)
+    private var backedUp: Bool = UserDefaults.standard.seedBackedUp
+
+    @AppStorage(AppStateKeys.handle.rawValue)
+    private var handle: String = UserDefaults.standard.handle
+    
+    var stepsAchieved: Int {
+        var stepsAchieved = 0
+        stepsAchieved += !handle.isEmpty ? 1 : 0
+        stepsAchieved += backedUp ? 1 : 0
+        stepsAchieved += UserDefaults.standard.didCreateAvatar ? 1 : 0
+        return stepsAchieved
+    }
+    
+    var progress: CGFloat {
+        var stepsAchieved = 0
+        stepsAchieved += !handle.isEmpty ? 1 : 0
+        stepsAchieved += backedUp ? 1 : 0
+        stepsAchieved += UserDefaults.standard.didCreateAvatar ? 1 : 0
+        let prog = CGFloat(stepsAchieved) / 3.0
+        return prog
+    }
+
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -19,7 +43,7 @@ struct ProgressAnimation: View {
                     .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
                     .foregroundColor(.white)
                 Spacer()
-                Text("\(viewModel.stepsAchieved)/\(viewModel.totalStepsCount)")
+                Text("\(stepsAchieved)/\(3)")
                     .font(Font(UIFont.Theme.spaceBold(ofSize: 14)))
                     .foregroundColor(.white)
             }
@@ -32,7 +56,7 @@ struct ProgressAnimation: View {
                         .overlay(alignment: .leading) {
                             RoundedRectangle(cornerRadius: 15.0)
                                 .fill(mainTeal)
-                                .frame(width: geometry.size.width * viewModel.progress)
+                                .frame(width: geometry.size.width * progress)
                         }
                 }
             }
@@ -43,12 +67,10 @@ struct ProgressAnimation: View {
 }
 
 struct SocialIdentityProgressView: View {
-    
-    @ObservedObject var viewModel: SocialIdentityViewModel
-    
+        
     var body: some View {
         VStack {
-            ProgressAnimation(title: "% Social Identity Progress", viewModel: viewModel)
+            SocialIdentityProgressBar(title: "% Social Identity Progress")
         }
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .padding()
@@ -57,6 +79,6 @@ struct SocialIdentityProgressView: View {
 
 struct SocialIdentityProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        SocialIdentityProgressView(viewModel: SocialIdentityViewModel())
+        SocialIdentityProgressView()
     }
 }

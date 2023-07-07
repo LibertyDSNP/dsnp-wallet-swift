@@ -11,6 +11,7 @@ import DSNPWallet
 enum AppStateKeys: String {
     case backedUpSeedPhraseKey = "seedPhraseBackedUp"
     case avatarSetKey = "avatarSet"
+    case handle = "handle"
 }
 
 class AppState: ObservableObject {
@@ -20,7 +21,7 @@ class AppState: ObservableObject {
     @Published var isLoggedin = true
     
     private (set) var handle = {
-        if let handle = UserDefaults.standard.object(forKey: "handle") {
+        if let handle = UserDefaults.standard.object(forKey: AppStateKeys.handle.rawValue) {
             return handle as? String ?? ""
         }
         return ""
@@ -50,7 +51,7 @@ class AppState: ObservableObject {
     }
     
     func clearHandle() {
-        UserDefaults.standard.set("", forKey: "handle")
+        UserDefaults.standard.set("", forKey: AppStateKeys.handle.rawValue)
     }
     
     func didBackupSeedPhrase() -> Bool {
@@ -59,9 +60,11 @@ class AppState: ObservableObject {
     
     func setDidBackupSeedPhrase(backedUp: Bool) {
         UserDefaults.standard.set(backedUp, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+        print("after set value: ", UserDefaults.standard.bool(forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue))
     }
 
     func setBackedUp(backedUp: Bool) {
+        print("backing up seed new val: ", backedUp)
         setDidBackupSeedPhrase(backedUp: backedUp)
     }
     
@@ -89,11 +92,11 @@ class AppState: ObservableObject {
 }
 extension UserDefaults {
    static func setHandle(with value: String) {
-     UserDefaults.standard.set(value, forKey: "handle")
+     UserDefaults.standard.set(value, forKey: AppStateKeys.handle.rawValue)
    }
 
   static func getHandle() -> String {
-    return UserDefaults.standard.string(forKey: "handle") ?? ""
+    return UserDefaults.standard.string(forKey: AppStateKeys.handle.rawValue) ?? ""
   }
 }
 
@@ -104,6 +107,15 @@ extension UserDefaults {
         }
         set {
             set(newValue, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+        }
+    }
+    
+    @objc var handle: String {
+        get {
+            return String(AppStateKeys.handle.rawValue)
+        }
+        set {
+            set(newValue, forKey: AppStateKeys.handle.rawValue)
         }
     }
     
