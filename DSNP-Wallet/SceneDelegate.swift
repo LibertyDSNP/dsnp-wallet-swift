@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         var rootViewController: UIViewController?
         
-#if DEBUG        
+#if DEBUG
         rootViewController = BaseViewController()
 #else
         if let storedMnemonic = SeedManager.shared.fetch() {
