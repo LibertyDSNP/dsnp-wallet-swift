@@ -60,11 +60,9 @@ class AppState: ObservableObject {
     
     func setDidBackupSeedPhrase(backedUp: Bool) {
         UserDefaults.standard.set(backedUp, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
-        print("after set value: ", UserDefaults.standard.bool(forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue))
     }
 
     func setBackedUp(backedUp: Bool) {
-        print("backing up seed new val: ", backedUp)
         setDidBackupSeedPhrase(backedUp: backedUp)
     }
     
@@ -79,11 +77,9 @@ class AppState: ObservableObject {
             count += 1
         }
         if didBackupSeedPhrase() {
-            print("seed backed up +1")
             count += 1
         }
         if UserDefaults.standard.didCreateAvatar {
-            print("create avatar +1")
             count += 1
         }
         return count
