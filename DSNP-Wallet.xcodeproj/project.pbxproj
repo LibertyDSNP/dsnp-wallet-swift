@@ -423,7 +423,6 @@
 		82F183D42A1824F00092D0FF /* AssetBalanceChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */; };
 		B14F2CCDE60885E12E8717AA /* Pods_DSNP_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255B9CE28F785F400FA941A /* Pods_DSNP_Wallet.framework */; };
 		B500AEB32A324DC2001EEE7E /* SocialIdentityProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B500AEB22A324DC2001EEE7E /* SocialIdentityProgressView.swift */; };
-		B51244C12A5853D20082952E /* SocialIdentityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51244C02A5853D20082952E /* SocialIdentityViewModel.swift */; };
 		B51AC5072A53690900A2C5FA /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51AC5062A53690900A2C5FA /* LazyView.swift */; };
 		B51B13DD2A2E627A000C10B9 /* AmplicaHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B13DC2A2E627A000C10B9 /* AmplicaHeadline.swift */; };
 		B534ACDA2A268A7500518B9C /* AMPHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */; };
@@ -938,7 +937,6 @@
 		82F183D12A1824880092D0FF /* SubstrateDataModel7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubstrateDataModel7.xcdatamodel; sourceTree = "<group>"; };
 		82F183D32A1824F00092D0FF /* AssetBalanceChanged.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetBalanceChanged.swift; sourceTree = "<group>"; };
 		B500AEB22A324DC2001EEE7E /* SocialIdentityProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialIdentityProgressView.swift; sourceTree = "<group>"; };
-		B51244C02A5853D20082952E /* SocialIdentityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialIdentityViewModel.swift; sourceTree = "<group>"; };
 		B51AC5062A53690900A2C5FA /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		B51B13DC2A2E627A000C10B9 /* AmplicaHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplicaHeadline.swift; sourceTree = "<group>"; };
 		B534ACD92A268A7500518B9C /* AMPHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMPHomeViewModel.swift; sourceTree = "<group>"; };
@@ -2204,7 +2202,6 @@
 				B5D382C22A26483D0086A05D /* HomeViewModel.swift */,
 				B500AEB22A324DC2001EEE7E /* SocialIdentityProgressView.swift */,
 				B5B5BC7D2A38BB6C0005395F /* SocialProgressView.swift */,
-				B51244C02A5853D20082952E /* SocialIdentityViewModel.swift */,
 			);
 			path = "Home Screen";
 			sourceTree = "<group>";
@@ -2665,7 +2662,6 @@
 				829964D6297A17F4009A769F /* User.swift in Sources */,
 				829968EB297B721C009A769F /* CompoundOperationWrapper+Result.swift in Sources */,
 				829965B8297A1955009A769F /* OrmlAssetExtras.swift in Sources */,
-				B51244C12A5853D20082952E /* SocialIdentityViewModel.swift in Sources */,
 				829961002978C460009A769F /* SharedNavigationController.swift in Sources */,
 				B5966F272A00080900A17F08 /* QAView.swift in Sources */,
 				82996493297A17F4009A769F /* DistributedStorageFactory.swift in Sources */,
