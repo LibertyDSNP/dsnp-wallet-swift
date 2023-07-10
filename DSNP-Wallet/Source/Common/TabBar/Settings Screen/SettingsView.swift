@@ -9,6 +9,9 @@ import SwiftUI
 
 struct SettingsView: View {
         
+    @AppStorage(AppStateKeys.backedUpSeedPhraseKey.rawValue)
+    private var backedUp: Bool = UserDefaults.standard.seedBackedUp
+    
     @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
@@ -44,7 +47,7 @@ struct SettingsView: View {
     
     private var recoverySection: some View {
         VStack(alignment: .leading) {
-            if !AppState.shared.hasBackedKeys {
+            if !backedUp {
                 Text("You have NEVER backed up!")
                     .font(Font(UIFont.Theme.regular(ofSize: 12)))
                     .foregroundColor(.white)

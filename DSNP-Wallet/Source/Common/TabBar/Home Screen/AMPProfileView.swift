@@ -85,7 +85,7 @@ struct AMPProfileView: View {
     }
 
     private var progressView: some View {
-        SocialIdentityProgressView(viewModel: SocialIdentityViewModel())
+        SocialIdentityProgressView()
             .accessibilityIdentifier(AccessibilityIdentifier.TabView.IdentityViewIdentifiers.progressIndicator)
     }
     

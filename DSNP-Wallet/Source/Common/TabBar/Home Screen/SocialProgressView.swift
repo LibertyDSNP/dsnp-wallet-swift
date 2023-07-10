@@ -11,6 +11,21 @@ struct SocialProgressView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @AppStorage(AppStateKeys.backedUpSeedPhraseKey.rawValue)
+    private var backedUp: Bool = UserDefaults.standard.seedBackedUp
+
+    @AppStorage(AppStateKeys.handle.rawValue)
+    private var handle: String = UserDefaults.standard.handle
+    
+    var progress: CGFloat {
+        var stepsAchieved = 0
+        stepsAchieved += !handle.isEmpty ? 1 : 0
+        stepsAchieved += backedUp ? 1 : 0
+        stepsAchieved += UserDefaults.standard.didCreateAvatar ? 1 : 0
+        let prog = CGFloat(stepsAchieved) / 3.0
+        return prog
+    }
+    
     var body: some View {
         VStack {
             title
@@ -43,7 +58,7 @@ struct SocialProgressView: View {
     }
     
     private var progressView: some View {
-        SocialIdentityProgressView(viewModel: SocialIdentityViewModel())
+        SocialIdentityProgressView()
     }
     
     private var description: some View {
@@ -59,8 +74,8 @@ struct SocialProgressView: View {
     private var taskIndicatorStack: some View {
         VStack {
             IdentityProgressItem(title: "Set Avatar", isComplete: false)
-            IdentityProgressItem(title: "Backup Seed Phrase", isComplete: false)
-            IdentityProgressItem(title: "Choose a handle", isComplete: true)
+            IdentityProgressItem(title: "Backup Seed Phrase", isComplete: backedUp)
+            IdentityProgressItem(title: "Choose a handle", isComplete: !handle.isEmpty)
         }
     }
 }

@@ -26,7 +26,7 @@ class HomeViewModel: ObservableObject {
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
     @Published var shouldLogout: Int? = 0
-    
+        
     var shouldShowAlert = false
     var chosenHandle: String?
 
@@ -68,6 +68,7 @@ class HomeViewModel: ObservableObject {
     
     private func logout() {
         AppState.shared.isLoggedin = false
+        AppState.shared.resetSocialProgress()    
         appStateLoggedIn = false
         shouldLogout = 1
         do {
