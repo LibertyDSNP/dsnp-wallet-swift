@@ -53,7 +53,7 @@ enum AlertType {
             return AccessibilityIdentifier.OnboardingIdentifiers.congratsCloseButton
         case .logoutAlert:
             return AccessibilityIdentifier.TabView.SettingsViewIdentifiers.modalCloseButton
-
+            
         }
     }
     
@@ -63,6 +63,15 @@ enum AlertType {
             return AccessibilityIdentifier.OnboardingIdentifiers.congratsCloseButton
         case .logoutAlert:
             return AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton
+        }
+    }
+    
+    func icon() -> Image? {
+        switch self {
+        case .congrats:
+            return nil
+        case .logoutAlert:
+            return Image("alert")
         }
     }
     
@@ -77,28 +86,43 @@ enum AlertType {
 }
 
 struct AmplicaAlert: View {
-
+    
     @Binding var presentAlert: Bool
     
     let alertType: AlertType
-
+    
     let primaryButtonAction: () -> ()
     let secondaryButtonAction: () -> ()?
-
+    
     var body: some View {
         ZStack {
             dimView
-            VStack(alignment: .center) {
-                headline
-                messageText
-                    .multilineTextAlignment(.center)
-                buttonStack
-            }
-            .background(.white)
-            .cornerRadius(20)
-            .padding(16)
+            alertBody
         }
         .ignoresSafeArea()
+    }
+    
+    private var alertBody: some View {
+        VStack(alignment: .center) {
+            closeButton
+                .frame(maxWidth: .infinity, alignment: .trailing)
+            headline
+            messageText
+                .multilineTextAlignment(.center)
+            buttonStack
+        }
+        .background(.white)
+        .cornerRadius(20)
+        .padding(30)
+    }
+    
+    private var closeButton: some View {
+        CloseButton(action: {
+            presentAlert.toggle()
+        })
+        .padding(.trailing, 14)
+        .padding(.top, 14)
+        .accessibilityIdentifier(alertType.closeButtonAccessibilityId())
     }
     
     private var dimView: some View {
@@ -107,23 +131,17 @@ struct AmplicaAlert: View {
     }
     
     private var headline: some View {
-        HStack(alignment: .center) {
-            EmptyView()
-            Spacer()
+        VStack {
+            alertType.icon()
+                .padding(.bottom, -6)
+                .padding(.top, 22)
             titleText
-                .padding(.top, 20)
-                .padding(.leading, 16)
-            Spacer()
-            CloseButton(action: {
-                presentAlert.toggle()
-            })
-            .accessibilityIdentifier(alertType.closeButtonAccessibilityId())
         }
     }
     
     private var titleText: some View {
         Text(alertType.title())
-            .font(Font(UIFont.Theme.extraBold(ofSize: 22)))
+            .font(Font(UIFont.Theme.medium(ofSize: 20)))
             .foregroundColor(Color(uiColor: UIColor.Theme.congratsColor))
     }
     

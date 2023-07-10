@@ -71,13 +71,17 @@ struct CloseButton: View {
     
     let action: () -> Void
     
+    private let size: CGFloat = 14.0
+    
     var body: some View {
         Button {
             action()
         } label: {
             Image("close")
+                .resizable()
+                .frame(width: size, height: size)
         }
-        .frame(width: 30, height: 30)
+        .frame(width: size, height: size)
     }
 }
 
