@@ -8,29 +8,25 @@
 import SwiftUI
 
 struct SettingsView: View {
-        
-    @ObservedObject var viewModel: HomeViewModel
     
-    @State private var isAlertPresented = false
+    @ObservedObject var viewModel: HomeViewModel
 
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack {
-                    headline
-                        .padding(.bottom, 20)
-                        .padding(.horizontal, 30)
-                    recoverySection
-                        .padding(.bottom, 30)
-                        .padding(.horizontal, 30)
-                    security
-                    faceIdCell
-                    password
-                    logoutButton
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 30)
-                    Spacer()
-                }
+            VStack {
+                headline
+                    .padding(.bottom, 20)
+                    .padding(.horizontal, 30)
+                recoverySection
+                    .padding(.bottom, 30)
+                    .padding(.horizontal, 30)
+                security
+                faceIdCell
+                password
+                logoutButton
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 30)
+                Spacer()
             }
             .padding(.top, 70)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -136,7 +132,7 @@ struct SettingsView: View {
         .padding(.horizontal, 30)
     }
     
-
+    
     private var logoutButton: some View {
         VStack {
             Divider()
