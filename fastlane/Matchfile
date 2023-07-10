@@ -1,0 +1,8 @@
+git_url("git@github.com:AmplicaLabs/certificates")
+app_identifier("com.unfinished.dsnp-wallet")
+username(ENV["APPLE_ID_EMAIL"])
+storage_mode("git")
+type("development")
+platform("ios")
+shallow_clone true
+force_for_new_devices true
