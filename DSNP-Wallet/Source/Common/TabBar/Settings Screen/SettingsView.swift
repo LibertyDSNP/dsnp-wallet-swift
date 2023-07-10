@@ -8,25 +8,27 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
+        
     @ObservedObject var viewModel: HomeViewModel
-
+    
+    @State private var isAlertPresented = false
+    
     var body: some View {
         NavigationView {
-            VStack {
-                headline
-                    .padding(.bottom, 20)
-                    .padding(.horizontal, 30)
-                recoverySection
-                    .padding(.bottom, 30)
-                    .padding(.horizontal, 30)
-                security
-                faceIdCell
-                password
-                logoutButton
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 30)
-                Spacer()
+                VStack {
+                    headline
+                        .padding(.bottom, 20)
+                        .padding(.horizontal, 30)
+                    recoverySection
+                        .padding(.bottom, 30)
+                        .padding(.horizontal, 30)
+                    security
+                    faceIdCell
+                    password
+                    logoutButton
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 30)
+                    Spacer()
             }
             .padding(.top, 70)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -54,7 +56,7 @@ struct SettingsView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 16)
             }
-            NavigationLink(destination: SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: viewModel.seed()))) {
+            NavigationLink(destination: SeedPhraseView(viewModel: SeedPhraseViewModel(seedPhraseWords: viewModel.seed())), tag: 1, selection: $viewModel.shouldRevealPhrase) {
                 Text("Reveal Recovery Phrase")
                     .font(Font(UIFont.Theme.bold(ofSize: 15)))
                     .padding(.vertical, 16)
@@ -132,7 +134,7 @@ struct SettingsView: View {
         .padding(.horizontal, 30)
     }
     
-    
+
     private var logoutButton: some View {
         VStack {
             Divider()
@@ -150,7 +152,7 @@ struct SettingsView: View {
                         .font(Font(UIFont.Theme.bold(ofSize: 16)))
                         .foregroundColor(.white)
                     Spacer()
-                    logoutLogo
+                   logoutLogo
                 }
             }
             .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton)

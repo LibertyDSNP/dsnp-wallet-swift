@@ -65,13 +65,7 @@ struct MainTabView: View {
                         AmpTabItem(title: "Settings", tabImageName: "settings")
                     }
                 if viewModel.isAlertPresented {
-                    AmplicaAlert(
-                        presentAlert: $viewModel.isAlertPresented,
-                        alertType: .logoutAlert) {
-                            viewModel.logoutAction.send()
-                        } secondaryButtonAction: {
-                            
-                        }
+                    logoutAlert
                 }
             }
             
@@ -80,6 +74,16 @@ struct MainTabView: View {
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
+    }
+    
+    var logoutAlert: some View {
+        AmplicaAlert(
+            presentAlert: $viewModel.isAlertPresented,
+            alertType: .logoutAlert) {
+                viewModel.logoutAction.send()
+            } secondaryButtonAction: {
+                viewModel.revealPhraseAction.send()
+            }
     }
 }
 
