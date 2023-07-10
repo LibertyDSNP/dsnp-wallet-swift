@@ -36,6 +36,7 @@ struct SeedPhraseView: View {
         .ignoresSafeArea()
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .navigationBarHidden(true)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     private var title: some View {

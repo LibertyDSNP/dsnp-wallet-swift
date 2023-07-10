@@ -8,15 +8,20 @@
 import Foundation
 import DSNPWallet
 
+enum AppStateKeys: String {
+    case backedUpSeedPhraseKey = "seedPhraseBackedUp"
+    case avatarSetKey = "avatarSet"
+    case handle = "handle"
+}
+
 class AppState: ObservableObject {
     
     static let shared = AppState()
 
     @Published var isLoggedin = true
-    @Published var hasBackedKeys = false
     
     private (set) var handle = {
-        if let handle = UserDefaults.standard.object(forKey: "handle") {
+        if let handle = UserDefaults.standard.object(forKey: AppStateKeys.handle.rawValue) {
             return handle as? String ?? ""
         }
         return ""
@@ -45,18 +50,77 @@ class AppState: ObservableObject {
         UserDefaults.standard.set(enabled, forKey: "faceId")
     }
     
-    func setHandle(handle: String) {
-        if !handle.isEmpty {
-            UserDefaults.standard.set(handle, forKey: "handle")
-        }
+    func clearHandle() {
+        UserDefaults.standard.set("", forKey: AppStateKeys.handle.rawValue)
     }
+    
+    func didBackupSeedPhrase() -> Bool {
+        return UserDefaults.standard.bool(forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+    }
+    
+    func setDidBackupSeedPhrase(backedUp: Bool) {
+        UserDefaults.standard.set(backedUp, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+    }
+
+    func setBackedUp(backedUp: Bool) {
+        setDidBackupSeedPhrase(backedUp: backedUp)
+    }
+    
+    func resetSocialProgress() {
+        clearHandle()
+        setDidBackupSeedPhrase(backedUp: false)
+    }
+
+    func socialIdentityProgressStepsCompleted() -> Int {
+        var count = 0
+        if !handle.isEmpty {
+            count += 1
+        }
+        if didBackupSeedPhrase() {
+            count += 1
+        }
+        if UserDefaults.standard.didCreateAvatar {
+            count += 1
+        }
+        return count
+    }
+
 }
 extension UserDefaults {
    static func setHandle(with value: String) {
-     UserDefaults.standard.set(value, forKey: "handle")
+     UserDefaults.standard.set(value, forKey: AppStateKeys.handle.rawValue)
    }
 
   static func getHandle() -> String {
-    return UserDefaults.standard.string(forKey: "handle") ?? ""
+    return UserDefaults.standard.string(forKey: AppStateKeys.handle.rawValue) ?? ""
   }
+}
+
+extension UserDefaults {
+    @objc var seedBackedUp: Bool {
+        get {
+            return Bool(AppStateKeys.backedUpSeedPhraseKey.rawValue) ?? false
+        }
+        set {
+            set(newValue, forKey: AppStateKeys.backedUpSeedPhraseKey.rawValue)
+        }
+    }
+    
+    @objc var handle: String {
+        get {
+            return String(AppStateKeys.handle.rawValue)
+        }
+        set {
+            set(newValue, forKey: AppStateKeys.handle.rawValue)
+        }
+    }
+    
+    @objc var didCreateAvatar: Bool {
+        get {
+            return Bool(AppStateKeys.avatarSetKey.rawValue) ?? false
+        }
+        set {
+            set(newValue, forKey: AppStateKeys.avatarSetKey.rawValue)
+        }
+    }
 }

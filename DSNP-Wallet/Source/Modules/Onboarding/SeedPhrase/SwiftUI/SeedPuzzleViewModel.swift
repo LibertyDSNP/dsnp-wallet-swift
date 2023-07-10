@@ -101,6 +101,12 @@ class SeedPuzzleViewModel: ObservableObject {
                         let errColor = Color(uiColor: UIColor.Theme.errorStringColor)
                         return self.seedphraseAlertString == "You passed the test" ? .green : errColor
                     }()
+                    
+                    // Update social ID Progress
+                    if self.isPuzzleCorrect() {
+                        AppState.shared.setBackedUp(backedUp: true)
+                    }
+                    
                     self.resetPuzzle()
                 }
             }

@@ -28,7 +28,7 @@ class HomeViewModel: ObservableObject {
     // Communication between HomeTabView and SettingsView
     @Published var shouldRevealPhrase: Int? = 0
     @Published var isAlertPresented = false
-    
+
     var chosenHandle: String?
 
     // Settings - Biometric Device Type String
@@ -83,6 +83,7 @@ class HomeViewModel: ObservableObject {
     
     private func logout() {
         AppState.shared.isLoggedin = false
+        AppState.shared.resetSocialProgress()    
         appStateLoggedIn = false
         do {
             try SeedManager.shared.delete()

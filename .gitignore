@@ -214,3 +214,6 @@ dist
 # /NODE
 #########
 *.DS_Store
+
+# Stores Test Artifacts
+.derived_data/
