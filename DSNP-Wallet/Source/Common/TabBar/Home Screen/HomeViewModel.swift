@@ -25,11 +25,10 @@ class HomeViewModel: ObservableObject {
     @Published var faceIdEnabled: Bool = AppState.shared.faceIdEnabled()
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
+    // Communication between HomeTabView and SettingsView
     @Published var shouldRevealPhrase: Int? = 0
-
     @Published var isAlertPresented = false
     
-    var shouldShowAlert = false
     var chosenHandle: String?
 
     // Settings - Biometric Device Type String
