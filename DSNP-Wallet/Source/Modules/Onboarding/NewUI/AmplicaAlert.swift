@@ -181,33 +181,6 @@ struct AmplicaAlert: View {
     }
 }
 
-
-struct Se1condaryButton: View {
-    let title: String
-    let action: () -> Void
-    
-    @Environment(\.isEnabled) var isEnabled
-    
-    var body: some View {
-        Button {
-            action()
-        } label: {
-            Text(title)
-                .font(Font(UIFont.Theme.bold(ofSize: 15)))
-                .padding(.vertical, 16)
-                .padding(.horizontal, 12)
-                .foregroundColor(isEnabled ? .white : Color(uiColor: UIColor.Theme.bgTeal))
-        }
-        .frame(maxWidth: .infinity)
-        .background(!isEnabled ? Color(uiColor: UIColor.Theme.bgGray) : Color(uiColor: UIColor.Theme.buttonTeal))
-        .foregroundColor(.white)
-        .cornerRadius(30)
-        .onTapGesture {
-            isEnabled ? action() : nil
-        }
-    }
-}
-
 struct AmplicaAlert_Previews: PreviewProvider {
     
     static var previews: some View {
