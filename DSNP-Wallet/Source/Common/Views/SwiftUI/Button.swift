@@ -71,7 +71,7 @@ struct CloseButton: View {
     
     let action: () -> Void
     
-    private let size: CGFloat = 14.0
+    private let size: CGFloat = 12.0
     
     var body: some View {
         Button {

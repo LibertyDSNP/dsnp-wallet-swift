@@ -120,20 +120,21 @@ struct AmplicaAlert: View {
         CloseButton(action: {
             presentAlert.toggle()
         })
-        .padding(.trailing, 14)
-        .padding(.top, 14)
+        .padding(.trailing, 16)
+        .padding(.top, 16)
+        .padding(.bottom, -12)
         .accessibilityIdentifier(alertType.closeButtonAccessibilityId())
     }
     
     private var dimView: some View {
-        Color.black.opacity(0.75)
+        Color.black.opacity(0.7)
             .ignoresSafeArea()
     }
     
     private var headline: some View {
         VStack {
             alertType.icon()
-                .padding(.bottom, -6)
+                .padding(.bottom, -2)
                 .padding(.top, 22)
             titleText
         }
@@ -171,7 +172,7 @@ struct AmplicaAlert: View {
         } label: {
             Text(alertType.primaryActionText())
                 .font(Font(UIFont.Theme.medium(ofSize: 14)))
-                .padding(.vertical, 16)
+                .padding(.vertical, 12)
                 .padding(.horizontal, 82)
                 .foregroundColor(.white)
                 .background(RoundedRectangle(cornerRadius: 30).fill(Color(uiColor: UIColor.Theme.buttonTeal)))
@@ -186,7 +187,7 @@ struct AmplicaAlert: View {
         } label: {
             Text(alertType.secondaryActionText())
                 .font(Font(UIFont.Theme.medium(ofSize: 14)))
-                .padding(.vertical, 16)
+                .padding(.vertical, 12)
                 .padding(.horizontal, 30)
                 .foregroundColor(Color(uiColor: UIColor.Theme.buttonTeal))
                 .background(RoundedRectangle(cornerRadius: 30).fill(.white))

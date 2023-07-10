@@ -13,7 +13,7 @@ struct HomeTabView: View {
     
     @ObservedObject var viewModel: HomeViewModel
     @State var presentAlert = false
-
+    
     var body: some View {
         mainView
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -40,14 +40,14 @@ struct HomeTabView: View {
 }
 
 struct MainTabView: View {
-
+    
     @ObservedObject var viewModel: HomeViewModel
     
     @AppStorage("handle") var handle = UserDefaults.getHandle()
-
+    
     var body: some View {
-        TabView {
-            ZStack {
+        ZStack {
+            TabView {
                 AMPProfileView(viewModel: AMPHomeViewModel(chosenHandle: handle))
                     .tabItem {
                         AmpTabItem(title: "Home", tabImageName: "home")
@@ -64,11 +64,10 @@ struct MainTabView: View {
                     .tabItem {
                         AmpTabItem(title: "Settings", tabImageName: "settings")
                     }
-                if viewModel.isAlertPresented {
-                    logoutAlert
-                }
             }
-            
+            if viewModel.isAlertPresented {
+                logoutAlert
+            }
         }
         .accentColor(mainTeal)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
