@@ -87,10 +87,7 @@ struct AmplicaAlert: View {
 
     var body: some View {
         ZStack {
-            ZStack {
-                Color.black.opacity(0.75)
-                    .edgesIgnoringSafeArea(.all)
-            }
+            dimView
             VStack(alignment: .center) {
                 headline
                 messageText
@@ -101,6 +98,12 @@ struct AmplicaAlert: View {
             .cornerRadius(20)
             .padding(16)
         }
+        .ignoresSafeArea()
+    }
+    
+    private var dimView: some View {
+        Color.black.opacity(0.75)
+            .ignoresSafeArea()
     }
     
     private var headline: some View {

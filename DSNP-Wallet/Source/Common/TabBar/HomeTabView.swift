@@ -47,22 +47,34 @@ struct MainTabView: View {
 
     var body: some View {
         TabView {
-            AMPProfileView(viewModel: AMPHomeViewModel(chosenHandle: handle))
-                .tabItem {
-                    AmpTabItem(title: "Home", tabImageName: "home")
+            ZStack {
+                AMPProfileView(viewModel: AMPHomeViewModel(chosenHandle: handle))
+                    .tabItem {
+                        AmpTabItem(title: "Home", tabImageName: "home")
+                    }
+                ProfileView()
+                    .tabItem {
+                        AmpTabItem(title: "Profile", tabImageName: "profile")
+                    }
+                PermissionsView()
+                    .tabItem {
+                        AmpTabItem(title: "Permissions", tabImageName: "permissions")
+                    }
+                SettingsView(viewModel: viewModel)
+                    .tabItem {
+                        AmpTabItem(title: "Settings", tabImageName: "settings")
+                    }
+                if viewModel.isAlertPresented {
+                    AmplicaAlert(
+                        presentAlert: $viewModel.isAlertPresented,
+                        alertType: .logoutAlert) {
+                            viewModel.logoutAction.send()
+                        } secondaryButtonAction: {
+                            
+                        }
                 }
-            ProfileView()
-                .tabItem {
-                    AmpTabItem(title: "Profile", tabImageName: "profile")
-                }
-            PermissionsView()
-                .tabItem {
-                    AmpTabItem(title: "Permissions", tabImageName: "permissions")
-                }
-            SettingsView(viewModel: viewModel)
-                .tabItem {
-                    AmpTabItem(title: "Settings", tabImageName: "settings")
-                }
+            }
+            
         }
         .accentColor(mainTeal)
         .background(Color(uiColor: UIColor.Theme.bgTeal))

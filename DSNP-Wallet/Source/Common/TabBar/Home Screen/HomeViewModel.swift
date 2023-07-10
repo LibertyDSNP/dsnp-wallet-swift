@@ -17,6 +17,7 @@ class HomeViewModel: ObservableObject {
 
     // Settings Actions
     let logoutAction = PassthroughSubject<Void, Never>()
+    let logoutAlertAction = PassthroughSubject<Void, Never>()
     let revealRecoveryAction = PassthroughSubject<Void, Never>()
     let revealPhraseAction = PassthroughSubject<Void, Never>()
     let toggleFaceIdAction = PassthroughSubject<Bool, Never>()
@@ -26,6 +27,8 @@ class HomeViewModel: ObservableObject {
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
     @Published var shouldLogout: Int? = 0
+    
+    @Published var isAlertPresented = false
     
     var shouldShowAlert = false
     var chosenHandle: String?
@@ -56,6 +59,12 @@ class HomeViewModel: ObservableObject {
             .sink { [weak self] in
                 guard let self else { return }
                 self.logout()
+            }
+            .store(in: &cancellables)
+        logoutAlertAction
+            .sink { [weak self] in
+                guard let self else { return }
+                self.isAlertPresented = true
             }
             .store(in: &cancellables)
         toggleFaceIdAction

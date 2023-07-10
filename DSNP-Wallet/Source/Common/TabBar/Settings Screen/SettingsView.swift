@@ -11,22 +11,26 @@ struct SettingsView: View {
         
     @ObservedObject var viewModel: HomeViewModel
     
+    @State private var isAlertPresented = false
+
     var body: some View {
         NavigationView {
-            VStack {
-                headline
-                    .padding(.bottom, 20)
-                    .padding(.horizontal, 30)
-                recoverySection
-                    .padding(.bottom, 30)
-                    .padding(.horizontal, 30)
-                security
-                faceIdCell
-                password
-                logoutButton
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 30)
-                Spacer()
+            ZStack {
+                VStack {
+                    headline
+                        .padding(.bottom, 20)
+                        .padding(.horizontal, 30)
+                    recoverySection
+                        .padding(.bottom, 30)
+                        .padding(.horizontal, 30)
+                    security
+                    faceIdCell
+                    password
+                    logoutButton
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 30)
+                    Spacer()
+                }
             }
             .padding(.top, 70)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -132,6 +136,7 @@ struct SettingsView: View {
         .padding(.horizontal, 30)
     }
     
+
     private var logoutButton: some View {
         VStack {
             Divider()
@@ -142,21 +147,14 @@ struct SettingsView: View {
                 .padding(.bottom, 4)
                 .opacity(0.5)
             Button {
-                viewModel.logoutAction.send()
+                viewModel.logoutAlertAction.send()
             } label: {
                 HStack {
                     Text("LOG OUT")
                         .font(Font(UIFont.Theme.bold(ofSize: 16)))
                         .foregroundColor(.white)
                     Spacer()
-                    ZStack {
-                        Image("logout_outer")
-                            .frame(width: 30, height: 30)
-                        Image("logout_inner")
-                            .frame(width: 30, height: 30)
-                            .padding(.leading, 10)
-                    }
-                    .padding(.trailing, 16)
+                    logoutLogo
                 }
             }
             .accessibilityIdentifier(AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton)
@@ -167,6 +165,17 @@ struct SettingsView: View {
                 .padding(.leading, -12)
                 .opacity(0.5)
         }
+    }
+    
+    private var logoutLogo: some View {
+        ZStack {
+            Image("logout_outer")
+                .frame(width: 30, height: 30)
+            Image("logout_inner")
+                .frame(width: 30, height: 30)
+                .padding(.leading, 10)
+        }
+        .padding(.trailing, 16)
     }
 }
 
