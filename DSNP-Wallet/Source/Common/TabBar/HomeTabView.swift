@@ -13,7 +13,7 @@ struct HomeTabView: View {
     
     @ObservedObject var viewModel: HomeViewModel
     @State var presentAlert = false
-
+    
     var body: some View {
         mainView
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -40,34 +40,49 @@ struct HomeTabView: View {
 }
 
 struct MainTabView: View {
-
+    
     @ObservedObject var viewModel: HomeViewModel
     
     @AppStorage("handle") var handle = UserDefaults.getHandle()
-
+    
     var body: some View {
-        TabView {
-            AMPProfileView(viewModel: AMPHomeViewModel(chosenHandle: handle))
-                .tabItem {
-                    AmpTabItem(title: "Home", tabImageName: "home")
-                }
-            ProfileView()
-                .tabItem {
-                    AmpTabItem(title: "Profile", tabImageName: "profile")
-                }
-            PermissionsView()
-                .tabItem {
-                    AmpTabItem(title: "Permissions", tabImageName: "permissions")
-                }
-            SettingsView(viewModel: viewModel)
-                .tabItem {
-                    AmpTabItem(title: "Settings", tabImageName: "settings")
-                }
+        ZStack {
+            TabView {
+                AMPProfileView(viewModel: AMPHomeViewModel(chosenHandle: handle))
+                    .tabItem {
+                        AmpTabItem(title: "Home", tabImageName: "home")
+                    }
+                ProfileView()
+                    .tabItem {
+                        AmpTabItem(title: "Profile", tabImageName: "profile")
+                    }
+                PermissionsView()
+                    .tabItem {
+                        AmpTabItem(title: "Permissions", tabImageName: "permissions")
+                    }
+                SettingsView(viewModel: viewModel)
+                    .tabItem {
+                        AmpTabItem(title: "Settings", tabImageName: "settings")
+                    }
+            }
+            if viewModel.isAlertPresented {
+                logoutAlert
+            }
         }
         .accentColor(mainTeal)
         .background(Color(uiColor: UIColor.Theme.bgTeal))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
+    }
+    
+    var logoutAlert: some View {
+        AmplicaAlert(
+            presentAlert: $viewModel.isAlertPresented,
+            alertType: .logoutAlert) {
+                viewModel.logoutAction.send()
+            } secondaryButtonAction: {
+                viewModel.revealPhraseAction.send()
+            }
     }
 }
 

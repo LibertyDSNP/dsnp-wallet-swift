@@ -17,7 +17,7 @@ class HomeViewModel: ObservableObject {
 
     // Settings Actions
     let logoutAction = PassthroughSubject<Void, Never>()
-    let revealRecoveryAction = PassthroughSubject<Void, Never>()
+    let logoutAlertAction = PassthroughSubject<Void, Never>()
     let revealPhraseAction = PassthroughSubject<Void, Never>()
     let toggleFaceIdAction = PassthroughSubject<Bool, Never>()
     
@@ -25,9 +25,10 @@ class HomeViewModel: ObservableObject {
     @Published var faceIdEnabled: Bool = AppState.shared.faceIdEnabled()
     @Published var appStateLoggedIn = AppState.shared.isLoggedin
 
-    @Published var shouldLogout: Int? = 0
-        
-    var shouldShowAlert = false
+    // Communication between HomeTabView and SettingsView
+    @Published var shouldRevealPhrase: Int? = 0
+    @Published var isAlertPresented = false
+
     var chosenHandle: String?
 
     // Settings - Biometric Device Type String
@@ -56,6 +57,13 @@ class HomeViewModel: ObservableObject {
             .sink { [weak self] in
                 guard let self else { return }
                 self.logout()
+                self.isAlertPresented = false
+            }
+            .store(in: &cancellables)
+        logoutAlertAction
+            .sink { [weak self] in
+                guard let self else { return }
+                self.isAlertPresented = true
             }
             .store(in: &cancellables)
         toggleFaceIdAction
@@ -64,13 +72,19 @@ class HomeViewModel: ObservableObject {
                 self?.faceIdEnabled = enabled
             }
             .store(in: &cancellables)
+        revealPhraseAction
+            .sink { [weak self] in
+                guard let self else { return }
+                self.isAlertPresented = false
+                self.shouldRevealPhrase = 1
+            }
+            .store(in: &cancellables)
     }
     
     private func logout() {
         AppState.shared.isLoggedin = false
         AppState.shared.resetSocialProgress()    
         appStateLoggedIn = false
-        shouldLogout = 1
         do {
             try SeedManager.shared.delete()
             UserDefaults.setHandle(with: "")

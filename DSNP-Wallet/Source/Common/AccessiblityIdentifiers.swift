@@ -82,6 +82,12 @@ struct AccessibilityIdentifier {
             static let faceIdToggle = "tabView.settings.faceIdToggle"
             static let password = "tabView.settings.password"
             static let logoutButton = "tabView.settings.logoutButton"
+            
+            // Logout Modal
+            static let primaryButtonTitle = "tabView.settings.logoutModal.logoutButton"
+            static let modalCloseButton = "tabView.settings.logoutModal.close"
+            static let recoveryButton = "tabView.settings.logoutModal.recoveryButton"
+
         }
         
         struct IdentityViewIdentifiers {

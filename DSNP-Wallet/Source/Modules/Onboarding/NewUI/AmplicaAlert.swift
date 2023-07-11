@@ -9,11 +9,14 @@ import SwiftUI
 
 enum AlertType {
     case congrats
+    case logoutAlert
     
     func title() -> String {
         switch self {
         case .congrats:
             return "Congratulations!"
+        case .logoutAlert:
+            return "Logout"
         }
     }
     
@@ -21,6 +24,8 @@ enum AlertType {
         switch self {
         case .congrats:
             return "For better recommendations and\nto connect with people relevant to you filling\nout your profile is a good first step."
+        case .logoutAlert:
+            return "This action will result in deleting all accounts from this device. Make sure you have backed up your passphrase before proceeding otherwise you won’t be able to restore your wallet."
         }
     }
     
@@ -28,6 +33,8 @@ enum AlertType {
         switch self {
         case .congrats:
             return "Finish Digital Identity"
+        case .logoutAlert:
+            return "Logout"
         }
     }
     
@@ -35,6 +42,8 @@ enum AlertType {
         switch self {
         case .congrats:
             return ""
+        case .logoutAlert:
+            return "View recovery phrase"
         }
     }
     
@@ -42,6 +51,9 @@ enum AlertType {
         switch self {
         case .congrats:
             return AccessibilityIdentifier.OnboardingIdentifiers.congratsCloseButton
+        case .logoutAlert:
+            return AccessibilityIdentifier.TabView.SettingsViewIdentifiers.modalCloseButton
+            
         }
     }
     
@@ -49,6 +61,17 @@ enum AlertType {
         switch self {
         case .congrats:
             return AccessibilityIdentifier.OnboardingIdentifiers.congratsCloseButton
+        case .logoutAlert:
+            return AccessibilityIdentifier.TabView.SettingsViewIdentifiers.logoutButton
+        }
+    }
+    
+    func icon() -> Image? {
+        switch self {
+        case .congrats:
+            return nil
+        case .logoutAlert:
+            return Image("alert")
         }
     }
     
@@ -56,56 +79,70 @@ enum AlertType {
         switch self {
         case .congrats:
             return AccessibilityIdentifier.OnboardingIdentifiers.congratsCloseButton
+        case .logoutAlert:
+            return AccessibilityIdentifier.TabView.SettingsViewIdentifiers.recoveryButton
         }
     }
 }
 
 struct AmplicaAlert: View {
-
+    
     @Binding var presentAlert: Bool
     
     let alertType: AlertType
-
+    
     let primaryButtonAction: () -> ()
     let secondaryButtonAction: () -> ()?
-
+    
     var body: some View {
         ZStack {
-            ZStack {
-                Color.black.opacity(0.75)
-                    .edgesIgnoringSafeArea(.all)
-            }
-            VStack(alignment: .center) {
-                headline
-                messageText
-                    .multilineTextAlignment(.center)
-                buttonStack
-            }
-            .background(Color(uiColor: UIColor.Theme.bgGray))
-            .cornerRadius(20)
-            .padding(16)
+            dimView
+            alertBody
         }
+        .ignoresSafeArea()
+    }
+    
+    private var alertBody: some View {
+        VStack(alignment: .center) {
+            closeButton
+                .frame(maxWidth: .infinity, alignment: .trailing)
+            headline
+            messageText
+                .multilineTextAlignment(.center)
+            buttonStack
+        }
+        .background(.white)
+        .cornerRadius(20)
+        .padding(30)
+    }
+    
+    private var closeButton: some View {
+        CloseButton(action: {
+            presentAlert.toggle()
+        })
+        .padding(.trailing, 16)
+        .padding(.top, 16)
+        .padding(.bottom, -12)
+        .accessibilityIdentifier(alertType.closeButtonAccessibilityId())
+    }
+    
+    private var dimView: some View {
+        Color.black.opacity(0.7)
+            .ignoresSafeArea()
     }
     
     private var headline: some View {
-        HStack(alignment: .center) {
-            EmptyView()
-            Spacer()
+        VStack {
+            alertType.icon()
+                .padding(.bottom, -2)
+                .padding(.top, 22)
             titleText
-                .padding(.top, 20)
-                .padding(.leading, 16)
-            Spacer()
-            CloseButton(action: {
-                presentAlert.toggle()
-            })
-            .padding(.trailing, 12)
-            .accessibilityIdentifier(alertType.closeButtonAccessibilityId())
         }
     }
     
     private var titleText: some View {
         Text(alertType.title())
-            .font(Font(UIFont.Theme.extraBold(ofSize: 22)))
+            .font(Font(UIFont.Theme.medium(ofSize: 20)))
             .foregroundColor(Color(uiColor: UIColor.Theme.congratsColor))
     }
     
@@ -116,6 +153,7 @@ struct AmplicaAlert: View {
             .lineSpacing(4)
             .padding(.vertical, 14)
             .frame(alignment: .center)
+            .padding(.horizontal, 20)
     }
     
     private var buttonStack: some View {
@@ -128,11 +166,17 @@ struct AmplicaAlert: View {
     }
     
     private var primaryActionButton: some View {
-        PrimaryButton(title: alertType.primaryActionText()) {
+        Button {
             presentAlert.toggle()
             primaryButtonAction()
+        } label: {
+            Text(alertType.primaryActionText())
+                .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                .padding(.vertical, 12)
+                .padding(.horizontal, 82)
+                .foregroundColor(.white)
+                .background(RoundedRectangle(cornerRadius: 30).fill(Color(uiColor: UIColor.Theme.buttonTeal)))
         }
-        .font(Font(UIFont.Theme.regular(ofSize: 14)))
         .accessibilityIdentifier(alertType.primaryButtonAccessibilityId())
     }
     
@@ -142,10 +186,31 @@ struct AmplicaAlert: View {
             secondaryButtonAction()
         } label: {
             Text(alertType.secondaryActionText())
-                .foregroundColor(Color(uiColor: UIColor.Theme.defaultTextColor))
-                .font(Font(UIFont.Theme.regular(ofSize: 10)))
-                .underline()
+                .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                .padding(.vertical, 12)
+                .padding(.horizontal, 30)
+                .foregroundColor(Color(uiColor: UIColor.Theme.buttonTeal))
+                .background(RoundedRectangle(cornerRadius: 30).fill(.white))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 30)
+                        .stroke(Color(uiColor: UIColor.Theme.buttonTeal))
+                }
         }
         .accessibilityIdentifier(alertType.secondaryButtonAccessibilityId())
+    }
+}
+
+struct AmplicaAlert_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        VStack {
+            AmplicaAlert(
+                presentAlert: .constant(true),
+                alertType: .logoutAlert) {
+                    print("primary Action")
+                } secondaryButtonAction: {
+                    print("secondary Action")
+                }
+        }
     }
 }
