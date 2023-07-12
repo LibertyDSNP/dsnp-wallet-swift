@@ -110,8 +110,7 @@ struct SignInView: View {
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
         .sheet(isPresented: $termsPresented) {
             if #available(iOS 16.0, *) {
-                Text("Hello world")
-                    .presentationDetents([.medium, .large])
+                TermsView()
             } else {
                 Text("get ios 16")
             }

@@ -433,6 +433,7 @@
 		B534ACE82A28FA7C00518B9C /* AmpTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534ACE72A28FA7C00518B9C /* AmpTabItem.swift */; };
 		B53BD7BE2A00408200967477 /* QAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BD2A00408200967477 /* QAViewModel.swift */; };
 		B53BD7C02A01571000967477 /* ChainEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BF2A01571000967477 /* ChainEnvironment.swift */; };
+		B544C0932A5EF15D000A2C77 /* TermsText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C0922A5EF15D000A2C77 /* TermsText.swift */; };
 		B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F242A0007FF00A17F08 /* QAViewController.swift */; };
 		B5966F272A00080900A17F08 /* QAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F262A00080900A17F08 /* QAView.swift */; };
 		B5A62C092A0A900600A31178 /* ConfirmHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62BFC2A0A900500A31178 /* ConfirmHandleView.swift */; };
@@ -947,6 +948,7 @@
 		B534ACE72A28FA7C00518B9C /* AmpTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmpTabItem.swift; sourceTree = "<group>"; };
 		B53BD7BD2A00408200967477 /* QAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewModel.swift; sourceTree = "<group>"; };
 		B53BD7BF2A01571000967477 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainEnvironment.swift; sourceTree = "<group>"; };
+		B544C0922A5EF15D000A2C77 /* TermsText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsText.swift; sourceTree = "<group>"; };
 		B5966F242A0007FF00A17F08 /* QAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
 		B5966F262A00080900A17F08 /* QAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
 		B5A62BE62A0A8F2900A31178 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -2135,6 +2137,7 @@
 				82DD910129661DBB00A508B9 /* CreateDsnpIdViewController.swift */,
 				82DD910329661E1200A508B9 /* RestoreDsnpWalletViewController.swift */,
 				82DD9107296CBB4E00A508B9 /* SeedPhrase */,
+				B544C0922A5EF15D000A2C77 /* TermsText.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -2937,6 +2940,7 @@
 				829965C0297A1955009A769F /* RestoreJson.swift in Sources */,
 				8299669D297B141A009A769F /* SubstrateRepositoryFactory.swift in Sources */,
 				B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */,
+				B544C0932A5EF15D000A2C77 /* TermsText.swift in Sources */,
 				8299633D297A13CF009A769F /* ApplicationService.swift in Sources */,
 				829965AF297A1955009A769F /* DisplayAddress.swift in Sources */,
 				823BDB972A01708000F81F9C /* EventVisitor.swift in Sources */,
