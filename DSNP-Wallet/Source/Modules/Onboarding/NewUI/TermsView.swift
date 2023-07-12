@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct TermsView: View {
+    
+    @State var agreeDisabled = true
+    
     var body: some View {
         VStack {
             ScrollView {
                 title
                     .padding(.bottom, 20)
                 termsText
+                    .padding(20)
             }
+            .padding(.top, 70)
+            .background(Color(uiColor: UIColor.Theme.bgGray))
+            .cornerRadius(30)
+            .ignoresSafeArea()
             agreeContainer
         }
-        .padding(.top, 20)
     }
     
     var termsText: some View {
@@ -30,11 +37,17 @@ struct TermsView: View {
         Text("Amplica Access Terms of Service")
             .font(Font(UIFont.Theme.regular(ofSize: 20)))
             .foregroundColor(.black)
-
     }
     
     var agreeContainer: some View {
-        Rectangle()
+        VStack {
+            Button("Agree") {
+                // Agree Action
+            }
+            .background(Color(uiColor: UIColor.Theme.bgGray))
+            .disabled(agreeDisabled)
+        }
+        .background(Color.black)
     }
 }
 
