@@ -38,6 +38,8 @@ Fastlane certificates:
 - Delete old and Generate new certificate (Requires when a new device is added to the repo)
     1. Prepare the SSL phrase that will encrypt your profiles and certificates you can use https://bitwarden.com/password-generator/
     2. Add ssh key to the agent `ssh-add -K ~/.ssh/[your-private-key]` for GitHub access
-    3. Use the `fastlane match nuke development` - it will delete development profile 
-    4. Then run `fastlane match`. - It will generate a new certificated 
-    5. Encrypt the certificate using password from step 1.
+    3. Use the `fastlane match nuke development` feature 
+    4. Manually delete the old provisioning profile in ~/Library/MobileDevice/Provisioning Profiles
+    5. Manually delete old certificates from a keychain
+    6. Run `fastlane match` again - It will generate a new certificated
+    7. Encrypt the certificate using password from step 1.

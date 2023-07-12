@@ -3185,6 +3185,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = U95Q67332B;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U95Q67332B;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
@@ -3203,6 +3204,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.unfinished.dsnp-wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.unfinished.dsnp-wallet";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.unfinished.dsnp-wallet";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3219,6 +3221,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = U95Q67332B;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U95Q67332B;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DSNP-Wallet/Info.plist";
@@ -3237,6 +3240,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.unfinished.dsnp-wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.unfinished.dsnp-wallet";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.unfinished.dsnp-wallet";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
