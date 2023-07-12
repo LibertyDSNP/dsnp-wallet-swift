@@ -7,9 +7,26 @@
 
 import SwiftUI
 
+struct TermsView: View {
+    var body: some View {
+        VStack {
+            ScrollView {
+                
+            }
+            agreeContainer
+        }
+    }
+    
+    var agreeContainer: some View {
+        Rectangle()
+    }
+}
+
 struct SignInView: View {
     
     let viewModel: SignInViewModel
+    
+    @State private var termsPresented = false
     
     var body: some View {
         NavigationView {
@@ -70,12 +87,35 @@ struct SignInView: View {
     }
     
     var haveAnIdButton: some View {
-        PrimaryButton(title: "I have an ID", action: {
+        Button {
             viewModel.meWeIdAction.send()
-        }, suffixImage: Image("mewelogo"))
+            termsPresented.toggle()
+        } label: {
+            HStack {
+                Text("I have an ID")
+                    .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 12)
+                Image("mewelogo")
+                        .padding(.bottom, 6)
+                        .padding(.leading, -15)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor.Theme.buttonTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
         .padding(.vertical, 12)
         .padding(.horizontal, 34)
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
+        .sheet(isPresented: $termsPresented) {
+            if #available(iOS 16.0, *) {
+                Text("Hello world")
+                    .presentationDetents([.medium, .large])
+            } else {
+                Text("get ios 16")
+            }
+        }
     }
     
     var createIdentityButton: some View {
