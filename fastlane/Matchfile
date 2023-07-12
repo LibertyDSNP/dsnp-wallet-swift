@@ -1,4 +1,4 @@
-git_url("git@github.com:AmplicaLabs/certificates")
+git_url("git@github.com:AmplicaLabs/ios-fastlane-certs")
 app_identifier("com.unfinished.dsnp-wallet")
 username(ENV["APPLE_ID_EMAIL"])
 storage_mode("git")

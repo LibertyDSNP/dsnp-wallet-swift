@@ -27,12 +27,13 @@ Note: These variables are necessary for generating a signing certificate if you 
 3. Ensure you have the SSH private key for accessing the GitHub repository.
 4. Add the SSH private key to the SSH agent by running the following command:
     `ssh-add -K /path/to/private_key`
-This will grant you access to the HTTPS repository at https://github.com/AmplicaLabs/certificates when pulling certificates.
+This will grant you access to the HTTPS repository at https://github.com/AmplicaLabs/ios-fastlane-certs when pulling certificates.
 5. Pull the signing certificate and profiles by running `fastlane make_ios_cert`
 You will be prompted to enter a passphrase to decrypt the certificate.
 Note: You will need to set a new passphrase each time you generate a new certificate. (Share it with the team). 
 If you need to add a new UDID to the profiles, generate a new certificate using `fastlane match`
 6. Open Xcode and configure manual signing by selecting the certificate pulled in the previous step.
+Note: fastlane match documentation can be found here: https://docs.fastlane.tools/actions/match/
 
 Fastlane certificates: 
 - Delete old and Generate new certificate (Requires when a new device is added to the repo)
@@ -43,3 +44,4 @@ Fastlane certificates:
     5. Manually delete old certificates from a keychain
     6. Run `fastlane match` again - It will generate a new certificated
     7. Encrypt the certificate using password from step 1.
+    
