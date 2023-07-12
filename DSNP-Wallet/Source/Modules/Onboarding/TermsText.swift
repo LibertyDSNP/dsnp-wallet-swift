@@ -7,7 +7,7 @@
 
 import Foundation
 
-public let termsText =
+public let agreeToTermsString =
 """
 Last Updated: May 16, 2023
 

@@ -434,6 +434,7 @@
 		B53BD7BE2A00408200967477 /* QAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BD2A00408200967477 /* QAViewModel.swift */; };
 		B53BD7C02A01571000967477 /* ChainEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BD7BF2A01571000967477 /* ChainEnvironment.swift */; };
 		B544C0932A5EF15D000A2C77 /* TermsText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C0922A5EF15D000A2C77 /* TermsText.swift */; };
+		B544C0952A5EF2A5000A2C77 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C0942A5EF2A5000A2C77 /* TermsView.swift */; };
 		B5966F252A0007FF00A17F08 /* QAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F242A0007FF00A17F08 /* QAViewController.swift */; };
 		B5966F272A00080900A17F08 /* QAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5966F262A00080900A17F08 /* QAView.swift */; };
 		B5A62C092A0A900600A31178 /* ConfirmHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A62BFC2A0A900500A31178 /* ConfirmHandleView.swift */; };
@@ -949,6 +950,7 @@
 		B53BD7BD2A00408200967477 /* QAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewModel.swift; sourceTree = "<group>"; };
 		B53BD7BF2A01571000967477 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainEnvironment.swift; sourceTree = "<group>"; };
 		B544C0922A5EF15D000A2C77 /* TermsText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsText.swift; sourceTree = "<group>"; };
+		B544C0942A5EF2A5000A2C77 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		B5966F242A0007FF00A17F08 /* QAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
 		B5966F262A00080900A17F08 /* QAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
 		B5A62BE62A0A8F2900A31178 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -2228,6 +2230,7 @@
 				B5A62C072A0A900600A31178 /* SignInViewController.swift */,
 				B5A62C082A0A900600A31178 /* SignInViewModel.swift */,
 				B5BCDD672A1E564C003E2845 /* TermsDisclaimerView.swift */,
+				B544C0942A5EF2A5000A2C77 /* TermsView.swift */,
 			);
 			path = NewUI;
 			sourceTree = "<group>";
@@ -2731,6 +2734,7 @@
 				829964A9297A17F4009A769F /* WalletNetworkOperationFactory+MinimalBalance.swift in Sources */,
 				82996584297A1955009A769F /* KnownChainIds.swift in Sources */,
 				825E4F222A424A6300C56BEE /* SharedNumPadButton.swift in Sources */,
+				B544C0952A5EF2A5000A2C77 /* TermsView.swift in Sources */,
 				829961222978C460009A769F /* EventProtocols.swift in Sources */,
 				B5A62C2C2A0A90D100A31178 /* AmplicaLogo.swift in Sources */,
 				82996589297A1955009A769F /* PriceData.swift in Sources */,

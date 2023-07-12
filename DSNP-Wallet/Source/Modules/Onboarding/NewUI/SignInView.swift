@@ -7,21 +7,6 @@
 
 import SwiftUI
 
-struct TermsView: View {
-    var body: some View {
-        VStack {
-            ScrollView {
-                
-            }
-            agreeContainer
-        }
-    }
-    
-    var agreeContainer: some View {
-        Rectangle()
-    }
-}
-
 struct SignInView: View {
     
     let viewModel: SignInViewModel
