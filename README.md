@@ -16,8 +16,6 @@ If you don't have Rosetta installed, simply run:
 
 
 Local set up:
-
-
 1. Run `pod install` to install the required dependencies.
 2. Set the following environmental variables:
 APPLE_ID_EMAIL: Your Apple ID email address.
@@ -35,3 +33,11 @@ You will be prompted to enter a passphrase to decrypt the certificate.
 Note: You will need to set a new passphrase each time you generate a new certificate. (Share it with the team). 
 If you need to add a new UDID to the profiles, generate a new certificate using `fastlane match`
 6. Open Xcode and configure manual signing by selecting the certificate pulled in the previous step.
+
+Fastlane certificates: 
+- Delete old and Generate new certificate (Requires when a new device is added to the repo)
+    1. Prepare the SSL phrase that will encrypt your profiles and certificates you can use https://bitwarden.com/password-generator/
+    2. Add ssh key to the agent `ssh-add -K ~/.ssh/[your-private-key]` for GitHub access
+    3. Use the `fastlane match nuke development` - it will delete development profile 
+    4. Then run `fastlane match`. - It will generate a new certificated 
+    5. Encrypt the certificate using password from step 1.
