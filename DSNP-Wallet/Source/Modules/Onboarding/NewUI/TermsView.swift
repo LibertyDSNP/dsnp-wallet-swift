@@ -7,6 +7,23 @@
 
 import SwiftUI
 
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape(RoundedCorner(radius: radius, corners: corners))
+    }
+}
+
+struct RoundedCorner: Shape {
+    
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
+
 struct TermsView: View {
     
     @State var agreeDisabled = true
@@ -17,11 +34,12 @@ struct TermsView: View {
                 title
                     .padding(.bottom, 20)
                 termsText
-                    .padding(20)
+                    .padding(28)
             }
             .padding(.top, 70)
+            .padding(.bottom, 16)
             .background(Color(uiColor: UIColor.Theme.bgGray))
-            .cornerRadius(30)
+            .cornerRadius(20, corners: [.topLeft, .topRight])
             .ignoresSafeArea()
             agreeContainer
         }
@@ -41,13 +59,15 @@ struct TermsView: View {
     
     var agreeContainer: some View {
         VStack {
-            Button("Agree") {
-                // Agree Action
+            PrimaryButton(title: "Agree") {
+                
             }
-            .background(Color(uiColor: UIColor.Theme.bgGray))
             .disabled(agreeDisabled)
+            .padding(.horizontal, 28)
+            .padding(.vertical, 20)
+            Text("By clicking the agree button you agree")
         }
-        .background(Color.black)
+        .background(Color(uiColor: UIColor.Theme.bgGray))
     }
 }
 
