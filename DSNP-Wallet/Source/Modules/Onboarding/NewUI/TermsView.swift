@@ -28,27 +28,36 @@ struct TermsView: View {
     
     @AppStorage(AppStateKeys.hasAgreedToTerms.rawValue)
     private var hasAgreedToTerms: Bool = UserDefaults.standard.hasAgreedToTerms
-
+    
     @Environment(\.dismiss) var dismiss
-
+    
     var body: some View {
         VStack {
+            VStack {
+                modalBar
+                    .padding(.vertical, 16)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            .background(Color(uiColor: UIColor.Theme.bgGray))
+            .padding(.bottom, -8)
             ScrollView {
                 title
-                    .padding(.bottom, 20)
                 termsText
                     .padding(28)
             }
             .onScrolledToBottom {
                 hasAgreedToTerms = true
             }
-            .padding(.top, 70)
-            .padding(.bottom, 16)
             .background(Color(uiColor: UIColor.Theme.bgGray))
-            .cornerRadius(20, corners: [.topLeft, .topRight])
-            .ignoresSafeArea()
+            .padding(.bottom, 16)
             agreeContainer
         }
+        .cornerRadius(40, corners: [.topLeft, .topRight])
+        .ignoresSafeArea()
+    }
+    
+    var modalBar: some View {
+        Image("modalBar")
     }
     
     var termsText: some View {
@@ -75,10 +84,10 @@ struct TermsView: View {
             .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.agreeToTermsButton)
             Text("By clicking the agree button you agree")
                 .font(Font(UIFont.Theme.regular(ofSize: 12)))
-
         }
         .background(Color(uiColor: UIColor.Theme.bgGray))
-        .padding(.top, -10)
+        .padding(.top, -24)
+        .padding(.bottom, 20)
     }
 }
 
@@ -86,6 +95,7 @@ struct TermsView: View {
 struct TermsView_Previews: PreviewProvider {
     static var previews: some View {
         TermsView()
+            .padding(.top, 70)
     }
 }
 
