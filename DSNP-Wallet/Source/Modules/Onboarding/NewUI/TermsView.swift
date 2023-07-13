@@ -27,7 +27,8 @@ struct RoundedCorner: Shape {
 struct TermsView: View {
     
     @State var agreeDisabled = true
-    
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         VStack {
             ScrollView {
@@ -35,6 +36,9 @@ struct TermsView: View {
                     .padding(.bottom, 20)
                 termsText
                     .padding(28)
+            }
+            .onScrolledToBottom {
+                agreeDisabled = false
             }
             .padding(.top, 70)
             .padding(.bottom, 16)
@@ -61,7 +65,7 @@ struct TermsView: View {
     var agreeContainer: some View {
         VStack {
             PrimaryButton(title: "Agree") {
-                
+                dismiss()
             }
             .disabled(agreeDisabled)
             .padding(.horizontal, 28)
@@ -80,5 +84,18 @@ struct TermsView: View {
 struct TermsView_Previews: PreviewProvider {
     static var previews: some View {
         TermsView()
+    }
+}
+
+extension ScrollView {
+    func onScrolledToBottom(perform action: @escaping() -> Void) -> some View {
+        return ScrollView<LazyVStack> {
+            LazyVStack {
+                self.content
+                Rectangle().size(.zero).onAppear {
+                    action()
+                }
+            }
+        }
     }
 }
