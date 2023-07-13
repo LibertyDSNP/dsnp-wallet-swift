@@ -49,6 +49,7 @@ struct TermsView: View {
         Text(agreeToTermsString)
             .multilineTextAlignment(.leading)
             .font(Font(UIFont.Theme.regular(ofSize: 12)))
+            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.termsText)
     }
     
     var title: some View {
@@ -65,9 +66,13 @@ struct TermsView: View {
             .disabled(agreeDisabled)
             .padding(.horizontal, 28)
             .padding(.vertical, 20)
+            .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.agreeToTermsButton)
             Text("By clicking the agree button you agree")
+                .font(Font(UIFont.Theme.regular(ofSize: 12)))
+
         }
         .background(Color(uiColor: UIColor.Theme.bgGray))
+        .padding(.top, -10)
     }
 }
 
