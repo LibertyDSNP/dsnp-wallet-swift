@@ -83,6 +83,7 @@ class HomeViewModel: ObservableObject {
     
     private func logout() {
         AppState.shared.isLoggedin = false
+        UserDefaults.standard.hasAgreedToTerms = false
         AppState.shared.resetSocialProgress()    
         appStateLoggedIn = false
         do {
