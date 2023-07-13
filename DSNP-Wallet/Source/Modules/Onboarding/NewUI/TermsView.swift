@@ -26,7 +26,9 @@ struct RoundedCorner: Shape {
 
 struct TermsView: View {
     
-    @State var agreeDisabled = true
+    @AppStorage(AppStateKeys.hasAgreedToTerms.rawValue)
+    private var hasAgreedToTerms: Bool = UserDefaults.standard.hasAgreedToTerms
+
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -38,7 +40,7 @@ struct TermsView: View {
                     .padding(28)
             }
             .onScrolledToBottom {
-                agreeDisabled = false
+                hasAgreedToTerms = true
             }
             .padding(.top, 70)
             .padding(.bottom, 16)
@@ -67,7 +69,7 @@ struct TermsView: View {
             PrimaryButton(title: "Agree") {
                 dismiss()
             }
-            .disabled(agreeDisabled)
+            .disabled(!hasAgreedToTerms)
             .padding(.horizontal, 28)
             .padding(.vertical, 20)
             .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.agreeToTermsButton)

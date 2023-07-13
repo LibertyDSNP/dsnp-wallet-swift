@@ -13,6 +13,10 @@ struct SignInView: View {
     
     @State private var termsPresented = false
     
+    @AppStorage(AppStateKeys.hasAgreedToTerms.rawValue)
+    private var hasAgreedToTerms: Bool = UserDefaults.standard.hasAgreedToTerms
+
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -74,7 +78,10 @@ struct SignInView: View {
     var haveAnIdButton: some View {
         Button {
             viewModel.meWeIdAction.send()
-            termsPresented.toggle()
+            if !hasAgreedToTerms {
+                termsPresented.toggle()
+            } else {
+            }
         } label: {
             HStack {
                 Text("I have an ID")
