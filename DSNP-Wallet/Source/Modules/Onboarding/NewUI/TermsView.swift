@@ -14,6 +14,8 @@ struct TermsView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @State private var agreeVisible = false
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -22,7 +24,7 @@ struct TermsView: View {
                     .padding(28)
             }
             .onScrolledToBottom {
-                hasAgreedToTerms = true
+                agreeVisible = true
             }
             .background(Color(uiColor: UIColor.Theme.bgGray))
             .padding(.bottom, 16)
@@ -54,9 +56,10 @@ struct TermsView: View {
     var agreeContainer: some View {
         VStack {
             PrimaryButton(title: "Agree") {
+                hasAgreedToTerms = true
                 dismiss()
             }
-            .disabled(!hasAgreedToTerms)
+            .disabled(agreeVisible)
             .padding(.horizontal, 28)
             .padding(.vertical, 20)
             .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.agreeToTermsButton)
