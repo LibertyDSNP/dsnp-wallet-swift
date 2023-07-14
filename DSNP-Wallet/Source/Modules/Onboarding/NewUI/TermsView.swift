@@ -7,23 +7,6 @@
 
 import SwiftUI
 
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape(RoundedCorner(radius: radius, corners: corners))
-    }
-}
-
-struct RoundedCorner: Shape {
-    
-    var radius: CGFloat = .infinity
-    var corners: UIRectCorner = .allCorners
-    
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
-    }
-}
-
 struct TermsView: View {
     
     @AppStorage(AppStateKeys.hasAgreedToTerms.rawValue)
@@ -33,13 +16,6 @@ struct TermsView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                modalBar
-                    .padding(.vertical, 16)
-            }
-            .frame(maxWidth: .infinity, alignment: .center)
-            .background(Color(uiColor: UIColor.Theme.bgGray))
-            .padding(.bottom, -8)
             ScrollView {
                 title
                 termsText
@@ -50,9 +26,10 @@ struct TermsView: View {
             }
             .background(Color(uiColor: UIColor.Theme.bgGray))
             .padding(.bottom, 16)
+            .padding(.top, 30)
             agreeContainer
         }
-        .cornerRadius(40, corners: [.topLeft, .topRight])
+        .cornerRadius(40)
         .background(.clear)
         .ignoresSafeArea()
     }

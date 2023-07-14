@@ -119,8 +119,8 @@ struct SignInView: View {
                 TermsView()
                 .presentationDetents([.extraLarge])
                 .presentationDragIndicator(.visible)
+                .background(Color(uiColor: UIColor.Theme.bgGray))
         }
-
     }
     
     var createIdentityButton: some View {
