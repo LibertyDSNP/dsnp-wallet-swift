@@ -53,6 +53,7 @@ struct TermsView: View {
             agreeContainer
         }
         .cornerRadius(40, corners: [.topLeft, .topRight])
+        .background(.clear)
         .ignoresSafeArea()
     }
     

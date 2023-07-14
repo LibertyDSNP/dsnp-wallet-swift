@@ -7,6 +7,20 @@
 
 import SwiftUI
 
+extension PresentationDetent {
+    static let bar = Self.custom(BarDetent.self)
+    static let small = Self.height(100)
+    static let extraLarge = Self.fraction(0.84)
+}
+
+
+private struct BarDetent: CustomPresentationDetent {
+    static func height(in context: Context) -> CGFloat? {
+        max(44, context.maxDetentValue * 0.1)
+    }
+}
+
+
 struct SignInView: View {
     
     let viewModel: SignInViewModel
@@ -21,12 +35,13 @@ struct SignInView: View {
         NavigationView {
             VStack {
                 AmplicaLogo()
-                    .padding(.top, 68)
+                    .padding(.top, 30)
                 subtitle
-                    .padding(.vertical, 10)
+                    .padding(.top, 2)
                 description
-                    .padding(.vertical, 12)
+                    .padding(.top, 8)
                 buttonContainer
+                    .padding(.top, 40)
                 Spacer()
                 SignInTermsDisclaimerView()
             }
@@ -101,12 +116,11 @@ struct SignInView: View {
         .padding(.horizontal, 34)
         .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
         .sheet(isPresented: $termsPresented) {
-            if #available(iOS 16.0, *) {
                 TermsView()
-            } else {
-                Text("get ios 16")
-            }
+                .presentationDetents([.extraLarge])
+                .presentationDragIndicator(.visible)
         }
+
     }
     
     var createIdentityButton: some View {
