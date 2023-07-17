@@ -145,13 +145,6 @@ jobs:
               
 workflows:
   version: 2
-  pr_workflow:
-    jobs:
-     # - swiftlint-docker:
-     #     filters:
-     #       branches:
-     #         ignore:
-     #           - dev
   
   build_and_deploy_to_dev:
     jobs:
