@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+extension ScrollView {
+    func onScrolledToBottom(perform action: @escaping() -> Void) -> some View {
+        return ScrollView<LazyVStack> {
+            LazyVStack {
+                self.content
+                Rectangle()
+                    .frame(width: 1, height: 1)
+                    .background(.clear)
+                    .onAppear {
+                        action()
+                    }
+            }
+        }
+    }
+}
+
 struct TermsView: View {
     
     @AppStorage(AppStateKeys.hasAgreedToTerms.rawValue)
@@ -24,20 +40,19 @@ struct TermsView: View {
                     .padding(28)
             }
             .onScrolledToBottom {
+                print("scroll to bottom")
                 agreeVisible = true
             }
+            .frame(maxHeight: .infinity)
             .background(Color(uiColor: UIColor.Theme.bgGray))
             .padding(.bottom, 16)
             .padding(.top, 30)
+            .cornerRadius(40)
             agreeContainer
         }
-        .cornerRadius(40)
         .background(.clear)
+        .cornerRadius(40)
         .ignoresSafeArea()
-    }
-    
-    var modalBar: some View {
-        Image("modalBar")
     }
     
     var termsText: some View {
@@ -59,7 +74,7 @@ struct TermsView: View {
                 hasAgreedToTerms = true
                 dismiss()
             }
-            .disabled(agreeVisible)
+            .disabled(!agreeVisible)
             .padding(.horizontal, 28)
             .padding(.vertical, 20)
             .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.agreeToTermsButton)
@@ -77,18 +92,5 @@ struct TermsView_Previews: PreviewProvider {
     static var previews: some View {
         TermsView()
             .padding(.top, 70)
-    }
-}
-
-extension ScrollView {
-    func onScrolledToBottom(perform action: @escaping() -> Void) -> some View {
-        return ScrollView<LazyVStack> {
-            LazyVStack {
-                self.content
-                Rectangle().size(.zero).onAppear {
-                    action()
-                }
-            }
-        }
     }
 }
