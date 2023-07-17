@@ -7,22 +7,6 @@
 
 import SwiftUI
 
-extension ScrollView {
-    func onScrolledToBottom(perform action: @escaping() -> Void) -> some View {
-        return ScrollView<LazyVStack> {
-            LazyVStack {
-                self.content
-                Rectangle()
-                    .frame(width: 1, height: 1)
-                    .background(.clear)
-                    .onAppear {
-                        action()
-                    }
-            }
-        }
-    }
-}
-
 struct TermsView: View {
     
     @AppStorage(AppStateKeys.hasAgreedToTerms.rawValue)
@@ -40,7 +24,6 @@ struct TermsView: View {
                     .padding(28)
             }
             .onScrolledToBottom {
-                print("scroll to bottom")
                 agreeVisible = true
             }
             .frame(maxHeight: .infinity)
@@ -87,10 +70,25 @@ struct TermsView: View {
     }
 }
 
-
 struct TermsView_Previews: PreviewProvider {
     static var previews: some View {
         TermsView()
             .padding(.top, 70)
+    }
+}
+
+extension ScrollView {
+    func onScrolledToBottom(perform action: @escaping() -> Void) -> some View {
+        return ScrollView<LazyVStack> {
+            LazyVStack {
+                self.content
+                Rectangle()
+                    .frame(width: 1, height: 1)
+                    .background(.clear)
+                    .onAppear {
+                        action()
+                    }
+            }
+        }
     }
 }

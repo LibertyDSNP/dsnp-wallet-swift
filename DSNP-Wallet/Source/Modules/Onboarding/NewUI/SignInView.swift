@@ -104,7 +104,6 @@ struct SignInView: View {
             if !hasAgreedToTerms {
                 termsPresented = true
             } else {
-                print("we've agreed to terms")
                 viewModel.meWeIdAction.send()
             }
         } label: {
