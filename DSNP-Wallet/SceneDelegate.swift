@@ -22,6 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         var rootViewController: UIViewController?
         
+        if let url = connectionOptions.urlContexts.first?.url {
+            print("universal link detected! ", url)
+        }
+
+        
 #if DEBUG
         rootViewController = BaseViewController()
 #else
@@ -40,6 +45,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         
+    }
+    
+    // If the app was already running you use this:
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        if let url = userActivity.webpageURL {
+            // Deal with App Link
+            print("universal link detected! ", url)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

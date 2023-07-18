@@ -34,24 +34,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-    func application(_ application: NSApplication,
-                         continue userActivity: NSUserActivity,
-                         restorationHandler: @escaping ([NSUserActivityRestoring]) -> Void) -> Bool
-    {
-        // Get URL components from the incoming user activity.
-        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-            let incomingURL = userActivity.webpageURL,
-            let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true) else {
-            return false
-        }
-
-        // Check for specific URL components that you need.
-        guard let path = components.path,
-        let params = components.queryItems else {
-            return false
-        }
-        print("path = \(path)")
-    }
-
 }
 
