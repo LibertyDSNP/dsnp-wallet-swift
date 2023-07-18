@@ -7,20 +7,31 @@
 
 import SwiftUI
 
+extension PresentationDetent {
+    static let small = Self.height(100)
+    static let extraLarge = Self.fraction(0.84)
+}
+
 struct SignInView: View {
     
     let viewModel: SignInViewModel
+    
+    @State private var termsPresented = false
+        
+    @AppStorage(AppStateKeys.hasAgreedToTerms.rawValue)
+    private var hasAgreedToTerms: Bool = UserDefaults.standard.hasAgreedToTerms
     
     var body: some View {
         NavigationView {
             VStack {
                 AmplicaLogo()
-                    .padding(.top, 68)
+                    .padding(.top, 30)
                 subtitle
-                    .padding(.vertical, 10)
+                    .padding(.top, 2)
                 description
-                    .padding(.vertical, 12)
+                    .padding(.top, 8)
                 buttonContainer
+                    .padding(.top, 40)
                 Spacer()
                 SignInTermsDisclaimerView()
             }
@@ -57,44 +68,101 @@ struct SignInView: View {
     }
     
     var restoreButton: some View {
-        NavigationLink(destination: LazyView(ImportSeedView(viewModel: ImportSeedViewModel()))) {
-            Text("Restore Account")
-                .foregroundColor(.white)
-                .font(Font(UIFont.Theme.regular(ofSize: 14)))
-                .underline()
+        VStack {
+            if !hasAgreedToTerms {
+                Button {
+                    termsPresented = true
+                } label: {
+                    Text("Restore Account")
+                        .foregroundColor(.white)
+                        .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                        .underline()
+                }
+                .sheet(isPresented: $termsPresented) {
+                        TermsView()
+                        .presentationDetents([.extraLarge])
+                        .presentationDragIndicator(.visible)
+                        .background(Color(uiColor: UIColor.Theme.bgGray))
+                }
+            } else {
+                NavigationLink(
+                    destination: LazyView(ImportSeedView(viewModel: ImportSeedViewModel()))) {
+                        Text("Restore Account")
+                            .foregroundColor(.white)
+                            .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                            .underline()
+                }
+                .padding(.vertical, 12)
+                .padding(.horizontal, 34)
+                .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.restoreUserButton)
+            }
         }
-        .padding(.vertical, 12)
-        .padding(.horizontal, 34)
-        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.restoreUserButton)
-
     }
     
     var haveAnIdButton: some View {
-        PrimaryButton(title: "I have an ID", action: {
-            viewModel.meWeIdAction.send()
-        }, suffixImage: Image("mewelogo"))
-        .padding(.vertical, 12)
-        .padding(.horizontal, 34)
-        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
-    }
-    
-    var createIdentityButton: some View {
-        NavigationLink {
-           LazyView(ClaimHandleView(viewModel: ClaimHandleViewModel()))
+        Button {
+            if !hasAgreedToTerms {
+                termsPresented = true
+            } else {
+                viewModel.meWeIdAction.send()
+            }
         } label: {
-            Text("Create Identity")
-                .font(Font(UIFont.Theme.medium(ofSize: 14)))
-                .padding(.vertical, 16)
-                .padding(.horizontal, 34)
-                .foregroundColor(.white)
+            HStack {
+                Text("I have an ID")
+                    .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 12)
+                Image("mewelogo")
+                        .padding(.bottom, 6)
+                        .padding(.leading, -15)
+            }
         }
-        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createNewUserButton)
         .frame(maxWidth: .infinity)
         .background(Color(uiColor: UIColor.Theme.buttonTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
-        .padding(.vertical, 10)
+        .padding(.vertical, 12)
         .padding(.horizontal, 34)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
+        .sheet(isPresented: $termsPresented) {
+                TermsView()
+                .presentationDetents([.extraLarge])
+                .presentationDragIndicator(.visible)
+                .background(Color(uiColor: UIColor.Theme.bgGray))
+        }
+    }
+    
+    var createIdentityButton: some View {
+        VStack {
+            if !hasAgreedToTerms {
+                PrimaryButton(title: "Create Identity") {
+                    termsPresented = true
+                }
+                .padding(.horizontal, 34)
+                .sheet(isPresented: $termsPresented) {
+                        TermsView()
+                        .presentationDetents([.extraLarge])
+                        .presentationDragIndicator(.visible)
+                        .background(Color(uiColor: UIColor.Theme.bgGray))
+                }
+            } else {
+                NavigationLink(
+                    destination: LazyView(ClaimHandleView(viewModel: ClaimHandleViewModel()))) {
+                        Text("Create Identity")
+                            .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                            .padding(.vertical, 16)
+                            .padding(.horizontal, 34)
+                            .foregroundColor(.white)
+                }
+                .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createNewUserButton)
+                .frame(maxWidth: .infinity)
+                .background(Color(uiColor: UIColor.Theme.buttonTeal))
+                .foregroundColor(.white)
+                .cornerRadius(30)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 34)
+            }
+        }
     }
 }
 

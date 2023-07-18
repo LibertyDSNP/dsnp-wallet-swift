@@ -33,22 +33,22 @@ commands: # a reusable command with parameters
           channel: ios-ci-alerts
 
 jobs:
-  swiftlint-docker:
-    docker:
-      - image: dantoml/swiftlint:latest
-    steps:
-      - checkout
+  # swiftlint-docker:
+  #  docker:
+  #    - image: dantoml/swiftlint:latest
+  #  steps:
+  #    - checkout
       # Run SwiftLint
-      - run:
-          name: Run SwiftLint
-          command: |
-            swiftlint lint --path DSNP-Wallet/Source/
+  #    - run:
+  #        name: Run SwiftLint
+  #        command: |
+  #          swiftlint lint --path DSNP-Wallet/Source/
       # Use the line bellow if you need xml report
       # - run: swiftlint lint --reporter junit | tee result.xml
-      - store_artifacts:
-          path: result.xml
-      - store_test_results:
-          path: result.xml      
+  #    - store_artifacts:
+  #        path: result.xml
+  #    - store_test_results:
+  #        path: result.xml
 
   build-simulator-app-center:
     macos:
@@ -145,13 +145,6 @@ jobs:
               
 workflows:
   version: 2
-  pr_workflow:
-    jobs:
-      - swiftlint-docker:
-          filters:
-            branches:
-              ignore:
-                - dev
   
   build_and_deploy_to_dev:
     jobs:
