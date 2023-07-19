@@ -22,11 +22,11 @@ protocol SubstrateCallFactoryProtocol {
         amount: BigUInt
     ) -> RuntimeCall<OrmlTokenTransfer>
     
-    func createMsa() -> RuntimeCall<CreateMsaCall>
+    func createMsa() -> RuntimeCall<NoRuntimeArgs>
     func addPublicKeyToMsa(msaOwnerPublicKey: AccountId,
                            msaOwnerProof: MultiSignature,
                            newKeyOwnerProof: MultiSignature,
-                           addKeyPayload: AddKeyPayloadArg) -> RuntimeCall<AddPublicKeyToMsaCall>
+                           addKeyPayload: AddKeyData) -> RuntimeCall<AddPublicKeyToMsaCall>
     
     func chill() -> RuntimeCall<NoRuntimeArgs>
 }
@@ -65,15 +65,14 @@ final class SubstrateCallFactory: SubstrateCallFactoryProtocol {
         return RuntimeCall(moduleName: moduleName, callName: "transfer", args: args)
     }
     
-    func createMsa() -> RuntimeCall<CreateMsaCall> {
-        let args = CreateMsaCall()
-        return RuntimeCall(moduleName: "Msa", callName: "create", args: args)
+    func createMsa() -> RuntimeCall<NoRuntimeArgs> {
+        return RuntimeCall(moduleName: "Msa", callName: "create")
     }
     
     func addPublicKeyToMsa(msaOwnerPublicKey: AccountId,
                            msaOwnerProof: MultiSignature,
                            newKeyOwnerProof: MultiSignature,
-                           addKeyPayload: AddKeyPayloadArg) -> RuntimeCall<AddPublicKeyToMsaCall> {
+                           addKeyPayload: AddKeyData) -> RuntimeCall<AddPublicKeyToMsaCall> {
         let args = AddPublicKeyToMsaCall(msaOwnerPublicKey: msaOwnerPublicKey,
                                          msaOwnerProof: msaOwnerProof,
                                          newKeyOwnerProof: newKeyOwnerProof,

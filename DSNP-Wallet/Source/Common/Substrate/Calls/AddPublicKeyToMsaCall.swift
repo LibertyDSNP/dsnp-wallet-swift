@@ -2,12 +2,6 @@ import Foundation
 import SubstrateSdk
 import BigInt
 
-// msaOwnerPublicKey is explicitly defined in case this is called by a
-// separate account, unrelated to the msaOwner and newOwner.
-// We signed the `addKeyPayload` with both the msaOwner keys and the
-// newKeyOwner keys.
-// The proofs validate there's appropriate authority for this extrinsic.
-
 struct AddPublicKeyToMsaCall: Codable {
     enum CodingKeys: String, CodingKey {
         case msaOwnerPublicKey = "msa_owner_public_key"
@@ -19,10 +13,16 @@ struct AddPublicKeyToMsaCall: Codable {
     let msaOwnerPublicKey: AccountId
     let msaOwnerProof: MultiSignature
     let newKeyOwnerProof: MultiSignature
-    let addKeyPayload: AddKeyPayloadArg
+    let addKeyPayload: AddKeyData
 }
 
-struct AddKeyPayloadArg: Codable {
+struct AddKeyData: Codable {
+    enum CodingKeys: String, CodingKey {
+        case msaId
+        case expiration
+        case newPublicKey
+    }
+    
     @StringCodable var msaId: UInt64
     @StringCodable var expiration: UInt32
     var newPublicKey: AccountId

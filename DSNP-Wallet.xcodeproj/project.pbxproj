@@ -399,7 +399,6 @@
 		82996932297B750B009A769F /* FeeMetadataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996931297B750B009A769F /* FeeMetadataContext.swift */; };
 		82996934297F3510009A769F /* OrmlTokenTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996933297F3510009A769F /* OrmlTokenTransfer.swift */; };
 		82996936297F3776009A769F /* AssetsTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82996935297F3776009A769F /* AssetsTransfer.swift */; };
-		829969392980918C009A769F /* CreateMsaCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829969382980918C009A769F /* CreateMsaCall.swift */; };
 		8299693B29809C71009A769F /* AddPublicKeyToMsaCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299693A29809C71009A769F /* AddPublicKeyToMsaCall.swift */; };
 		82ADCB0629F0407500E8F8A2 /* ExtrinsicServiceTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADCB0529F0407400E8F8A2 /* ExtrinsicServiceTypes.swift */; };
 		82ADCB0829F045A000E8F8A2 /* MetaAccountModelType+SignatureFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADCB0729F045A000E8F8A2 /* MetaAccountModelType+SignatureFormat.swift */; };
@@ -907,7 +906,6 @@
 		82996931297B750B009A769F /* FeeMetadataContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeMetadataContext.swift; sourceTree = "<group>"; };
 		82996933297F3510009A769F /* OrmlTokenTransfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrmlTokenTransfer.swift; sourceTree = "<group>"; };
 		82996935297F3776009A769F /* AssetsTransfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsTransfer.swift; sourceTree = "<group>"; };
-		829969382980918C009A769F /* CreateMsaCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMsaCall.swift; sourceTree = "<group>"; };
 		8299693A29809C71009A769F /* AddPublicKeyToMsaCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPublicKeyToMsaCall.swift; sourceTree = "<group>"; };
 		82ADCB0529F0407400E8F8A2 /* ExtrinsicServiceTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrinsicServiceTypes.swift; sourceTree = "<group>"; };
 		82ADCB0729F045A000E8F8A2 /* MetaAccountModelType+SignatureFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetaAccountModelType+SignatureFormat.swift"; sourceTree = "<group>"; };
@@ -1938,7 +1936,6 @@
 				8299662B297A1B5E009A769F /* TransferCall.swift */,
 				8299662D297A1B5E009A769F /* SubstrateCallFactory.swift */,
 				8299693A29809C71009A769F /* AddPublicKeyToMsaCall.swift */,
-				829969382980918C009A769F /* CreateMsaCall.swift */,
 			);
 			path = Calls;
 			sourceTree = "<group>";
@@ -2607,7 +2604,6 @@
 				B534ACE42A28F9ED00518B9C /* SettingsView.swift in Sources */,
 				829965F6297A1AF1009A769F /* UserDataStorageFacade.swift in Sources */,
 				829968EC297B721C009A769F /* CompoundOperationWrapper+Dependency.swift in Sources */,
-				829969392980918C009A769F /* CreateMsaCall.swift in Sources */,
 				829964A8297A17F4009A769F /* WalletContactOperationFactory.swift in Sources */,
 				B5A62C2D2A0A90D100A31178 /* BaseRoundView.swift in Sources */,
 				829965A4297A1955009A769F /* EraValidatorInfo.swift in Sources */,
