@@ -21,10 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         var rootViewController: UIViewController?
-        
-        if let url = connectionOptions.urlContexts.first?.url {
-            print("universal link detected! ", url)
-        }
 
         
 #if DEBUG
@@ -52,6 +48,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let url = userActivity.webpageURL {
             // Deal with App Link
             print("universal link detected! ", url)
+            
+            let alert = UIAlertController(title: "Universal Link Detected!", message: "URL recieved: \(url)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            if let vc = window?.rootViewController {
+               vc.present(alert, animated: true)
+            }
+
+            guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+                let incomingURL = userActivity.webpageURL,
+                let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true) else {
+                return
+            }
+
+            print("path = \(components.path)")
         }
     }
 
