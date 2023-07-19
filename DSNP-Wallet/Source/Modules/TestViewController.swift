@@ -110,7 +110,7 @@ extension TestViewController {
         case TestButtons.getMsa.rawValue:
             getMsa(primaryUser: primaryUser)
         case TestButtons.addPublicKeyToMsa.rawValue:
-            addPublicKeyToMsa(msaId: 1,
+            addPublicKeyToMsa(msaId: 1, //TODO: Make dynamic for testing
                               expiration: 10,
                               primaryUser: primaryUser,
                               secondaryUser: secondaryUser,
@@ -205,8 +205,6 @@ extension TestViewController {
             case .failure(let error):
                 text = "\(error)"
             }
-            
-            print(text)
         }
         
         return notificationClosure

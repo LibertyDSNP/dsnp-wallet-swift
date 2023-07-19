@@ -17,12 +17,6 @@ protocol ExtrinsicServiceProtocol {
         completion completionClosure: @escaping EstimateFeeIndexedClosure
     )
     
-    //    func estimateFeeWithSplitter(
-    //        _ splitter: ExtrinsicSplitting,
-    //        runningIn queue: DispatchQueue,
-    //        completion completionClosure: @escaping EstimateFeeIndexedClosure
-    //    )
-    
     func submit(
         _ closure: @escaping ExtrinsicBuilderClosure,
         signer: SigningWrapperProtocol,
@@ -37,13 +31,6 @@ protocol ExtrinsicServiceProtocol {
         indexes: IndexSet,
         completion completionClosure: @escaping ExtrinsicSubmitIndexedClosure
     )
-    
-    //    func submitWithTxSplitter(
-    //        _ splitter: ExtrinsicSplitting,
-    //        signer: SigningWrapperProtocol,
-    //        runningIn queue: DispatchQueue,
-    //        completion completionClosure: @escaping ExtrinsicSubmitIndexedClosure
-    //    )
     
     func submitAndWatch(
         _ closure: @escaping ExtrinsicBuilderClosure,

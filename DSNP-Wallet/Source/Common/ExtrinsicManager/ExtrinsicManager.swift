@@ -11,9 +11,9 @@ import RobinHood
 import SubstrateSdk
 
 enum ExtrinsicError: Error {
-    case BadSetup
-    case Signature
-    case ScaleEncoding
+    case setup
+    case signature
+    case scaleEncoding
 }
 
 enum ExtrinsicCalls {
@@ -76,7 +76,7 @@ class ExtrinsicManager {
         guard let chain = chainRegistry.getChain(for: FrequencyChain.shared.id),
               let connection = chainRegistry.getConnection(for: FrequencyChain.shared.id),
               let runtimeService = chainRegistry.getRuntimeProvider(for: FrequencyChain.shared.id) else {
-            throw ExtrinsicError.BadSetup
+            throw ExtrinsicError.setup
         }
         let bgQueue = OperationQueue()
         bgQueue.qualityOfService = .background
@@ -100,23 +100,25 @@ extension ExtrinsicManager {
     func scaleEncodeWithBytesTags(payload: Data, signedBy signer: SigningWrapper) throws -> MultiSignature? {
         do {
             let payloadWithBytesTag = try self.addBytesTags(to: payload)
-            
-            let proof = try self.getProof(with: payloadWithBytesTag, from: signer)
-            
-            return proof
+            return try self.getProof(with: payloadWithBytesTag, from: signer)
         } catch {
-            throw ExtrinsicError.ScaleEncoding
+            throw ExtrinsicError.scaleEncoding
         }
     }
     
     private func addBytesTags(to payload: Data) throws -> Data {
-        // Convert payload data to a hex string
-        let prefix = "0x3c42797465733e" //<Bytes> in hex
-        let payloadHexString = String(payload.toHex().dropFirst(2)) //dropping "b0" //TODO: FIGURE THIS OUT
-        let postfix = "3c2f42797465733e" //</Bytes> in hex
-        let taggedPayloadData = try Data(hexString: prefix + payloadHexString + postfix) // Convert the tagged payload back to data
-    
-        return taggedPayloadData
+        do {
+            // Convert payload data to a hex string
+            let prefix = "0x3c42797465733e" //<Bytes> in hex
+            let payloadHexString = String(payload.toHex().dropFirst(2)) //dropping "b0"
+            let postfix = "3c2f42797465733e" //</Bytes> in hex
+            let taggedPayloadData = try Data(hexString: prefix + payloadHexString + postfix) // Convert the tagged payload back to data
+        
+            return taggedPayloadData
+        } catch {
+            throw ExtrinsicError.scaleEncoding
+        }
+        
     }
     
     //Takes JSON encoded data, signs it with signer with SR25519 ellipitical curve

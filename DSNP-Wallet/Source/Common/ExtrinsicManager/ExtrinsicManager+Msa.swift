@@ -18,7 +18,7 @@ extension ExtrinsicManager {
             return builder
         }
         
-        guard let signer = user?.signer else { throw ExtrinsicError.BadSetup }
+        guard let signer = user?.signer else { throw ExtrinsicError.setup }
                 
         extrinsicService?.submitAndWatch(closure,
                                          signer: signer,
@@ -36,22 +36,23 @@ extension ExtrinsicManager {
         guard let primarySigner = primaryUser.signer,
               let secondarySigner = secondaryUser.signer,
               let primaryPublicKeyData = primaryUser.publicKey?.rawData(),
-              let secondaryAccountId = secondaryUser.getAccountId() else {
-            throw ExtrinsicError.BadSetup
+              let secondaryAccountId = secondaryUser.getAccountId(),
+              let extrinsicService = self.extrinsicService else {
+            throw ExtrinsicError.setup
         }
         
         let addKeyPayload = AddKeyData(msaId: msaId,
                                        expiration: expiration,
                                        newPublicKey: secondaryAccountId)
         
-        self.extrinsicService?.scaleEncode(addKeyPayload,
+        extrinsicService.scaleEncode(addKeyPayload,
                                            runningIn: .main,
                                            completion: { scaleEncodedData in
             guard let data = scaleEncodedData,
                   let msaOwnerProof = try self.scaleEncodeWithBytesTags(payload: data,
                                                                         signedBy: primarySigner),
                   let newOwnerProof = try self.scaleEncodeWithBytesTags(payload: data,
-                                                                        signedBy: secondarySigner)else { return }
+                                                                        signedBy: secondarySigner) else { return }
             
             let closure: ExtrinsicBuilderClosure = { builder in
                 let call = self.callFactory.addPublicKeyToMsa(msaOwnerPublicKey: primaryPublicKeyData,
@@ -61,15 +62,14 @@ extension ExtrinsicManager {
                 
                 _ = try builder.adding(call: call)
                 
-                
                 return builder
             }
             
-            self.extrinsicService?.submitAndWatch(closure,
-                                                  signer: primarySigner,
-                                                  runningIn: .main,
-                                                  subscriptionIdClosure: subscriptionIdClosure,
-                                                  notificationClosure: notificationClosure)
+            extrinsicService.submitAndWatch(closure,
+                                   signer: primarySigner,
+                                   runningIn: .main,
+                                   subscriptionIdClosure: subscriptionIdClosure,
+                                   notificationClosure: notificationClosure)
         })
     }
 }

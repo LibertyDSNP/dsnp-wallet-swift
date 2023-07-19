@@ -69,7 +69,7 @@ class User: UserFacadeProtocol {
         guard let publicKeyData = publicKeyData,
             let address = getAddress(),
             let accountId = getAccountId() else {
-                throw ExtrinsicError.BadSetup
+                throw ExtrinsicError.setup
             }
         
         let accountResponse = ChainAccountResponse(chainId: FrequencyChain.shared.id,
