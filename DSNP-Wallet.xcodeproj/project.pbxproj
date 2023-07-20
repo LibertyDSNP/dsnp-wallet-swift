@@ -949,6 +949,7 @@
 		B53BD7BF2A01571000967477 /* ChainEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainEnvironment.swift; sourceTree = "<group>"; };
 		B544C0922A5EF15D000A2C77 /* TermsText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsText.swift; sourceTree = "<group>"; };
 		B544C0942A5EF2A5000A2C77 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		B544C0962A65BBB6000A2C77 /* DSNP-Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DSNP-Wallet.entitlements"; sourceTree = "<group>"; };
 		B5966F242A0007FF00A17F08 /* QAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAViewController.swift; sourceTree = "<group>"; };
 		B5966F262A00080900A17F08 /* QAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
 		B5A62BE62A0A8F2900A31178 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -1117,6 +1118,7 @@
 		8223AB592818917700DEF1E9 /* DSNP-Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				B544C0962A65BBB6000A2C77 /* DSNP-Wallet.entitlements */,
 				829960392978C45D009A769F /* Common */,
 				829960C42978C45F009A769F /* Modules */,
 				8223ABCD2820808500DEF1E9 /* Resources */,
@@ -3185,6 +3187,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "DSNP-Wallet/DSNP-Wallet.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development: Vitali Krasnik (7WQU5BRP22)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
@@ -3222,6 +3225,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "DSNP-Wallet/DSNP-Wallet.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development: Vitali Krasnik (7WQU5BRP22)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;

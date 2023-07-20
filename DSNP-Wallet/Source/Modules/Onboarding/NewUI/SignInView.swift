@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SafariServices
 
 extension PresentationDetent {
     static let small = Self.height(100)
@@ -67,39 +68,89 @@ struct SignInView: View {
         .frame(maxWidth: .infinity)
     }
     
+    // MARK: Restore Button
+    
     var restoreButton: some View {
         VStack {
             if !hasAgreedToTerms {
-                Button {
-                    termsPresented = true
-                } label: {
-                    Text("Restore Account")
-                        .foregroundColor(.white)
-                        .font(Font(UIFont.Theme.regular(ofSize: 14)))
-                        .underline()
-                }
-                .sheet(isPresented: $termsPresented) {
-                        TermsView()
-                        .presentationDetents([.extraLarge])
-                        .presentationDragIndicator(.visible)
-                        .background(Color(uiColor: UIColor.Theme.bgGray))
-                }
+                restoreButtonTerms
             } else {
-                NavigationLink(
-                    destination: LazyView(ImportSeedView(viewModel: ImportSeedViewModel()))) {
-                        Text("Restore Account")
-                            .foregroundColor(.white)
-                            .font(Font(UIFont.Theme.regular(ofSize: 14)))
-                            .underline()
-                }
-                .padding(.vertical, 12)
-                .padding(.horizontal, 34)
-                .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.restoreUserButton)
+                restoreButtonNavigation
             }
         }
     }
     
+    var restoreButtonTerms: some View {
+        Button {
+            termsPresented = true
+        } label: {
+            Text("Restore Account")
+                .foregroundColor(.white)
+                .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                .underline()
+        }
+        .sheet(isPresented: $termsPresented) {
+                TermsView()
+                .presentationDetents([.extraLarge])
+                .presentationDragIndicator(.visible)
+                .background(Color(uiColor: UIColor.Theme.bgGray))
+        }
+    }
+    
+    var restoreButtonNavigation: some View {
+        NavigationLink(
+            destination: LazyView(ImportSeedView(viewModel: ImportSeedViewModel()))) {
+                Text("Restore Account")
+                    .foregroundColor(.white)
+                    .font(Font(UIFont.Theme.regular(ofSize: 14)))
+                    .underline()
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal, 34)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.restoreUserButton)
+    }
+    
+    // MARK: Have an ID Button
+    
     var haveAnIdButton: some View {
+        VStack {
+            if !hasAgreedToTerms {
+                haveAnIdButtonTerms
+            } else {
+                haveAnIdButtonNavigation
+            }
+        }
+    }
+    
+    var haveAnIdButtonNavigation: some View {
+        Button {
+            if !hasAgreedToTerms {
+                termsPresented = true
+            } else {
+                let vc = SFSafariViewController(url: URL(string: "https://dev-custodial-wallet.liberti.social/access_web/index.html")!)
+                UIApplication.shared.firstKeyWindow?.rootViewController?.present(vc, animated: true)
+            }
+        } label: {
+            HStack {
+                Text("I have an ID")
+                    .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 12)
+                Image("mewelogo")
+                        .padding(.bottom, 6)
+                        .padding(.leading, -15)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor.Theme.buttonTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+        .padding(.vertical, 12)
+        .padding(.horizontal, 34)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
+    }
+    
+    var haveAnIdButtonTerms: some View {
         Button {
             if !hasAgreedToTerms {
                 termsPresented = true
@@ -132,38 +183,49 @@ struct SignInView: View {
         }
     }
     
+    // MARK: Create Identity Button
+    
     var createIdentityButton: some View {
         VStack {
             if !hasAgreedToTerms {
-                PrimaryButton(title: "Create Identity") {
-                    termsPresented = true
-                }
-                .padding(.horizontal, 34)
-                .sheet(isPresented: $termsPresented) {
-                        TermsView()
-                        .presentationDetents([.extraLarge])
-                        .presentationDragIndicator(.visible)
-                        .background(Color(uiColor: UIColor.Theme.bgGray))
-                }
+                createButtonTerms
             } else {
-                NavigationLink(
-                    destination: LazyView(ClaimHandleView(viewModel: ClaimHandleViewModel()))) {
-                        Text("Create Identity")
-                            .font(Font(UIFont.Theme.medium(ofSize: 14)))
-                            .padding(.vertical, 16)
-                            .padding(.horizontal, 34)
-                            .foregroundColor(.white)
-                }
-                .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createNewUserButton)
-                .frame(maxWidth: .infinity)
-                .background(Color(uiColor: UIColor.Theme.buttonTeal))
-                .foregroundColor(.white)
-                .cornerRadius(30)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 34)
+                createButtonNavigation
             }
         }
     }
+    
+    var createButtonTerms: some View {
+        PrimaryButton(title: "Create Identity") {
+            termsPresented = true
+        }
+        .padding(.horizontal, 34)
+        .sheet(isPresented: $termsPresented) {
+                TermsView()
+                .presentationDetents([.extraLarge])
+                .presentationDragIndicator(.visible)
+                .background(Color(uiColor: UIColor.Theme.bgGray))
+        }
+    }
+    
+    var createButtonNavigation: some View {
+        NavigationLink(
+            destination: LazyView(ClaimHandleView(viewModel: ClaimHandleViewModel()))) {
+                Text("Create Identity")
+                    .font(Font(UIFont.Theme.medium(ofSize: 14)))
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 34)
+                    .foregroundColor(.white)
+        }
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createNewUserButton)
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor.Theme.buttonTeal))
+        .foregroundColor(.white)
+        .cornerRadius(30)
+        .padding(.vertical, 10)
+        .padding(.horizontal, 34)
+    }
+    
 }
 
 struct SignInView_Previews: PreviewProvider {
