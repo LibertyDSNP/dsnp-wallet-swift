@@ -4,8 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:*.dev-custodial-wallet.liberti.social</string>
-		<string>applinks:*.dev-custodial-wallet.liberti.social?mode=developer</string>
+		<string>applinks:dev-custodial-wallet.liberti.social</string>
 	</array>
 </dict>
 </plist>
