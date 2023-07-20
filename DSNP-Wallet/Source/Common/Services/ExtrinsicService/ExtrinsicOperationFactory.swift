@@ -22,6 +22,8 @@ protocol ExtrinsicOperationFactoryProtocol {
         _ closure: @escaping ExtrinsicBuilderClosure,
         signer: SigningWrapperProtocol
     ) -> CompoundOperationWrapper<String>
+    
+    func scaleEncode(payload: Codable) -> CompoundOperationWrapper<Data>
 }
 
 extension ExtrinsicOperationFactoryProtocol {
@@ -39,7 +41,6 @@ extension ExtrinsicOperationFactoryProtocol {
     ) -> CompoundOperationWrapper<SubmitIndexedExtrinsicResult> {
         submit(closure, signer: signer, indexes: IndexSet(0 ..< numberOfExtrinsics))
     }
-
     func estimateFeeOperation(
         _ closure: @escaping ExtrinsicBuilderClosure
     ) -> CompoundOperationWrapper<RuntimeDispatchInfo> {
@@ -228,10 +229,10 @@ final class ExtrinsicOperationFactory {
                     codingFactory: codingFactory
                 )
 
-                return try builder.build(
+                let encodedData = try builder.build(
                     encodingBy: codingFactory.createEncoder(),
-                    metadata: codingFactory.metadata
-                )
+                    metadata: codingFactory.metadata)
+                return encodedData
             }
 
             return extrinsics
@@ -548,6 +549,41 @@ extension ExtrinsicOperationFactory: ExtrinsicOperationFactoryProtocol {
         return CompoundOperationWrapper(
             targetOperation: resOperation,
             dependencies: builderWrapper.allOperations
+        )
+    }
+}
+
+//MARK: Amplica Logic
+extension ExtrinsicOperationFactory {
+    func scaleEncode(payload: Codable) -> CompoundOperationWrapper<Data> {
+        let coderFactoryOperation = runtimeRegistry.fetchCoderFactoryOperation()
+
+        let encodeOperation = ClosureOperation<Data> {
+            let coderFactory = try coderFactoryOperation.extractNoCancellableResultData()
+
+            let encoder = coderFactory.createEncoder()
+            let jsonContext = coderFactory.createRuntimeJsonContext()
+
+            let jsonCall = try payload.toScaleCompatibleJSON(with: jsonContext.toRawContext())
+
+            let callEncoder = encoder.newEncoder()
+            try callEncoder.append(json: jsonCall,
+                                   type: "pallet_msa.types.AddKeyData") //TODO: NEEDS TO BE DYNAMIC
+
+            let encodedCall = try callEncoder.encode()
+
+            try encoder.append(encodable: encodedCall)
+
+            let scaleEncodedData = try encoder.encode()
+
+            return scaleEncodedData
+        }
+
+        encodeOperation.addDependency(coderFactoryOperation)
+
+        return CompoundOperationWrapper(
+            targetOperation: encodeOperation,
+            dependencies: [coderFactoryOperation]
         )
     }
 }

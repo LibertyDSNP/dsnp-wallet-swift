@@ -18,7 +18,7 @@ extension ExtrinsicManager {
             return builder
         }
         
-        guard let signer = user?.signer else { throw ExtrinsicError.BadSetup }
+        guard let signer = user?.signer else { throw ExtrinsicError.setup }
                 
         extrinsicService?.submitAndWatch(closure,
                                          signer: signer,
@@ -27,43 +27,49 @@ extension ExtrinsicManager {
                                          notificationClosure: notificationClosure)
     }
     
-    func addPublicKeyToMsa(primaryUser: UserFacadeProtocol,
+    func addPublicKeyToMsa(msaId: UInt64,
+                           expiration: UInt32,
+                           primaryUser: UserFacadeProtocol,
                            secondaryUser: UserFacadeProtocol,
                            subscriptionIdClosure: @escaping ExtrinsicSubscriptionIdClosure,
                            notificationClosure: @escaping ExtrinsicSubscriptionStatusClosure) throws {
         guard let primarySigner = primaryUser.signer,
               let secondarySigner = secondaryUser.signer,
               let primaryPublicKeyData = primaryUser.publicKey?.rawData(),
-              let secondaryAccountId = secondaryUser.getAccountId() else {
-            throw ExtrinsicError.BadSetup
+              let secondaryAccountId = secondaryUser.getAccountId(),
+              let extrinsicService = self.extrinsicService else {
+            throw ExtrinsicError.setup
         }
         
-        let addKeyPayload = AddKeyPayloadArg(msaId: 1,
-                                             expiration: 5,
-                                             newPublicKey: secondaryAccountId)
+        let addKeyPayload = AddKeyData(msaId: msaId,
+                                       expiration: expiration,
+                                       newPublicKey: secondaryAccountId)
         
-        guard let keyPayloadData = try? JSONEncoder().encode(addKeyPayload) else {
-            throw ExtrinsicError.BadSetup
-        }
-        let newOwnerRawSignature = try secondarySigner.sign(keyPayloadData).rawData()
-        let msaOwnerRawSignature = try primarySigner.sign(keyPayloadData).rawData()
-        
-        let msaOwnerSignature = MultiSignature.sr25519(data: msaOwnerRawSignature)
-        let newOwnerSignature = MultiSignature.sr25519(data: newOwnerRawSignature)
-        
-        let closure: ExtrinsicBuilderClosure = { builder in
-            let call = self.callFactory.addPublicKeyToMsa(msaOwnerPublicKey: primaryPublicKeyData,
-                                                          msaOwnerProof: msaOwnerSignature,
-                                                          newKeyOwnerProof: newOwnerSignature,
-                                                          addKeyPayload: addKeyPayload)
-            _ = try builder.adding(call: call)
-            return builder
-        }
-        
-        extrinsicService?.submitAndWatch(closure,
-                                         signer: primarySigner,
-                                         runningIn: .main,
-                                         subscriptionIdClosure: subscriptionIdClosure,
-                                         notificationClosure: notificationClosure)
+        extrinsicService.scaleEncode(addKeyPayload,
+                                           runningIn: .main,
+                                           completion: { scaleEncodedData in
+            guard let data = scaleEncodedData,
+                  let msaOwnerProof = try self.scaleEncodeWithBytesTags(payload: data,
+                                                                        signedBy: primarySigner),
+                  let newOwnerProof = try self.scaleEncodeWithBytesTags(payload: data,
+                                                                        signedBy: secondarySigner) else { return }
+            
+            let closure: ExtrinsicBuilderClosure = { builder in
+                let call = self.callFactory.addPublicKeyToMsa(msaOwnerPublicKey: primaryPublicKeyData,
+                                                              msaOwnerProof: msaOwnerProof,
+                                                              newKeyOwnerProof: newOwnerProof,
+                                                              addKeyPayload: addKeyPayload)
+                
+                _ = try builder.adding(call: call)
+                
+                return builder
+            }
+            
+            extrinsicService.submitAndWatch(closure,
+                                   signer: primarySigner,
+                                   runningIn: .main,
+                                   subscriptionIdClosure: subscriptionIdClosure,
+                                   notificationClosure: notificationClosure)
+        })
     }
 }

@@ -18,6 +18,9 @@ enum TestButtons: String, CaseIterable {
 }
 
 class TestViewController: ServiceViewController, UITextFieldDelegate {
+    private let ryanPrimaryTestSeedphrase = "quote grocery buzz staff merit patch outdoor depth eight raw rubber once"
+    private let ryanSecondaryTestSeedphrase = "wink settle steak second tuition whale question must honey fossil spider melt"
+    
     private lazy var primaryTextField = getTextField(placeholder: "Primary Mnemomic")
     private lazy var secondaryTextField = getTextField(placeholder: "Secondary Mnemomic")
     
@@ -65,10 +68,10 @@ extension TestViewController {
     }
     
     @objc func tappedBtn(selector: UIButton?) {
-        let primaryMnemonicInput = primaryTextField.text?.isEmpty ?? true ? "quote grocery buzz staff merit patch outdoor depth eight raw rubber once" : primaryTextField.text ?? ""
+        let primaryMnemonicInput = primaryTextField.text?.isEmpty ?? true ? ryanPrimaryTestSeedphrase : primaryTextField.text ?? ""
         let primaryUser = try! User(mnemonic: primaryMnemonicInput)
         
-        let secondaryMnemonicInput = secondaryTextField.text?.isEmpty ?? true ? "wink settle steak second tuition whale question must honey fossil spider melt" : secondaryTextField.text ?? ""
+        let secondaryMnemonicInput = secondaryTextField.text?.isEmpty ?? true ? ryanSecondaryTestSeedphrase : secondaryTextField.text ?? ""
         let secondaryUser = try! User(mnemonic: secondaryMnemonicInput)
         
         //Closures
@@ -107,7 +110,9 @@ extension TestViewController {
         case TestButtons.getMsa.rawValue:
             getMsa(primaryUser: primaryUser)
         case TestButtons.addPublicKeyToMsa.rawValue:
-            addPublicKeyToMsa(primaryUser: primaryUser,
+            addPublicKeyToMsa(msaId: 1, //TODO: Make dynamic for testing
+                              expiration: 10,
+                              primaryUser: primaryUser,
                               secondaryUser: secondaryUser,
                               subscriptionIdClosure: subscriptionIdClosure,
                               notificationClosure: notificationClosure)
@@ -147,11 +152,13 @@ extension TestViewController {
                            notificationClosure: notificationClosure)
     }
     
-    func addPublicKeyToMsa(primaryUser: User,
+    func addPublicKeyToMsa(msaId: UInt64,
+                           expiration: UInt32,
+                           primaryUser: User,
                            secondaryUser: User,
                            subscriptionIdClosure: @escaping ExtrinsicSubscriptionIdClosure,
                            notificationClosure: @escaping ExtrinsicSubscriptionStatusClosure) {
-        let extrinsic: ExtrinsicCalls = .addPublicKeyToMsa(primaryUser: primaryUser, secondaryUser: secondaryUser)
+        let extrinsic: ExtrinsicCalls = .addPublicKeyToMsa(msaId: msaId, expiration: expiration, primaryUser: primaryUser, secondaryUser: secondaryUser)
     
         viewModel?.execute(extrinsic: extrinsic,
                            from: primaryUser,
@@ -207,7 +214,7 @@ extension TestViewController {
 //MARK: Subscription
 extension TestViewController {
     private func process(blockHash: String, completion: @escaping TransactionSubscriptionCompletion, errorHandler: TransactionErrorHandlerBlock?) {
-        let primaryMnemonicInput = primaryTextField.text?.isEmpty ?? true ? "quote grocery buzz staff merit patch outdoor depth eight raw rubber once" : primaryTextField.text ?? ""
+        let primaryMnemonicInput = primaryTextField.text?.isEmpty ?? true ? ryanPrimaryTestSeedphrase : primaryTextField.text ?? ""
         let primaryUser = try! User(mnemonic: primaryMnemonicInput)
         
         guard

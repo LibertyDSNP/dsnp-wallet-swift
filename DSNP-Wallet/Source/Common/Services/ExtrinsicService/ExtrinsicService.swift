@@ -16,13 +16,7 @@ protocol ExtrinsicServiceProtocol {
         indexes: IndexSet,
         completion completionClosure: @escaping EstimateFeeIndexedClosure
     )
-
-//    func estimateFeeWithSplitter(
-//        _ splitter: ExtrinsicSplitting,
-//        runningIn queue: DispatchQueue,
-//        completion completionClosure: @escaping EstimateFeeIndexedClosure
-//    )
-
+    
     func submit(
         _ closure: @escaping ExtrinsicBuilderClosure,
         signer: SigningWrapperProtocol,
@@ -37,14 +31,7 @@ protocol ExtrinsicServiceProtocol {
         indexes: IndexSet,
         completion completionClosure: @escaping ExtrinsicSubmitIndexedClosure
     )
-
-//    func submitWithTxSplitter(
-//        _ splitter: ExtrinsicSplitting,
-//        signer: SigningWrapperProtocol,
-//        runningIn queue: DispatchQueue,
-//        completion completionClosure: @escaping ExtrinsicSubmitIndexedClosure
-//    )
-
+    
     func submitAndWatch(
         _ closure: @escaping ExtrinsicBuilderClosure,
         signer: SigningWrapperProtocol,
@@ -61,6 +48,11 @@ protocol ExtrinsicServiceProtocol {
         runningIn queue: DispatchQueue,
         completion completionClosure: @escaping ExtrinsicSubmitClosure
     )
+    
+    //MARK: Amplica Specific Logic
+    func scaleEncode(_ payload: Codable,
+                     runningIn queue: DispatchQueue,
+                     completion: @escaping ((Data?) throws -> ()))
 }
 
 extension ExtrinsicServiceProtocol {
@@ -399,5 +391,23 @@ extension ExtrinsicService: ExtrinsicServiceProtocol {
         }
 
         operationManager.enqueue(operations: extrinsicOperation.allOperations, in: .transient)
+    }
+}
+
+//MARK: Amplica Specific Logic
+extension ExtrinsicService {    
+    func scaleEncode(_ payload: Codable,
+                     runningIn queue: DispatchQueue,
+                     completion: @escaping (Data?) throws -> Void) {
+        let wrapper = operationFactory.scaleEncode(payload: payload)
+        
+        wrapper.targetOperation.completionBlock = {
+            queue.async {
+                let result = try? wrapper.targetOperation.extractNoCancellableResultData()
+                try? completion(result)
+            }
+        }
+        
+        operationManager.enqueue(operations: wrapper.allOperations, in: .transient)
     }
 }
