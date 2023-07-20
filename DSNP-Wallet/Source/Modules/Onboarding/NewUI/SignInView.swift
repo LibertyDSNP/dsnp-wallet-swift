@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SafariServices
 
 extension PresentationDetent {
     static let small = Self.height(100)
@@ -122,21 +123,32 @@ struct SignInView: View {
     }
     
     var haveAnIdButtonNavigation: some View {
-        NavigationLink(
-            destination: Text("Hello")) {
+        Button {
+            if !hasAgreedToTerms {
+                termsPresented = true
+            } else {
+                let vc = SFSafariViewController(url: URL(string: "https://dev-custodial-wallet.liberti.social/access_web/index.html")!)
+
+                UIApplication.shared.firstKeyWindow?.rootViewController?.present(vc, animated: true)
+            }
+        } label: {
+            HStack {
                 Text("I have an ID")
                     .font(Font(UIFont.Theme.medium(ofSize: 14)))
                     .padding(.vertical, 16)
-                    .padding(.horizontal, 34)
-                    .foregroundColor(.white)
+                    .padding(.horizontal, 12)
+                Image("mewelogo")
+                        .padding(.bottom, 6)
+                        .padding(.leading, -15)
+            }
         }
-        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
         .frame(maxWidth: .infinity)
         .background(Color(uiColor: UIColor.Theme.buttonTeal))
         .foregroundColor(.white)
         .cornerRadius(30)
-        .padding(.vertical, 10)
+        .padding(.vertical, 12)
         .padding(.horizontal, 34)
+        .accessibilityIdentifier(AccessibilityIdentifier.OnboardingIdentifiers.createUserMeWeButton)
     }
     
     var haveAnIdButtonTerms: some View {
