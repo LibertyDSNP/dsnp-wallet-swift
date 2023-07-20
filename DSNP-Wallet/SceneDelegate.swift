@@ -43,25 +43,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
     }
     
-    // If the app was already running you use this:
+    // MARK: Handle Universal Link
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        if let url = userActivity.webpageURL {
-            // Deal with App Link
-            print("universal link detected! ", url)
-            
-            let alert = UIAlertController(title: "Universal Link Detected!", message: "URL recieved: \(url)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-            if let vc = window?.rootViewController {
-               vc.present(alert, animated: true)
-            }
-
-            guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-                let incomingURL = userActivity.webpageURL,
-                let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true) else {
-                return
-            }
-
-            print("path = \(components.path)")
+        let alert = UIAlertController(title: "Universal Link Detected!", message: "URL recieved: \(userActivity.webpageURL?.absoluteString ?? "url missing") \n ActivityType: \(userActivity.activityType)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        if let vc = window?.rootViewController {
+            vc.present(alert, animated: true)
         }
     }
 

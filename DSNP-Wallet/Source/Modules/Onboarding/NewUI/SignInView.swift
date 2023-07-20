@@ -128,7 +128,6 @@ struct SignInView: View {
                 termsPresented = true
             } else {
                 let vc = SFSafariViewController(url: URL(string: "https://dev-custodial-wallet.liberti.social/access_web/index.html")!)
-
                 UIApplication.shared.firstKeyWindow?.rootViewController?.present(vc, animated: true)
             }
         } label: {
