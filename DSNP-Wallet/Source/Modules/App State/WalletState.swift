@@ -12,6 +12,7 @@ enum AppStateKeys: String {
     case backedUpSeedPhraseKey = "seedPhraseBackedUp"
     case avatarSetKey = "avatarSet"
     case handle = "handle"
+    case hasAgreedToTerms = "agreeToTerms"
 }
 
 class AppState: ObservableObject {
@@ -121,6 +122,15 @@ extension UserDefaults {
         }
         set {
             set(newValue, forKey: AppStateKeys.avatarSetKey.rawValue)
+        }
+    }
+    
+    @objc var hasAgreedToTerms: Bool {
+        get {
+            return Bool(AppStateKeys.hasAgreedToTerms.rawValue) ?? false
+        }
+        set {
+            set(newValue, forKey: AppStateKeys.hasAgreedToTerms.rawValue)
         }
     }
 }

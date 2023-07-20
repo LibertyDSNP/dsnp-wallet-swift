@@ -34,6 +34,11 @@ struct AccessibilityIdentifier {
         static let congratsFinishButton = "onboarding.congrats.finishButton"
         static let congratsSkipButton = "onboarding.congrats.skipButton"
         static let congratsCloseButton = "onboarding.congrats.closeButton"
+        
+        // Agree to Terms View
+        static let agreeToTermsButton = "onboarding.terms.agreeButton"
+        static let termsText = "onboarding.terms.terms"
+
     }
     
     // Seed Phrase Flow
